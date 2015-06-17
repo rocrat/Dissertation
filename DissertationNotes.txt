@@ -1,0 +1,11 @@
+Dissertation Notes:
+
+Need objective measure of transformation
+	Avoid fishing for best transformation based on results
+	Discern optimal transformation among multiple "adequate" transformations assessed by visual measures
+
+Need objective measure of transformation when visual methods break down
+	High dimensionality
+	
+Is there a need to preserve interpret-ability of Y?
+
