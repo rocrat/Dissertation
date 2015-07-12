@@ -1,0 +1,72 @@
+\documentclass{book}
+\usepackage{geometry}
+
+\title{A Method for the Quantitative Evaluation of Normalization Methods Applied to RNA-Seq Data}
+\author{Dominic D LaRoche}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\chapter{Introduction}
+
+Major breakthroughs in personalized medicine have been made possible through the quantification of individual transcriptomes through a next-generation sequencing technique known as RNA-Seq.  RNA-Seq data provides insight into the cellular activity of an individual by quantifying the messenger (mRNA) or micro RNA (miRNA) present in the cellular matrix at the time of sampling.  This information can be used to assess disease state, drug eligability, or even ...
+
+
+
+
+\section{Background}
+\subsection{RNA-Seq Data}
+
+RNA-Seq data is created by isolating the RNA from the cellular matrix... Turning it into cDNA ... sequencing... and quantifying...
+
+The recent proliferation of RNA-Seq technology has enabled widespread use of this method for both research use and clinical diagnostic procedures.  However, raw RNA-Seq data is not immediately comparable accross studies or even accross samples within a study due to sample and run specific differences in library size, read-depth, and ...  Due to this well-known problem it is common practice to normalize RNA-Seq data so that the data can be compared across samples and studies.  
+
+RNA-Seq data is also characterized by non-normal distribution of the data (counts) which include a large number of zeros 
+ 
+
+\subsection{Normalization Methods}
+
+The practice of normalization generally refers to the transformation of data to make data comparable across samples and experiments.  A number of popular normalization methods exist for RNA-Seq data including ``Total Count" (TC) and "Reads per Kilobase-Pair per Million" (RPKPM).  Recent comparisons have shown poor performance for both TC and RPKPM normalization methods (Dillies et al. 2012) so these methods are not considered further.  However, a number of normalization methods remin available to researchers including: Quantile, Median, ....  
+
+\subsubsection{Quantile Normalization}
+
+\subsection{Upper Quartile Normalization}
+
+\subsubsection{Median Normalization}
+
+\subsubsection{DESeq Normalization}
+
+\subsubsection{TMM Normalization}
+
+
+
+\subsection{Current Evaluation of Normalization Methods}
+
+\section{Purpose and Scope}
+
+\chapter{Methodology}
+
+\section{Quantitative Evaluation of Normaliations Methods}
+
+\subsection{Maximum-Likelihood Evaluation of Transformations}
+
+\subsection{Non-identifiability}
+
+\subsection{Jacobian}
+
+\chapter{Planned Dissertation Work}
+
+\section{Paper 1:  Theory of Quantitative Assessment of Normalization Methods}
+
+\section{Paper 2:  Simulation study and comparison with real data}
+
+\section{Paper 3:  R package NormComp}
+
+
+
+\section{Methods}
+
+\end{document}

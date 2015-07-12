@@ -1,0 +1,21 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {section}{\numberline {1.1}Background}{5}
+\contentsline {subsection}{\numberline {1.1.1}RNA-Seq Data}{5}
+\contentsline {subsection}{\numberline {1.1.2}Normalization Methods}{5}
+\contentsline {subsubsection}{Quantile Normalization}{6}
+\contentsline {subsection}{\numberline {1.1.3}Upper Quartile Normalization}{6}
+\contentsline {subsubsection}{Median Normalization}{6}
+\contentsline {subsubsection}{DESeq Normalization}{6}
+\contentsline {subsubsection}{TMM Normalization}{6}
+\contentsline {subsection}{\numberline {1.1.4}Current Evaluation of Normalization Methods}{6}
+\contentsline {section}{\numberline {1.2}Purpose and Scope}{6}
+\contentsline {chapter}{\numberline {2}Methodology}{7}
+\contentsline {section}{\numberline {2.1}Quantitative Evaluation of Normaliations Methods}{7}
+\contentsline {subsection}{\numberline {2.1.1}Maximum-Likelihood Evaluation of Transformations}{7}
+\contentsline {subsection}{\numberline {2.1.2}Non-identifiability}{7}
+\contentsline {subsection}{\numberline {2.1.3}Jacobian}{7}
+\contentsline {chapter}{\numberline {3}Planned Dissertation Work}{9}
+\contentsline {section}{\numberline {3.1}Paper 1: Theory of Quantitative Assessment of Normalization Methods}{9}
+\contentsline {section}{\numberline {3.2}Paper 2: Simulation study and comparison with real data}{9}
+\contentsline {section}{\numberline {3.3}Paper 3: R package NormComp}{9}
+\contentsline {section}{\numberline {3.4}Methods}{9}
