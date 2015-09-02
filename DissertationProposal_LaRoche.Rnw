@@ -10,6 +10,9 @@
 
 \newpage
 
+\section{Hypothesis}
+Relative sensitivity (Mandel 1984) will provide an informative metric for evaluating the measurements of next-generation sequencing technologies without the burden of creating samples with known quantities of target sequences.  The construction of individual calibration curves will also assist in identifying the limit of detectiona and the limit of quantitation for a particular technology.
+
 \chapter{Introduction}
 
 Major breakthroughs in personalized medicine have been made possible through the quantification of individual transcriptomes through a next-generation sequencing technique known as RNA-Seq.  RNA-Seq data provides insight into the cellular activity of an individual by quantifying the messenger (mRNA) or micro RNA (miRNA) present in the cellular matrix at the time of sampling.  This information can be used to assess disease state, drug eligability, or even ...
