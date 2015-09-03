@@ -26,7 +26,8 @@ Use estimated calibration curve to quantify the limit of detection and the limit
 Use estimated calibration curves to compare measurement methodologies including normalizations and platforms.\\
 
 \noindent\textbf{Aim 4}\\
-Create and R pacakge that provides functions to estimate calibration curves and compare technologies.  \\
+
+Create an R pacakge that provides functions to estimate calibration curves and compare technologies.  \\
 
 
 \chapter{Introduction}

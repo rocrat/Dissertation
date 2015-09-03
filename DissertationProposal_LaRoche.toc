@@ -1,4 +1,5 @@
 \contentsline {section}{\numberline {0.1}Hypothesis}{4}
+\contentsline {section}{\numberline {0.2}Specific Aims}{4}
 \contentsline {chapter}{\numberline {1}Introduction}{5}
 \contentsline {section}{\numberline {1.1}Background}{5}
 \contentsline {subsection}{\numberline {1.1.1}RNA-Seq Data}{5}
