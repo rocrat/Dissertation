@@ -11,23 +11,33 @@
 \newpage
 
 \section{Hypothesis}
-I hypothesize that the application of relative sensitivity (Mandel 1984) will provide a novel method for evaluating the error associated with next-generation sequencing technologies.\\
-
+I hypothesize that relative sensitivity (Mandel 1984) can be adapted to provide a novel method for evaluating the error associated with next-generation sequencing technologies.\\
 
 \section{Specific Aims}
 
 \textbf{Aim 1}\\
-Create model for estimation of individual calibration curve from uRNA\\
+Create model for estimation of individual calibration curve from technichal replicates.\\
+%probably need more than technical replicates - need some kind of information to contsrain the problem
+%start with understanding the modern normalization technologies limma DESeq2
+%use multivariate response?  Take advantage of the multiple analytes measured simultaneously
+%Look up multivariate calibration in the anlytical chemistry literature
+%Measurement error models- "Errors-in-varaibles"
+%Measurement error in non-linear models with mean variance issue in sequencing data
+%There will be at least one question on measurement error models
+%do probe features add information to help with calibration
+%use normalization comparison paper to motivate the current exercise (avoid using outcome)
+%Start by writing down model and figureing out how to estimate the parameters
+%figure out the relationship between x and y without only using y!!
 
 \noindent\textbf{Aim 2}\\
 Use estimated calibration curve to quantify the limit of detection and the limit of quantitation.\\
 
 \noindent\textbf{Aim 3}\\
-Use estimated calibration curves to compare measurement methodologies including normalizations and platforms.\\
+Use estimated calibration curves to compare measurement methodologies (including normalizations and platforms).\\
 
 \noindent\textbf{Aim 4}\\
 
-Create an R pacakge that provides functions to estimate calibration curves and compare technologies.  \\
+Create an R package that provides functions to estimate calibration curves and compare measurement platforms.\\
 
 
 \chapter{Introduction}
