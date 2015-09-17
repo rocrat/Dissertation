@@ -24,6 +24,7 @@ I hypothesize that relative sensitivity (Mandel 1984) can be adapted to provide 
 \section{Innovation}
 \begin{itemize}
 \item No current methods exist to directly compare the accuracy and precision of NGS based RNA measurement systems.
+\item Nothing equivalent to ``reaction efficiency" as in qPCR.
 \item Our proposed method will enable researchers to directly compare the precision and accuracy of competing NGS based measurement systems.
   \begin{itemize}
   \item Our method will allow researchers to evaluate each step of the process for a given measurement system. E.g.: 

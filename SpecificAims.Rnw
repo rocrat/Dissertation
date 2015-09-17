@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[top=1in, bottom=1.25in, left=1in, right=1in]{geometry}
+\begin{document}
+\noindent\textbf{Investigator:} Dominic D. LaRoche\\
+\noindent\textbf{Proposal Title:} Novel methodology for evaluation of next-generation sequencing measurements.\\
+
+The measurement of RNA expression in biological samples is a fruitful area of study in many areas of biology including fields as diverse as cancer research and evolutionary biology. Many different methods exist to measure expressed RNA such as micro-array, RT-qPCR, and next generation sequencing (NGS).  NGS-based methods are increasing in use but the error associated with NGS-based measurements are not well understood.  All existing NGS-based methods include multiple steps and sources of error, from sample preparation to normalization of count data, and it is unlcear how error propogates through each step.\\
+
+Future advancements in the use of measured RNA for understanding biological systems is dependent on reliable measurements.  Improved measurements will be needed if we wish to identify important biological processes associated with relatively low expression.  NGS methods are the newest and least well understood in terms of measurement error. No current methods exist to directly compare the accuracy and precision of NGS based RNA measurement systems. \\
+
+\textbf{\emph{We hypothesize that relative sensitivity can be adapted to provide a novel method for evaluating the error associated with next-generation sequencing technologies.}}  Relative sensitivity is a statistical framework originally developed to evaluate measurements made in analytical chemistry\\
+
+Our proposed method will enable researchers to directly compare the precision and accuracy of competing NGS based measurement systems. Our method will allow researchers to the impact on the distribution of error each step of the process for a given measurement system such as: the sample preparation method, the normalization method, and even the type of sample input. Our proposed method will also enable researchers to directly compare measurement systems for any given measurement range allowing users to choose the system with the optimal error profile for their experiment.  Finally, our proposed method of evaluation will not require the use of samples with known analyte concentrations.\\
+  
+We will publish an open-source software suite to implement our method with the open course statistical language R.
+
+\section{Aim 1: Direct Comparisons}
+Use relative sensitivity to compare measurement methodologies (including normalizations and platforms) without the need for individual calibration curves or known analyte concentrations.\\
+\begin{itemize}
+\item Relative sensitivity can provide the frame work for comparing the error of competing measurement systems without the need for known analyte concentrations
+\item Will accomplish this by re-formulating the relative sensitivity model to accomodate negative-binomial distributed count data.
+\item Methodological advancements for this aim will include characterizing the bias and error around the relative sensitivity measure to get confidence intervals around the estimates.
+\end{itemize}
+
+\subsection{Aim 2: Estimate relative LOD and LOQ}
+Use estimated calibration curve to quantify the relative limit of detection and the limit of quantitation.\\
+\begin{itemize}
+\item Standard estimates for the limit of detection and limit of quantitation are not applicable to NGS data
+  \begin{itemize}
+  \item We will use relative sensititivity to formulate new estimates for the limit of detection and limit of quantitation.
+  \item Understanding LOD and LOQ will be important for identifing measurement methods capable of reliably measuring low expression.
+  \end{itemize}
+
+\end{itemize}
+
+
+\subsection{Aim 3: Individual Calibration Curve from Multivariate Observations}
+\emph{This may or may not be possible and I really don't have a good handle on an approach yet.}\\
+
+Formulate model for estimation of individual calibration curve from technical replicates on multiple probes.\\
+% \begin{itemize}
+% \item Need some kind of information to constrain the problem and make the true measurement parameter estimable/ identifiable.
+%   \begin{itemize}
+%   \item Estimation is the crux of the problem.  Potential paths forward include:
+%     \begin{itemize}
+%     \item Using multivariate information, e.g. from multiple probes on a sample run, to identify the curve without estimating the true counts.
+%     \item Make some assumptions about the data, e.g. that there are ``true" non-expressor probes in the assay.
+%     \end{itemize}
+%   \end{itemize}
+% \item Need to include measurement error for non-linear model with non-constant (multiplicative) variance
+% \item May need to incorporate multivariate calibration methods from analytic chemistry.
+% \item Use ``features" of the individual probes (length, sequence) to estimate likelihood of false positive/ false negative counts.
+% \item Will most likely have to estimate under a Bayesian framework.
+% \end{itemize}
+% Potential Outcomes:
+% \begin{itemize}
+% \item[1.] Model can be estimated and estimates are consistent with relatively small sample sizes.
+%   \begin{itemize}
+%   \item Great!  This is the outcome we are looking for!
+%   \end{itemize}
+% \item[2.] Model can be estimated but estimates are either not consistent or require very large sample sizes.
+%   \begin{itemize}
+%   \item If estimates are large sample consistent this is still an important advancement and future work may improve small sample properties.
+%   \end{itemize} 
+% \item[3.] There is no way to estimate the parameters of the model without additional information.
+%   \begin{itemize}
+%   \item We know that we can still estimate \emph{relative} sensitivity without knowing the true read count so this wouldn't be a dead end.
+%   \end{itemize}
+% \end{itemize}
+
+\subsection{Aim 4: Software}
+Create an R package that provides functions to estimate calibration curves and compare measurement platforms.\\
+\begin{itemize}
+\item No methodological advancement should occur in a vacuum so it is necessary to create accessible tools for researchers to implement the methodology.
+\item Create a suite of functions that assist with data importing, model fitting, measurement comparisons, and informative graphical outputs.
+\end{itemize}
+
+
+
+\end{document}
