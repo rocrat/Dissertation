@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top=.5in, bottom=.5in, left=.5in, right=.5in]{geometry}
+\begin{document}
+\noindent\textbf{Investigator:} Dominic D. LaRoche\\
+\noindent\textbf{Proposal Title:} Novel methodology for evaluation of next-generation sequencing measurements.\\
+\section{Background and Rationale}
+There is no established method for directly comparing the precision and accuracy of NGS-based RNA measurement systems. Currently, measurement systems are evaluated on the basis of repeat-ability and reproducibility but this provides no information on the actual accuracy and precision of the measurement system.  Moreover, there is no way to directly compare existing metrics of repeat-ability and reproducibility among competing measurement systems due to the differences in scales and underlying distributions of the measurements.  \\
+
+The objective of this aim is to establish a methodology to directly compare two measurement systems.  We hypothesize that the method of relative sensitivity will provide a powerful and useful framework for making these comparisons.  The theory of relative sensitivity was originally developed by John Mandel in 1984 as an extension of his original work on the sensitivity of analytical chemistry measurements (Mandel 1957).  Relative sensitivity has several key properties which make it suitable for this application.  For example, relative sensitivity is not affected by the scale of the measurement, which can vary substantially between NGS-based measurement systems.  Moreover, most measurement systems include some monotone transformation of the final result for analysis, of which there are many choices, and relative sensitivity is invariant to these transformations.\\
+
+We will use both simulated and real data from 4 measurement systems to evaluate the estimates of precision and accuracy we generate from the relative sensitivity framework.  Simulated data is necessary as the truth of real-world measurements can never be known.  We will focus on simulating the measurement process, rather than the final result as is typically done, so that we can understand the impacts of each step in the measurement process.  We will confirm the utility of our method by evaluating the accuracy and precision of four competing measurement systems: HTG EdgeSeq, NanoString nCounter, Illumina RNASeq, and TaqMan Gene Expression assays. \\
+
+A metric for comparing NGS-based measurement systems will have immediate utility in identifying optimal measurement systems and sources of measurement error.  This method will provide a critical window into the performance of measurement systems for both consumers of these systems and the manufacturers of these systems.  Due to the diverse nature of the technology of systems currently in use, it is likely that the performance of these systems will correlate with elements of the technology utilized. We believe understanding these differences in performance will be important for mitigating problems at the development level and selecting the appropriate method at the consumer level.\\
+
+At the completion of this aim we expect that we will provide an implemented methodology for comparison of any 2 NGS-based measurement systems such that a scientist with little understanding of the underlying theory of relative sensitivity will be able to implement the methodology and interpret the results.\\
+
+\section{Experimental Plan}
+The theory of relative sensitivity was initially presented in John Mandel's book \emph{The Statistical Analysis of Experimental Data} (1984) but was never widely adopted in the analysis of measurement systems outside of analytical chemistry (with few references even within analytical chemistry).  However, we believe the theory of relative sensitivity provides a simple, yet powerful, statistical framework for the evaluation of complicated NGS-based measurement systems.  \\
+
+The theory of relative sensitivity is an extension of Mandel's work on estimating sensitivity curves (1957) which removes the need to know the actual analyte concentration in order to evaluate the precision of a measurement. \\
+
+
+\section{Expected Outcomes, Potential Problems, and Alternative Strategies}
+At the completion of this aim we expect to have an implemented methodology which can compare any two NGS-based measurement systems in terms of precision and accuracy.  We expect to have our method freely available for use by scientists through a user-friendly graphical user interface available to anyone with an internet connection.  We also believe the FDA will benefit from our methodology due to the increasing use of NGS-based measurement systems to make clinical decisions. \\ 
+
+The utility of relative sensitivity to evaluate subtle differences in the performance of NGS-based measurement systems is obviously unknown.  It is possible that we will be unable to differentiate between existing systems using our proposed estimation of the relative sensitivity curve.  Given this scenario we will still be guaranteed to identify a upper bound on the difference in precision between any two measurements using information obtained through simulations.  I.e. we will be able to say that the precision of two instruments is not greater than some known amount.  \\
+
+If we are unable to detect a difference in precision between measurement systems using our proposed estimation scheme we will re-formulate our estimators based on the maximum-likelihood.  These estimators will require more assumptions about the data but will likely yield smaller confidence intervals around our estimates of precision due to these assumptions.  Although we believe our proposed method with fewer assumptions is more desirable, the assumptions made by the maximum likelihood estimates are common when dealing with NGS-based data so we feel this method would also provide utility to scientists and manufacturers.\\
+
+\end{document}
