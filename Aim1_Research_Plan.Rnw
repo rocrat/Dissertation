@@ -2,6 +2,9 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[top=.5in, bottom=.5in, left=.5in, right=.5in]{geometry}
+\usepackage{wrapfig}
+\usepackage{placeins}
+
 \begin{document}
 \noindent\textbf{Investigator:} Dominic D. LaRoche\\
 \noindent\textbf{Proposal Title:} Novel methodology for evaluation of next-generation sequencing measurements.\\
@@ -19,9 +22,46 @@ At the completion of this aim we expect that we will provide an implemented meth
 \section{Experimental Plan}
 The theory of relative sensitivity was initially presented in John Mandel's book \emph{The Statistical Analysis of Experimental Data} (1984) but was never widely adopted in the analysis of measurement systems outside of analytical chemistry (with few references even within analytical chemistry).  However, we believe the theory of relative sensitivity provides a simple, yet powerful, statistical framework for the evaluation of complicated NGS-based measurement systems.  \\
 
-The theory of relative sensitivity is an extension of Mandel's work on estimating sensitivity curves (1957) which removes the need to know the actual analyte concentration in order to evaluate the precision of a measurement. \\
+The theory of relative sensitivity is an extension of Mandel's work on estimating sensitivity curves (1957) which removes the need to know the actual analyte concentration in order to evaluate the precision of a measurement. The sensitivity of a measurement is the slope of the functional relationship between a property of interest and its measurement,  $Y = aX + b$,  where $Y$ is the measured value, $X$ is the true value, and $a$ represents the relationship between these values.  Steep slopes ($a$) correspond to greater sensitivity because a steep slope results in large differences in the measured value for small differences in the corresponding property being measured (fig.~\ref{sensslope}).  The error around a sensitivity curve for a measurement process also affects the utility of the measurement.  For example, if the slope is small but there is little error then the measurement can still discriminate between different states of the property whereas large error can ``swamp out" a steeper slope (fig.~\ref{senserr})\\
 
+\begin{wrapfigure}{R}{.43\textwidth}
+<<SensFig, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3, fig.width=3>>=
+library(ggplot2)
+df <- data.frame(x=seq(-5,0, by=.01))
+df$y <- ifelse(df$x <=0, y=dnorm(df$x)*10, 4)
+df$x <- df$x+5
+df$epsilon <- (1/(df$y+1))*.5
+df2 <- data.frame(y=dnorm(seq(-5,0, by=.01), sd=3)*30, x=seq(-5,0, by=.01)+5)
+df2$epsilon <- (1/(df2$y+1))*.5
+ggplot(df, aes(x=x, y=y)) + geom_path() + ylab("Measured Value") + xlab("True Value")
+@
+\caption{\small A single sensitivity curve for a measurement system.  The sensitivity of the measurement is greatest between the true values of 3 and 4.5 and smallest at 0 and 5.  This measurement system would not be a good choice for those interested in measuring true values of less than 2 since the method is unable to differentiate between these values.}
+\label{sensslope}
+\end{wrapfigure}
 
+\begin{figure}[b]
+<<SensErrFig, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3, fig.width=7>>=
+
+df$set <- "Measurement 1"
+df2$set <- "Measurement 2"
+dfall <- rbind(df, df2)
+ggplot(dfall, aes(x=x, y=y)) + geom_path() + geom_ribbon(aes(ymax=y+epsilon, ymin=y-epsilon), alpha=.2) + ylab("Measured Value") + xlab("True Value") + facet_wrap(~set, ncol=2)
+@
+\caption{\small A comparison of sensitivity curves for 2 hypothetical measurement systems.  Here measurement 2 is clearly superior to measurement 1 for true values less than 3, whereas measurement 1 is clearly superior to measurement 2 for values greater than 3.5.  The choice of the optimal measurement method is dependent on the expected range of the true value being measured.}
+\label{senserr}
+\end{figure}
+
+In order to construct and evaluate a sensitivity curve as described above one must know the true value of the property being measured.  For many NGS-based measurement systems this property is either unknowable or is exceedingly difficult to know.  However, relative sensitivity can be used to compare two measurement systems without knowing the true state of the underlying property being measured.  Mandel (1984) constructed relative sensitivity a way to compare two measurement systems:
+$$RS(Y_1/Y_2) = \frac{\left| dY_1/dY_2 \right|}{\sigma_{Y_1}/\sigma_{Y_2}}.$$
+In this formulation, $dY_1$ and $dY_2$ represent the slopes of the respective measurements while $ \sigma_{Y_1}$ and $\sigma_{Y_2}$ represent the standard deviations of the slopes.  This formulation does not involve the true value of the property being evaluated while providing a simple metric of relative utility for two measurements.  Relative sensitivity can also be formulated as a function of some unknown $X$, in which case the relative sensitivity can can vary over some measured range.\\
+
+We will use a Bayesian approach the estimate the parameters of the relative sensitivity curve.  The origninal formulation by Mandel suggested directly estimating the slope of the relative sensitivity curve by regressing $y_1$ onto $y_2$ and estimating standard deviations  from replicated measurements.  Unfortunately, this method assumes no measurement error in $y_1$ which is clearly not plausible.  We will, instead, use a Bayesian approach to simultaneously estimate the slope and measurement errors.\\
+
+We will test the utility of our method by simulating the measurement processes under consideration.  Frequently, investigators will simply simulate the final measurement using assumptions which favor the method under investigation (probably need a citation here).  We will simulate the measurement process for each of the 4 measurement systems under consideration.  This approach will have 2 benefits: 1) we believe the final simulated data set will more closely match real data likely to be encountered by end users, and 2) we will be able to investigate how perturbations for a given step within a measurement system affect the final utility of the measurement.  We will also test our method using real data collected from all four measurement systems under review.  We have already collected this data for identical samples on the HTG EdgeSeq and the NanoString Ncounter platforms.\\  
+
+We will implement the method in the open source statistical package R and provide a open source package of functions to import data and compare measurement systems.  We will also provide a graphical user interface to this package by creating an interactive web page that allows users to point and click through an analysis.  We will host the application through the free shiny.io service provided by Rstudio.\\
+
+\FloatBarrier
 \section{Expected Outcomes, Potential Problems, and Alternative Strategies}
 At the completion of this aim we expect to have an implemented methodology which can compare any two NGS-based measurement systems in terms of precision and accuracy.  We expect to have our method freely available for use by scientists through a user-friendly graphical user interface available to anyone with an internet connection.  We also believe the FDA will benefit from our methodology due to the increasing use of NGS-based measurement systems to make clinical decisions. \\ 
 
