@@ -8,7 +8,10 @@
 \begin{document}
 \noindent\textbf{Investigator:} Dominic D. LaRoche\\
 \noindent\textbf{Proposal Title:} Novel methodology for evaluation of next-generation sequencing measurements.\\
-\section{Background and Rationale}
+
+\section{Specific Aim 1 Research Plan}
+
+\subsection{Background and Rationale}
 There is no established method for directly comparing the precision and accuracy of NGS-based RNA measurement systems. Currently, measurement systems are evaluated on the basis of repeat-ability and reproducibility but this provides no information on the actual accuracy and precision of the measurement system.  Moreover, there is no way to directly compare existing metrics of repeat-ability and reproducibility among competing measurement systems due to the differences in scales and underlying distributions of the measurements.  \\
 
 The objective of this aim is to establish a methodology to directly compare two measurement systems.  We hypothesize that the method of relative sensitivity will provide a powerful and useful framework for making these comparisons.  The theory of relative sensitivity was originally developed by John Mandel in 1984 as an extension of his original work on the sensitivity of analytical chemistry measurements (Mandel 1957).  Relative sensitivity has several key properties which make it suitable for this application.  For example, relative sensitivity is not affected by the scale of the measurement, which can vary substantially between NGS-based measurement systems.  Moreover, most measurement systems include some monotone transformation of the final result for analysis, of which there are many choices, and relative sensitivity is invariant to these transformations.\\
@@ -19,7 +22,7 @@ A metric for comparing NGS-based measurement systems will have immediate utility
 
 At the completion of this aim we expect that we will provide an implemented methodology for comparison of any 2 NGS-based measurement systems such that a scientist with little understanding of the underlying theory of relative sensitivity will be able to implement the methodology and interpret the results.\\
 
-\section{Experimental Plan}
+\subsection{Experimental Plan}
 The theory of relative sensitivity was initially presented in John Mandel's book \emph{The Statistical Analysis of Experimental Data} (1984) but was never widely adopted in the analysis of measurement systems outside of analytical chemistry (with few references even within analytical chemistry).  However, we believe the theory of relative sensitivity provides a simple, yet powerful, statistical framework for the evaluation of complicated NGS-based measurement systems.  \\
 
 The theory of relative sensitivity is an extension of Mandel's work on estimating sensitivity curves (1957) which removes the need to know the actual analyte concentration in order to evaluate the precision of a measurement. The sensitivity of a measurement is the slope of the functional relationship between a property of interest and its measurement,  $Y = aX + b$,  where $Y$ is the measured value, $X$ is the true value, and $a$ represents the relationship between these values.  Steep slopes ($a$) correspond to greater sensitivity because a steep slope results in large differences in the measured value for small differences in the corresponding property being measured (fig.~\ref{sensslope}).  The error around a sensitivity curve for a measurement process also affects the utility of the measurement.  For example, if the slope is small but there is little error then the measurement can still discriminate between different states of the property whereas large error can ``swamp out" a steeper slope (fig.~\ref{senserr})\\
@@ -62,11 +65,25 @@ We will test the utility of our method by simulating the measurement processes u
 We will implement the method in the open source statistical package R and provide a open source package of functions to import data and compare measurement systems.  We will also provide a graphical user interface to this package by creating an interactive web page that allows users to point and click through an analysis.  We will host the application through the free shiny.io service provided by Rstudio.\\
 
 \FloatBarrier
-\section{Expected Outcomes, Potential Problems, and Alternative Strategies}
+\subsection{Expected Outcomes, Potential Problems, and Alternative Strategies}
 At the completion of this aim we expect to have an implemented methodology which can compare any two NGS-based measurement systems in terms of precision and accuracy.  We expect to have our method freely available for use by scientists through a user-friendly graphical user interface available to anyone with an internet connection.  We also believe the FDA will benefit from our methodology due to the increasing use of NGS-based measurement systems to make clinical decisions. \\ 
 
 The utility of relative sensitivity to evaluate subtle differences in the performance of NGS-based measurement systems is obviously unknown.  It is possible that we will be unable to differentiate between existing systems using our proposed estimation of the relative sensitivity curve.  Given this scenario we will still be guaranteed to identify a upper bound on the difference in precision between any two measurements using information obtained through simulations.  I.e. we will be able to say that the precision of two instruments is not greater than some known amount.  \\
 
 If we are unable to detect a difference in precision between measurement systems using our proposed estimation scheme we will re-formulate our estimators based on the maximum-likelihood.  These estimators will require more assumptions about the data but will likely yield smaller confidence intervals around our estimates of precision due to these assumptions.  Although we believe our proposed method with fewer assumptions is more desirable, the assumptions made by the maximum likelihood estimates are common when dealing with NGS-based data so we feel this method would also provide utility to scientists and manufacturers.\\
+
+\section{Aim 2 Evaluation of frequently used normalization procedures.}
+
+\subsection{Background and Rationale}
+
+There are currently over 7 methods to normalize NGS-based measurement data in widespread use.  A recent comparison of 7 popular methods by Dillies et al. (2012) was ambiguous about the optimal normalization method and under what conditions this would hold.  Two years after the comparison was published we still see widesrpead use of nearly al of the methods compared, indicating uncertainty among scientists and statisticians about the optimal method.  At best, researchers are selecting methods based on limited, and sometimes conflicting, information.  At worst, researchers are selecting a normalization method which they find to be optimal in terms of the results they expect (or would like) to see.\\
+
+Our aim is to create an objective measure of the realtive efficacy of the 7 most popular normalization methods so that researchers can select the optimal method for their data \emph{without} basing this decision on the final outcome.  The normalization procedure can be thought of as part of the measurement system.  As such, we hypothesize that relative sensitivity can be adapted to provide a relative measure of performance for any pair of normalization methods. By comparing the impact of each type of normalization on the realtive precision of the measurement we will provide necessary information for researchers when selecting a normalization method.\\
+
+The current prcatice, seemingly suggested by Dillies et al., of selecting a normalization method based on `optimal' final results could lead to an increase of false discoveries due to the circular nature of the decision.  Unfortunately, without some objective measure or clear guidance this practive will likely continue.  Our research will provide an objective measure and guidance about the impacts of all 7 commonly used normalization methods.  We beleive this methodology will improve the quality of research accross a wide range of research areas.\\
+
+\subsection{Experimental Plan}
+
+
 
 \end{document}
