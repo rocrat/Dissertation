@@ -80,10 +80,18 @@ There are currently over 7 methods to normalize NGS-based measurement data in wi
 
 Our aim is to create an objective measure of the realtive efficacy of the 7 most popular normalization methods so that researchers can select the optimal method for their data \emph{without} basing this decision on the final outcome.  The normalization procedure can be thought of as part of the measurement system.  As such, we hypothesize that relative sensitivity can be adapted to provide a relative measure of performance for any pair of normalization methods. By comparing the impact of each type of normalization on the realtive precision of the measurement we will provide necessary information for researchers when selecting a normalization method.\\
 
-The current prcatice, seemingly suggested by Dillies et al., of selecting a normalization method based on `optimal' final results could lead to an increase of false discoveries due to the circular nature of the decision.  Unfortunately, without some objective measure or clear guidance this practive will likely continue.  Our research will provide an objective measure and guidance about the impacts of all 7 commonly used normalization methods.  We beleive this methodology will improve the quality of research accross a wide range of research areas.\\
+The current prcatice, seemingly suggested by Dillies et al., of selecting a normalization method based on `optimal' final results could lead to an increase of false discoveries due to the circular nature of the decision.  Unfortunately, without some objective measure or clear guidance this practive will likely continue.  Our research will provide an objective measure and guidance about the impacts of all 7 commonly used normalization methods.  We beleive this methodology will improve the quality of research accross the wide range of research areas which utilize this type of data.\\
 
 \subsection{Experimental Plan}
+We will simulate data
 
+We will evaluate each normalization method against each data type
+
+We will collect real data
+
+We will evaluate the impact of each normalization method for each real data set.
+
+%Look for NIH grant Examples online to see if there is a methodological grant to see
 
 
 \end{document}
