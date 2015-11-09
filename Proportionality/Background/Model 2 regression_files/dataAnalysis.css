@@ -1,0 +1,272 @@
+/* COLOR SCHEME
+white (body background, page background, header and footer text)
+#6C7463: gray (paragraphs, list anchors, borders)
+#337261: dark green (header background, footer background, hovered links)
+#7D3F1A: brown (headings, bold) 
+#FAFFFA: light gray (code paragraph background) */
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html
+{
+	background-color: white;
+	min-height: 100%; 
+ 	margin-bottom: 1px;
+	/* min-height and margin-bottom force a vertical scroll bar to always appear, eliminating the page shift */
+}
+
+body
+{
+	background-color: white;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+p, li
+{
+	color: #6C7463;
+	font-family: 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+}
+
+a
+{
+	color: #6C7463;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #337261;
+	text-decoration: underline;
+}
+
+/* The rules for sup and sub prevent them from affecting the line spacing */
+sup, sub {
+   vertical-align: baseline;
+   position: relative;
+   top: -0.4em;
+}
+
+sub { top: 0.4em; }
+
+#Header
+{
+	background-color: white;
+	padding: 50px 0px 40px 20px;
+}
+
+#Header h1
+{
+	color: #337261;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 36pt;
+	font-style: normal;
+	font-weight: 100;
+}
+
+#Header h2
+{
+	color: #337261;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: 100;
+}
+
+#Header h1 a, #Header h2 a
+{
+	color: #337261;
+	text-decoration: none;
+}
+
+
+#MainContent
+{
+	clear: both;
+}
+
+#ListColumn
+{
+	float: left;
+	width: 160px;
+	padding: 20px 0px 0px 20px;
+}
+
+#ListColumn h1
+{
+	color: #7D3F1A;
+	font-family: 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	text-transform: uppercase;
+	font-weight: 300;
+	padding-top: 20px;
+}
+
+#ListColumn p
+{
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: 400;
+	padding-top: 4px;
+	padding-bottom: 2px;
+}
+
+#ListColumn h1 a
+{
+	color: #7D3F1A;
+	text-decoration: none;
+}
+
+#ListColumn h1 a:hover
+{
+	color: #337261;
+	text-decoration: underline;
+}
+
+#ContentColumn
+{
+	float: right;
+	width: 519px;
+	padding: 30px 60px 40px 40px;
+}
+
+#ContentColumn h1
+{
+	color: #7D3F1A;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 24pt;
+	font-style: normal;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+
+#ContentColumn h2
+{
+	color: #7D3F1A;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: 500;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#ContentColumn h3
+{
+	color: #7D3F1A;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue', 'Arial', sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	line-height: 17px;
+	padding-bottom: 10px;
+}
+
+#ContentColumn p
+{
+	line-height: 17px;
+	padding-bottom: 10px;
+}
+
+#ContentColumn a
+{
+	color: #337261;
+	text-decoration: underline;
+}
+
+#ContentColumn a.noHighlight
+{
+	color: #6C7463;
+	text-decoration: none;
+}
+
+#ContentColumn a.noHighlight:hover
+{
+	color: #337261;
+	text-decoration: underline;
+}
+
+#ContentColumn img
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	padding: 30px 0px 30px 0px;
+}
+
+#ContentColumn b
+{
+	color: #7D3F1A;
+}
+
+#ContentColumn ul
+{
+	padding-bottom: 10px;
+}
+
+#ContentColumn li
+{
+	line-height: 17px;
+	padding-bottom: 5px;
+	margin-left: 20px;
+}
+
+#Footer
+{
+	clear: both;
+	background-color: white;
+	padding: 30px 0px 30px 0px;
+	margin-bottom: 30px;
+}
+
+#Footer p
+{
+	color: #337261;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: 300;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.resultsParagraph {
+	background-color: #f9f9f9;
+	border: 1px #337261 dotted;
+	font-family: 'Courier New', monospace;
+	font-size: 12px;
+	font-weight: 600;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.codeParagraph {
+	background-color: #f7fbf7;
+	border: 1px #337261 dotted;
+	font-family: 'Courier New', monospace;
+	font-size: 12px;
+	font-weight: 600;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	padding: 10px;
+}	
+
+.codeSpan {
+	font-family: 'Courier New', monospace;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.date {
+	font-size: 9px;
+	margin-top: -12px;
+}
