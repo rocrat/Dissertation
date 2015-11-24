@@ -1,0 +1,17 @@
+\documentclass{book}
+
+\begin{document}
+\chapter{Background and Introduction to the Problem}
+\section{RNA Sequencing Data}
+\subsection{Process of Collecting RNA Sequence Data}
+
+\subsection{General Properties of RNA Sequence Data}
+
+\subsection{Current Methodology Associated with RNA Sequencing Data}
+
+
+\section{Principles of Compositional Data Analysis}
+
+
+
+\end{document}
