@@ -2,6 +2,7 @@
 
 \begin{document}
 \chapter{Background and Introduction to the Problem}
+
 \section{RNA Sequencing Data}
 \subsection{Process of Collecting RNA Sequence Data}
 
@@ -11,6 +12,25 @@
 
 
 \section{Principles of Compositional Data Analysis}
+
+\subsection{Scale Invariance}
+
+\subsection{Sub-compositional Coherance}
+
+\subsection{Permutation Invariance}
+
+
+\section{Current Methodology with Respect to Compositional Data Analysis}
+
+
+\chapter{Normalization of Compositional RNA Sequence Data}
+
+
+\chapter{An Alternative to Correlation for Evaluation of Reproducibility and Repeatability}
+
+
+\chapter{An R Package for Implementing Compositional Methods for RNA Sequence Data}
+
 
 
 
