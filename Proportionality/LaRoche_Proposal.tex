@@ -48,19 +48,79 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt}
+\usepackage[letterpaper, top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage[backend=bibtex,style=authoryear,backref=true,hyperref=true]{biblatex}
+\addbibresource{mybib.bib}
+
+\title{Dissertation Proposal:\\ Methods for the Analysis of Compositonal RNA Sequence Data}
+\author{Dominic D LaRoche}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+\maketitle
+\tableofcontents
+
 \chapter{Background and Introduction to the Problem}
+
 \section{RNA Sequencing Data}
+%General information about RNA sequence data: where it comes from and how people use it.
 \subsection{Process of Collecting RNA Sequence Data}
 
 \subsection{General Properties of RNA Sequence Data}
+%two sum constraints in RNA seq data: one related to the size of the sample (sample bucket) and another related to the number of mapped reads (sequencing depth bucket)
+
 
 \subsection{Current Methodology Associated with RNA Sequencing Data}
 
 
 \section{Principles of Compositional Data Analysis}
+Compositional data are non-negative data which are subject to a sum constraint, i.e. all the elements must sum to unity.  This simple constraint has some important consequences for many standard statistical methodologies including correlation and regression.  Compositional data contain only relative information, i.e. the information about any individual component, or group of componenets, is relative to the other components and no absolute information about the absolute value of the component.  For example, if we know that 20\% of the food in a refigerator is composed of fruit we do not know how much total fruit there is.  If the refigerator is full then there will be substantially more fruit than if the refigerator is nearly empty.\\
+
+Potential problems associated with compositional data were identified as early as 1897 by Pearson who noted that spurious correlations can be induced through ratios of independent variables, e.g. if $X$, $Y$, and $Z$ are uncorrelated then $X/Z$ and $Y/Z$ will be correlated. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compostional data analysis (section~\ref{subsec:fund}) and provides some analysis tools for compositional data which conform to these principles (section~\ref{subsec:methods}).  Additional methodology has been developed by a number of authors in the 29 years since the publication of Aitchison's book, although a number of problems remain. 
+
+\subsection{Fundamental Principles}
+\label{subsec:fund}
+Aitchison outlined a set of fundamental principles to which all methods for compostional data should adhere (\cite{Aitchison1986})
+
+\subsubsection{Scale Invariance}
+Scale invariance requires that the results of a statistical procedure should not depend on the scale used.
+
+\subsubsection{Sub-compositional Coherance}
+Sub-compositional coherance requires that the results of a statistical procedure on a subset of componenets from a composition should depend only on the data contained in that subset.
+
+\subsubsection{Permutation Invariance}
+Permutation invariance requires that the results of a statistical procedure should not depend on the ordering of the of the components. 
+\subsection{Statistical Methods for Compositional Data}
+\label{subsec:methods}
+%alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
+%look into 'compositional independence'
+
+\section{Current Methodology with Respect to Compositional Data Analysis}
+%The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
+\subsection{Normalization}
+Previous authors have identified the compositional nature of RNA sequencing data (\cite{Robinson2010}).  As stated previously, RNA sequence data are likely subject to two sum constraints: 1) the number of RNA sequences that can fit into the finite sample collected, and 2) the number of available reads of those sequences for the given sequencing technology.  
+
+\subsubsection{Trimmed Mean of M-values Normalization Method}
+Robinson and Oshlack (2010) primarily focused on the latter when accounting for the compositional nature of RNA sequence data.  
+
+They, like many others (\cite{Anders2010}), also assume that the majority of genes in an assay are not differentially expressed.  
+
+
+%\chapter{LASSO for Compositional Data}
+%For large compositions use LASSO instead of traditional CoDa dimensional reduction techniques
+%Use all parts for
+%Use clr to  perform lasso on the D ratios
+
+\chapter{Normalization of Compositional RNA Sequence Data}
+
+
+\chapter[Correlaton]{An Alternative to Correlation for Evaluation of Reproducibility and Repeatability of Compositional Data}
+
+%\chapter{Link between relative sensitivity and compositional data}
+
+
+%\chapter{An R Package for Implementing Compositional Methods for RNA Sequence Data}
 
 
 
+\printbibliography
 \end{document}
