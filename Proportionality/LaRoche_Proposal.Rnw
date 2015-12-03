@@ -14,9 +14,12 @@
 
 \section{RNA Sequencing Data}
 %General information about RNA sequence data: where it comes from and how people use it.
+
 \subsection{Process of Collecting RNA Sequence Data}
+%How samples are collected, prepared, and sequenced
 
 \subsection{General Properties of RNA Sequence Data}
+%What are the consequences of the process and the nature of RNA? i.e. poisson, neg-bin, and sum constraints.  Factors affecting sequencing
 %two sum constraints in RNA seq data: one related to the size of the sample (sample bucket) and another related to the number of mapped reads (sequencing depth bucket)
 
 
