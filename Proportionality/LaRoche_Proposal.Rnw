@@ -78,7 +78,7 @@ $$w^r_{gk} = \frac{N_k-Y_{gk}}{N_kY_{gk}} + \frac{N_r-Y_{gr}}{N_rY_{gr}}, \text{
 
 The weights are a result of taking the inverse of the approximate asymptotic variance using the delta method \cite{Casella2002}.  Note that these calculations omit any genes for which either observed read count is 0; these observations are generally removed by the trimming procedure.\\
 
-From a compositional data analysis perspective, the TMM does not necessarily satisfy all of the properties outlined by Aitchison (1986) because it does not directly account for the compositional nature of the data.  The authors correctly identify that some probes will be under-represented in samples with a large total RNA output as compared to samples with a smaller total RNA output.  However, if the unobserved absolute read count for a given probe is the same between samples then the .....
+From a compositional data analysis perspective, the TMM does not necessarily satisfy all of the properties outlined by Aitchison (1986) because it does not directly account for the compositional nature of the data.  The authors correctly identify that some probes will be under-represented in samples with a large total RNA output as compared to samples with a smaller total RNA output.  However, the authors neglect to note that other probes will be overif the unobserved absolute read count for a given probe is the same between samples then the .....
 
 Specifically, TMM normalization is not guaranteed to satisfy subcompositional coherance.  
 
@@ -92,7 +92,7 @@ Specifically, TMM normalization is not guaranteed to satisfy subcompositional co
 %Use clr to  perform lasso on the D ratios
 
 \chapter[Normalization]{Normalization of Compositional RNA Sequence Data}
-
+%There are only d-1 degrees of freedom but which i to use ad the reference is not clear so alr or clr might be better.
 
 \chapter[Correlaton]{An Alternative to Correlation for Evaluation of Reproducibility and Repeatability of Compositional Data}
 
