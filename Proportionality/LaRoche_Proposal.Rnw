@@ -1,5 +1,6 @@
 \documentclass{book}
 \usepackage[letterpaper, top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
 \usepackage[backend=bibtex,style=authoryear,backref=true,hyperref=true]{biblatex}
 \addbibresource{mybib.bib}
 \usepackage{amsmath}
@@ -34,16 +35,26 @@ Potential problems associated with compositional data were identified as early a
 
 \subsection{Fundamental Principles}
 \label{subsec:fund}
-Aitchison outlined a set of fundamental principles to which all methods for compostional data should adhere (\cite{Aitchison1986})
+Aitchison outlined a set of fundamental principles to which all methods for compostional data should adhere (\cite{Aitchison1986}).  These principles are outlined below.
 
 \subsubsection{Scale Invariance}
-Scale invariance requires that the results of a statistical procedure should not depend on the scale used.
+Scale invariance requires that the results of a statistical procedure should not depend on the scale used.  Any meaningful function $x$ of a composition $w$ must satisfy:
+
+$$f(pw) = f(w) \text{, for every }p>0.$$
+
+Aitchison notes that any meaningful (scale-invariant) function of a composition can be expressed in terms of ratios of the components of the composition.  For example, any method used for compositional data should not give different results whether the composition is given as proportions, percentages, parts per million, or any other scale.\\
 
 \subsubsection{Sub-compositional Coherance}
-Sub-compositional coherance requires that the results of a statistical procedure on a subset of componenets from a composition should depend only on the data contained in that subset.
+Sub-compositional coherance requires that the results of a statistical procedure on a subset of componenets from a composition should depend only on the data contained in that subset.  A subcomposition is defined as the (1, 2, ..., $C$) parts of a $D$-part composition $\left[x_1, ..., x_D\right]$:
+
+$$\left[s_1, ..., s_c\right]=\frac{\left[x_1, ..., x_c\right]}{\left(x_1 + ... + x_c\right)}$$
+
+Any changes in components $\left[x_{c+1}, ..., x_D\right]$ should not have an impact on the inference from the subcomposition.  For example, if we measure the number of reads of 14 mRNA sequences from a sample that contains 4,000 unique mRNA sequences the inference we obtain from those 14 sequences should not be affected by the expression level of any of the other 4,000 sequences.\\ 
 
 \subsubsection{Permutation Invariance}
-Permutation invariance requires that the results of a statistical procedure should not depend on the ordering of the of the components. 
+Permutation invariance requires that the results of a statistical procedure should not depend on the ordering of the components. 
+
+
 \subsection{Statistical Methods for Compositional Data}
 \label{subsec:methods}
 %alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
@@ -53,6 +64,7 @@ Permutation invariance requires that the results of a statistical procedure shou
 %The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
 \subsection{Normalization}
 Previous authors have identified the compositional nature of RNA sequencing data (\cite{Robinson2010}).  As stated previously, RNA sequence data are likely subject to two sum constraints: 1) the number of RNA sequences that can fit into the finite sample collected, and 2) the number of available reads of those sequences for the given sequencing technology.  %can both of these exist simultaneously? 
+\subsubsection{Median Normalization}
 
 
 \subsubsection{Trimmed Mean of M-values Normalization Method}
@@ -70,7 +82,7 @@ $$log2\left( TMM_k^r \right) = \frac{ \sum_{g \in G} w^r_{gk}M^r_{gk}}{\sum_{g \
 
 where
 
-$$M^r_{gk} = \frac{Y_{gk}/N_{k}}{Y_{gr}/N_{r}}, \ Y_{gk}, Y_{gr} > 0\text{, for reference sample }r, $$
+$$M^r_{gk} = log_2\frac{Y_{gk}/N_{k}}{Y_{gr}/N_{r}}, \ Y_{gk}, Y_{gr} > 0\text{, for reference sample }r, $$
 
 and the weights, $w^r_{gk}$, are defined as:
 
@@ -78,9 +90,12 @@ $$w^r_{gk} = \frac{N_k-Y_{gk}}{N_kY_{gk}} + \frac{N_r-Y_{gr}}{N_rY_{gr}}, \text{
 
 The weights are a result of taking the inverse of the approximate asymptotic variance using the delta method \cite{Casella2002}.  Note that these calculations omit any genes for which either observed read count is 0; these observations are generally removed by the trimming procedure.\\
 
-From a compositional data analysis perspective, the TMM does not necessarily satisfy all of the properties outlined by Aitchison (1986) because it does not directly account for the compositional nature of the data.  The authors correctly identify that some probes will be under-represented in samples with a large total RNA output as compared to samples with a smaller total RNA output.  However, the authors neglect to note that other probes will be overif the unobserved absolute read count for a given probe is the same between samples then the .....
+The TMM normalization method attempts to derive a single value, $f$, such that $S_k = f \cdot S_{k\prime}$, where $S_k$ is the (unobserved) total count for sample $k$.  Unfortunately, this does not adequately account for the compositional nature of the data.  In particular, the authors assume that the expression levels will be the same among samples for the majority of genes (probes).  However, if we view the data as a composition, even if only a small number of genes differ with respect to expression level then all of the probes will differ with respect to what we actually observe, their \emph{proportion} of the sample. The authors correctly identify that some probes will be under-represented, even if their absolute expression remains unchanged, in samples with a large total RNA output as compared to samples with a smaller total RNA output.  This is because these probes will constitute a smaller proportion of the total number of reads, even if the absolute number will not have changed.\\
 
-Specifically, TMM normalization is not guaranteed to satisfy subcompositional coherance.  
+
+TMM normalization is not guaranteed to satisfy subcompositional coherance.  This is because the selection of genes to be measured, the subcomposition, can determine the final normalization factor calculated.  The TMM operation first converts all observations to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$).
+
+%toy example here?
 
 
 
