@@ -57,8 +57,57 @@ Permutation invariance requires that the results of a statistical procedure shou
 
 \subsection{Statistical Methods for Compositional Data}
 \label{subsec:methods}
+\subsubsection{The Simplex}
+Traditional statistics is concerned with making inferences from points in $R^D$.  However, the sample space for compositions is restricted to the \emph{Simplex}, $S^D$ because of the sum constraint.  This fundamental difference in sample space necessitates an alternative methodology and renders inference from traditional regression and correlation meaningless.  Aitchison (1986) developed much of the current methodology for compositional data through careful examination of the algebraic-geometric structure of the simplex.\\
+
+It is typical to transform compostional data to the \emph{unit simplex} by dividing each component by the sum of components such that the sum of transformed components is equal to 1: 
+
+$$C\left[ x_1 ... x_d \right] = \left[ x_1 ... x_d \right]/ \sum_{i=1}^D x_i$$
+
+The notation $C[\cdot]$ is termed the \emph{closure operation} and scales a composition x to the unit simplex.
+%use the unit simplex throughout?
+There are two fundmental operations frequently used in $R^D$ for which Aitchison defined equivalent operations in the simplex: 1) translation, and 2) scalar multiplication.  \\
+
+
+\subsubsection{Perturbations}
+
+Aitchison identified the need for an operation in the simplex equivalent to $X=x+t$, the translation $t$. This operation, defined as a \emph{perturbation} and denoted by $\oplus$, takes the form:
+
+$$X = p \oplus x = \frac{\left[ p_1x_1...p_Dx_D \right]}{\left( p_1x_1 + ... + p_Dx_D \right)} = C\left[ p_1x_1...p_Dx_D \right]$$
+
+where, $p$ is the perturbation which translates $x$ to $X$ and $C$ is the \emph{closure} operation which scales the composition to the unit simplex.  The perturbation operator leads to several other useful metrics in the simplex such as the distance between two compositions:
+
+$$.$$
+
+As well as for characterizing the imprecision or error around a measurement:
+
+$$x_n = \Upsilon \oplus p_n  \ \ (n=1, ... , N),$$
+
+where the $x_n$ are the observed measurements, the $p_n$ are independent error perturbations characterizing the imprecision,  and $\Upsilon$ is the true underlying composition.   
+
+
+\subsubsection{The Power Operation}
+Like perturbation is the simplical equivalent of translation, Aitchison defined the power operation as the simplical equivalent of multiplication.  For any real number $a \in R^1$ and any composition $x \in S^D$ the power transform of $x$ is defined as:
+
+$$X = a \otimes x = C \left[x_1^a ... x_D^a \right].$$
+
+The power transformation enables a form for regression between a fixed variable $v$ and a composition $x$:
+
+$$ x= \Upsilon \oplus \left\{ log v \otimes \beta \right\} \oplus p.$$
+
+In this formulation $\beta$ is composition analogous to regression coefficients and $p$ is a perturbation analogous to an error term in regression.
+
+\subsubsection{Logratio Analysis}
+
+In order to satisfy the scale invariance of compositional data it is typical to work on ratios of the components.  Furthermor, since the sample space of ratios of positive numbers is not in the whole of real numbers, it is typcial to work in the logarithms of ratios.  Three popular transformation exist for a $D$-part composition: 1) additive log-ratio, 2) centered log-ratio, and 3) ilr. The alr transformation is defined as:
+
+$$alr(x) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_D})]$$
+
+and reduces the dimension of the compositional vector from $D \rightarrow D-1$.  
 %alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
 %look into 'compositional independence'
+
+
 
 \section{Current Methodology with Respect to Compositional Data Analysis}
 %The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
@@ -92,8 +141,9 @@ The weights are a result of taking the inverse of the approximate asymptotic var
 
 The TMM normalization method attempts to derive a single value, $f$, such that $S_k = f \cdot S_{k\prime}$, where $S_k$ is the (unobserved) total count for sample $k$.  Unfortunately, this does not adequately account for the compositional nature of the data.  In particular, the authors assume that the expression levels will be the same among samples for the majority of genes (probes).  However, if we view the data as a composition, even if only a small number of genes differ with respect to expression level then all of the probes will differ with respect to what we actually observe, their \emph{proportion} of the sample. The authors correctly identify that some probes will be under-represented, even if their absolute expression remains unchanged, in samples with a large total RNA output as compared to samples with a smaller total RNA output.  This is because these probes will constitute a smaller proportion of the total number of reads, even if the absolute number will not have changed.\\
 
+The authors do not explicitly reference Atichison, or any other compositional data publications, but their method relies heavily on these methods.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$). The full set of M-values calculated from these compositions represent the pertubation, $p$ from 1 sample to another.  However, the M-values are trimmed so $p$ is incomplete and we are now in a subcompositional sample space.  The assumption that most genes are not differentially expressed leads to the authors to use a weighted average of the M-values ($p_i$'s) to determine a single correction factor which can translate one composition to another.  This method, therefore, then assumes $p_i = p_j$ for \emph{most} of the genes $i$ and $j$ in the trimmed set.  \\
 
-TMM normalization is not guaranteed to satisfy subcompositional coherance.  This is because the selection of genes to be measured, the subcomposition, can determine the final normalization factor calculated.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$).
+TMM normalization is not guaranteed to satisfy subcompositional coherance.  This is because changes in the counts of unmeasured genes can alter the... .  
 
 %toy example here?
 

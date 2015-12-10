@@ -1,0 +1,107 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Anders2010}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Anders}{A.}%
+     {Simon}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huber}{H.}%
+     {W}{W}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {BioMed Central Ltd}%
+  }
+  \strng{namehash}{ASHW1}
+  \strng{fullhash}{ASHW1}
+  \field{labelyear}{2010}
+  \field{sortinit}{A}
+  \verb{doi}
+  \verb 10.1186/gb-2010-11-10-r106
+  \endverb
+  \field{isbn}{1474-7596}
+  \field{issn}{1465-6906}
+  \field{number}{10}
+  \field{pages}{R106}
+  \field{title}{{Differential expression analysis for sequence count data}}
+  \verb{url}
+  \verb http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf
+  \endverb
+  \field{volume}{11}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/DESeq.p
+  \verb df:pdf
+  \endverb
+  \field{journaltitle}{Genome Biol}
+  \field{year}{2010}
+\endentry
+
+\entry{Robinson2010}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Robinson}{R.}%
+     {Mark~D}{M.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Oshlack}{O.}%
+     {Alicia}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{RMDOA1}
+  \strng{fullhash}{RMDOA1}
+  \field{labelyear}{2010}
+  \field{sortinit}{R}
+  \field{abstract}{%
+  The fine detail provided by sequencing-based transcriptome surveys suggests
+  that RNA-seq is likely to become the platform of choice for interrogating
+  steady state RNA. In order to discover biologically important changes in
+  expression, we show that normalization continues to be an essential step in
+  the analysis. We outline a simple and effective method for performing
+  normalization and show dramatically improved results for inferring
+  differential expression in simulated and publicly available data sets.%
+  }
+  \verb{doi}
+  \verb 10.1186/gb-2010-11-3-r25
+  \endverb
+  \field{isbn}{1465-6914 (Electronic)$\backslash$r1465-6906 (Linking)}
+  \field{issn}{1465-6906}
+  \field{number}{3}
+  \field{pages}{R25}
+  \field{title}{{A scaling normalization method for differential expression
+  analysis of RNA-seq data.}}
+  \field{volume}{11}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Robinso
+  \verb n and Oshlack (2010) A{\_}scaling{\_}normalization{\_}method{\_}for{\_}
+  \verb differential{\_}expression{\_}(TMM).pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome biology}
+  \field{year}{2010}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
