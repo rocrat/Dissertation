@@ -1,6 +1,6 @@
 \documentclass{book}
 \usepackage[letterpaper, top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
-\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
 \usepackage[backend=bibtex,style=authoryear,backref=true,hyperref=true]{biblatex}
 \addbibresource{mybib.bib}
 \usepackage{amsmath}
@@ -109,7 +109,8 @@ and reduces the dimension of the compositional vector from $D \rightarrow D-1$.
 
 
 
-\section{Current Methodology with Respect to Compositional Data Analysis}
+\section[Current Methodology]{Current Methodology with Respect to Compositional Data Analysis}
+
 %The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
 \subsection{Normalization}
 Previous authors have identified the compositional nature of RNA sequencing data (\cite{Robinson2010}).  As stated previously, RNA sequence data are likely subject to two sum constraints: 1) the number of RNA sequences that can fit into the finite sample collected, and 2) the number of available reads of those sequences for the given sequencing technology.  %can both of these exist simultaneously? 
