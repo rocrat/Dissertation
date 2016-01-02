@@ -1,3 +1,6 @@
+%Notes from study section:  DIdn't talk about how their method will extend relative sensitivity to count data and how will this method be different from proteomics procedure.  Didn't talk about rationale for useing bayes approach.  How will bioinformatics pipeline will affect the results- need to talk about these will impact the results. Differences of 4 systems should be outlined and how this might affect the downstream analysis.  Need a lot more detail.  It is unclear if the normalization procedures will perform equivalently.  The data sets are not well defined and how the data will be created?  More detail about how the data sets will be aquired or generated.  Can you incorporate some true knowledge to verify that the result will get you closer to the truth????
+
+
 \documentclass[11pt]{article}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
