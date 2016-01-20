@@ -16,6 +16,10 @@
 
 \section{RNA Sequencing Data}
 %General information about RNA sequence data: where it comes from and how people use it.
+Ribonucleic acid (RNA) plays many important roles in the funciton of cells including gene transciption and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer subtypes and identify news genes for interrogation in the investigation of a disease.  Investiagitons of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiement and has been rapidly adopted by scientists \cite{CITEHERE}.  The current research is restricted to the analysis RNA-Seq data and the unique analytical challenges it creates.
+
+
+
 
 \subsection{Process of Collecting RNA Sequence Data}
 %How samples are collected, prepared, and sequenced
@@ -153,7 +157,7 @@ The TMM normalization method attempts to derive a single value, $f$, such that $
 
 The authors do not explicitly reference Atichison, or any other compositional data publications, but their method relies heavily on these methods.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$). The full set of M-values calculated from these compositions represent the pertubation, $p$ from a reference sample to another.  However, the M-values are trimmed so $p$ is incomplete and we are now in a subcompositional sample space.  The assumption that most genes are not differentially expressed leads to the authors to use a weighted average of the M-values ($p_i$'s) to determine a single correction factor which can translate one composition to another.  This method, therefore, then assumes $p_i = p_j$ for \emph{most} of the genes $i$ and $j$ in the trimmed set.  \\
 
-The authors fail to formulate the problem in terms of the components of a composition, instead, believing that inferences can still be made on absolute abundances.  This is clearly evidenced in their definition of the $A_g$'s, which they term the absolute abundances for each gene in the sample.  As stated in section \ref{sec:rnaSampProp}, it is very likely that RNA sequence data is compositiona in nature and, as such, inferences on the absolute abundances are not possible.\\
+The authors fail to formulate the problem in terms of the components of a composition, instead, believing that inferences can still be made on absolute abundances.  This is clearly evidenced in their definition of the $A_g$'s, which they term the `absolute abundances' for each gene in the sample.  As stated in section \ref{sec:rnaSampProp}, it is very likely that RNA sequence data is compositional in nature and, as such, inferences on the absolute abundances are not possible.\\
 
 TMM normalization is not guaranteed to satisfy subcompositional coherance.  This is because changes in the counts of unmeasured genes can alter the... .  
 
