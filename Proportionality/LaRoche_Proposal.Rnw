@@ -18,8 +18,8 @@
 %General information about RNA sequence data: where it comes from and how people use it.
 Ribonucleic acid (RNA) plays many important roles in the funciton of cells including gene transciption and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer subtypes and identify news genes for interrogation in the investigation of a disease.  Investiagitons of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiement and has been rapidly adopted by scientists \cite{CITEHERE}.  The current research is restricted to the analysis RNA-Seq data and the unique analytical challenges it creates.
 
-
-
+\subsection{RNA Sequencing Technology}
+Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994;Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{}   
 
 \subsection{Process of Collecting RNA Sequence Data}
 %How samples are collected, prepared, and sequenced
