@@ -1,0 +1,14 @@
+This tar file contains code and data to recreate the batch effect analysis 
+in exome sequencing data described in Nat. Reviews ###. Running file seq_analysis.R prints
+out information included in Table ## and creates the heatmap plot in Figure ## 
+(seq-batch-effect.eps and seq-batch-effect.pdf).
+
+Code included:
+- seq_analysis.R: performs analyis and creates plots
+- funcs.R: some utility functions
+
+Data included:
+- chr16_exons.rda: IRanges object containing exon annotation for chromsome 16
+- relationships_w_pops_121708.txt: pedigree information for hapmap samples
+- chr16_1KG_pilot3.tab: count data from 1k genomes pilot 3, chromosome 16, in 1kb bins
+
