@@ -1,5 +1,5 @@
 ---
-title: "High-Throughput RNA Sequence Data as a Composition"
+title: "Methods for Outlier Detection Using Relative Abundance in Targeted RNASeq Applications"
 author: "Dominic LaRoche,  Bonnie Lafluer, Shripad Sinari, Kurt Michels, and Dean Billhiemer"
 date: "Monday, March 28, 2016"
 output: word_document
