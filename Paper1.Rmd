@@ -1,0 +1,12 @@
+---
+title: "High-Thoughput RNA Sequence Data as a Composition"
+author: "Dominic LaRoche, Bonnie Lafluer, and Dean Billhiemer"
+date: "Monday, March 28, 2016"
+output: word_document
+---
+
+High-throughput, RNA sequence data generated from next-generation sequencers such as those from Illumina and Roche is generally modelled as count data arising from a Poisson or Negative-binomial distribution (many cites).  However, these instruments have a maximum number of reads available per run.  For example, the Roche 454 GS Junior (tm) claims approximately 100,000 reads per run for shotgun sequencing and 70,000 reads per run for amplicon sequencing.  These reads are distributed accross all of the samples included in the run and leads to a total sum constraint on the data.  This constraint cascades down to each sample which is, in turn, constrained by the total number of reads allocated to each sample.
+
+The total sum constraint is common in biological sampling.  For example, if a 1 ml sample of blood is taken this sample could be divided into several components such as plasma, red blood cells, white blood cells, and platelets.  If the amount of any 1 component were to increase some other component (or all the other components) must decrease due to the fixed volume of the sample.  Ignoring the sum constraint can lead to unexpected results and erroneous inference (Lovell et. al ).
+
+
