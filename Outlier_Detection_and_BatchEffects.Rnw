@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[backend=bibtex,style=authoryear,backref=true,hyperref=true]{biblatex}
+\addbibresource{./Proportionality/mybib.bib}
+\usepackage{amsmath}
+
+\title{Methods for Outlier Detection Using Relative Abundance in Targeted RNASeq Applications}
+\author{Dominic LaRoche \and  Bonnie LaFleur \and Shripad Sinari \and Kurt Michels \and Dean Billheimer}
+\begin{document}
+\maketitle
+
+\section{Abstract}
+
+
+\section{Introduction}
+%--High-throughput RNA sequence (RNA-Seq) data generated from next-generation sequencers, such as those from Illumina and Roche, is generally modeled as count data arising from a Poisson or Negative-binomial distribution with various methods of estimating the parameters (Robinson and Smyth 2008, Anders and Huber 2010, Zhou et al. 2011, Law et al. 2014).-->  
+
+%-- Introduce the problem and motivate the research -->
+The rapid rise in the use of RNA sequencing technology (RNA-seq) for scientific discovery has led to its consideration as a clinical diagnostic tool.  However, as a new technology the analytical accuracy and reproducibility of RNA-seq must be established before it can realize its full clinical utility (SEQC Consortium 2014, Van Keuren-Jensen et al. 2014). Recent studies evaluating RNA-seq have found generally high intra-platform and inter-platform congruence across multiple laboratories (Li et al. 2013, 't Hoen et al. 2013, SEQC/MAQC-III Consortium 2014).  Despite these promising results, there is still a need to establish reliable diagnostics and quality control metrics for RNA-seq data.  Accurately identifying batch effects, and differentiating these from true biological differences, will be necessary if smaller laboratories wish to utilize RNA-seq technology for clinical applications (cite).  Moreover, the reliable identification and removal of poor quality data produced by RNA-seq pipelines has the potential to dramatically improve the analytical accuracy and reproducibility of RNA-seq data, thereby improving its clinical utility.\\
+
+%-- Paragraph on existing QC metrics -->
+There are several software packages devoted to quality control of RNA-seq data (cite RNASeQC and RSeQC). However, none of these proposed models address a fundamental feature of RNA-Seq data. Specifically, high-throughput RNA-Seq instruments have a maximum number of reads available per run.  For example, the Roche 454 GS Junior (tm) claims approximately 100,000 reads per run for shotgun sequencing and 70,000 reads per run for amplicon sequencing.  The Illumina Mi-Seq, with shorters read lengths, is limited to 25 million reads per sequencing run.  These reads are distributed across all of the samples included in a sequencing run and, therefore, impose a total sum constraint on the data.  This constraint cascades down to each probe or tag within a sample which is, in turn, constrained by the total number of reads allocated to the sample.\\
+
+%-- Short description of compisitional data and justification of treating RNA-seq as compositional-->
+The total sum constraint is common in biological sampling.  For example, if a 1 ml sample of blood is taken this sample could be divided into several components such as plasma, red blood cells, white blood cells, and platelets.  If the amount of any 1 component were to increase some other component (or all the other components) must decrease due to the fixed volume of the sample.  Previous authors have identified the compositional nature of RNA-Seq data (Robinson and Smyth 2007, Anders and Huber 2010, Robinson and Oshlack 2010, Law et al. 2014, Lovell 2015).  For example, Robinson and Smyth (2007) consider counts of RNA tags as relative abundances in their development of a model for estimating differential gene expression implemented in the Bioconductor package edgeR (Robinson et al. 2009).  Similarly, Robinson and Oshlack (2010) explicitly acknowledge the mapped read constraint when developing their widely used Trimmed-Mean of M-values (TMM) normalization method for RNA-Seq data.\\
+
+%-- Proposed solution with brief outline of methodology -->
+Ignoring the sum constraint can lead to unexpected results and erroneous inference (Pearson 1897, Aitchison 1986, Lovell et. al 2011).  Despite the evidence that RNA-Seq data are compositional in nature, few researchers have extended the broad set of compositional data analysis theory and tools created by Aitchison (1986) for use in RNA-Seq analysis problems.  We extend existing compositional data methodology to include statistical diagnostic tests for the identification of sample outliers and batch effects. Specifically, we utilize the total aligned reads for each sample to identify outlying samples and we utilize control samples to identify and control for batch effects.\\
+
+%-- 
+% Justify QC metric:
+% 1) Saturation is important (RSeQC)
+% 2) Limited total reads allocated to samples
+% 3) 
+% -->
+
+\section{Methods}
+%-- CODA intro -->
+We begin with a brief introduction to compositional data, its properties, and some established analytical methods.  Compositional data is defined as any data in which all elements are non-negative and sum to a fixed constant (\cite{Aitchison1986a}). 
+%-- Establish notation -->
+For RNA-seq data, the total sum constraint is imposed by the sequencing technology.  Since this total differs between platforms we will refer to the total number of available reads as $T$. These reads are distributed among the $D$ samples in a run such that:
+\begin{equation}
+\sum_{i=1}^{D} t_i = T
+\label{sumt}
+\end{equation}
+where $t_i$ represents the total reads for sample $i$.  Because of the total sum constraint, the vector $\mathbf{t}$ is completely determined by $D-1$ elements since the $D^{th}$ element of $\mathbf{t}$ can be determined from the other $d = D-1$ elements and the total $T$:  
+\begin{equation}
+t_D = T - \sum_{i=1}^{d} t_i
+\label{sumConst}
+\end{equation}
+In equation~\ref{sumConst}, any of the elements can be chosen for $t_D$ with the remaining elements labeled $1, ..., d$ in any order.\\
+
+%-- Background for compositional data -->
+From equations~\ref{sumt} and~\ref{sumConst} it is clear that the $D$ samples represent a $d$ dimensional sample space. This leads to a diffculty in interpreting the traditional covariance structure.  Because of this, standard statistical methodology is not always appropriate (\cite{Aitchison1986a}) and can produce misleading results (\cite{Lovell2015}).  To overcome these obstacles, Aitchison (\cite{Aitchison1986a}) proposed a class of \emph{log-ratio transformations} which map the $d$-dimensional compositions onto both $d$ and $D$ dimensional spaces in ${\rm I\!R}$.  We focus on the Centered Log-Ratio (CLR) which permits an interpretable covariance specification and treats the parts of the composition symmetrically.  The CLR transformation is defined for a $D$-part composition $\mathbf{t}$ as:
+\begin{equation}
+y_i = \frac{t_i}{g(\mathbf{t})},
+\label{clr}
+\end{equation}
+where $g(\mathbf{t})$ is the geometric mean of $\mathbf{t}$.  The $D \times D$ covariance matrix is then defined as:
+\begin{equation}
+
+
+\label{gamma}
+\end{equation}
+
+% *Methods Rough Outline:* 
+% 
+% * For CLR on total reads approach    
+%     + Establish notation
+%     + Introduction to compositional transformations 
+%     + The CLR transformation and it's properties 
+%     + Use of the CLR transformed data to identify outliers consistent with properties 
+% * For use of control samples for identifying batch effects 
+%     + Establish notation 
+%     + Typical methods for identifying batch effects (from nature methods paper on batch effects)
+%         + PCA
+%         + Hierarichal clustering
+%     + Apply the CLR transformation to control samples
+%     + Identify batch effects using compositional methods
+%         + PCA on transformed data
+%         + Somehow use the set of perturbations between the control samples...
+%     + Use control samples to "normalize out" batch effects in other samples somehow... (probably save this for another paper)
+% 
+% <!-- potential problems
+% What if the control samples are so different that these differences "swamp out" the batch effects but the differences between the biological samples is not so big?
+\newpage
+\printbibliography
+\end{document}

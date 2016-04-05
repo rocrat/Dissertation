@@ -38,7 +38,7 @@ Compositional data are non-negative data which are subject to a sum constraint, 
 
 Potential problems associated with compositional data were identified as early as 1897 by Pearson who noted that spurious correlations can be induced through ratios of independent variables, e.g. if $X$, $Y$, and $Z$ are uncorrelated then $X/Z$ and $Y/Z$ will be correlated. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compostional data analysis (section~\ref{subsec:fund}) and provides some analysis tools for compositional data which conform to these principles (section~\ref{subsec:methods}).  Additional methodology has been developed by a number of authors in the 29 years since the publication of Aitchison's book, although a number of problems remain. 
 
-Perhaps the most important aspect of compositional data are the inferences that can be drawn from it...
+%Perhaps the most important aspect of compositional data are the inferences that can be drawn from it...
 
 \subsection{Fundamental Principles}
 \label{subsec:fund}

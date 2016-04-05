@@ -29,15 +29,24 @@ Justify QC metric:
 -->
 
 #Methods
+<!-- CODA background -->
+We begin with a brief introduction to compositional data, its properties, and some established analytical methods.  Compositional data is defined as any data in which all elements are non-negative and sum to a constant.  The positive sum constraint has some important consequences for many standard statistical methodologies including correlation and regression.  Compositional data contain only relative information, i.e. the information about any individual component, or group of componenets, is relative to the other components and contain no information about the absolute value of the component.  Potential problems associated with compositional data were identified as early as 1897 by Pearson. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compostional data analysis and provides some analysis tools for compositional data which conform to these principles.
 
+
+<!-- Establish notation -->
+For RNA-seq data, the total sum constraint is imposed by the sequencing technology.  Since this total differs between platforms we will refer to the total number of available reads as $T$. These reads are distributed among $D$ samples in a run such that:
+$$\sum_{i=1}^{D} t_i = T,$$
+where $t_i$ represents the total reads for sample $i$.  
+ 
+<!--
 *Methods Rough Outline:* 
 
-* For CLR on total reads approach <!-- -->  
+* For CLR on total reads approach    
     + Establish notation
-    + Introduction to compositional transformations <!-->
-    + The CLR transformation and it's properties <!-->
-    + Use of the CLR transformed data to identify outliers consistent with properties <!-->  
-* For use of control samples for identifying batch effects <!-->
+    + Introduction to compositional transformations 
+    + The CLR transformation and it's properties 
+    + Use of the CLR transformed data to identify outliers consistent with properties 
+* For use of control samples for identifying batch effects 
     + Establish notation 
     + Typical methods for identifying batch effects (from nature methods paper on batch effects)
         + PCA
@@ -47,6 +56,7 @@ Justify QC metric:
         + PCA on transformed data
         + Somehow use the set of perturbations between the control samples...
     + Use control samples to "normalize out" batch effects in other samples somehow... (probably save this for another paper)
+-->
 
 <!-- potential problems
 What if the control samples are so different that these differences "swamp out" the batch effects but the differences between the biological samples is not so big?
