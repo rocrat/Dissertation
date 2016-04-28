@@ -1,0 +1,449 @@
+\documentclass{article}
+
+\begin{document}
+
+<<Libraries, echo = FALSE, message = FALSE>>=
+
+library(readxl)
+library(openxlsx)
+library(ggplot2)
+library(compositions)
+library(ReporteRs)
+library(reshape2)
+library(plyr)
+library(dplyr)
+library(grid)
+library(gridExtra)
+library(scales)
+library(HTGPackage)
+
+quantile_normalisation <- function(df){
+  df_rank <- apply(df,2,rank,ties.method="min")
+  df_sorted <- data.frame(apply(df, 2, sort))
+  df_mean <- apply(df_sorted, 1, mean)
+  
+  index_to_mean <- function(my_index, my_mean){
+    return(my_mean[my_index])
+  }
+  
+  df_final <- apply(df_rank, 2, index_to_mean, my_mean=df_mean)
+  rownames(df_final) <- rownames(df)
+  return(df_final)
+}
+
+@
+
+<<Roche_IO_ReadIn, echo = FALSE, message = FALSE>>=
+#read in data
+
+#Pilot 2 data 
+col1 <- read_excel("C:/Projects/Customers/Roche_IO_Study/RawData/OldData/Roche Column 1 Parsed Data 30-JUN-2015_QualityControlled.xlsx", skip = 7, sheet = 1, col_names = FALSE)
+names(col1) <- make.names(gsub("run244\\-(TRSPZ\\d{6})_1", "\\1", col1[3, ]), unique = TRUE)
+rownames(col1) <- col1$Sample.Name
+#convert to CPM
+# col1[-c(1:4), -1] <- cpm.stand(data.matrix(col1[-c(1:4), -1]))
+pilot2 <- melt(col1[-c(1:4), ], id = "Sample.Name")
+#remove HTG samples
+pilot2 <- pilot2[-which(!grepl("TRSPZ", pilot2$variable)), ]
+names(pilot2)[1] <- "Probe"
+pilot2$value <- as.numeric(pilot2$value)
+
+pilot2Failed <- c("TRSPZ005995", "TRSPZ006044", "TRSPZ008123", "TRSPZ008124", "TRSPZ008754")
+
+#New samples with replicates
+c1c6 <- read_excel("C:/Projects/Customers/Roche_IO_Study//RawData/Roche plate 1 C1-C6_parsed.xls", skip = 7, sheet = 1, col_names = FALSE)
+names(c1c6) <- make.names(gsub("run182\\-", "", c1c6[3, ]), unique = TRUE)
+rownames(c1c6) <- c1c6$Sample.Name
+#convert to CPM
+# c1c6[-c(1:4), -1] <- cpm.stand(data.matrix(c1c6[-c(1:4), -1]))
+
+
+c7c12 <- read_excel("C:/Projects/Customers/Roche_IO_Study//RawData/Roche plate 1 C7-C12_parsed.xls", skip = 7, sheet = 1, col_names = FALSE)
+names(c7c12) <- make.names(gsub("run182\\-", "", c7c12[3, ]), unique = TRUE)
+rownames(c7c12) <- c7c12$Sample.Name
+# c7c12[-c(1:4), -1] <- cpm.stand(data.matrix(c7c12[-c(1:4), -1]))
+
+#previously run samples 
+plate2 <- read_excel("C:/Projects/Customers/Roche_IO_Study//RawData/Roche plate 2_parsed.xls", skip = 7, sheet = 1, col_names = FALSE)
+names(plate2) <- make.names(gsub("run183\\-", "", plate2[3, ]), unique = TRUE)
+rownames(plate2) <- plate2$Sample.Name
+
+#new data 
+nd1 <- melt(c1c6[-c(1:4), ], id = "Sample.Name")
+nd2 <- melt(c7c12[-c(1:4), ], id = "Sample.Name")
+ndf <- rbind(nd1, nd2)
+rm(nd1, nd2)
+
+#remove HTG samples
+ndf <- ndf[-which(grepl("HTG", ndf$variable)), ]
+
+#extract sample information
+ndf$SampleID <- gsub("(TRSPZ\\d{6})_\\w{2}_1", "\\1", ndf$variable) 
+ndf$Rep <- gsub("TRSPZ\\d{6}_(\\w{2})_1", "\\1", ndf$variable)
+names(ndf)[1] <- "Probe"
+ndf$value <- as.numeric(ndf$value)
+#wide data
+ndfw <- join_all(list(c1c6, c7c12), by = "Sample.Name")
+rownames(ndfw) <- make.names(ndfw$Sample.Name)
+
+#verify 30 samples
+length(unique(ndf$SampleID))
+#verify 3 replicates
+length(unique(ndf$Rep))
+
+#Old samples new run
+odf <- melt(plate2[-c(1:4), ], id = "Sample.Name")
+#remove HTG samples
+# odf <- odf[-which(grepl("HTG", odf$variable)), ]
+names(odf)[1] <- "Probe"
+odf$SampleID <- gsub("(TRSPZ\\d{6})_1", "\\1", odf$variable)
+odf$value <- as.numeric(odf$value)
+
+newFailed <- c("TRSPZ012126_R3", "TRSPZ004380_R3", "TRSPZ008586_R3")
+sameProbes <- unique(pilot2$Probe)[which(unique(pilot2$Probe) %in% unique(odf$Probe))]
+
+failedTotals <- cbind(c1c6[4, which(names(c1c6) %in% c("TRSPZ012126_R3_1", "TRSPZ004380_R3_1", "TRSPZ008586_R3_1") )],
+                      c7c12[4, which(names(c7c12) %in% c("TRSPZ012126_R3_1", "TRSPZ004380_R3_1", "TRSPZ008586_R3_1") )])
+rownames(failedTotals) <- "Total Reads"
+@
+
+
+<<Roche_IO_ControlProfiles, echo = FALSE>>=
+
+#previous samples new run
+odfctrl <- plate2[which(grepl("CTRL", plate2$Sample.Name)), ]
+odfctrl <- as.data.frame(apply(odfctrl[, -1], c(1,2), FUN = function(x) as.numeric(as.character(x))))
+rownames(odfctrl) <- rownames(plate2)[which(grepl("CTRL", plate2$Sample.Name))]
+
+#Separate control types and convert to CLR
+odfANT <- odfctrl[which(grepl("ANT", rownames(odfctrl))), ] 
+# rownames(odfANT) <- rownames(odfctrl)[1:5]
+clrANT <- as.data.frame(t(clr(acomp(t(odfANT), detectionlimit = 0))))
+
+odfPOS <- odfctrl[which(grepl("POS", rownames(odfctrl))), ] 
+# rownames(odfPOS) <- rownames(odfctrl)[6:9]
+clrPOS <- as.data.frame(t(clr(acomp(t(odfPOS), detectionlimit = 0))))
+
+
+#----- Heat Maps -----#
+#First get header info on samples
+tdf <- plate2[2:4, -1]
+rownames(tdf) <- make.names(rownames(plate2)[2:4])
+tots <- as.data.frame(t(tdf))
+tots$row <- gsub("(\\w{1})\\d{1,2}", "\\1", tots$Well)
+tots$column <- gsub("\\w{1}(\\d{1,2})", "\\1", tots$Well)
+
+#q-norm
+dfnorm <- plate2[-c(1:4), -1]
+dfnorm <- quantile_normalisation(data.matrix(dfnorm))
+dfnorm <- colSums(dfnorm)
+dfnorm <- rbind(plate2[2:3, -1], dfnorm)
+rownames(dfnorm) <- make.names(plate2[2:4, ]$Sample.Name)
+
+
+getTots <- function(x){#use t-list
+  df <- as.data.frame(t(x))
+  df$row <- gsub("(\\w{1})(\\d{1,2})$", "\\1", df$Well)
+  df$column <- gsub("(\\w{1})(\\d{1,2})$", "\\2", df$Well)
+  df$Total.Reads <- as.numeric(as.character(df$Total.Reads))
+  return(df)
+}
+
+totl <- getTots(tdf)
+
+totl$column <- factor(totl$column, levels = as.character(1:12))
+#Raw totals
+rawTotals <- ggplot(totl, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + plotTheme(legend.position = "right")  +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/Roche_IO_Prev_TotalCountHeatMap_RawTotals.png", rawTotals, width = 8 , height = 7)
+
+
+totln <- getTots(dfnorm)
+totln$column <- factor(totln$column, levels = as.character(1:12))
+#Normalized within plates
+NormPlates <- ggplot(totln, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/Roche_IO_Prev_TotalCountHeatMap_NormalizedProbesbyPlate.png", NormPlates, width = 8 , height = 7)
+
+
+#CLR the total reads
+clrReads <- function(x){
+  names(x) <- gsub("Counts", "Reads", names(x))
+   cbind(x, CLR = as.vector(clr( acomp( as.numeric(as.character(x$Total.Reads)) ), detectionlimit = 0 )))
+}
+
+CLRTots <- clrReads(tots)
+CLRTots$column <- factor(CLRTots$column, levels = 1:12)
+
+CLRTots <- ggplot(CLRTots, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/Roche_IO_Prev_TotalCountHeatMap_CLRTotals.png", CLRTots, width = 8 , height = 7)
+
+#!-----------Check proportionality of pos controls ----->
+rawPos <- odfPOS
+clrPos <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos)))), detectionLimit = 0)))
+rawPos$Probe <- rownames(rawPos)
+rawPosl <- melt(rawPos, id = "Probe")
+rawPosl$Type <- "log(Raw)"
+rawPosl$value <- log(rawPosl$value)
+
+clrPos$Probe <- rownames(clrPos)
+clrPosl <- melt(clrPos, id = "Probe")
+clrPosl$Type <- "CLR"
+
+posl <- rbind(rawPosl, clrPosl)
+suspects <- c("TRSPZ002191_1")
+posl$lowTotal <- ifelse(posl$variable %in% suspects, "Low", "Normal")
+
+PosProfile <- ggplot(posl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
+ggsave("./Paper1/Figures/Roche_IO_Prev_Proportionality_of_PosCntrl_Probes.png", PosProfile, width = 7, height = 8 )
+
+#!-----------Check proportionality of ANT controls ----->
+rawAnt <- odfANT
+clrAnt <- as.data.frame(t(clr(acomp(t(data.matrix((rawAnt)))), detectionLimit = 0)))
+rawAnt$Probe <- rownames(rawAnt)
+rawAntl <- melt(rawAnt, id = "Probe")
+rawAntl$Type <- "log(Raw)"
+rawAntl$value <- log(rawAntl$value + 1)
+
+clrAnt$Probe <- rownames(clrAnt)
+clrAntl <- melt(clrAnt, id = "Probe")
+clrAntl$Type <- "CLR"
+
+antl <- rbind(rawAntl, clrAntl)
+# suspects <- c("uRNA_1_2", "uRNA_2_1")
+# posl$lowTotal <- ifelse(posl$variable %in% suspects, "Low", "Normal")
+
+ANTProfile <- ggplot(antl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line() + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme()# + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
+ggsave("./Paper1/Figures/Roche_IO_Proportionality_of_ANTCntrl_Probes.png", ANTProfile, width = 7, height = 8 )
+
+#----- Heat Maps New Data -----#
+#First get header info on samples
+ntdf <- ndfw[2:4, -1]
+rownames(ntdf) <- make.names(rownames(plate2)[2:4])
+ntots <- as.data.frame(t(ntdf))
+ntots$row <- gsub("(\\w{1})\\d{1,2}", "\\1", ntots$Well)
+ntots$column <- gsub("\\w{1}(\\d{1,2})", "\\1", ntots$Well)
+
+#q-norm
+dfnorm <- ndfw[-c(1:4), -1]
+dfnorm <- quantile_normalisation(data.matrix(dfnorm))
+dfnorm <- colSums(dfnorm)
+dfnorm <- rbind(ndfw[2:3, -1], dfnorm)
+rownames(dfnorm) <- make.names(ndfw[2:4, ]$Sample.Name)
+
+totl <- getTots(ntdf)
+
+totl$column <- factor(totl$column, levels = as.character(1:12))
+totl$Plate <- ifelse(totl$column %in% paste0(1:6), "Plate 1", "Plate 2")
+#Raw totals
+newRawTotals <- ggplot(totl, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + plotTheme(legend.position = "right")  +  xlab("Plate Column") + ylab("Plate Row") + facet_wrap(~Plate)
+ggsave("./Paper1/Figures/Roche_IO_New_TotalCountHeatMap_RawTotals.png", newRawTotals, width = 10 , height = 5)
+
+
+totln <- getTots(dfnorm)
+totln$column <- factor(totln$column, levels = as.character(1:12))
+totln$Plate <- ifelse(totln$column %in% paste0(1:6), "Plate 1", "Plate 2")
+#Normalized accross plates
+NewNormPlates <- ggplot(totln, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row") + facet_wrap(~Plate)
+ggsave("./Paper1/Figures/Roche_IO_New_TotalCountHeatMap_NormalizedProbes.png", NewNormPlates, width = 10 , height = 5)
+
+ntots$Plate <- ifelse(ntots$column %in% paste0(1:6), "Plate 1", "Plate 2")
+ntots <- split(ntots, ntots$Plate)
+CLRTots <- lapply(ntots, clrReads)
+CLRTots <- do.call(rbind, CLRTots)
+CLRTots$column <- factor(CLRTots$column, levels = 1:12)
+
+NewCLRTots <- ggplot(CLRTots, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row") + facet_wrap(~Plate)
+ggsave("./Paper1/Figures/Roche_IO_New_TotalCountHeatMap_CLRTotals.png", NewCLRTots, width = 10 , height = 5)
+
+#!-----------Check proportionality of pos controls ----->
+rawPos <- data.matrix(ndfw[which(grepl("POS", rownames(ndfw))), -1])
+clrPos <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos)))), detectionLimit = 0)))
+rawPos <- as.data.frame(rawPos)
+rawPos$Probe <- rownames(rawPos)
+rawPosl <- melt(rawPos, id = "Probe")
+rawPosl$Type <- "log(Raw)"
+rawPosl$value <- log(rawPosl$value)
+
+clrPos$Probe <- rownames(clrPos)
+clrPosl <- melt(clrPos, id = "Probe")
+clrPosl$Type <- "CLR"
+
+posl <- rbind(rawPosl, clrPosl)
+failedANT <- c("TRSPZ012126_R3", "TRSPZ004380_R3", "TRSPZ008586_R3")
+posl$failedANT <- ifelse(grepl(paste(failedANT, collapse = "|"), posl$variable), "FAILED", "PASSED")
+posl$lowCount <- ifelse(posl$variable == "HTG.4_1", "Low", "Normal")
+
+NewPosProfile <- ggplot(posl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowCount)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)") #+ scale_color_manual("ANT Failure", values = c("red", "black"))
+ggsave("./Paper1/Figures/Roche_IO_New_Proportionality_of_PosCntrl_Probes.png", NewPosProfile, width = 7, height = 8 )
+
+#!-----------Check proportionality of ANT controls ----->
+rawAnt <- data.matrix(ndfw[which(grepl("ANT", rownames(ndfw))), -1])
+clrAnt <- as.data.frame(t(clr(acomp(t(data.matrix((rawAnt)))), detectionLimit = 0)))
+rawAnt <- as.data.frame(rawAnt)
+rawAnt$Probe <- rownames(rawAnt)
+rawAntl <- melt(rawAnt, id = "Probe")
+rawAntl$Type <- "log(Raw)"
+rawAntl$value <- log(rawAntl$value + 1)
+
+clrAnt$Probe <- rownames(clrAnt)
+clrAntl <- melt(clrAnt, id = "Probe")
+clrAntl$Type <- "CLR"
+
+antl <- rbind(rawAntl, clrAntl)
+antl$failedANT <- ifelse(grepl(paste(failedANT, collapse = "|"), antl$variable), "FAILED", "PASSED")
+antl$lowCount <- ifelse(antl$variable == "HTG.4_1", "Low", "Normal")
+
+newANTProfile <- ggplot(antl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = failedANT)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_manual("ANT Failure", values = c("red", "black"))
+ggsave("./Paper1/Figures/Roche_IO_New_Proportionality_of_ANTCntrl_Probes.png", newANTProfile, width = 10, height = 8 )
+@
+
+<<IO_Repro_Study, echo = FALSE, message = FALSE>>=
+
+file_names <- list.files(path = "C:/Projects/NPSeqQCApp_Validation/RawData/ImmuOnco/reproducibility", pattern="Parser.*", full.names=T, recursive=F)
+
+#----- Heat Maps -----#
+#First get header info on samples
+dfclist <- list()
+dfnlist <- list()
+dflist <- list()
+tlist <- list()
+
+for(i in 1:length(file_names)){
+  df <- as.data.frame(read_excel(file_names[i], skip = 8, col_names = FALSE))
+  RowNames <- df$X1 
+  tlist[[i]] <- df[1:3, ]
+  
+  Plate <- c("Plate ", rep(i, dim(df)[2]-1))
+  dflist[[i]] <- rbind(Plate, df)
+  
+  #q-norm
+  dfnorm <- df[-c(1:3), -1]
+  dfnorm <- quantile_normalisation(data.matrix(dfnorm))
+  dfnorm <- colSums(dfnorm)
+  dfnorm <- rbind(df[1:2, -1], dfnorm)
+  dfnorm <- cbind(df[1:3, 1], dfnorm)
+  dfnlist[[i]] <- dfnorm
+  
+  #clr
+  dfclr <- data.matrix(df[-c(1:3), -1])
+  dfclr <- as.data.frame( t( clr( acomp( t(dfclr) ), detectionlimit = 0 ) ) )
+  dfclr <- colSums(dfclr)
+  dfclr <- rbind(df[1:2, -1], dfclr)
+  dfclr <- cbind(df[1:3, 1], dfclr)
+  dfclist[[i]] <- dfclr
+  
+}
+
+getTots <- function(x){#use t-list
+  df <- as.data.frame(t(x[, -1]))
+  names(df) <- make.names(x[, 1])
+  df$row <- gsub("(\\w{1})\\d{1,2}$", "\\1", df$Well)
+  df$column <- gsub("\\w{1}(\\d{1,2})$", "\\1", df$Well)
+  df$Total.Reads <- as.numeric(as.character(df$Total.Counts))
+  df <- df[which(!grepl("No_Sample", df$Sample.Name)), ]
+  return(df)
+}
+
+tots <- lapply(tlist, getTots)
+# for(i in 1:length(tots)){
+  # tots[[i]]$Plate <- paste0("Plate ", i)
+# }
+
+getPlates <- function(x){
+  df <- as.data.frame(x)
+  df$Proc <- gsub(".*(P\\d{2}).*", "\\1", df$Sample.Name)
+  df$Day <- ifelse(grepl("D", df$Sample.Name), gsub(".*(D\\d{1}).*", "\\1", df$Sample.Name), "D1")
+  df$Plate <- factor(paste0(df$Proc, "_", df$Day))
+  return(df)
+}
+
+tots <- lapply(tots, getPlates)
+#Choose P86 and ignore P02
+totl <- do.call(rbind, tots)
+totl <- totl[which(!grepl("P02", totl$Proc)),]
+#define order of the plates for other plots
+IO_repro_plates <- levels(totl$Plate)
+totl$column <- factor(totl$column, levels = as.character(1:12))
+#Raw totals
+IOrawTotals <- ggplot(totl, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right")  +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_RawTotals.png", IOrawTotals, width = 14 , height = 5)
+
+
+totsn <- lapply(dfnlist, getTots)
+totsn <- lapply(totsn, getPlates)
+
+totln <- do.call(rbind, totsn)
+totln <- totln[which(!grepl("P02", totln$Proc)),]
+totln$column <- factor(totln$column, levels = as.character(1:12))
+totln$Plate <- factor(totln$Plate, levels = IO_repro_plates)
+
+#Normalized within plates
+IONormPlates <- ggplot(totln, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_NormalizedProbesbyPlate.png", IONormPlates, width = 14 , height = 5)
+
+#Normalize together
+dfw <- join_all(dflist, by = "X0")
+rownames(dfw) <- dfw[, 1]
+names(dfw) <- dfw[3, ]
+dfw <- dfw[, which(!grepl("No_Sample", names(dfw)))]
+dfw[-c(1:4), -1] <- quantile_normalisation(data.matrix(dfw[-c(1:4), -1]))
+dfw <- dfw[, -1]
+dfw[4, ] <- colSums(data.matrix(dfw[-c(1:4), ]))
+
+#convert to long form
+dfl <- as.data.frame(t(dfw[1:4,]))
+dfl$row <- gsub("(\\w{1})(\\d{1,2})$", "\\1", dfl$Well)
+dfl$column <- gsub("(\\w{1})(\\d{1,2})$", "\\2", dfl$Well)
+dfl$column <- factor(dfl$column, levels = as.character(1:12))
+dfl$Total.Reads <- as.numeric(as.character(dfl$`Total Counts`))
+dfl$Proc <- gsub(".*(P\\d{2}).*", "\\1", dfl$`Sample Name`)
+dfl$Day <- ifelse(grepl("D", dfl$`Sample Name`), gsub(".*(D\\d{1}).*", "\\1", dfl$`Sample Name`), "D1")
+dfl$Plate <- factor(paste0(dfl$Proc, "_", dfl$Day), levels = IO_repro_plates)
+dfl <- dfl[which(!grepl("P02", dfl$Plate)), ]
+
+
+IONormAllPlates <- ggplot(dfl, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads )) + facet_wrap(~ Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_NormalizedProbes.png", IONormAllPlates, width = 14 , height = 5)
+
+
+#CLR the total reads
+clrReads <- function(x){
+   cbind(x, CLR = as.vector(clr( acomp( as.numeric(as.character(x$Total.Counts)) ), detectionlimit = 0 )))
+}
+tots <- lapply(tots, FUN = clrReads)
+CLRTotals <- do.call(rbind, tots)
+CLRTotals <- CLRTotals[which(!grepl("P02", CLRTotals$Plate)), ]
+CLRTotals$column <- factor(CLRTotals$column, levels = 1:12)
+CLRTotals$Plate <- factor(CLRTotals$Plate, levels = IO_repro_plates)
+
+IOCLRTots <- ggplot(CLRTotals, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_CLRTotals.png", IOCLRTots, width = 14 , height = 5)
+
+#!-----------Check proportionality of pos controls ----->
+raw.w <- join_all(dflist, by = "X0")
+names(raw.w) <- raw.w[3, ]
+rownames(raw.w) <- raw.w[, 1]
+raw.w <- raw.w[, which(!grepl("No_Sample", names(raw.w)))]
+rawPos <- raw.w[which(grepl("POS", rownames(raw.w))), -1]
+clrPos <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos)))), detectionLimit = 0)))
+rawPos$Probe <- rownames(rawPos)
+rawPosl <- melt(rawPos, id = "Probe")
+rawPosl$Type <- "log(Raw)"
+rawPosl$value <- log(as.numeric(as.character(rawPosl$value)))
+
+clrPos$Probe <- rownames(clrPos)
+clrPosl <- melt(clrPos, id = "Probe")
+clrPosl$Type <- "CLR"
+
+posl <- rbind(rawPosl, clrPosl)
+suspects <- c("uRNA_25ng_P88_R2", "uRNA_25ng_P88_R3", "uRNA_D2_P02_R15", "uRNA_D2_P02_R16", "uRNA_D2_P02_R17")
+posl$lowTotal <- ifelse(posl$variable %in% suspects, "Low", "Normal")
+
+
+IOPosCntrl <- ggplot(posl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
+ggsave("./Paper1/Figures/IO_Repro_Proportionality_of_PosCntrl_Probes.png", IOPosCntrl, width = 7, height = 8 )
+
+
+@
+
+
+\end{document}
