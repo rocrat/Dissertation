@@ -16,6 +16,7 @@ library(grid)
 library(gridExtra)
 library(scales)
 library(HTGPackage)
+library(cowplot)
 
 quantile_normalisation <- function(df){
   df_rank <- apply(df,2,rank,ties.method="min")
@@ -29,6 +30,19 @@ quantile_normalisation <- function(df){
   df_final <- apply(df_rank, 2, index_to_mean, my_mean=df_mean)
   rownames(df_final) <- rownames(df)
   return(df_final)
+}
+
+plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = TRUE){
+  x <- t(data)
+  pcares<-prcomp(x, scale = scale)
+  summary(pcares)
+  plot(pcares,type="l")
+  pcavect<-pcares$x[,1:5]
+  indanno<-intersect(row.names(pcavect),row.names(annodata))
+  pcavect<-pcavect[indanno,]
+  anno.pca<-annodata[indanno,]
+  pcadata <- cbind(anno.pca, pcavect)
+  return(pcadata)
 }
 
 @
@@ -142,6 +156,7 @@ rownames(dfnorm) <- make.names(plate2[2:4, ]$Sample.Name)
 
 
 getTots <- function(x){#use t-list
+  browser()
   df <- as.data.frame(t(x))
   df$row <- gsub("(\\w{1})(\\d{1,2})$", "\\1", df$Well)
   df$column <- gsub("(\\w{1})(\\d{1,2})$", "\\2", df$Well)
@@ -411,6 +426,7 @@ clrReads <- function(x){
 }
 tots <- lapply(tots, FUN = clrReads)
 CLRTotals <- do.call(rbind, tots)
+#randomly remove P02 processor
 CLRTotals <- CLRTotals[which(!grepl("P02", CLRTotals$Plate)), ]
 CLRTotals$column <- factor(CLRTotals$column, levels = 1:12)
 CLRTotals$Plate <- factor(CLRTotals$Plate, levels = IO_repro_plates)
@@ -444,6 +460,228 @@ ggsave("./Paper1/Figures/IO_Repro_Proportionality_of_PosCntrl_Probes.png", IOPos
 
 
 @
+
+<<PCA_IO, echo = FALSE>>=
+
+annodf <- data.frame(SampleID = names(raw.w)[-1])
+annodf$Proc <- gsub(".*(P\\d{2}).*", "\\1", annodf$SampleID)
+annodf$Day <- ifelse(grepl("D", annodf$SampleID), gsub(".*(D\\d{1}).*", "\\1", annodf$SampleID), "D1")
+annodf$Plate <- factor(paste0(annodf$Proc, "_", annodf$Day), levels = IO_repro_plates)
+annodf <- annodf[which(!grepl("P02", annodf$Proc)), ]
+rownames(annodf) <- annodf$SampleID
+
+pcaDat <- data.matrix(raw.w[-c(1:4), which(names(raw.w) %in% annodf$SampleID)])
+pcplotdat <- plotPCA(pcaDat, annodf, scale = TRUE)
+ggpca <- ggplot(pcplotdat, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+    geom_point( size = 2)  + 
+  geom_text(size = 1.7) + 
+    xlim(-50, 50) + ylim(-50, 50) 
+ggsave("./Paper1/Figures/IO_Repro_PCA_Raw(scaled).png", ggpca, width = 9, height = 8 )
+
+pcaDatn <- data.matrix(dfw[-c(1:4), which(names(dfw) %in% annodf$SampleID)])
+pcplotdatn <- plotPCA(pcaDatn, annodf, scale = FALSE)
+ggpcan <- ggplot(pcplotdatn, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+    geom_point( size = 2) + 
+  geom_text(size = 1.7) 
+ggsave("./Paper1/Figures/IO_Repro_PCA_qNorm.png", ggpcan, width = 9, height = 8 )
+
+    
+pcaDatc <- as.data.frame(t(clr(acomp(t(pcaDat), detectionlimit = 0))))
+pcplotdatc <- plotPCA(pcaDatc, annodf, scale = FALSE)
+ggpcac <- ggplot(pcplotdatc, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+    geom_point( size = 2)   + 
+  geom_text( size = 1.7) +
+  xlim(-10, 50) + ylim(-10, 10)
+ggsave("./Paper1/Figures/IO_Repro_PCA_CLR.png", ggpcac, width = 9, height = 8 )
+
+@
+
+
+<<miRNA HeatMaps, echo = FALSE, message = FALSE>>=
+file_names <- list.files(path = "C:/Projects/NPSeqQCApp_Validation/RawData/miRNA/reproducibility", pattern="RR.*", full.names=T, recursive=F)
+
+#----- Heat Maps -----#
+#First get header info on samples
+dfclist_mi <- list()
+dfnlist_mi <- list()
+dflist_mi <- list()
+tlist_mi <- list()
+
+for(i in 1:length(file_names)){
+  df <- as.data.frame(read_excel(file_names[i], skip = 8, col_names = FALSE))
+  rownames(df) <- make.names(df$X1 )
+  tlist_mi[[i]] <- df[1:3, -1]
+  
+  Plate <- c("Plate ", rep(i, dim(df)[2]-1))
+  dflist_mi[[i]] <- rbind(Plate, df)
+  
+  #q-norm
+  dfnorm <- df[-c(1:3), -1]
+  dfnorm <- quantile_normalisation(data.matrix(dfnorm))
+  dfnorm <- colSums(dfnorm)
+  dfnorm <- rbind(df[1:2, -1], dfnorm)
+#   dfnorm <- cbind(df[1:3, 1], dfnorm)
+  rownames(dfnorm) <- rownames(df)[1:3]
+  dfnlist_mi[[i]] <- dfnorm
+  
+  #clr
+  dfclr <- data.matrix(df[-c(1:3), -1])
+  dfclr <- as.data.frame( t( clr( acomp( t(dfclr) ), detectionlimit = 0 ) ) )
+  dfclr <- colSums(dfclr)
+  dfclr <- rbind(df[1:2, -1], dfclr)
+  dfclr <- cbind(df[1:3, 1], dfclr)
+  dfclist_mi[[i]] <- dfclr
+  
+}
+
+getTots_mi <- function(x){#use t-list
+  df <- as.data.frame(t(x))
+  df$row <- gsub("(\\w{1})\\d{1,2}$", "\\1", df$Well)
+  df$column <- gsub("\\w{1}(\\d{1,2})$", "\\1", df$Well)
+  df$Total.Reads <- as.numeric(as.character(df$Total.Reads))
+  df <- df[which(!grepl("No_Sample", df$Sample.Name)), ]
+  return(df)
+}
+
+
+
+tots_mi <- lapply(tlist_mi, getTots_mi)
+for(i in 1:length(tots_mi)){
+  tots_mi[[i]]$Plate <- paste0("Plate ", i)
+}
+
+totl_mi <- do.call(rbind, tots_mi)
+
+#define order of the plates for other plots
+mi_repro_plates <- levels(totl_mi$Plate)
+totl_mi$column <- factor(totl_mi$column, levels = as.character(1:12))
+
+#Raw totals
+mirawTotals <- ggplot(totl_mi, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right")  +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_RawTotals.png", mirawTotals, width = 14 , height = 5)
+
+
+totsn_mi <- lapply(dfnlist_mi, getTots_mi)
+for(i in 1:length(totsn_mi)){
+  totsn_mi[[i]]$Plate <- paste0("Plate ", i)
+}
+
+
+totln_mi <- do.call(rbind, totsn_mi)
+totln_mi$column <- factor(totln_mi$column, levels = as.character(1:12))
+
+#Normalized within plates
+miNormPlates <- ggplot(totln_mi, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_NormalizedProbesbyPlate.png", miNormPlates, width = 14 , height = 5)
+
+#Normalize together
+dfw_mi <- join_all(dflist_mi, by = "X1")
+rownames(dfw_mi) <- make.names(dfw_mi[, 1])
+names(dfw_mi) <- make.names(dfw_mi[3, ])
+dfw_mi <- dfw_mi[, which(!grepl("No_Sample", names(dfw_mi)))]
+dfw_mi[-c(1:5), -1] <- quantile_normalisation(data.matrix(dfw_mi[-c(1:5), -1]))
+dfw_mi <- dfw_mi[, -1]
+dfw_mi[4, ] <- colSums(data.matrix(dfw_mi[-c(1:4), ]))
+#remove aligned reads row
+dfw_mi <- dfw_mi[-5,]
+
+#convert to long form
+dfl_mi <- as.data.frame(t(dfw_mi[1:4,]))
+dfl_mi$row <- gsub("(\\w{1})(\\d{1,2})$", "\\1", dfl_mi$Well)
+dfl_mi$column <- gsub("(\\w{1})(\\d{1,2})$", "\\2", dfl_mi$Well)
+dfl_mi$column <- factor(dfl_mi$column, levels = as.character(1:12))
+dfl_mi$Total.Reads <- as.numeric(as.character(dfl_mi$Total.Reads))
+
+miNormAllPlates <- ggplot(dfl_mi, aes(x = column, y = row)) + geom_tile(aes(fill = Total.Reads )) + facet_wrap(~ Plate., ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_NormalizedProbes.png", miNormAllPlates, width = 14 , height = 5)
+
+
+#CLR the total reads
+clrReads <- function(x){
+   cbind(x, CLR = as.vector(clr( acomp( as.numeric(as.character(x$Total.Reads)) ), detectionlimit = 0 )))
+}
+tots_mi <- lapply(tots_mi, FUN = clrReads)
+CLRTotals_mi <- do.call(rbind, tots_mi)
+CLRTotals_mi$column <- factor(CLRTotals_mi$column, levels = 1:12)
+
+miCLRTots <- ggplot(CLRTotals_mi, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
+ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_CLRTotals.png", miCLRTots, width = 14 , height = 5)
+
+#!-----------Check proportionality of pos controls ----->
+raw.w.mi <- join_all(dflist_mi, by = "X1")
+names(raw.w.mi) <- make.names(raw.w.mi[3, ])
+rownames(raw.w.mi) <- make.names(raw.w.mi[, 1])
+rawPos.mi <- raw.w.mi[which(grepl("POS", rownames(raw.w.mi))), -1]
+clrPos.mi <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos.mi)))), detectionLimit = 0)))
+rawPos.mi$Probe <- rownames(rawPos.mi)
+rawPosl.mi <- melt(rawPos.mi, id = "Probe")
+rawPosl.mi$Type <- "log(Raw)"
+rawPosl.mi$value <- log(as.numeric(as.character(rawPosl.mi$value)))
+
+clrPos.mi$Probe <- rownames(clrPos.mi)
+clrPosl.mi <- melt(clrPos.mi, id = "Probe")
+clrPosl.mi$Type <- "CLR"
+
+posl.mi <- rbind(rawPosl.mi, clrPosl.mi)
+suspects <- c("run229.FFPE_3_1")#, "run228.Brain_5_1", "run228.Plasma_7_1")
+posl.mi$lowTotal <- ifelse(posl.mi$variable %in% suspects, "Low", "Normal")
+posl.mi$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\1", posl.mi$variable)
+posl.mi$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\2", posl.mi$variable)
+
+miPosCntrl <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
+ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes.png", miPosCntrl, width = 7, height = 8 )
+
+miPosCntrl_plate <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = Plate), alpha = .5) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Plate") + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byPlate.png", miPosCntrl_plate, width = 7, height = 8)
+
+miPosCntrl_type <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = SampType), alpha = .5) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Sample Type") + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png", miPosCntrl_type, width = 7, height = 8)
+
+#look at the total reads in relation to the proportionality
+posl.mi <- merge(posl.mi, dfl_mi, by.x = "variable", by.y = 0)
+miPosCntrl_total <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = log2(Total.Reads))) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_gradient2("Total Reads",low = "red", mid = "grey", high = "blue", midpoint = median(log2(dfl_mi$Total.Reads))) 
+ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byTotal.png", miPosCntrl_total, width = 7, height = 8)
+
+@
+
+
+<<PCA_miRNA, echo = FALSE>>=
+
+annodf.mi <- data.frame(SampleID = names(raw.w.mi)[-1])
+annodf.mi$Plate <- gsub("^(run\\d{3})\\..*", "\\1", annodf.mi$SampleID)
+annodf.mi$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\2", annodf.mi$SampleID)
+rownames(annodf.mi) <- annodf.mi$SampleID
+
+pcaDat.mi <- data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
+#remove 0 count probes
+pcaDat.mi <- pcaDat.mi[-which(rowSums(pcaDat.mi) == 0), ]
+pcplotdat.mi <- plotPCA(pcaDat.mi, annodf.mi, scale = TRUE)
+ggpca.mi <- ggplot(pcplotdat.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
+    geom_point( size = 3)  + 
+  # geom_text(size = 2) + 
+  coord_equal()
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_Raw(scaled).png", ggpca.mi, width = 9, height = 8 )
+
+pcaDatn.mi <- data.matrix(dfw_mi[-c(1:4), which(names(dfw_mi) %in% annodf.mi$SampleID)])
+pcaDatn.mi <- pcaDatn.mi[-which(rowSums(pcaDatn.mi) == 0), ]
+pcplotdatn.mi <- plotPCA(pcaDatn.mi, annodf.mi, scale = FALSE)
+ggpcan.mi <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
+    geom_point( size = 3) + 
+  # geom_text(size = 1.7)  + 
+  coord_equal()
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm.png", ggpcan.mi, width = 9, height = 8 )
+
+    
+pcaDatc.mi <- as.data.frame(t(clr(acomp(t(pcaDat.mi), detectionlimit = 0))))
+pcplotdatc.mi <- plotPCA(pcaDatc.mi, annodf.mi, scale = FALSE)
+ggpcac <- ggplot(pcplotdatc.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
+    geom_point( size = 3)   + 
+  # geom_text( size = 10) +
+  coord_equal()
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_CLR.png", ggpcac, width = 9, height = 8 )
+
+@
+
 
 
 \end{document}
