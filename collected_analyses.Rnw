@@ -31,6 +31,24 @@ quantile_normalisation <- function(df){
   rownames(df_final) <- rownames(df)
   return(df_final)
 }
+cpm.stand <- function(x){
+  # browser()
+  if(any(apply(x, 2, function(y) any(is.na(y))))) stop("No NA's are allowed in the data matrix")
+  totals <- apply(x, 2, sum)+1
+  x2 <- x+.5
+  CPM <- log2(t(t(x2)/totals) * 10^6)
+  return(CPM)
+}
+
+#median normalization function
+median.norm <- function(x){
+  if(any(apply(x, 2, function(y) any(is.na(y))))) stop("No NA's are allowed in the data matrix")
+  gmn <- apply(x, 1, function(y) exp(mean(log(y))))
+  sfm <- x/gmn
+  sf <- apply(sfm, 2, function(y) median(y[is.finite(y)]))
+  normdat <- t(t(x)/sf)
+  return(normdat)
+}
 
 plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = TRUE){
   x <- t(data)
@@ -646,35 +664,58 @@ ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byTotal.
 
 
 <<PCA_miRNA, echo = FALSE>>=
-
 annodf.mi <- data.frame(SampleID = names(raw.w.mi)[-1])
 annodf.mi$Plate <- gsub("^(run\\d{3})\\..*", "\\1", annodf.mi$SampleID)
 annodf.mi$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\2", annodf.mi$SampleID)
 rownames(annodf.mi) <- annodf.mi$SampleID
 
-pcaDat.mi <- data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
 #remove 0 count probes
-pcaDat.mi <- pcaDat.mi[-which(rowSums(pcaDat.mi) == 0), ]
-pcplotdat.mi <- plotPCA(pcaDat.mi, annodf.mi, scale = TRUE)
-ggpca.mi <- ggplot(pcplotdat.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
+pcaDat.mi <- cpm.stand(data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)]))
+
+pcaDat.mi <- pcaDat.mi[, ]
+pcplotdat.mi <- plotPCA(pcaDat.mi, annodf.mi, scale = FALSE)
+ggpca.mi <- ggplot(pcplotdat.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
     geom_point( size = 3)  + 
   # geom_text(size = 2) + 
-  coord_equal()
-ggsave("./Paper1/Figures/miRNA_Repro_PCA_Raw(scaled).png", ggpca.mi, width = 9, height = 8 )
+  coord_equal() + ylim(c(-250, 100))
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_CPM.png", ggpca.mi, width = 9, height = 8 )
 
 pcaDatn.mi <- data.matrix(dfw_mi[-c(1:4), which(names(dfw_mi) %in% annodf.mi$SampleID)])
 pcaDatn.mi <- pcaDatn.mi[-which(rowSums(pcaDatn.mi) == 0), ]
 pcplotdatn.mi <- plotPCA(pcaDatn.mi, annodf.mi, scale = FALSE)
-ggpcan.mi <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
-    geom_point( size = 3) + 
+ggpcan.mi <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) + xlim(c(-20000, 20000)) + ylim(c(-100000, -90000))
   # geom_text(size = 1.7)  + 
   coord_equal()
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm.png", ggpcan.mi, width = 9, height = 8 )
 
+#zoom in on clusters in quantile norm
+ggpcan.mi.FFPE <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) + xlim(c(-20000, 20000)) + ylim(c(-100000, -90000))
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToFFPE.png", ggpcan.mi.FFPE, width = 9, height = 8 )
+ggpcan.mi.Plasma <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) + xlim(c(-90000, -75000)) + ylim(c(35000, 50000))
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToPlasma.png", ggpcan.mi.Plasma, width = 9, height = 8 )
+ggpcan.mi.Brain <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) + xlim(c(75000, 90000)) + ylim(c(45000, 55000))
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToBrain.png", ggpcan.mi.Brain, width = 9, height = 8 )
+
+
+pcaDatm.mi <- data.matrix(raw.w.mi[-c(1:4), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
+pcaDatm.mi <- pcaDatm.mi[-which(rowSums(pcaDatm.mi) == 0), ]
+pcaDatm.mi <- median.norm(pcaDatm.mi)
+pcplotdatm.mi <- plotPCA(pcaDatm.mi, annodf.mi, scale = FALSE)
+ggpcam.mi <- ggplot(pcplotdatm.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) + 
+  # geom_text(size = 1.7)  + 
+  coord_equal()
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_medNorm.png", ggpcam.mi, width = 9, height = 8 )
     
-pcaDatc.mi <- as.data.frame(t(clr(acomp(t(pcaDat.mi), detectionlimit = 0))))
+pcaDatc.mi <- data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
+pcaDatc.mi <- pcaDatc.mi[-which(rowSums(pcaDatc.mi) == 0), ]
+pcaDatc.mi <- as.data.frame(t(clr(ccomp(t(pcaDatc.mi)))))
 pcplotdatc.mi <- plotPCA(pcaDatc.mi, annodf.mi, scale = FALSE)
-ggpcac <- ggplot(pcplotdatc.mi, aes(x= PC1, y= PC2, color=SampType, shape=Plate, label = SampleID)) + 
+ggpcac <- ggplot(pcplotdatc.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
     geom_point( size = 3)   + 
   # geom_text( size = 10) +
   coord_equal()
@@ -682,6 +723,45 @@ ggsave("./Paper1/Figures/miRNA_Repro_PCA_CLR.png", ggpcac, width = 9, height = 8
 
 @
 
+
+<<PCA_Biplot_CNTRL_Probes, echo = FALSE, message = FALSE>>=
+#-----Create biplot with ggplot-----#
+nobs.factor <- sqrt(nrow(pca$x) - 1)
+d <- pca$sdev
+u <- sweep(pca$x, 2, 1/(d * nobs.factor), FUN = "*")
+v <- pca$rotation
+#select first two PCs
+df.u <- as.data.frame(sweep(u[, 1:2], 2, c(1,1), FUN = "*"))
+v <- sweep(v, 2, d, FUN = "*")
+df.v <- as.data.frame(v[, 1:2])
+names(df.u) <- c("xvar", "yvar")
+names(df.v) <- names(df.u)
+df.u <- df.u * nobs.factor
+r <- sqrt(qchisq(0.69, df = 2)) * prod(colMeans(df.u^2))^(1/4)
+v.scale <- rowSums(v^2)
+df.v <- r * df.v/sqrt(max(v.scale))
+df.v$Type <- gsub("(\\D{2,4})\\d?.*", "\\1", rownames(df.v))
+df.v$Plate <- substr(as.character(rownames(df.v)), start = nchar(as.character(rownames(df.v))), stop =  nchar(as.character(rownames(df.v))))
+df.v$angle <- with(df.v, (180/pi) * atan(yvar/xvar))
+df.v$hjust = with(df.v, (-.5 * sign(xvar))/2)
+
+pca.biplot <- ggplot(data = df.u, aes(x = xvar, y = yvar)) + 
+  geom_point() +
+  xlab("Standardized PC 1") + 
+  ylab("Standardized PC 2") + 
+  coord_equal() +
+  xlim(c(-5.5, 8)) + 
+  ylim(c(-5.5, 8)) +
+  geom_segment(data = df.v, aes(x = 0, y = 0, xend = xvar, yend = yvar, color = Plate), 
+               arrow = arrow(length = unit(1/2, "picas"))) +
+  geom_text(data = df.v, 
+            aes(label = rownames(v), x = xvar, y = yvar, angle = angle, hjust = hjust, color = Plate), 
+            size = 3) + 
+  HTGPackage::plotTheme(axis.text.x = element_text()) + 
+  scale_color_discrete("Batch")
+
+
+@
 
 
 \end{document}
