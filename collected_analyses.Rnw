@@ -53,14 +53,14 @@ median.norm <- function(x){
 plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = TRUE){
   x <- t(data)
   pcares<-prcomp(x, scale = scale)
-  summary(pcares)
+  pvar <- summary(pcares)$importance[3, 2]
   plot(pcares,type="l")
   pcavect<-pcares$x[,1:5]
   indanno<-intersect(row.names(pcavect),row.names(annodata))
   pcavect<-pcavect[indanno,]
   anno.pca<-annodata[indanno,]
   pcadata <- cbind(anno.pca, pcavect)
-  return(pcadata)
+  return(list(pcadata, pvar))
 }
 
 @
@@ -490,7 +490,7 @@ rownames(annodf) <- annodf$SampleID
 
 pcaDat <- data.matrix(raw.w[-c(1:4), which(names(raw.w) %in% annodf$SampleID)])
 pcplotdat <- plotPCA(pcaDat, annodf, scale = TRUE)
-ggpca <- ggplot(pcplotdat, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+ggpca <- ggplot(pcplotdat[[1]], aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
     geom_point( size = 2)  + 
   geom_text(size = 1.7) + 
     xlim(-50, 50) + ylim(-50, 50) 
@@ -668,100 +668,254 @@ annodf.mi <- data.frame(SampleID = names(raw.w.mi)[-1])
 annodf.mi$Plate <- gsub("^(run\\d{3})\\..*", "\\1", annodf.mi$SampleID)
 annodf.mi$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\2", annodf.mi$SampleID)
 rownames(annodf.mi) <- annodf.mi$SampleID
+#log data
+pcaDatl.mi <- apply(data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)]), c(1,2), function(x) log2(x + 1))
+pcplotdatl.mi <- plotPCA(pcaDatl.mi, annodf.mi, scale = FALSE)
+ggpcal.mi <- ggplot(pcplotdatl.mi[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType)) + 
+    geom_point( size = 3)  + 
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdatl.mi[[2]], 2)), x = 0, y = 0, color = "black") + 
+  coord_equal() + ylim(c(-250, 100)) +
+  ggtitle("log(Raw) Transformed")
+ggsave("./Paper1/Figures/miRNA_Repro_PCA_log(raw).png", ggpcal.mi, width = 9, height = 8 )
 
-#remove 0 count probes
+#CPM data
 pcaDat.mi <- cpm.stand(data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)]))
 
 pcaDat.mi <- pcaDat.mi[, ]
 pcplotdat.mi <- plotPCA(pcaDat.mi, annodf.mi, scale = FALSE)
-ggpca.mi <- ggplot(pcplotdat.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+ggpca.mi <- ggplot(pcplotdat.mi[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType)) + 
     geom_point( size = 3)  + 
-  # geom_text(size = 2) + 
-  coord_equal() + ylim(c(-250, 100))
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdat.mi[[2]], 2)), x = -200, y = -200, color = "black") + 
+  coord_equal() + ylim(c(-250, 100)) +
+  ggtitle("log(CPM) Transformed")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_CPM.png", ggpca.mi, width = 9, height = 8 )
+#explore other components for the cpm data
+ggplot(pcplotdat.mi[[1]], aes(x= PC1, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdat.mi[[1]], aes(x= PC2, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdat.mi[[1]], aes(x= PC2, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdat.mi[[1]], aes(x= PC3, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
 
 pcaDatn.mi <- data.matrix(dfw_mi[-c(1:4), which(names(dfw_mi) %in% annodf.mi$SampleID)])
 pcaDatn.mi <- pcaDatn.mi[-which(rowSums(pcaDatn.mi) == 0), ]
 pcplotdatn.mi <- plotPCA(pcaDatn.mi, annodf.mi, scale = FALSE)
-ggpcan.mi <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
-    geom_point( size = 3) + xlim(c(-20000, 20000)) + ylim(c(-100000, -90000))
-  # geom_text(size = 1.7)  + 
-  coord_equal()
+ggpcan.mi <- ggplot(pcplotdatn.mi[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3) +
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdatn.mi[[2]], 2)), x = -200, y = -200, color = "black") + 
+  coord_equal() + 
+  ggtitle("Quantile Normalization")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm.png", ggpcan.mi, width = 9, height = 8 )
 
 #zoom in on clusters in quantile norm
 ggpcan.mi.FFPE <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
-    geom_point( size = 3) + xlim(c(-20000, 20000)) + ylim(c(-100000, -90000))
+    geom_point( size = 3) + xlim(c(-20000, 20000)) + ylim(c(-100000, -90000))+ 
+  ggtitle("Quantile Normalization")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToFFPE.png", ggpcan.mi.FFPE, width = 9, height = 8 )
 ggpcan.mi.Plasma <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
-    geom_point( size = 3) + xlim(c(-90000, -75000)) + ylim(c(35000, 50000))
+    geom_point( size = 3) + xlim(c(-90000, -75000)) + ylim(c(35000, 50000))+ 
+  ggtitle("Quantile Normalization")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToPlasma.png", ggpcan.mi.Plasma, width = 9, height = 8 )
 ggpcan.mi.Brain <- ggplot(pcplotdatn.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
-    geom_point( size = 3) + xlim(c(75000, 90000)) + ylim(c(45000, 55000))
+    geom_point( size = 3) + xlim(c(75000, 90000)) + ylim(c(45000, 55000))+ 
+  ggtitle("Quantile Normalization")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_qNorm_zoomToBrain.png", ggpcan.mi.Brain, width = 9, height = 8 )
-
+#explore other components for the qnorm data
+ggplot(pcplotdatn.mi[[1]], aes(x= PC1, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatn.mi[[1]], aes(x= PC2, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatn.mi[[1]], aes(x= PC2, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatn.mi[[1]], aes(x= PC3, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
 
 pcaDatm.mi <- data.matrix(raw.w.mi[-c(1:4), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
 pcaDatm.mi <- pcaDatm.mi[-which(rowSums(pcaDatm.mi) == 0), ]
 pcaDatm.mi <- median.norm(pcaDatm.mi)
 pcplotdatm.mi <- plotPCA(pcaDatm.mi, annodf.mi, scale = FALSE)
-ggpcam.mi <- ggplot(pcplotdatm.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+ggpcam.mi <- ggplot(pcplotdatm.mi[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
     geom_point( size = 3) + 
   # geom_text(size = 1.7)  + 
-  coord_equal()
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdatm.mi[[2]], 2)), x = -200, y = -200, color = "black") + 
+  coord_equal() + 
+  ggtitle("Median Normalization")
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_medNorm.png", ggpcam.mi, width = 9, height = 8 )
+#explore other components for the cpm data
+ggplot(pcplotdatm.mi[[1]], aes(x= PC1, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatm.mi[[1]], aes(x= PC2, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatm.mi[[1]], aes(x= PC2, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatm.mi[[1]], aes(x= PC3, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
     
 pcaDatc.mi <- data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
 pcaDatc.mi <- pcaDatc.mi[-which(rowSums(pcaDatc.mi) == 0), ]
 pcaDatc.mi <- as.data.frame(t(clr(ccomp(t(pcaDatc.mi)))))
 pcplotdatc.mi <- plotPCA(pcaDatc.mi, annodf.mi, scale = FALSE)
-ggpcac <- ggplot(pcplotdatc.mi, aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
+ggpcac <- ggplot(pcplotdatc.mi[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType, label = SampleID)) + 
     geom_point( size = 3)   + 
   # geom_text( size = 10) +
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdatc.mi[[2]], 2)), x = 0, y = 0, color = "black") + 
   coord_equal()
 ggsave("./Paper1/Figures/miRNA_Repro_PCA_CLR.png", ggpcac, width = 9, height = 8 )
 
+#explore other components for the compositional data
+ggplot(pcplotdatc.mi[[1]], aes(x= PC1, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatc.mi[[1]], aes(x= PC2, y= PC3, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatc.mi[[1]], aes(x= PC2, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+ggplot(pcplotdatc.mi[[1]], aes(x= PC3, y= PC4, color=Plate, shape=SampType, label = SampleID)) + 
+    geom_point( size = 3)
+
+#look at mean variance realtionship for CPM vs CLR data
+clr.mv <- data.frame(avg = apply(pcaDatc.mi, 1, mean), Var = apply(pcaDatc.mi, 1, var))
+ggplot(clr.mv, aes(x = avg, y = Var)) + geom_point() + geom_smooth()
+
+cpm.mv <- data.frame(avg = apply(pcaDat.mi, 1, mean), Var = apply(pcaDat.mi, 1, var))
+ggplot(cpm.mv, aes(x = avg, y = Var)) + geom_point() + geom_smooth()
+
+
+#use gPCA method to test for remaining batch effects for each method.
+library(gPCA)
+lrawBE <- gPCA.batchdetect(x = t(pcaDatl.mi), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014)
+lrawGpca <- as.data.frame(lrawBE$PCg)
+lrawGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(lrawGpca))
+lrawGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(lrawGpca))
+ggplot(lrawGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on log(Raw) Data") #+ coord_equal()
+
+cpmBE <- gPCA.batchdetect(x = t(pcaDat.mi), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014)
+cpmGpca <- as.data.frame(cpmBE$PCg)
+cpmGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(cpmGpca))
+cpmGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(cpmGpca))
+ggplot(cpmGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on log(CPM) Data") #+ coord_equal()
+
+qnormBE <- gPCA.batchdetect(x = t(pcaDatn.mi), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014)
+qnormGpca <- as.data.frame(qnormBE$PCg)
+qnormGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(qnormGpca))
+qnormGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(qnormGpca))
+ggplot(qnormGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on Quantile Normalized Data") #+ coord_equal()
+
+mnormBE <- gPCA.batchdetect(x = t(pcaDatm.mi), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014, filt = 1000)
+mnormGpca <- as.data.frame(mnormBE$PCg)
+mnormGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(mnormGpca))
+mnormGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(mnormGpca))
+ggplot(mnormGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on Median Normalized Data") #+ coord_equal()
+
+clrBE <- gPCA.batchdetect(x = t(pcaDatc.mi), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014)
+clrGpca <- as.data.frame(clrBE$PCg)
+clrGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(clrGpca))
+clrGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(clrGpca))
+ggplot(clrGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on Median Normalized Data") #+ coord_equal()
+
+#can't really find a batch effect in the miRNA data!
+@
+
+<<Create_miRNA_Batch_Effect, echo = FALSE, message = FALSE>>=
+raw.mi <- data.matrix(raw.w.mi[-c(1:5), which(names(raw.w.mi) %in% annodf.mi$SampleID)])
+
+#create batch matrix
+bmat <- data.frame(row.names = rownames(raw.mi))
+
+for(i in 1:ncol(raw.mi)){
+  if(grepl("228", colnames(raw.mi)[i])){
+    #colvec <- rpois(nrow(raw.mi), lambda = .5*raw.mi[, i]) * runif(nrow(raw.mi), c(-1,1))
+    colvec <- rpois(nrow(raw.mi), lambda = raw.mi[, i])
+  }else{
+    colvec <- rep(0, nrow(raw.mi))
+  }
+  bmat <- cbind(bmat, colvec)
+}
+names(bmat) <- colnames(raw.mi)
+
+bedf <- raw.mi + bmat
+#truncate at 0
+bedf <- apply(bedf, c(1, 2), function(x) if(x<0) x <- 0 else x <- x)
+
+#log transform
+bedfl <- apply(bedf, c(1,2), function(x) log2(x + 1))
+
+pcplotdatl.bedf <- plotPCA(bedfl, annodf.mi, scale = FALSE)
+ggpcal.mi <- ggplot(pcplotdatl.bedf[[1]], aes(x= PC1, y= PC2, color=Plate, shape=SampType)) + 
+    geom_point( size = 3)  + 
+  annotate("text", label = paste0("Cum. proportion of var. = ", round(pcplotdatl.bedf[[2]], 2)), x = 0, y = 0, color = "black") + 
+  coord_equal() + ylim(c(-250, 100)) +
+  ggtitle("log(Raw) Transformed")
+# ggsave("./Paper1/Figures/miRNA_Repro_PCA_log(raw).png", ggpcal.mi, width = 9, height = 8 )
+ggplot(pcplotdatl.bedf[[1]], aes(x= PC1, y= PC3, color=Plate, shape=SampType)) + geom_point( size = 3)
+ggplot(pcplotdatl.bedf[[1]], aes(x= PC2, y= PC3, color=Plate, shape=SampType)) + geom_point( size = 3)
+ggplot(pcplotdatl.bedf[[1]], aes(x= PC2, y= PC4, color=Plate, shape=SampType)) + geom_point( size = 3)
+
+
+lrawBE <- gPCA.batchdetect(x = t(bedfl), as.numeric(factor(annodf.mi$Plate)), center = FALSE, seed = 1014)
+lrawGpca <- as.data.frame(lrawBE$PCg)
+lrawGpca$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_.+", "\\1", rownames(lrawGpca))
+lrawGpca$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d", "\\2", rownames(lrawGpca))
+ggplot(lrawGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = SampType), size= 3) + xlab("gPC1") + ylab("gPC2") + ggtitle("Guided PCA on log(Raw) Data") #+ coord_equal()
 @
 
 
-<<PCA_Biplot_CNTRL_Probes, echo = FALSE, message = FALSE>>=
-#-----Create biplot with ggplot-----#
-nobs.factor <- sqrt(nrow(pca$x) - 1)
-d <- pca$sdev
-u <- sweep(pca$x, 2, 1/(d * nobs.factor), FUN = "*")
-v <- pca$rotation
-#select first two PCs
-df.u <- as.data.frame(sweep(u[, 1:2], 2, c(1,1), FUN = "*"))
-v <- sweep(v, 2, d, FUN = "*")
-df.v <- as.data.frame(v[, 1:2])
-names(df.u) <- c("xvar", "yvar")
-names(df.v) <- names(df.u)
-df.u <- df.u * nobs.factor
-r <- sqrt(qchisq(0.69, df = 2)) * prod(colMeans(df.u^2))^(1/4)
-v.scale <- rowSums(v^2)
-df.v <- r * df.v/sqrt(max(v.scale))
-df.v$Type <- gsub("(\\D{2,4})\\d?.*", "\\1", rownames(df.v))
-df.v$Plate <- substr(as.character(rownames(df.v)), start = nchar(as.character(rownames(df.v))), stop =  nchar(as.character(rownames(df.v))))
-df.v$angle <- with(df.v, (180/pi) * atan(yvar/xvar))
-df.v$hjust = with(df.v, (-.5 * sign(xvar))/2)
+<<Standard_Dev_miRNA, echo = FALSE>>=
+raw.l.mi <- melt(as.matrix(raw.mi))
+names(raw.l.mi) <- c("Probe", "sampleID", "value")
+raw.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", raw.l.mi$sampleID)
+raw.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", raw.l.mi$sampleID)
+raw.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", raw.l.mi$sampleID)
 
-pca.biplot <- ggplot(data = df.u, aes(x = xvar, y = yvar)) + 
-  geom_point() +
-  xlab("Standardized PC 1") + 
-  ylab("Standardized PC 2") + 
-  coord_equal() +
-  xlim(c(-5.5, 8)) + 
-  ylim(c(-5.5, 8)) +
-  geom_segment(data = df.v, aes(x = 0, y = 0, xend = xvar, yend = yvar, color = Plate), 
-               arrow = arrow(length = unit(1/2, "picas"))) +
-  geom_text(data = df.v, 
-            aes(label = rownames(v), x = xvar, y = yvar, angle = angle, hjust = hjust, color = Plate), 
-            size = 3) + 
-  HTGPackage::plotTheme(axis.text.x = element_text()) + 
-  scale_color_discrete("Batch")
+cpm.l.mi <- melt(as.matrix(cpm.stand(raw.mi)))
+names(cpm.l.mi) <- c("Probe", "sampleID", "value")
+cpm.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", cpm.l.mi$sampleID)
+cpm.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", cpm.l.mi$sampleID)
+cpm.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", cpm.l.mi$sampleID)
 
 
+clr.l.mi <- melt(as.matrix(pcaDatc.mi))
+names(clr.l.mi) <- c("Probe", "sampleID", "value")
+clr.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", clr.l.mi$sampleID)
+clr.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", clr.l.mi$sampleID)
+clr.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", clr.l.mi$sampleID)
+
+#get order of probes
+probeAvg <- summarize(group_by(raw.l.mi, Probe, type), avg = mean(value))
+probeAvg.cpm <- summarize(group_by(cpm.l.mi, Probe, type), avg = mean(value))
+
+# brainOrder <- probeAvg[which(probeAvg$type == "Brain"), ]
+# brainOrder <- brainOrder[(order(brainOrder$avg)), ]$Probe
+# 
+# ffpeOrder <- probeAvg[which(probeAvg$type == "FFPE"), ]
+# ffpeOrder <- ffpeOrder[(order(ffpeOrder$avg)), ]$Probe
+# 
+# plasmaOrder <- probeAvg[which(probeAvg$type == "Plasma"), ]
+# plasmaOrder <- plasmaOrder[(order(plasmaOrder$avg)), ]$Probe
+
+#calculate SD
+sd.mi <- summarize(group_by(raw.l.mi, type, Probe), SD = sd(value))
+sd.mi.cpm <- summarize(group_by(cpm.l.mi, type, Probe), SD = sd(value))
+
+cpm.mi <- merge(sd.mi.cpm, probeAvg.cpm, by = c("Probe", "type"))
+
+# brain.sd <- sd.mi[which(sd.mi$type == "Brain"),]
+# brain.sd$Probe <- factor(brain.sd$Probe, levels = brainOrder)
+# 
+# plasma.sd <- sd.mi[which(sd.mi$type == "Plasma"),]
+# plasma.sd$Probe <- factor(plasma.sd$Probe, levels = plasmaOrder)
+# 
+# ffpe.sd <- sd.mi[which(sd.mi$type == "FFPE"),]
+# ffpe.sd$Probe <- factor(ffpe.sd$Probe, levels = ffpeOrder)
+
+ggplot(brain.sd, aes(x = Probe, y = SD)) + geom_point() + theme(axis.text.x = element_blank())
+ggplot(ffpe.sd, aes(x = Probe, y = SD)) + geom_point() 
+ggplot(plasma.sd, aes(x = Probe, y = SD)) + geom_point() 
+
+
+ggplot(cpm.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+min(brain.sd$SD)
 @
-
 
 \end{document}
