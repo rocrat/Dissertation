@@ -16,6 +16,31 @@
   {}
 \endgroup
 
+\entry{Aitchison1986}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Chapman {\&} Hall, Ltd.}%
+  }
+  \keyw{CoDa}
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ1}
+  \field{labelyear}{1986}
+  \field{sortinit}{A}
+  \field{isbn}{0-412-28060-4}
+  \field{title}{{The statistical analysis of compositional data}}
+  \verb{url}
+  \verb http://dl.acm.org/citation.cfm?id=17272
+  \endverb
+  \field{year}{1986}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \entry{Anders2010}{article}{}
   \name{author}{2}{}{%
     {{}%
@@ -49,8 +74,9 @@
   \endverb
   \field{volume}{11}
   \verb{file}
-  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/DESeq.p
-  \verb df:pdf
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Anders, Huber - 2010 - Differential expression analysis
+  \verb  for sequence count data.pdf:pdf
   \endverb
   \field{journaltitle}{Genome Biol}
   \field{year}{2010}
@@ -99,6 +125,65 @@
   \endverb
   \field{journaltitle}{Genome biology}
   \field{year}{2010}
+\endentry
+
+\entry{Wang2009}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Wang}{W.}%
+     {Zhong}{Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gerstein}{G.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Snyder}{S.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Animals,Base Sequence,Chromosome Mapping,Exons,Gene Expression
+  Profiling,Gene Expression Profiling: methods,Genetic,Humans,Models,Molecular
+  Sequence Data,RNA,RNA: analysis,RNA: methods,Sequence Analysis,Transcription}
+  \strng{namehash}{WZGMSM1}
+  \strng{fullhash}{WZGMSM1}
+  \field{labelyear}{2009}
+  \field{sortinit}{W}
+  \field{abstract}{%
+  RNA-Seq is a recently developed approach to transcriptome profiling that uses
+  deep-sequencing technologies. Studies using this method have already altered
+  our view of the extent and complexity of eukaryotic transcriptomes. RNA-Seq
+  also provides a far more precise measurement of levels of transcripts and
+  their isoforms than other methods. This article describes the RNA-Seq
+  approach, the challenges associated with its application, and the advances
+  made so far in characterizing several eukaryote transcriptomes.%
+  }
+  \verb{doi}
+  \verb 10.1038/nrg2484
+  \endverb
+  \verb{eprint}
+  \verb NIHMS150003
+  \endverb
+  \field{isbn}{1471-0064 (Electronic)$\backslash$r1471-0056 (Linking)}
+  \field{issn}{1471-0064}
+  \field{number}{1}
+  \field{pages}{57\bibrangedash 63}
+  \field{title}{{RNA-Seq: a revolutionary tool for transcriptomics.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/19015660
+  \endverb
+  \field{volume}{10}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/RNASeq/
+  \verb Wang, Gerstein, and Snyder (2009) RNA-Seq a revolutionary tool for tran
+  \verb scriptomics.pdf:pdf
+  \endverb
+  \field{journaltitle}{Nature reviews. Genetics}
+  \field{eprinttype}{arXiv}
+  \field{year}{2009}
 \endentry
 
 \lossort

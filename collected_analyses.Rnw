@@ -32,7 +32,6 @@ quantile_normalisation <- function(df){
   return(df_final)
 }
 cpm.stand <- function(x){
-  # browser()
   if(any(apply(x, 2, function(y) any(is.na(y))))) stop("No NA's are allowed in the data matrix")
   totals <- apply(x, 2, sum)+1
   x2 <- x+.5
@@ -174,7 +173,6 @@ rownames(dfnorm) <- make.names(plate2[2:4, ]$Sample.Name)
 
 
 getTots <- function(x){#use t-list
-  browser()
   df <- as.data.frame(t(x))
   df$row <- gsub("(\\w{1})(\\d{1,2})$", "\\1", df$Well)
   df$column <- gsub("(\\w{1})(\\d{1,2})$", "\\2", df$Well)
@@ -861,12 +859,12 @@ ggplot(lrawGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = Sa
 @
 
 
-<<Standard_Dev_miRNA, echo = FALSE>>=
-raw.l.mi <- melt(as.matrix(raw.mi))
-names(raw.l.mi) <- c("Probe", "sampleID", "value")
-raw.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", raw.l.mi$sampleID)
-raw.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", raw.l.mi$sampleID)
-raw.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", raw.l.mi$sampleID)
+<<Mean_SD_Plot_miRNA, echo = FALSE>>=
+# raw.l.mi <- melt(as.matrix(raw.mi))
+# names(raw.l.mi) <- c("Probe", "sampleID", "value")
+# raw.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", raw.l.mi$sampleID)
+# raw.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", raw.l.mi$sampleID)
+# raw.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", raw.l.mi$sampleID)
 
 cpm.l.mi <- melt(as.matrix(cpm.stand(raw.mi)))
 names(cpm.l.mi) <- c("Probe", "sampleID", "value")
@@ -874,16 +872,27 @@ cpm.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", cpm.l.mi$s
 cpm.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", cpm.l.mi$sampleID)
 cpm.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", cpm.l.mi$sampleID)
 
+alr.mi <- as.data.frame(t(alr(acomp(t(raw.mi), detectionlimit = 0), ivar = 6)))
+alr.l.mi <- melt(as.matrix(alr.mi))
+names(alr.l.mi) <- c("Probe", "sampleID", "value")
+alr.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", alr.l.mi$sampleID)
+alr.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", alr.l.mi$sampleID)
+alr.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", alr.l.mi$sampleID)
+#Change -inf to 0 (same as adding 1 to 0 before log-transform)
+alr.l.mi$value <- ifelse(!is.finite(alr.l.mi$value), 0 , alr.l.mi$value)
 
-clr.l.mi <- melt(as.matrix(pcaDatc.mi))
+clr.mi <- apply(raw.mi, c(1,2), function(x) x + 1 )
+clr.mi <- as.data.frame(t(clr(acomp(t(clr.mi)))))
+clr.l.mi <- melt(as.matrix(clr.mi))
 names(clr.l.mi) <- c("Probe", "sampleID", "value")
 clr.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", clr.l.mi$sampleID)
 clr.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", clr.l.mi$sampleID)
 clr.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", clr.l.mi$sampleID)
 
 #get order of probes
-probeAvg <- summarize(group_by(raw.l.mi, Probe, type), avg = mean(value))
-probeAvg.cpm <- summarize(group_by(cpm.l.mi, Probe, type), avg = mean(value))
+# probeAvg. <- summarize(group_by(raw.l.mi, Probe, type), avg = mean(value))
+probeAvg.cpm.mi <- summarize(group_by(cpm.l.mi, Probe, type), avg = mean(value))
+probeAvg.clr.mi <- summarize(group_by(clr.l.mi, Probe, type), avg = mean(value))
 
 # brainOrder <- probeAvg[which(probeAvg$type == "Brain"), ]
 # brainOrder <- brainOrder[(order(brainOrder$avg)), ]$Probe
@@ -895,10 +904,14 @@ probeAvg.cpm <- summarize(group_by(cpm.l.mi, Probe, type), avg = mean(value))
 # plasmaOrder <- plasmaOrder[(order(plasmaOrder$avg)), ]$Probe
 
 #calculate SD
-sd.mi <- summarize(group_by(raw.l.mi, type, Probe), SD = sd(value))
+# sd.mi <- summarize(group_by(raw.l.mi, type, Probe), SD = sd(value))
 sd.mi.cpm <- summarize(group_by(cpm.l.mi, type, Probe), SD = sd(value))
 
-cpm.mi <- merge(sd.mi.cpm, probeAvg.cpm, by = c("Probe", "type"))
+cpm.mi <- merge(sd.mi.cpm, probeAvg.cpm.mi, by = c("Probe", "type"))
+
+sd.mi.clr <- summarize(group_by(clr.l.mi, type, Probe), SD = sd(value))
+
+clr.mi <- merge(sd.mi.clr, probeAvg.clr.mi, by = c("Probe", "type"))
 
 # brain.sd <- sd.mi[which(sd.mi$type == "Brain"),]
 # brain.sd$Probe <- factor(brain.sd$Probe, levels = brainOrder)
@@ -909,13 +922,40 @@ cpm.mi <- merge(sd.mi.cpm, probeAvg.cpm, by = c("Probe", "type"))
 # ffpe.sd <- sd.mi[which(sd.mi$type == "FFPE"),]
 # ffpe.sd$Probe <- factor(ffpe.sd$Probe, levels = ffpeOrder)
 
-ggplot(brain.sd, aes(x = Probe, y = SD)) + geom_point() + theme(axis.text.x = element_blank())
-ggplot(ffpe.sd, aes(x = Probe, y = SD)) + geom_point() 
-ggplot(plasma.sd, aes(x = Probe, y = SD)) + geom_point() 
+# ggplot(brain.sd, aes(x = Probe, y = SD)) + geom_point() + theme(axis.text.x = element_blank())
+# ggplot(ffpe.sd, aes(x = Probe, y = SD)) + geom_point() 
+# ggplot(plasma.sd, aes(x = Probe, y = SD)) + geom_point() 
 
 
-ggplot(cpm.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
-min(brain.sd$SD)
+cpm.mi.meanVar <- ggplot(cpm.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+ggsave("./Paper1/Figures/miRNA_mean_variance_CPM.png", cpm.mi.meanVar, width = 8, height = 8 )
+
+clr.mi.meanVar <- ggplot(clr.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of Augmented CLR Values") + xlab("Average Expression of Probe (Augmented CLR)")
+ggsave("./Paper1/Figures/miRNA_mean_variance_AugmentedCLR.png", clr.mi.meanVar, width = 8, height = 8 )
+
+cpm.mi.meanVar.ffpe <- ggplot(cpm.mi[which(cpm.mi$type =="FFPE"),], aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+ggsave("./Paper1/Figures/miRNA_FFPE_mean_variance_CPM.png", cpm.mi.meanVar.ffpe, width = 8, height = 8 )
+
+cpm.mi.meanVar.brain <- ggplot(cpm.mi[which(cpm.mi$type =="Brain"),], aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+ggsave("./Paper1/Figures/miRNA_Brain_mean_variance_CPM.png", cpm.mi.meanVar.brain, width = 8, height = 8 )
+
+cpm.mi.meanVar.plasma <- ggplot(cpm.mi[which(cpm.mi$type =="Plasma"),], aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+ggsave("./Paper1/Figures/miRNA_Plasma_mean_variance_CPM.png", cpm.mi.meanVar.plasma, width = 8, height = 8 )
+
+@
+
+<<Mean_SD_Plot_IO, echo = FALSE>>=
+cpm.l.io <- melt(as.matrix(cpm.stand(pcaDat)))
+names(cpm.l.io) <- c("Probe", "sampleID", "value")
+cpm.l.io$proc <- gsub("^uRNA\\_(\\w+)\\_(P\\d{2})\\_(R\\d{1,2})$", "\\2", cpm.l.io$sampleID)
+cpm.l.io$day <- gsub("^uRNA\\_(\\w+)\\_(P\\d{2})\\_(R\\d{1,2})$", "\\1", cpm.l.io$sampleID)
+cpm.l.io$rep <- gsub("^uRNA\\_(\\w+)\\_(P\\d{2})\\_(R\\d{1,2})$", "\\3", cpm.l.io$sampleID)
+
+cpm.l.io$day <- ifelse(grepl("25ng", cpm.l.io$day), "D1", cpm.l.io$day)
+
+cpm.io.sd <- summarize(group_by(cpm.l.io, Probe), SD = sd(value), avg = mean(value))
+cpm.io.meanVar <- ggplot(cpm.io.sd, aes(x = avg, y = SD)) + geom_point() + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
+ggsave("./Paper1/Figures/IO_repro_mean_variance_CPM.png", cpm.io.meanVar, width = 8, height = 8 )
 @
 
 \end{document}

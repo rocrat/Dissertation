@@ -5,7 +5,7 @@
 \addbibresource{mybib.bib}
 \usepackage{amsmath}
 
-\title{Dissertation Proposal:\\ Methods for the Analysis of Compositonal RNA Sequence Data}
+\title{Dissertation Proposal:\\ Methods for the Analysis of Compositional RNA Sequence Data}
 \author{Dominic D LaRoche}
 
 \begin{document}
@@ -16,7 +16,7 @@
 
 \section{RNA Sequencing Data}
 %General information about RNA sequence data: where it comes from and how people use it.
-Ribonucleic acid (RNA) plays many important roles in the funciton of cells including gene transciption and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer subtypes and identify news genes for interrogation in the investigation of a disease.  Investiagitons of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiement and has been rapidly adopted by scientists \cite{CITEHERE}.  The current research is restricted to the analysis RNA-Seq data and the unique analytical challenges it creates.
+Ribonucleic acid (RNA) plays many important roles in the function of cells including gene transcription and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer sub-types and identify news genes for interrogation in the investigation of a disease.  Investigations of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiment and has been rapidly adopted by scientists \cite{CITEHERE}.  The current research is restricted to the analysis RNA-Seq data and the unique analytical challenges it creates.
 
 \subsection{RNA Sequencing Technology}
 Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994;Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{}   
@@ -34,15 +34,15 @@ Several general sequence-based methods exist to quantify RNA from a eukaryotic s
 
 
 \section{Principles of Compositional Data Analysis}
-Compositional data are non-negative data which are subject to a sum constraint, i.e. all the elements must sum to unity.  This simple constraint has some important consequences for many standard statistical methodologies including correlation and regression.  Compositional data contain only relative information, i.e. the information about any individual component, or group of componenets, is relative to the other components and no absolute information about the absolute value of the component.  For example, if we know that 20\% of the food in a refigerator is composed of fruit we do not know how much total fruit there is.  If the refigerator is full then there will be substantially more fruit than if the refigerator is nearly empty.  It is, therefore, important to recognize the types of inferences that can be made from compositional data, e.g. no inference can be made on the actual abundances.\\
+Compositional data are non-negative data which are subject to a sum constraint, i.e. all the elements must sum to unity.  This simple constraint has some important consequences for many standard statistical methodologies including correlation and regression.  Compositional data contain only relative information, i.e. the information about any individual component, or group of components, is relative to the other components and no absolute information about the absolute value of the component.  For example, if we know that 20\% of the food in a refrigerator is composed of fruit we do not know how much total fruit there is.  If the refrigerator is full then there will be substantially more fruit than if the refrigerator is nearly empty.  It is, therefore, important to recognize the types of inferences that can be made from compositional data, e.g. no inference can be made on the actual abundances.\\
 
-Potential problems associated with compositional data were identified as early as 1897 by Pearson who noted that spurious correlations can be induced through ratios of independent variables, e.g. if $X$, $Y$, and $Z$ are uncorrelated then $X/Z$ and $Y/Z$ will be correlated. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compostional data analysis (section~\ref{subsec:fund}) and provides some analysis tools for compositional data which conform to these principles (section~\ref{subsec:methods}).  Additional methodology has been developed by a number of authors in the 29 years since the publication of Aitchison's book, although a number of problems remain. 
+Potential problems associated with compositional data were identified as early as 1897 by Pearson who noted that spurious correlations can be induced through ratios of independent variables, e.g. if $X$, $Y$, and $Z$ are uncorrelated then $X/Z$ and $Y/Z$ will be correlated. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compositional data analysis (section~\ref{subsec:fund}) and provides some analysis tools for compositional data which conform to these principles (section~\ref{subsec:methods}).  Additional methodology has been developed by a number of authors in the 29 years since the publication of Aitchison's book, although a number of problems remain. 
 
 %Perhaps the most important aspect of compositional data are the inferences that can be drawn from it...
 
 \subsection{Fundamental Principles}
 \label{subsec:fund}
-Aitchison outlined a set of fundamental principles to which all methods for compostional data should adhere (\cite{Aitchison1986}).  These principles are outlined below.
+Aitchison outlined a set of fundamental principles to which all methods for compositional data should adhere (\cite{Aitchison1986}).  These principles are outlined below.
 
 \subsubsection{Scale Invariance}
 Scale invariance requires that the results of a statistical procedure should not depend on the scale used.  Any meaningful function $x$ of a composition $w$ must satisfy:
@@ -51,12 +51,12 @@ $$f(pw) = f(w) \text{, for every }p>0.$$
 
 Aitchison notes that any meaningful (scale-invariant) function of a composition can be expressed in terms of ratios of the components of the composition.  For example, any method used for compositional data should not give different results whether the composition is given as proportions, percentages, parts per million, or any other scale.\\
 
-\subsubsection{Sub-compositional Coherance}
-Sub-compositional coherance requires that the results of a statistical procedure on a subset of componenets from a composition should depend only on the data contained in that subset.  A subcomposition is defined as the (1, 2, ..., $C$) parts of a $D$-part composition $\left[x_1, ..., x_D\right]$:
+\subsubsection{Sub-compositional Coherence}
+Sub-compositional coherence requires that the results of a statistical procedure on a subset of components from a composition should depend only on the data contained in that subset.  A sub-composition is defined as the (1, 2, ..., $C$) parts of a $D$-part composition $\left[x_1, ..., x_D\right]$:
 
 $$\left[s_1, ..., s_c\right]=\frac{\left[x_1, ..., x_c\right]}{\left(x_1 + ... + x_c\right)}$$
 
-Any changes in components $\left[x_{c+1}, ..., x_D\right]$ should not have an impact on the inference from the subcomposition.  For example, if we measure the number of reads of 14 mRNA sequences from a sample that contains 4,000 unique mRNA sequences the inference we obtain from those 14 sequences should not be affected by the expression level of any of the other 4,000 sequences.\\ 
+Any changes in components $\left[x_{c+1}, ..., x_D\right]$ should not have an impact on the inference from the sub-composition.  For example, if we measure the number of reads of 14 mRNA sequences from a sample that contains 4,000 unique mRNA sequences the inference we obtain from those 14 sequences should not be affected by the expression level of any of the other 4,000 sequences.\\ 
 
 \subsubsection{Permutation Invariance}
 Permutation invariance requires that the results of a statistical procedure should not depend on the ordering of the components. 
@@ -67,13 +67,13 @@ Permutation invariance requires that the results of a statistical procedure shou
 \subsubsection{The Simplex}
 Traditional statistics is concerned with making inferences from points in $R^D$.  However, the sample space for compositions is restricted to the \emph{Simplex}, $S^D$ because of the sum constraint.  This fundamental difference in sample space necessitates an alternative methodology and renders inference from traditional regression and correlation meaningless.  Aitchison (1986) developed much of the current methodology for compositional data through careful examination of the algebraic-geometric structure of the simplex.\\
 
-It is typical to transform compostional data to the \emph{unit simplex} by dividing each component by the sum of components such that the sum of transformed components is equal to 1: 
+It is typical to transform compositional data to the \emph{unit simplex} by dividing each component by the sum of components such that the sum of transformed components is equal to 1: 
 
 $$C\left[ x_1 ... x_d \right] = \left[ x_1 ... x_d \right]/ \sum_{i=1}^D x_i$$
 
 The notation $C[\cdot]$ is termed the \emph{closure operation} and scales a composition x to the unit simplex.
 %use the unit simplex throughout?
-There are two fundmental operations frequently used in $R^D$ for which Aitchison defined equivalent operations in the simplex: 1) translation, and 2) scalar multiplication.  \\
+There are two fundamental operations frequently used in $R^D$ for which Aitchison defined equivalent operations in the simplex: 1) translation, and 2) scalar multiplication.  \\
 
 
 \subsubsection{Perturbations}
@@ -104,21 +104,39 @@ $$ x= \Upsilon \oplus \left\{ log v \otimes \beta \right\} \oplus p.$$
 
 In this formulation $\beta$ is composition analogous to regression coefficients and $p$ is a perturbation analogous to an error term in regression.
 
-\subsubsection{Logratio Analysis}
+\subsubsection{Log-ratio Analysis}
 
-In order to satisfy the scale invariance of compositional data it is typical to work on ratios of the components.  Furthermor, since the sample space of ratios of positive numbers is not in the whole of real numbers, it is typcial to work in the logarithms of ratios.  The log-ratio transformation maps the composition to the whole of real numbers  Three popular transformation exist for a $D$-part composition: 1) additive log-ratio, 2) centered log-ratio, and 3) ilr. The alr transformation is defined as:
+In order to satisfy the scale invariance of compositional data it is typical to work on ratios of the components.  Furthermore, since the sample space of ratios of positive numbers is not in the whole of real numbers, it is typical to work in the logarithms of ratios.  The log-ratio transformation maps the composition to the whole of real numbers  Three popular transformation exist for a $D$-part composition: 1) additive log-ratio, 2) centered log-ratio, and 3) ilr. The alr transformation is defined as:
 
-$$alr(x) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_D})]$$
+$$alr(X) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_D})]$$
 
-and reduces the dimension of the compositional vector from $D \rightarrow D-1$. The choice of divisor does not impact the inference made from the data \cite{Aitchison1986}.  Moreover, since the transformation is 1:1, inferences on the ratios can be made back to the parts of the composition.\\
+and reduces the dimension of the compositional vector from $D \rightarrow D-1$. The choice of divisor does not impact the inference made from the data (\cite{Aitchison1986}), although the divisor must be reliably greater than 0 in all measurements.  Moreover, since the transformation is 1:1, inferences on the ratios can be made back to the parts of the composition.  Parts of the composition with 0 values will return $log(0/x_D) = log(0) = -\infty$.  While this preserves the rank order of the magnitudes of the components it is not useful in application.\\
 
-Since the alr transformation reduces the dimension of the compositional vector some prefer to use the \emph{centered log-ratio} tranformation (\emph{clr}).  The clr is defined as:
+Since the alr transformation reduces the dimension of the compositional vector and does not treat all elements of the composition equally, Aitchison proposed the \emph{centered log-ratio} transformation (\emph{clr}).  The clr is defined as:
 
-$$clr(x) = [log\left( \frac{x_1}{g(x)}\right),\ ...\ ,log\left(\frac{x_D}{g(x)}\right)],$$
+$$clr(X) = [log\left( \frac{x_1}{g(x)}\right),\ ...\ ,log\left(\frac{x_D}{g(x)}\right)],$$
 
-where $g(x)$ is the geometric mean of $X$.  The clr transformation takes $S^D \rightarrow U^D$, where $U^D$ is a hyperplane of $R^D$.
+where $g(x)$ is the geometric mean of $X$.  The clr transformation takes $S^D \rightarrow U^D$, where $U^D$ is a hyper-plane of $R^D$, thereby preserving the dimension of $X$ and providing symmetric treatment of all elements of $X$.  The CLR transformation will fail if any $x_i$ is equal to 0. This is because the geometric mean, defined as $g(x) = \left(\prod_{i=1}^D x_i \right)^{1/D}$, will equal 0.  The CLR will then become, 
+
+$$clr(x) = log\left( \frac{x_1}{0}\right) = log(x_1) - log(0) = log(x_1) + \infty .$$
+
+For any $x_i > 0$,
+$$clr(x_i) = log(x_i) + \infty = \infty$$
+whereas for any $x_i = 0$,
+$$clr(x_i) = log(0) + \infty = -\infty + \infty,$$
+which is indeterminate.  Both log-ratio transformations proposed by Aitchison fail to accommodate zeros so various mechanisms have been proposed for handling zeros while maintaining the essential properties of compositional data analysis (see section \ref{sec:zeros}).\\ 
+ 
+
 %alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
 %look into 'compositional independence'
+\subsubsection{Zeros and Missing Components}
+\label{sec:zeros}
+Many compositional methods do not work with missing values, or zeros, such as the ALR or CLR transformations as noted above.  Because of this, several strategies for handling missing values and zeros through imputation have been proposed.  Missing values are classified into missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR).  These classifications have the same definitions as their non-compositional counterparts. However, imputation methods for non-compositional data are not immediately applicable due to the lack of independence between the components.  Missing values, in the traditional sense, are not typical for RNA-seq data so I do not elaborate on these methods here instead focusing on the handling of zeros.\\
+
+In RNA-seq data zeros can arise in the data for multiple reasons.  If reads for a probe cannot exist because of known reasons, e.g. an exogenous negative control, then a 0 for this probe would be considered a \emph{structural zero}.  If a probe is assigned 0 reads for a sample because that gene is not expressed in the sample then this would be a \emph{true zero}. Finally, if a probe is assigned 0 reads for a sample because it has very low expression, then this would be considered \emph{Below Detection Limit} (BDL).  For many RNA-seq technologies there is no way to differentiate between true zeros and BDL zeros in practice as it is impossible to know if increasing the read-depth would eventually result in detection of reads for a gene.\\
+
+Aitchison (1986) proposes several approaches to dealing with zeros in the absence of a one-to-one monotonic transformation which accommodates zeros: amalgamation, imputation with a constant, addition of a constant to every observation, replacing the log-ratio transformation with a modified Box-Cox transformation, and a conditional model which explicitly models the probability of a component having a 0 proportion.\\
+
 
 
 
@@ -127,6 +145,9 @@ where $g(x)$ is the geometric mean of $X$.  The clr transformation takes $S^D \r
 %The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
 \subsection{Normalization}
 Previous authors have identified the compositional nature of RNA sequencing data (\cite{Robinson2010}).  As stated previously, RNA sequence data are likely subject to two sum constraints: 1) the number of RNA sequences that can fit into the finite sample collected, and 2) the number of available reads of those sequences for the given sequencing technology.  %can both of these exist simultaneously? 
+\subsubsection{Counts per Million (CPM) Transformation}
+The Counts per Million (CPM) transformation is 
+
 \subsubsection{Median Normalization}
 
 
@@ -139,7 +160,7 @@ where $Y_{gk}$ is the read count for gene $g$ in sample $k$ (here we assume 1 li
 
 $$A_g = \frac{1}{2}log_2\left(Y_{gk}/N_k \cdot Y_{gk\prime}/N_{k\prime} \right)\text{ for }Y_{g\bullet} \ne 0,$$
 
-assuming the absolute expression level is the same for the two samples.  Both the $M$-values and $A$-values are timmed removing the upper and lower 30\% of the $M$-values and the upper and lower 5\% of the $A$-values (although these values are defaults and can be tailored for a given experiment).  The resulting normalization factor for sample $k$ is then a weighted average of the $M$-values:
+assuming the absolute expression level is the same for the two samples.  Both the $M$-values and $A$-values are trimmed removing the upper and lower 30\% of the $M$-values and the upper and lower 5\% of the $A$-values (although these values are defaults and can be tailored for a given experiment).  The resulting normalization factor for sample $k$ is then a weighted average of the $M$-values:
 
 $$log2\left( TMM_k^r \right) = \frac{ \sum_{g \in G} w^r_{gk}M^r_{gk}}{\sum_{g \in G} w^r_{gk}}$$
 
@@ -155,11 +176,11 @@ The weights are a result of taking the inverse of the approximate asymptotic var
 
 The TMM normalization method attempts to derive a single value, $f$, such that $S_k = f \cdot S_{k\prime}$, where $S_k$ is the (unobserved) total count for sample $k$.  Unfortunately, this does not adequately account for the compositional nature of the data.  In particular, the authors assume that the expression levels will be the same among samples for the majority of genes (probes).  However, if we view the data as a composition, even if only a small number of genes differ with respect to expression level then all of the probes will differ with respect to what we actually observe, their \emph{proportion} of the sample. The authors correctly identify that some probes will be under-represented, even if their absolute expression remains unchanged, in samples with a large total RNA output as compared to samples with a smaller total RNA output.  This is because these probes will constitute a smaller proportion of the total number of reads, even if the absolute number will not have changed.\\
 
-The authors do not explicitly reference Atichison, or any other compositional data publications, but their method relies heavily on these methods.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$). The full set of M-values calculated from these compositions represent the pertubation, $p$ from a reference sample to another.  However, the M-values are trimmed so $p$ is incomplete and we are now in a subcompositional sample space.  The assumption that most genes are not differentially expressed leads to the authors to use a weighted average of the M-values ($p_i$'s) to determine a single correction factor which can translate one composition to another.  This method, therefore, then assumes $p_i = p_j$ for \emph{most} of the genes $i$ and $j$ in the trimmed set.  \\
+The authors do not explicitly reference Aitchison, or any other compositional data publications, but their method relies heavily on these methods.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$). The full set of M-values calculated from these compositions represent the perturbation, $p$ from a reference sample to another.  However, the M-values are trimmed so $p$ is incomplete and we are now in a subcompositional sample space.  The assumption that most genes are not differentially expressed leads to the authors to use a weighted average of the M-values ($p_i$'s) to determine a single correction factor which can translate one composition to another.  This method, therefore, then assumes $p_i = p_j$ for \emph{most} of the genes $i$ and $j$ in the trimmed set.  \\
 
 The authors fail to formulate the problem in terms of the components of a composition, instead, believing that inferences can still be made on absolute abundances.  This is clearly evidenced in their definition of the $A_g$'s, which they term the `absolute abundances' for each gene in the sample.  As stated in section \ref{sec:rnaSampProp}, it is very likely that RNA sequence data is compositional in nature and, as such, inferences on the absolute abundances are not possible.\\
 
-TMM normalization is not guaranteed to satisfy subcompositional coherance.  This is because changes in the counts of unmeasured genes can alter the... .  
+TMM normalization is not guaranteed to satisfy subcompositional coherence.  This is because changes in the counts of unmeasured genes can alter the... .  
 
 %toy example here?
 
