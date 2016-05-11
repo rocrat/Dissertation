@@ -860,11 +860,11 @@ ggplot(lrawGpca, aes(x = V1, y = V2)) + geom_point(aes(color = Plate, shape = Sa
 
 
 <<Mean_SD_Plot_miRNA, echo = FALSE>>=
-# raw.l.mi <- melt(as.matrix(raw.mi))
-# names(raw.l.mi) <- c("Probe", "sampleID", "value")
-# raw.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", raw.l.mi$sampleID)
-# raw.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", raw.l.mi$sampleID)
-# raw.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", raw.l.mi$sampleID)
+raw.l.mi <- melt(as.matrix(apply(raw.mi, c(1,2), function(x) log2(x + 1))))
+names(raw.l.mi) <- c("Probe", "sampleID", "value")
+raw.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", raw.l.mi$sampleID)
+raw.l.mi$type <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\2", raw.l.mi$sampleID)
+raw.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", raw.l.mi$sampleID)
 
 cpm.l.mi <- melt(as.matrix(cpm.stand(raw.mi)))
 names(cpm.l.mi) <- c("Probe", "sampleID", "value")
@@ -881,8 +881,17 @@ alr.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", alr.l.mi$sam
 #Change -inf to 0 (same as adding 1 to 0 before log-transform)
 alr.l.mi$value <- ifelse(!is.finite(alr.l.mi$value), 0 , alr.l.mi$value)
 
-clr.mi <- apply(raw.mi, c(1,2), function(x) x + 1 )
-clr.mi <- as.data.frame(t(clr(acomp(t(clr.mi)))))
+#define the Martin-Fernandez zero transformation (2000)
+MFtrans <- function(x){
+  delta <- 0.55/sum(x)# .55 times the smallest detectable value (1 read) after closure
+  tdelta <- sum(x == 0) * delta
+  cx <- clo(x)
+  cxt <- ifelse(cx == 0, delta, cx * (1-tdelta))
+  ccxt <- clr(cxt)
+  return(ccxt)
+} 
+
+clr.mi <- apply(raw.mi, 2, FUN = MFtrans )
 clr.l.mi <- melt(as.matrix(clr.mi))
 names(clr.l.mi) <- c("Probe", "sampleID", "value")
 clr.l.mi$plate <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\1", clr.l.mi$sampleID)
@@ -893,6 +902,7 @@ clr.l.mi$rep <- gsub("^(run\\d{3})\\.(\\w+)\\_(\\d)\\_\\d$", "\\3", clr.l.mi$sam
 # probeAvg. <- summarize(group_by(raw.l.mi, Probe, type), avg = mean(value))
 probeAvg.cpm.mi <- summarize(group_by(cpm.l.mi, Probe, type), avg = mean(value))
 probeAvg.clr.mi <- summarize(group_by(clr.l.mi, Probe, type), avg = mean(value))
+probeAvg.raw.mi <- summarize(group_by(raw.l.mi, Probe, type), avg = mean(value))
 
 # brainOrder <- probeAvg[which(probeAvg$type == "Brain"), ]
 # brainOrder <- brainOrder[(order(brainOrder$avg)), ]$Probe
@@ -906,12 +916,13 @@ probeAvg.clr.mi <- summarize(group_by(clr.l.mi, Probe, type), avg = mean(value))
 #calculate SD
 # sd.mi <- summarize(group_by(raw.l.mi, type, Probe), SD = sd(value))
 sd.mi.cpm <- summarize(group_by(cpm.l.mi, type, Probe), SD = sd(value))
-
 cpm.mi <- merge(sd.mi.cpm, probeAvg.cpm.mi, by = c("Probe", "type"))
 
 sd.mi.clr <- summarize(group_by(clr.l.mi, type, Probe), SD = sd(value))
-
 clr.mi <- merge(sd.mi.clr, probeAvg.clr.mi, by = c("Probe", "type"))
+
+sd.mi.raw <- summarize(group_by(raw.l.mi, type, Probe), SD = sd(value))
+raw.mi <- merge(sd.mi.raw, probeAvg.raw.mi, by = c("Probe", "type"))
 
 # brain.sd <- sd.mi[which(sd.mi$type == "Brain"),]
 # brain.sd$Probe <- factor(brain.sd$Probe, levels = brainOrder)
@@ -929,6 +940,9 @@ clr.mi <- merge(sd.mi.clr, probeAvg.clr.mi, by = c("Probe", "type"))
 
 cpm.mi.meanVar <- ggplot(cpm.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(CPM) Values") + xlab("Average Expression of Probe (log2(CPM))")
 ggsave("./Paper1/Figures/miRNA_mean_variance_CPM.png", cpm.mi.meanVar, width = 8, height = 8 )
+
+raw.mi.meanVar <- ggplot(raw.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of log2(Count) Values") + xlab("Average Expression of Probe (log2(Count))")
+ggsave("./Paper1/Figures/miRNA_mean_variance_RAW.png", raw.mi.meanVar, width = 8, height = 8 )
 
 clr.mi.meanVar <- ggplot(clr.mi, aes(x = avg, y = SD)) + geom_point() + facet_wrap(~type, ncol = 1) + ylab("Standard Deviation of Augmented CLR Values") + xlab("Average Expression of Probe (Augmented CLR)")
 ggsave("./Paper1/Figures/miRNA_mean_variance_AugmentedCLR.png", clr.mi.meanVar, width = 8, height = 8 )

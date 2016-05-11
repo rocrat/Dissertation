@@ -108,13 +108,16 @@ In this formulation $\beta$ is composition analogous to regression coefficients 
 
 In order to satisfy the scale invariance of compositional data it is typical to work on ratios of the components.  Furthermore, since the sample space of ratios of positive numbers is not in the whole of real numbers, it is typical to work in the logarithms of ratios.  The log-ratio transformation maps the composition to the whole of real numbers  Three popular transformation exist for a $D$-part composition: 1) additive log-ratio, 2) centered log-ratio, and 3) ilr. The alr transformation is defined as:
 
-$$alr(X) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_D})]$$
+\begin{equation}
+alr(X) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_D})]
+\end{equation}
 
 and reduces the dimension of the compositional vector from $D \rightarrow D-1$. The choice of divisor does not impact the inference made from the data (\cite{Aitchison1986}), although the divisor must be reliably greater than 0 in all measurements.  Moreover, since the transformation is 1:1, inferences on the ratios can be made back to the parts of the composition.  Parts of the composition with 0 values will return $log(0/x_D) = log(0) = -\infty$.  While this preserves the rank order of the magnitudes of the components it is not useful in application.\\
 
 Since the alr transformation reduces the dimension of the compositional vector and does not treat all elements of the composition equally, Aitchison proposed the \emph{centered log-ratio} transformation (\emph{clr}).  The clr is defined as:
-
-$$clr(X) = [log\left( \frac{x_1}{g(x)}\right),\ ...\ ,log\left(\frac{x_D}{g(x)}\right)],$$
+\begin{equation}
+clr(X) = [log\left( \frac{x_1}{g(x)}\right),\ ...\ ,log\left(\frac{x_D}{g(x)}\right)],
+\end{equation}
 
 where $g(x)$ is the geometric mean of $X$.  The clr transformation takes $S^D \rightarrow U^D$, where $U^D$ is a hyper-plane of $R^D$, thereby preserving the dimension of $X$ and providing symmetric treatment of all elements of $X$.  The CLR transformation will fail if any $x_i$ is equal to 0. This is because the geometric mean, defined as $g(x) = \left(\prod_{i=1}^D x_i \right)^{1/D}$, will equal 0.  The CLR will then become, 
 
@@ -133,12 +136,29 @@ which is indeterminate.  Both log-ratio transformations proposed by Aitchison fa
 \label{sec:zeros}
 Many compositional methods do not work with missing values, or zeros, such as the ALR or CLR transformations as noted above.  Because of this, several strategies for handling missing values and zeros through imputation have been proposed.  Missing values are classified into missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR).  These classifications have the same definitions as their non-compositional counterparts. However, imputation methods for non-compositional data are not immediately applicable due to the lack of independence between the components.  Missing values, in the traditional sense, are not typical for RNA-seq data so I do not elaborate on these methods here instead focusing on the handling of zeros.\\
 
-In RNA-seq data zeros can arise in the data for multiple reasons.  If reads for a probe cannot exist because of known reasons, e.g. an exogenous negative control, then a 0 for this probe would be considered a \emph{structural zero}.  If a probe is assigned 0 reads for a sample because that gene is not expressed in the sample then this would be a \emph{true zero}. Finally, if a probe is assigned 0 reads for a sample because it has very low expression, then this would be considered \emph{Below Detection Limit} (BDL).  For many RNA-seq technologies there is no way to differentiate between true zeros and BDL zeros in practice as it is impossible to know if increasing the read-depth would eventually result in detection of reads for a gene.\\
+In RNA-seq data, zeros can naturally arise for multiple reasons.  If reads for a probe cannot exist because of known reasons, e.g. an exogenous negative control, then a 0 for this probe would be considered a \emph{structural zero}.  If a probe is assigned 0 reads for a sample because that gene is not expressed in the sample then this would be a \emph{true zero}. Finally, if a probe is assigned 0 reads for a sample because it has very low expression, then this would be considered \emph{Below Detection Limit} (BDL).  For many RNA-seq technologies there is no way to differentiate between true zeros and BDL zeros in practice as it is impossible to know if increasing the read-depth would eventually result in detection of reads for a gene.\\
 
-Aitchison (1986) proposes several approaches to dealing with zeros in the absence of a one-to-one monotonic transformation which accommodates zeros: amalgamation, imputation with a constant, addition of a constant to every observation, replacing the log-ratio transformation with a modified Box-Cox transformation, and a conditional model which explicitly models the probability of a component having a 0 proportion.\\
+Aitchison (1986) proposes several approaches to dealing with zeros in the absence of a one-to-one monotonic transformation which accommodates zeros: amalgamation, imputation with a constant, addition of a constant to every observation, replacing the log-ratio transformation with a modified Box-Cox transformation, and a conditional model which explicitly models the probability of a component having a 0 proportion.  Amalgamation, model-based imputation, and conditional models may all be good solutions for particular analyses goals and data sets but are difficult or impossible to apply universally to individual samples, a necessary requirement for clinical utility.\\
 
 
+The addition of a constant to every observation (as in the case of the Law et al. (2014) \emph{voom} transformation) is a tempting option for its simplicity and ease of implementation for individual samples.  However, this additive transofrmation alters the proportionality within a composition i.e. the ratio $\frac{a}{b} \ne \frac{a+c}{b+c}\ \forall a, b, c \ne 0$.  For the CLR transformation the addition of a constant, $c$ to every observation will reduce the variation in the clr transformed data as can be seen in the limit as $c \rightarrow \infty$, through repeated applications of l'Hopital's rule, it can be shown that:
+$$lim_{c \rightarrow \infty} \frac{x_i + c}{\left(\prod_{i=1}^D (x_i + c)\right)^{1/D}} = 0\ \forall \ x_i \in X$$
 
+Since each element of the clr transformed data will converge to a constant the variance of the composition will also converge to 0. Also, as $c \rightarrow 0$, the zero elements of the composition will approach $-\infty$ and these components may have undue leverage on downstream analyses. The log-ratio transformation is clearly sensitive to the choice of constant.\\
+
+Martin-Fernandez et al. (2000) address this issue through a additive-multiplicative hybrid transformation :
+\begin{equation}
+r_j = \left\{
+\begin{array}{ll}
+c_j, & \text{ if } x_j = 0,\\
+x_j(1-\sum_{k|x_k=0}c_k), & \text{ if } x_j > 0\\
+\end{array}
+\right.
+\end{equation}
+
+This transformation is additive on the zero components but multiplicative on the non-zero components.  It has several advantages over the simple additive transformation including: 1) perturbation invariance, 2) power transformation invariance, and 3) sub-composition invariance. Importantly, if all $c_j = c$, the Aitchison distance between two transformed data sets does not depend on $c$.\\
+
+The choice of $c$ can be different for each zero component but determining the appropriate value for each 0 in a single sample would be challenging and would likely provide a limited benefit for samples with a relatively small proportion of 0 components.  Martin-Fernandez et al. recommend using 0.55 the threshold value as originally suggested by Sandford et al. (\cite{Kiers2000, Sanford1993}). The threshold value for RNA-seq data must account for read depth since a 0 in a sample with a library size of 1 thousand reads would potentially not be 0 if the total number of reads was increased to 1 million.  Therefore, I define the threshold value for a sample as $\delta = \frac{1}{\text{Total Reads}}$, and $c = 0.55 \times \delta$.\\%would be $.55 \times 1$ read since 1 read is the smallest measurement able to be recorded. %hmmmm this doesn't account for read depth 
 
 \section[Current Methodology]{Current Methodology with Respect to Compositional Data Analysis}
 
