@@ -17,6 +17,7 @@ library(gridExtra)
 library(scales)
 library(HTGPackage)
 library(cowplot)
+library(car)
 
 quantile_normalisation <- function(df){
   df_rank <- apply(df,2,rank,ties.method="min")
@@ -52,6 +53,7 @@ median.norm <- function(x){
 plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = TRUE){
   x <- t(data)
   pcares<-prcomp(x, scale = scale)
+  print(summary(pcares))
   pvar <- summary(pcares)$importance[3, 2]
   plot(pcares,type="l")
   pcavect<-pcares$x[,1:5]
@@ -62,6 +64,15 @@ plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", 
   return(list(pcadata, pvar))
 }
 
+#define the Martin-Fernandez zero transformation (2000)
+MFtrans <- function(x){#apply to a vector
+  delta <- 0.55/sum(x)# .55 times the smallest detectable value (1 read) after closure
+  tdelta <- sum(x == 0) * delta
+  cx <- clo(x)
+  cxt <- ifelse(cx == 0, delta, cx * (1-tdelta))
+  ccxt <- clr(cxt)
+  return(ccxt)
+}
 @
 
 <<Roche_IO_ReadIn, echo = FALSE, message = FALSE>>=
@@ -116,6 +127,8 @@ ndf$value <- as.numeric(ndf$value)
 #wide data
 ndfw <- join_all(list(c1c6, c7c12), by = "Sample.Name")
 rownames(ndfw) <- make.names(ndfw$Sample.Name)
+
+save("ndfw", file = "./Paper1/Data/Roche_IO.Rdata")
 
 #verify 30 samples
 length(unique(ndf$SampleID))
@@ -364,6 +377,8 @@ for(i in 1:length(file_names)){
   
 }
 
+save("tlist", "dflist", "dfnlist", "dfclist", file = "./Paper1/Data/IO_repro_data_lists.Rdata")
+
 getTots <- function(x){#use t-list
   df <- as.data.frame(t(x[, -1]))
   names(df) <- make.names(x[, 1])
@@ -440,15 +455,63 @@ ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_NormalizedProbes.png", IONor
 clrReads <- function(x){
    cbind(x, CLR = as.vector(clr( acomp( as.numeric(as.character(x$Total.Counts)) ), detectionlimit = 0 )))
 }
-tots <- lapply(tots, FUN = clrReads)
+# tots.clr <- lapply(tots, FUN = clrReads)
 CLRTotals <- do.call(rbind, tots)
 #randomly remove P02 processor
 CLRTotals <- CLRTotals[which(!grepl("P02", CLRTotals$Plate)), ]
+CLRTotals$Plate <- factor(CLRTotals$Plate)
+#split by plate to perform clr
+CLRsplit <- split(CLRTotals, CLRTotals$Plate)
+#CLR transform each plate
+CLRsplit <- lapply(CLRsplit, clrReads)
+#re-assemble data
+CLRTotals <- do.call(rbind, CLRsplit)
 CLRTotals$column <- factor(CLRTotals$column, levels = 1:12)
 CLRTotals$Plate <- factor(CLRTotals$Plate, levels = IO_repro_plates)
 
 IOCLRTots <- ggplot(CLRTotals, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
 ggsave("./Paper1/Figures/IO_Repro_TotalCountHeatMap_CLRTotals.png", IOCLRTots, width = 14 , height = 5)
+
+CLR.boxplot <- function(CLR, data.name = NULL){
+  if (round(min(CLR)) > min(CLR)) {
+        l1 <- round(min(CLR)) - 1
+      } else {
+        l1 <- round(min(CLR))
+      }
+      if (round(max(CLR)) < max(CLR)) {
+        l2 <- round(max(CLR)) + 1
+      } else {
+        l2 <- round(max(CLR))
+      }
+  boxplot(CLR, ylim=c(l1, l2), axes=FALSE, horizontal=TRUE, main=data.name, xlab="CLR Transformed Total Aligned Reads")
+  axis(1)
+  text(median(CLR), 1.25, paste(round(median(CLR),2)))
+  lines(CLR, rep(1,length(CLR)), type="p")
+}
+CLR1 <- CLRTotals[which(CLRTotals$Plate == "P86_D1"), ]$CLR
+png("./Paper1/Figures/IO_Repro_TotalCountBoxPlot_CLRTotals_P86_D1.png", height = 250, width = 400)
+CLR.boxplot(CLR1, "P86_D1")
+dev.off()
+
+CLR2 <- CLRTotals[which(CLRTotals$Plate == "P88_D1"), ]$CLR
+png("./Paper1/Figures/IO_Repro_TotalCountBoxPlot_CLRTotals_P88_D1.png", height = 250, width = 400)
+CLR.boxplot(CLR2, "P86_D1")
+dev.off()
+
+CLR3 <- CLRTotals[which(CLRTotals$Plate == "P35_D1"), ]$CLR
+png("./Paper1/Figures/IO_Repro_TotalCountBoxPlot_CLRTotals_P35_D1.png", height = 250, width = 400)
+CLR.boxplot(CLR3, "P35_D1")
+dev.off()
+
+CLR4 <- CLRTotals[which(CLRTotals$Plate == "P86_D2"), ]$CLR
+png("./Paper1/Figures/IO_Repro_TotalCountBoxPlot_CLRTotals_P86_D2.png", height = 250, width = 400)
+CLR.boxplot(CLR4, "P86_D2")
+dev.off()
+
+CLR5 <- CLRTotals[which(CLRTotals$Plate == "P86_D3"), ]$CLR
+png("./Paper1/Figures/IO_Repro_TotalCountBoxPlot_CLRTotals_P86_D3.png", height = 250, width = 400)
+CLR.boxplot(CLR5, "P86_D3")
+dev.off()
 
 #!-----------Check proportionality of pos controls ----->
 raw.w <- join_all(dflist, by = "X0")
@@ -474,7 +537,7 @@ posl$lowTotal <- ifelse(posl$variable %in% suspects, "Low", "Normal")
 IOPosCntrl <- ggplot(posl, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
 ggsave("./Paper1/Figures/IO_Repro_Proportionality_of_PosCntrl_Probes.png", IOPosCntrl, width = 7, height = 8 )
 
-
+save("raw.w", file = "./Paper1/Data/IO_Repro.Rdata")
 @
 
 <<PCA_IO, echo = FALSE>>=
@@ -487,31 +550,109 @@ annodf <- annodf[which(!grepl("P02", annodf$Proc)), ]
 rownames(annodf) <- annodf$SampleID
 
 pcaDat <- data.matrix(raw.w[-c(1:4), which(names(raw.w) %in% annodf$SampleID)])
-pcplotdat <- plotPCA(pcaDat, annodf, scale = TRUE)
+pcaDatl <- apply(pcaDat, c(1,2), function(x) log2(x + 1))
+pcplotdat <- plotPCA(pcaDatl, annodf, scale = FALSE)
 ggpca <- ggplot(pcplotdat[[1]], aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
     geom_point( size = 2)  + 
-  geom_text(size = 1.7) + 
-    xlim(-50, 50) + ylim(-50, 50) 
-ggsave("./Paper1/Figures/IO_Repro_PCA_Raw(scaled).png", ggpca, width = 9, height = 8 )
+  # geom_text(size = 1.7) + 
+  ggtitle(paste0("Proportion of variance =", round(pcplotdat[[2]], 2)))
+    # xlim(-50, 50) + ylim(-50, 50) 
+ggsave("./Paper1/Figures/IO_Repro_PCA_Raw(log2).png", ggpca, width = 9, height = 8 )
 
 pcaDatn <- data.matrix(dfw[-c(1:4), which(names(dfw) %in% annodf$SampleID)])
 pcplotdatn <- plotPCA(pcaDatn, annodf, scale = FALSE)
-ggpcan <- ggplot(pcplotdatn, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+ggpcan <- ggplot(pcplotdatn[[1]], aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
     geom_point( size = 2) + 
-  geom_text(size = 1.7) 
+  ggtitle(paste0("Proportion of variance =", round(pcplotdatn[[2]], 2)))
+  # geom_text(size = 1.7) 
 ggsave("./Paper1/Figures/IO_Repro_PCA_qNorm.png", ggpcan, width = 9, height = 8 )
 
     
-pcaDatc <- as.data.frame(t(clr(acomp(t(pcaDat), detectionlimit = 0))))
+pcaDatc <- as.data.frame(apply(pcaDat, 2, FUN = MFtrans ))
 pcplotdatc <- plotPCA(pcaDatc, annodf, scale = FALSE)
-ggpcac <- ggplot(pcplotdatc, aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
+ggpcac <- ggplot(pcplotdatc[[1]], aes(x= PC1, y= PC2, color=Plate, shape=Proc, label = SampleID)) + 
     geom_point( size = 2)   + 
-  geom_text( size = 1.7) +
-  xlim(-10, 50) + ylim(-10, 10)
+  # geom_text( size = 1.7) +
+  ggtitle(paste0("Proportion of variance =", round(pcplotdatc[[2]], 2)))
+  # xlim(-10, 50) + ylim(-10, 10)
 ggsave("./Paper1/Figures/IO_Repro_PCA_CLR.png", ggpcac, width = 9, height = 8 )
 
 @
 
+<<PCA_IO_Annotated_aglomerated, echo = FALSE>>=
+annoIO <- read_excel("./Paper1/Data/IO rennotation Jan 2016.xlsx", col_names = FALSE) 
+names(annoIO) <- c("Probe", "Group", "Group2")
+annoIO$Group <- tolower(annoIO$Group)
+annoIO$Group <- Recode(annoIO$Group, "'adhesions' = 'adhesion'; c('b cell function', 'b-cell functions') = 'b-cell function'; 'chemokines' = 'chemokine'; 'cytokines'  = 'cytokine'; 'nk cell  function' = 'nk cell function'; 't-cell functions' = 't cell function'")
+save("annoIO", file = "./Paper1/Data/IO_groups_clean.Rdata")
+
+raw.l.io <- melt(raw.w[-c(1:4), ], id = "Sample Name")
+names(raw.l.io)[1] <- "Probe"
+
+#add annotation and drop non-annotated probes
+raw.l.io <- merge(raw.l.io, annoIO, by = "Probe")
+
+#almagamte by sample and group
+alg.l.io <- summarize(group_by(raw.l.io, variable, Group), tot = sum(as.numeric(as.character(value))))
+
+#split and apply clr transformation
+alg.s.io <- split(alg.l.io, alg.l.io$variable)
+
+addCLR <- function(x){
+  return(cbind(x, t(t(clr(acomp(x$tot))))))
+}
+alg.s.io <- lapply(alg.s.io, addCLR)
+
+alg.l.io <- do.call(rbind, alg.s.io)
+names(alg.l.io)[4] <- "CLR"
+
+CLR.alg <- reshape(alg.l.io, timevar = "variable", idvar = "Group", drop = "tot", direction = "wide")
+CLR.alg <- CLR.alg[-nrow(CLR.alg),]
+rownames(CLR.alg) <- CLR.alg$Group
+#remove P02 processor
+clr.alg <- CLR.alg[, -which(grepl("P02", names(CLR.alg)))]
+
+#PCA 
+pcadf <- data.matrix(clr.alg[ ,-1])
+pca <- prcomp(t(pcadf), retx = TRUE)
+pvar  <- summary(pca)$importance[3, 2]
+#-----Create biplot with ggplot-----#
+nobs.factor <- sqrt(nrow(pca$x) - 1)
+d <- pca$sdev
+u <- sweep(pca$x, 2, 1/(d * nobs.factor), FUN = "*")
+v <- pca$rotation
+#select first two PCs
+df.u <- as.data.frame(sweep(u[, 1:2], 2, c(1,1), FUN = "*"))
+v <- sweep(v, 2, d, FUN = "*")
+df.v <- as.data.frame(v[, 1:2])
+names(df.u) <- c("xvar", "yvar")
+names(df.v) <- names(df.u)
+df.u <- df.u * nobs.factor
+r <- sqrt(qchisq(0.69, df = 2)) * prod(colMeans(df.u^2))^(1/4)
+v.scale <- rowSums(v^2)
+df.v <- r * df.v/sqrt(max(v.scale))
+
+df.u$Day <- gsub("^CLR.uRNA\\_(\\w+)\\_P\\d{2}_R\\d{1,2}$", "\\1", rownames(df.u))
+df.u$Proc <- gsub("^CLR.uRNA\\_(\\w+)\\_(P\\d{2})_R\\d{1,2}$", "\\2", rownames(df.u))
+df.u$Plate <- paste0(df.u$Day, "_", df.u$Proc)
+
+df.v$angle <- with(df.v, (180/pi) * atan(yvar/xvar))
+df.v$hjust = with(df.v, (-.5 * sign(xvar))/2)
+
+pca.biplot.clr.IO <- ggplot(data = df.u, aes(x = xvar, y = yvar)) + 
+  geom_point() +
+  xlab("PC 1") + 
+  ylab("PC 2") + 
+  coord_equal() +
+  geom_segment(data = df.v, aes(x = 0, y = 0, xend = xvar, yend = yvar), 
+               arrow = arrow(length = unit(1/2, "picas"))) +
+  geom_text(data = df.v, 
+            aes(label = rownames(v), x = xvar, y = yvar, angle = angle, hjust = hjust), 
+            size = 3) + 
+  ggtitle(paste0("Proportion of variance = ", round(pvar, 2)))
+ggsave("./Paper1/Figures/IO_Repro_PCA_Amalg_CLR.png", pca.biplot.clr.IO, width = 9 , height = 8)
+
+@
 
 <<miRNA HeatMaps, echo = FALSE, message = FALSE>>=
 file_names <- list.files(path = "C:/Projects/NPSeqQCApp_Validation/RawData/miRNA/reproducibility", pattern="RR.*", full.names=T, recursive=F)
@@ -549,6 +690,7 @@ for(i in 1:length(file_names)){
   dfclist_mi[[i]] <- dfclr
   
 }
+save("tlist_mi", "dflist_mi", "dfnlist_mi", "dfclist_mi", file = "./Paper1/Data/miRNA_Data_lists.Rdata")
 
 getTots_mi <- function(x){#use t-list
   df <- as.data.frame(t(x))
@@ -594,6 +736,8 @@ ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_NormalizedProbesbyPlate.p
 dfw_mi <- join_all(dflist_mi, by = "X1")
 rownames(dfw_mi) <- make.names(dfw_mi[, 1])
 names(dfw_mi) <- make.names(dfw_mi[3, ])
+save("dfw_mi", file = "./Paper1/Data/miRNA_Combined.Rdata")
+
 dfw_mi <- dfw_mi[, which(!grepl("No_Sample", names(dfw_mi)))]
 dfw_mi[-c(1:5), -1] <- quantile_normalisation(data.matrix(dfw_mi[-c(1:5), -1]))
 dfw_mi <- dfw_mi[, -1]
