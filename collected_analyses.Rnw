@@ -50,7 +50,7 @@ median.norm <- function(x){
   return(normdat)
 }
 
-plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = TRUE){
+plotPCA <- function(data, annodata, projname, Max=80, pc1 = "PC1", pc2 = "PC2", scale = FALSE){
   x <- t(data)
   pcares<-prcomp(x, scale = scale)
   print(summary(pcares))
