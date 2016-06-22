@@ -1,7 +1,12 @@
 <html>
 
 <head>
-
+<!--begin.rcode echo=FALSE, message=FALSE
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+library(htmltools)
+library(compositions)
+library(ggplot2)
+end.rcode-->
 
 <script type="text/javascript">
   
@@ -57,15 +62,17 @@
 <body>
 
 <h1 align="center"> Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.</h1>
-<h4 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h3>
-<h4 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h3>
+<h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h3>
+<h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h3>
 
 <!---Main Contents-->
 <div class="row">
   <div class="col-sm-3">
     <form class="well">
-    <h4>Next-Generation Sequencing as Compositional Data</h4>
-    <p>It is broadly accepted that next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts.</p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_1.html")
+end.rcode-->
+  
     <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
 
     
@@ -73,17 +80,27 @@
   </div>
   <div class="col-sm-3">
     <form class="well">
-    <p>This is the main content 2.   <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_2.html")
+end.rcode-->
+
+    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-    This is the main content 3.   <a href = "javascript:void(0)" onclick = "document.getElementById('content3').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_3.html")
+end.rcode-->
+    <p>   <a href = "javascript:void(0)" onclick = "document.getElementById('content3').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-    This is the main content 4.   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_4.html")
+end.rcode-->
+    <p>   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
 </div>
@@ -91,26 +108,36 @@
 <div class="row">
   <div class="col-sm-3">
     <form class="well">
-    <p>This is the main content 5. <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_5.html")
+end.rcode-->
+    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
 
     
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-    <p>This is the main content 6. <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_6.html")
+end.rcode-->
+    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-    This is the main content 7.  
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_7.html")
+end.rcode-->     
+    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-    This is the main content 8.  
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/content_8.html")
+end.rcode-->  
+    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
 </div>
