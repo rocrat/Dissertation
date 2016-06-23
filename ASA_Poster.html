@@ -142,21 +142,38 @@
             <li>Induces a dependency in the data (Fig. 1)</li>
         </ol>
     </ul>
-<p style="font-size:10px">    
-<img src="BarAnimation.gif" alt="HTML5 Icon" style="width:150px;height:120px;">  Figure 1: This animation shows the impact of changes to a single transcript on the relative abundance of the other transcripts being measured.  
-</p>
+<div class="row">
+  <div class="col-sm-6">    
+  <img src="BarAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
+  </div>
+  <div class="col-sm-6">
+   <p style="font-size:10px">
+   <b>Figure 1:</b> This animation shows the impact of changes to a single transcript on the relative abundance of the other transcripts being measured. Ignoring the constraints imposed by compositional data can lead to spurious results.
+   </p>
+  <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+  </div>
+</div>
+
 
 
 <!--/html_preserve--></div></div>
   
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
-
-    
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well">
-<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><!--html_preserve--><h4>Challenges of Compositional Data</h4><!--/html_preserve--></div></div>
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><!--html_preserve--><h4>Challenges of Compositional Data</h4>
+<p style="font-size:10px">Relative abundance data is subject to an arbitrary sum constraint, \(\sum_{i=1}^{D} t_i = \mathbb{T} \), where \(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</p>
+  <ol type="I" style="font-size:10px">
+    <li>The sum contraint, \(\mathbb{T}\), changes between platforms, sequencing runs, and samples.</li>
+    <li>This leads to an arbitrary difference in <i>scale</i> between samples which various normalization methods have sought to correct.</li>
+  </ol>
+<p style="font-size:10px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\))</p>
+  <ol type="I" style="font-size:10px">
+    <li>Complicated covariance structure</li>
+  </ol>
+  image of composition geometry
+</p><!--/html_preserve--></div></div>
 
     <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
@@ -206,7 +223,59 @@
 
 <!--Expanded Contents-->
 <div id="content1" class="white_content">
-    <h4>Next-Generation Sequencing as Compositional Data</h4> 
+<div class="chunk" id="unnamed-chunk-10"><div class="rcode"><!--html_preserve-->
+
+<h4>Next-Generation Sequencing Data is Compositional</h4>
+<div class="col-sm-4">
+  <form class="well">
+    <p style="font-size:10px">It is broadly accepted that next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
+    <ul style="font-size:10px">
+      <li>NGS technologies produce <i>relative abundances</i> of transcripts</li>
+        <ol type="I">
+          <li>Finite number of reads available on each platform</li>
+          <li>Read depth varies from run-to-run and sample-to-sample</li>
+        </ol>
+      <li>Relative abundance implies data arises as a composition</li>
+        <ol type="I">
+            <li>More reads allocated to a transcript results if fewer reads allocated to other transcripts</li>
+            <li>Induces a dependency in the data (Fig. 1)</li>
+        </ol>
+    </ul>
+    <div class="row">
+      <div class="col-sm-6">    
+      <img src="BarAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
+      </div>
+      <div class="col-sm-6">
+       <p style="font-size:10px">
+       <b>Figure 1:</b> This animation shows the impact of changes to a single transcript on the relative abundance of the other transcripts being measured. Ignoring the constraints imposed by compositional data can lead to spurious results.
+       </p>
+      <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">    
+      <img src="DiffAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
+      </div>
+      <div class="col-sm-6">
+       <p style="font-size:10px">
+       <b>Figure 2:</b> This animation shows the spurious results one might obtain from relative abundance data if it were treated as absolute abundance data.  As opposed to identifying the 1 true up-regulated mRNA, the observer would also incorectly identify the other 3 mRNA as down-regulated.
+       </p>
+      <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="col-sm-4">
+  <form class="well">
+  </form>
+</div>
+<div class="col-sm-4">
+  <form class="well">
+  </form>
+</div>
+
+
+<!--/html_preserve--></div></div>
     <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 
@@ -245,6 +314,16 @@
     <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay"></div>
+
+
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
 </html>

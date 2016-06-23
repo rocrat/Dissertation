@@ -73,9 +73,6 @@ end.rcode-->
 includeHTML("./ASA_Poster_Content/content_1.html")
 end.rcode-->
   
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
-
-    
     </form>
   </div>
   <div class="col-sm-3">
@@ -144,7 +141,9 @@ end.rcode-->
 
 <!--Expanded Contents-->
 <div id="content1" class="white_content">
-    <h4>Next-Generation Sequencing as Compositional Data</h4> 
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/expanded_content_1.html")
+end.rcode--> 
     <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 
@@ -183,6 +182,16 @@ end.rcode-->
     <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay"></div>
+
+
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
 </html>

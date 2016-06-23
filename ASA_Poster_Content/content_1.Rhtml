@@ -19,12 +19,21 @@ end.rcode-->
       <li>Relative abundance implies data arises as a composition</li>
         <ol type="I">
             <li>More reads allocated to a transcript results if fewer reads allocated to other transcripts</li>
-            <li>Induces a dependency in the data (Fig. 1)</li>
+            <li>Induces a dependency in the data since as one component increases, the other must decrease (Fig. 1).</li>
         </ol>
     </ul>
-<p style="font-size:10px">    
-<img src="BarAnimation.gif" alt="HTML5 Icon" style="width:150px;height:120px;">  Figure 1: This animation shows the impact of changes to a single transcript on the relative abundance of the other transcripts being measured.  
-</p>
+<div class="row">
+  <div class="col-sm-6">    
+  <img src="BarAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
+  </div>
+  <div class="col-sm-6">
+   <p style="font-size:10px">
+   <b>Figure 1:</b> This animation shows the impact of changes to a single transcript on the relative abundance of the other transcripts being measured. Ignoring the constraints imposed by compositional data can lead to spurious results.
+   </p>
+  <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+  </div>
+</div>
+
 <!--begin.rcode results='hide'
 #create simple compositional data set to illustrate dependency
 df <- data.frame(mRNA = rep(c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"), 2),
