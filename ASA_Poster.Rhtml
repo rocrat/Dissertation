@@ -6,6 +6,11 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 library(htmltools)
 library(compositions)
 library(ggplot2)
+library(knitr)
+end.rcode-->
+
+<!-- #begin.rcode results='hide'
+knit("./ASA_Poster_Content/content_1.Rhtml", quiet = TRUE)
 end.rcode-->
 
 <script type="text/javascript">
@@ -47,10 +52,10 @@ end.rcode-->
 .white_content {
     display: none;
     position: absolute;
-    top: 12%;
-    left: 12%;
-    width: 75%;
-    height: 75%;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
     padding: 16px;
     border: 16px solid orange;
     background-color: white;
@@ -68,24 +73,23 @@ end.rcode-->
 <!---Main Contents-->
 <div class="row">
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_1.html")
 end.rcode-->
-  
     </form>
   </div>
+  
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_2.html")
 end.rcode-->
-
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
+  
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_3.html")
 end.rcode-->
@@ -93,7 +97,7 @@ end.rcode-->
     </form>
   </div>
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_4.html")
 end.rcode-->
@@ -104,7 +108,7 @@ end.rcode-->
 
 <div class="row">
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_5.html")
 end.rcode-->
@@ -114,7 +118,7 @@ end.rcode-->
     </form>
   </div>
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_6.html")
 end.rcode-->
@@ -122,7 +126,7 @@ end.rcode-->
     </form>
   </div>
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_7.html")
 end.rcode-->     
@@ -130,7 +134,7 @@ end.rcode-->
     </form>
   </div>
   <div class="col-sm-3">
-    <form class="well">
+    <form class="well" style="height:410px;">
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_8.html")
 end.rcode-->  
