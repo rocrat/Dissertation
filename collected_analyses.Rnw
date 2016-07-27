@@ -655,7 +655,7 @@ ggsave("./Paper1/Figures/IO_Repro_PCA_Amalg_CLR.png", pca.biplot.clr.IO, width =
 @
 
 <<miRNA HeatMaps, echo = FALSE, message = FALSE>>=
-file_names <- list.files(path = "C:/Projects/NPSeqQCApp_Validation/RawData/miRNA/reproducibility", pattern="RR.*", full.names=T, recursive=F)
+file_names <- list.files(path = "C:/Projects/NPSeqQCApp_Validation/RawData/miRNA/reproducibility", pattern="^RR.*", full.names=T, recursive=F)
 
 #----- Heat Maps -----#
 #First get header info on samples
@@ -691,7 +691,7 @@ for(i in 1:length(file_names)){
   
 }
 save("tlist_mi", "dflist_mi", "dfnlist_mi", "dfclist_mi", file = "./Paper1/Data/miRNA_Data_lists.Rdata")
-
+load("../Paper1/Data/miRNA_Data_lists.Rdata")
 getTots_mi <- function(x){#use t-list
   df <- as.data.frame(t(x))
   df$row <- gsub("(\\w{1})\\d{1,2}$", "\\1", df$Well)
@@ -766,13 +766,18 @@ CLRTotals_mi$column <- factor(CLRTotals_mi$column, levels = 1:12)
 
 miCLRTots <- ggplot(CLRTotals_mi, aes(x = column, y = row)) + geom_tile(aes(fill = CLR)) + facet_wrap(~Plate, ncol = 5) + plotTheme(legend.position = "right") +  xlab("Plate Column") + ylab("Plate Row")
 ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_CLRTotals.png", miCLRTots, width = 14 , height = 5)
+@
 
+<<proportionalityPosCntrls>>=
 #!-----------Check proportionality of pos controls ----->
 raw.w.mi <- join_all(dflist_mi, by = "X1")
 names(raw.w.mi) <- make.names(raw.w.mi[3, ])
 rownames(raw.w.mi) <- make.names(raw.w.mi[, 1])
 rawPos.mi <- raw.w.mi[which(grepl("POS", rownames(raw.w.mi))), -1]
 clrPos.mi <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos.mi)))), detectionLimit = 0)))
+CLRpos <- as.data.frame(t(clr(acomp(t(data.matrix((raw.w.mi[-c(1:5), -1])))), detectionLimit = 0)))
+CLRpos <- CLRpos[which(grepl("POS", rownames(CLRpos))), ]
+
 rawPos.mi$Probe <- rownames(rawPos.mi)
 rawPosl.mi <- melt(rawPos.mi, id = "Probe")
 rawPosl.mi$Type <- "log(Raw)"
@@ -780,13 +785,17 @@ rawPosl.mi$value <- log(as.numeric(as.character(rawPosl.mi$value)))
 
 clrPos.mi$Probe <- rownames(clrPos.mi)
 clrPosl.mi <- melt(clrPos.mi, id = "Probe")
-clrPosl.mi$Type <- "CLR"
+clrPosl.mi$Type <- "CLR (sub-composition)"
 
-posl.mi <- rbind(rawPosl.mi, clrPosl.mi)
+CLRpos$Probe <- rownames(CLRpos)
+CLRposl <- melt(CLRpos, id = "Probe")
+CLRposl$Type <- "CLR (full-composition)"
+
+posl.mi <- rbind(rawPosl.mi, clrPosl.mi, CLRposl)
 suspects <- c("run229.FFPE_3_1")#, "run228.Brain_5_1", "run228.Plasma_7_1")
 posl.mi$lowTotal <- ifelse(posl.mi$variable %in% suspects, "Low", "Normal")
-posl.mi$Plate <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\1", posl.mi$variable)
-posl.mi$SampType <- gsub("(^run\\d{3})\\.(\\w+)\\_\\d\\_\\d$", "\\2", posl.mi$variable)
+posl.mi$Plate <- factor(gsub("(^run\\d{3})\\.(\\w+)\\_\\d{1,2}.+$", "\\1", posl.mi$variable))
+posl.mi$SampType <- factor(gsub("(^run\\d{3})\\.([a-zA-Z]+)\\_\\d{1,2}.+$", "\\2", posl.mi$variable, perl = TRUE))
 
 miPosCntrl <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
 ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes.png", miPosCntrl, width = 7, height = 8 )
@@ -796,6 +805,8 @@ ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byPlate.
 
 miPosCntrl_type <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = SampType), alpha = .5) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Sample Type") + guides(colour = guide_legend(override.aes = list(alpha = 1)))
 ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png", miPosCntrl_type, width = 7, height = 8)
+
+
 
 #look at the total reads in relation to the proportionality
 posl.mi <- merge(posl.mi, dfl_mi, by.x = "variable", by.y = 0)
