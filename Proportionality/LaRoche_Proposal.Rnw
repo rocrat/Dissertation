@@ -129,6 +129,14 @@ whereas for any $x_i = 0$,
 $$clr(x_i) = log(0) + \infty = -\infty + \infty,$$
 which is indeterminate.  Both log-ratio transformations proposed by Aitchison fail to accommodate zeros so various mechanisms have been proposed for handling zeros while maintaining the essential properties of compositional data analysis (see section \ref{sec:zeros}).\\ 
  
+\subsubsection{Distance Between Compositions}
+
+$$d_A(x_i, x_j) = \left[\sum_{k=1}^D \left( log \left(\frac{x_{ik}}{g(x_i)} \right) - log \left(\frac{x_{jk}}{g(x_j)} \right) \right)^2  \right]^\frac{1}{2}$$
+
+or 
+
+$$d_A(x_i, x_j) = \left[\sum_{k=1}^D \left( clr(x_{ik}) - clr(x_{jk}) \right)^2  \right]^\frac{1}{2}$$
+
 
 %alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
 %look into 'compositional independence'
