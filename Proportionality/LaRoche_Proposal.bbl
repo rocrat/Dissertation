@@ -30,7 +30,6 @@
   \keyw{CoDa}
   \strng{namehash}{AJ1}
   \strng{fullhash}{AJ1}
-  \field{labelyear}{1986}
   \field{sortinit}{A}
   \field{isbn}{0-412-28060-4}
   \field{title}{{The statistical analysis of compositional data}}
@@ -38,6 +37,97 @@
   \verb http://dl.acm.org/citation.cfm?id=17272
   \endverb
   \field{year}{1986}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Aitchison2000}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Euclidean distance,Permutation invariance,Perturbation invariance,Scale
+  invariance,Subcompositional dominance}
+  \strng{namehash}{AJ+1}
+  \strng{fullhash}{AJBVCMFJAPGV1}
+  \field{sortinit}{A}
+  \field{abstract}{%
+  The concept of distance between two compositions is important in the
+  statistical analysis of compositional data, particularly in such activities
+  as cluster analysis and multidimensional scaling. This paper exposes rite
+  fallacies in a recent criticism of logratio-based distance measures-in
+  particular; the misstatements that logratio methods destroy distance
+  structures and are denominator dependent. Emphasis is on ensuring that
+  compositional data analysis involving distance concepts satisfies certain
+  logically necessary invariance conditions. Logratio analysis and its
+  associated distance measures satisfies these conditions.%
+  }
+  \verb{doi}
+  \verb 10.1023/A:1007529726302
+  \endverb
+  \field{isbn}{0882-8121}
+  \field{issn}{08828121}
+  \field{number}{3}
+  \field{pages}{271\bibrangedash 275}
+  \field{title}{{Logratio analysis and compositional distance}}
+  \field{volume}{32}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Aitchis
+  \verb on et al. (2000) Logratio analysis and compositional distance.pdf:pdf
+  \endverb
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{2000}
+\endentry
+
+\entry{Aitchison1992}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Kluwer Academic Publishers-Plenum Publishers}%
+  }
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ2}
+  \field{sortinit}{A}
+  \verb{doi}
+  \verb 10.1007/BF00891269
+  \endverb
+  \field{issn}{0882-8121}
+  \field{number}{4}
+  \field{pages}{365\bibrangedash 379}
+  \field{title}{{On criteria for measures of compositional difference}}
+  \verb{url}
+  \verb http://link.springer.com/10.1007/BF00891269
+  \endverb
+  \field{volume}{24}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Aitchison - 1992 - On criteria for measures of composit
+  \verb ional difference.pdf:pdf
+  \endverb
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{1992}
   \warn{\item Invalid format of field 'month'}
 \endentry
 
@@ -59,7 +149,6 @@
   }
   \strng{namehash}{ASHW1}
   \strng{fullhash}{ASHW1}
-  \field{labelyear}{2010}
   \field{sortinit}{A}
   \verb{doi}
   \verb 10.1186/gb-2010-11-10-r106
@@ -80,6 +169,755 @@
   \endverb
   \field{journaltitle}{Genome Biol}
   \field{year}{2010}
+\endentry
+
+\entry{Billheimer2001}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Billheimer}{B.}%
+     {Dean}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guttorp}{G.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fagan}{F.}%
+     {William~F}{W.~F.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{compositional data,mcmc,multinomial regression,random effects,species
+  assemblage}
+  \strng{namehash}{BDGPFWF1}
+  \strng{fullhash}{BDGPFWF1}
+  \field{sortinit}{B}
+  \field{abstract}{%
+  The relative abundance of different species characterizes the structure of a
+  biological community. We analyze an experiment addressing the relationship
+  between omnivorous feeding linkages and community stability. Our goal is to
+  determine whether communities with different predator compositions respond
+  similarly to environmental disturbance. To evaluate these data, we develop a
+  hierarchical statistical model that combines Aitchison's logistic normal
+  distribution with a conditional multinomial observation distribution. In
+  addition, we present an algebra for compositions that includes addition,
+  scalar multiplication, and a metric for differences in compositions. The
+  algebra aids interpretation of treatment effects, treatment interactions, and
+  covariates. Markov chain Monte Carlo (MCMC) is used for inference in a
+  Bayesian framework. Our experimental results indicate that a high degree of
+  omnivory can help to stabilize community dynamics and prevent radical shifts
+  in community composition. This result is at odds with classical food-web
+  predictions, but agrees with recent theoretical formulations.%
+  }
+  \verb{doi}
+  \verb 10.1198/016214501753381850
+  \endverb
+  \field{isbn}{01621459}
+  \field{issn}{0162-1459}
+  \field{number}{456}
+  \field{pages}{1205\bibrangedash 1214}
+  \field{title}{{Statistical Interpretation of Species Composition}}
+  \verb{url}
+  \verb http://www.jstor.org/stable/3085883
+  \endverb
+  \field{volume}{96}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Billhei
+  \verb mer, Guttorp, and Fagan (2011) Statistical Interpretation of Species Co
+  \verb mposition.pdf:pdf
+  \endverb
+  \field{journaltitle}{Journal of the American Statistical Association}
+  \field{year}{2001}
+\endentry
+
+\entry{Boguski1994}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Boguski}{B.}%
+     {M~S}{M.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tolstoshev}{T.}%
+     {C~M}{C.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bassett}{B.}%
+     {D~E}{D.~E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BMSTCMBDE1}
+  \strng{fullhash}{BMSTCMBDE1}
+  \field{sortinit}{B}
+  \field{issn}{0036-8075}
+  \field{number}{5181}
+  \field{pages}{1993\bibrangedash 4}
+  \field{title}{{Gene discovery in dbEST.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/8091218
+  \endverb
+  \field{volume}{265}
+  \field{journaltitle}{Science (New York, N.Y.)}
+  \field{year}{1994}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Casella2002}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Casella}{C.}%
+     {George.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Berger}{B.}%
+     {Roger~L.}{R.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Australia ; Pacific Grove, CA : Thomson Learning c2002}%
+  }
+  \strng{namehash}{CGBRL1}
+  \strng{fullhash}{CGBRL1}
+  \field{sortinit}{C}
+  \field{isbn}{0534243126}
+  \field{title}{{Statistical Inference, 2nd Edition}}
+  \field{year}{2002}
+\endentry
+
+\entry{Gerhard2004}{article}{}
+  \name{author}{115}{}{%
+    {{}%
+     {Gerhard}{G.}%
+     {Daniela~S}{D.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wagner}{W.}%
+     {Lukas}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Feingold}{F.}%
+     {Elise~A}{E.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shenmen}{S.}%
+     {Carolyn~M}{C.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grouse}{G.}%
+     {Lynette~H}{L.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schuler}{S.}%
+     {Greg}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Klein}{K.}%
+     {Steven~L}{S.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Old}{O.}%
+     {Susan}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rasooly}{R.}%
+     {Rebekah}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Good}{G.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guyer}{G.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peck}{P.}%
+     {Allison~M}{A.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Derge}{D.}%
+     {Jeffery~G}{J.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lipman}{L.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Collins}{C.}%
+     {Francis~S}{F.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jang}{J.}%
+     {Wonhee}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sherry}{S.}%
+     {Steven}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Feolo}{F.}%
+     {Mike}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Misquitta}{M.}%
+     {Leonie}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lee}{L.}%
+     {Eduardo}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rotmistrovsky}{R.}%
+     {Kirill}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Greenhut}{G.}%
+     {Susan~F}{S.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schaefer}{S.}%
+     {Carl~F}{C.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buetow}{B.}%
+     {Kenneth}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bonner}{B.}%
+     {Tom~I}{T.~I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Haussler}{H.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kent}{K.}%
+     {Jim}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kiekhaus}{K.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Furey}{F.}%
+     {Terry}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brent}{B.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prange}{P.}%
+     {Christa}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schreiber}{S.}%
+     {Kirsten}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shapiro}{S.}%
+     {Nicole}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bhat}{B.}%
+     {Narayan~K}{N.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hopkins}{H.}%
+     {Ralph~F}{R.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hsie}{H.}%
+     {Florence}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Driscoll}{D.}%
+     {Tom}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Soares}{S.}%
+     {M~Bento}{M.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Casavant}{C.}%
+     {Tom~L}{T.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scheetz}{S.}%
+     {Todd~E}{T.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brown-stein}{B.-s.}%
+     {Michael~J}{M.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Usdin}{U.}%
+     {Ted~B}{T.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Toshiyuki}{T.}%
+     {Shiraki}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Carninci}{C.}%
+     {Piero}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Piao}{P.}%
+     {Yulan}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dudekula}{D.}%
+     {Dawood~B}{D.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ko}{K.}%
+     {Minoru S~H}{M.~S.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kawakami}{K.}%
+     {Koichi}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Suzuki}{S.}%
+     {Yutaka}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sugano}{S.}%
+     {Sumio}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gruber}{G.}%
+     {C~E}{C.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smith}{S.}%
+     {M~R}{M.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Simmons}{S.}%
+     {Blake}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moore}{M.}%
+     {Troy}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waterman}{W.}%
+     {Richard}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johnson}{J.}%
+     {Stephen~L}{S.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ruan}{R.}%
+     {Yijun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wei}{W.}%
+     {Chia~Lin}{C.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mathavan}{M.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gunaratne}{G.}%
+     {Preethi~H}{P.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wu}{W.}%
+     {Jiaqian}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Garcia}{G.}%
+     {Angela~M}{A.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hulyk}{H.}%
+     {Stephen~W}{S.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fuh}{F.}%
+     {Edwin}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yuan}{Y.}%
+     {Ye}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sneed}{S.}%
+     {Anna}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kowis}{K.}%
+     {Carla}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hodgson}{H.}%
+     {Anne}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Muzny}{M.}%
+     {Donna~M}{D.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McPherson}{M.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gibbs}{G.}%
+     {Richard~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fahey}{F.}%
+     {Jessica}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Helton}{H.}%
+     {Erin}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ketteman}{K.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Madan}{M.}%
+     {Anuradha}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rodrigues}{R.}%
+     {Stephanie}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sanchez}{S.}%
+     {Amy}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Whiting}{W.}%
+     {Michelle}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Madari}{M.}%
+     {Anup}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Young}{Y.}%
+     {Alice~C}{A.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wetherby}{W.}%
+     {Keith~D}{K.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Granite}{G.}%
+     {Steven~J}{S.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kwong}{K.}%
+     {Peggy~N}{P.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brinkley}{B.}%
+     {Charles~P}{C.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pearson}{P.}%
+     {Russell~L}{R.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bouffard}{B.}%
+     {Gerard~G}{G.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Blakesly}{B.}%
+     {Robert~W}{R.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Green}{G.}%
+     {Eric~D}{E.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dickson}{D.}%
+     {Mark~C}{M.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rodriguez}{R.}%
+     {Alex~C}{A.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grimwood}{G.}%
+     {Jane}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schmutz}{S.}%
+     {Jeremy}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Myers}{M.}%
+     {Richard~M}{R.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Butterfield}{B.}%
+     {Yaron S~N}{Y.~S.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Griffith}{G.}%
+     {Malachi}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Griffith}{G.}%
+     {Obi~L}{O.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Krzywinski}{K.}%
+     {Martin~I}{M.~I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liao}{L.}%
+     {Nancy}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morin}{M.}%
+     {Ryan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morrin}{M.}%
+     {Ryan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Palmquist}{P.}%
+     {Diana}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Petrescu}{P.}%
+     {Anca~S}{A.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Skalska}{S.}%
+     {Ursula}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smailus}{S.}%
+     {Duane~E}{D.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stott}{S.}%
+     {Jeff~M}{J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schnerch}{S.}%
+     {Angelique}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schein}{S.}%
+     {Jacqueline~E}{J.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jones}{J.}%
+     {Steven J~M}{S.~J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Holt}{H.}%
+     {Robert~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Baross}{B.}%
+     {Agnes}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marra}{M.}%
+     {Marco~A}{M.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clifton}{C.}%
+     {Sandra}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Makowski}{M.}%
+     {Kathryn~A}{K.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bosak}{B.}%
+     {Stephanie}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Malek}{M.}%
+     {Joel}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Animals,Cloning, Molecular,Cloning, Molecular: methods,Computational
+  Biology,DNA Primers,DNA, Complementary,DNA, Complementary: genetics,DNA,
+  Complementary: metabolism,Gene Library,Humans,Mice,National Institutes of
+  Health (U.S.),Open Reading Frames,Open Reading Frames: physiology,Rats,United
+  States,Xenopus laevis,Xenopus laevis: genetics,Zebrafish,Zebrafish: genetics}
+  \strng{namehash}{GDS+1}
+  \strng{fullhash}{GDSWLFEASCMGLHSGKSLOSRRGPGMPAMDJGLDCFSJWSSFMMLLERKGSFSCFBKBTIHDKJKMFTBMPCSKSNBNKHRFHFDTSMBCTLSTEBsMJUTBTSCPPYDDBKMSHKKSYSSGCESMRSBMTWRJSLRYWCLMSGPHWJGAMHSWFEYYSAKCHAMDMMJGRAFJHEKMMARSSAWMMAYACWKDGSJKPNBCPPRLBGGBRWGEDDMCRACGJSJMRMBYSNGMGOLKMILNMRMRPDP}
+  \field{sortinit}{G}
+  \field{abstract}{%
+  The National Institutes of Health's Mammalian Gene Collection (MGC) project
+  was designed to generate and sequence a publicly accessible cDNA resource
+  containing a complete open reading frame (ORF) for every human and mouse
+  gene. The project initially used a random strategy to select clones from a
+  large number of cDNA libraries from diverse tissues. Candidate clones were
+  chosen based on 5'-EST sequences, and then fully sequenced to high accuracy
+  and analyzed by algorithms developed for this project. Currently, more than
+  11,000 human and 10,000 mouse genes are represented in MGC by at least one
+  clone with a full ORF. The random selection approach is now reaching a
+  saturation point, and a transition to protocols targeted at the missing
+  transcripts is now required to complete the mouse and human collections.
+  Comparison of the sequence of the MGC clones to reference genome sequences
+  reveals that most cDNA clones are of very high sequence quality, although it
+  is likely that some cDNAs may carry missense variants as a consequence of
+  experimental artifact, such as PCR, cloning, or reverse transcriptase errors.
+  Recently, a rat cDNA component was added to the project, and ongoing frog
+  (Xenopus) and zebrafish (Danio) cDNA projects were expanded to take advantage
+  of the high-throughput MGC pipeline.%
+  }
+  \verb{doi}
+  \verb 10.1101/gr.2596504
+  \endverb
+  \field{issn}{1088-9051}
+  \field{number}{10B}
+  \field{pages}{2121\bibrangedash 7}
+  \field{title}{{The status, quality, and expansion of the NIH full-length cDNA
+  project: the Mammalian Gene Collection (MGC).}}
+  \verb{url}
+  \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=528928{\&}too
+  \verb l=pmcentrez{\&}rendertype=abstract
+  \endverb
+  \field{volume}{14}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Gerhard et al. - 2004 - The status, quality, and expans
+  \verb ion of the NIH full-length cDNA project the Mammalian Gene Collection (
+  \verb MGC).pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome research}
+  \field{year}{2004}
+  \warn{\item Invalid format of field 'month'}
 \endentry
 
 \entry{Kiers2000}{book}{}
@@ -110,7 +948,6 @@
   }
   \strng{namehash}{KHAL+1}
   \strng{fullhash}{KHALRJPGPJFSM1}
-  \field{labelyear}{2000}
   \field{sortinit}{K}
   \verb{doi}
   \verb 10.1007/978-3-642-59789-3
@@ -128,6 +965,110 @@
   \field{year}{2000}
 \endentry
 
+\entry{Martin-Fernandez2000}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {en}%
+  }
+  \list{publisher}{1}{%
+    {Kluwer Academic Publishers-Plenum Publishers}%
+  }
+  \strng{namehash}{MFJABVCPGV1}
+  \strng{fullhash}{MFJABVCPGV1}
+  \field{sortinit}{M}
+  \verb{doi}
+  \verb 10.1023/A:1023866030544
+  \endverb
+  \field{issn}{1573-8868}
+  \field{number}{3}
+  \field{pages}{253\bibrangedash 278}
+  \field{title}{{Dealing with Zeros and Missing Values in Compositional Data
+  Sets Using Nonparametric Imputation}}
+  \verb{url}
+  \verb http://link.springer.com/article/10.1023/A{\%}3A1023866030544
+  \endverb
+  \field{volume}{35}
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{2000}
+\endentry
+
+\entry{Martin-Fernandez1998}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J~A}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V}{V}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buccianti}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nardi}{N.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Potenza}{P.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MFJA+1}
+  \strng{fullhash}{MFJABVCPGVBANGPR1}
+  \field{sortinit}{M}
+  \field{abstract}{%
+  F or the application of a hierarc hic classification method it is necessary
+  to establish the measure of difference to be used, as well the appropriate
+  measures of cen tral tendency and dispersion in accordance with the nature of
+  the data. In this study w e review the requiremen ts for the measure of
+  difference when the data set is compositional and we present specifc measures
+  of cen tral tendency and dispersion to be used with hierarchical clustering
+  methods.%
+  }
+  \field{isbn}{88--900308--2--8}
+  \field{number}{1}
+  \field{pages}{526\bibrangedash 531}
+  \field{title}{{Measures of difference for compositional data and hierarchical
+  clustering methods}}
+  \field{volume}{98}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Mart{\'{i}}n-Fern{\'{a}}ndez et al. - 1998 - Measures o
+  \verb f difference for compositional data and hierarchical clustering methods
+  \verb .pdf:pdf
+  \endverb
+  \field{journaltitle}{Proceedings of IAMG}
+  \field{year}{1998}
+\endentry
+
 \entry{Robinson2010}{article}{}
   \name{author}{2}{}{%
     {{}%
@@ -143,7 +1084,6 @@
   }
   \strng{namehash}{RMDOA1}
   \strng{fullhash}{RMDOA1}
-  \field{labelyear}{2010}
   \field{sortinit}{R}
   \field{abstract}{%
   The fine detail provided by sequencing-based transcriptome surveys suggests
@@ -193,7 +1133,6 @@
   }
   \strng{namehash}{SRFPCTCRA1}
   \strng{fullhash}{SRFPCTCRA1}
-  \field{labelyear}{1993}
   \field{sortinit}{S}
   \verb{doi}
   \verb 10.1007/BF00890676
@@ -235,7 +1174,6 @@
   Sequence Data,RNA,RNA: analysis,RNA: methods,Sequence Analysis,Transcription}
   \strng{namehash}{WZGMSM1}
   \strng{fullhash}{WZGMSM1}
-  \field{labelyear}{2009}
   \field{sortinit}{W}
   \field{abstract}{%
   RNA-Seq is a recently developed approach to transcriptome profiling that uses
