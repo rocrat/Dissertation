@@ -1,3 +1,31 @@
+library(compositions)
+
+
+gm_mean = function(x){
+  return(sum(log(x)) / length(x))
+}
+
+MFclr <- function(x){#apply to a vector
+  delta <- 0.55/sum(x)# .55 times the smallest detectable value (1 read) after closure
+  tdelta <- sum(x == 0) * delta
+  cx <- clo(x)
+  cxt <- ifelse(cx == 0, delta, cx * (1-tdelta))
+  g <- gm_mean(cxt)
+  ccxt <- log(cxt) - g
+  return(ccxt)
+}
+
+MFalr <- function(x, ind){#apply to a vector
+  browser()
+  delta <- 0.55/sum(x)# .55 times the smallest detectable value (1 read) after closure
+  tdelta <- sum(x == 0) * delta
+  cx <- clo(x)
+  D <- cx[ind]
+  cxt <- ifelse(cx == 0, delta, cx * (1-tdelta))
+  acxt <- log(cxt) - log(D)
+  return(acxt)
+}
+
 #Matrix manipulation
 Id <- matrix(0, nrow = 3, ncol = 3)
 diag(Id) <- 1
@@ -20,4 +48,13 @@ for(i in 1:ncol(X)){
   X[, i] <- rpois(4, 10)
 }
 
+Xclr <- apply(X, 2, MFtrans)
+gamma <- cov(t(Xclr))
 
+rowSums(gamma)
+gamma%*%JD
+GD%*%gamma
+gamma
+GD%*%GD
+
+Xalr <- apply(X, 2, MFalr, ind = nrow(X))

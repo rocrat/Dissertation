@@ -180,7 +180,7 @@ Sub-compositional cohereance can be accomplished through the formation of the su
 $$x_s = \mathcal{C}(Sx),$$ 
 where $S$ is a $c\times D$ selecting matrix and $\mathcal{C}(\cdot)$ is the closure operation.  Under the assumption that all of the original components of the composition were indpendent, the resulting subcomposition will not depend on the values of the original composition.  Furthermore, the formation of sub-compositions in this way leads to 3 useful properties: 1) the ratio of any two components from the subcomposition is identical to the ratio of the two components in the full composition, 2) the resulting sub-composition can be interpreted as resulting from a linear projection and 3) the resulting sub-compositions will be on the same scale.\\
 
-
+Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independence} for a composition if ``subcompositions formed from any partition of the composition form an independent set."  \\
 
 
 \section[Current Methodology]{Current Methodology with Respect to Compositional Data Analysis}
