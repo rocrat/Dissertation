@@ -37,11 +37,16 @@ D <- 4
 ID <- matrix(0, 4, 4)
 diag(ID) <- 1
 d <- 3
+jD <- matrix(1, 4, 1)
 JD <- matrix(1, 4, 4)
 GD <- ID - D^-1 * JD
 Hd <- Id + Jd
 
-
+Ninv <- Id - 1/d * j%*%t(j)
+ND <- ID + jD%*%t(jD)
+NDinv <- ID - 1/D * jD%*%t(jD)
+NDinv <- solve(NDinv)
+NDinv%*%NDinv == NDinv
 #Make a composition
 X <- matrix(NA, nrow = 4, ncol = 8)
 for(i in 1:ncol(X)){
