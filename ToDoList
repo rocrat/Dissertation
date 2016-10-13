@@ -1,31 +1,32 @@
-List of things to do:
+List of things to do in order of priority:
 
 1) Paper 1: QC metrics
   a) provide outline (Send outline)
   b) set up meeting 
-  c) 
+  c) Provide draft
   
-2) Proposal  
-  a) Proportionality for co-expression analysis
-  b) QC metrics
-  c) Classification??  Is this even impacted by compositions (yes if correlation or distance measure)
-    i) sparse CCA 
+2) Proposal 
+  A) Introduction to the problem:  RNA-seq is compositional
+  B) Background of compositional data analysis (literature review)
+  C) Proposed work:
+    i) QC metrics
+    ii) Proportionality for co-expression analysis
+    iii) Classification
+    
+3) Form committee and take Comprehensive exam
   
-3) Paper 2: introduction to relative abundance and why that leads to compositions
+4) Paper 2: introduction to relative abundance and why that leads to compositions
   A) outline
-  a) prove that relative abundance data is, in fact, a composition
-  b) describe all the consequences thereof
-  c) if you have all pair-wise ratios then you have all the information of a composition
-  d) Aimed at biologists with motivating examples
-  e) get buy-in from committee members
+    a) prove that relative abundance data is, in fact, a composition
+    b) describe all the consequences thereof
+    c) if you have all pair-wise ratios then you have all the information of a composition
+    d) Aimed at biologists with motivating examples
+    e) get buy-in from committee members
   
-4) Paper 3: LDA with logistic normal distribution, 
+5) Paper 3: Classification with the logistic normal distribution 
   a) check if someone has done this already
   b) compositional variable selection: ignore groups or amalgamate
-  c) can we use subcompositional independence somehow
-
 
     
     
   
-2) Form committee and take Comprehensive exam
