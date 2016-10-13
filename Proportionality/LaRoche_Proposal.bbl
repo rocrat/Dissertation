@@ -920,6 +920,94 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{Glenn2011}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Glenn}{G.}%
+     {Travis~C}{T.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GTC1}
+  \strng{fullhash}{GTC1}
+  \field{sortinit}{G}
+  \field{abstract}{%
+  The diversity of available 2(nd) and 3(rd) generation DNA sequencing
+  platforms is increasing rapidly. Costs for these systems range from
+  {\textless} {\$}100,000 to more than {\$}1,000,000, with instrument run times
+  ranging from minutes to weeks. Extensive trade-offs exist among these
+  platforms. I summarize the major characteristics of each commercially
+  available platform to enable direct comparisons. In terms of cost per
+  megabase (Mb) of sequence, the Illumina and SOLiD platforms are clearly
+  superior (≤ {\$}0.10/Mb vs. {\textgreater} {\$}10/Mb for 454 and some Ion
+  Torrent chips). In terms of cost per nonmultiplexed sample and instrument run
+  time, the Pacific Biosciences and Ion Torrent platforms excel, with the 454
+  GS Junior and Illumina MiSeq also notable in this regard. All platforms allow
+  multiplexing of samples, but details of library preparation, experimental
+  design and data analysis can constrain the options. The wide range of
+  characteristics among available platforms provides opportunities both to
+  conduct groundbreaking studies and to waste money on scales that were
+  previously infeasible. Thus, careful thought about the desired
+  characteristics of these systems is warranted before purchasing or using any
+  of them. Updated information from this guide will be maintained at:
+  http://dna.uga.edu/ and http://tomato.biol.trinity.edu/blog/.%
+  }
+  \verb{doi}
+  \verb 10.1111/j.1755-0998.2011.03024.x
+  \endverb
+  \field{issn}{1755-0998}
+  \field{number}{5}
+  \field{pages}{759\bibrangedash 69}
+  \field{title}{{Field guide to next-generation DNA sequencers.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/21592312
+  \endverb
+  \field{volume}{11}
+  \field{journaltitle}{Molecular ecology resources}
+  \field{year}{2011}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Illumina}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Illumina}{I.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{I1}
+  \strng{fullhash}{I1}
+  \field{sortinit}{I}
+  \field{abstract}{%
+  Next-generation sequencing (NGS) has revolutionized the study of the
+  transcriptome. Sequence data that once took years to generate can now be
+  produced in a matter of days or hours. Advances in RNA enable simpler, easier
+  workflows from library preparation to data analysis with highly accurate
+  results. RNA-Seq offers many advantages over previous methods such as qPCR
+  and gene expression (GEX) arrays. RNA-Seq provides a wider dynamic range than
+  GEX arrays, resulting in greater sensitivity and accuracy. And unlike both
+  qPCR and GEX arrays, RNA-Seq can detect both known and novel features,
+  enabling analysis of the transcriptome without the limitation of prior
+  knowledge. Furthermore, RNA-Seq is a popular choice for nonmodel species
+  where genetic tools and resources are limited. The advantages of RNA-Seq and
+  its impact on research can be seen through the rapid increase in RNA-Seq
+  publications and the increasing success of grant proposals for gene
+  expression studies including RNA-Seq.%
+  }
+  \field{title}{{Buyer's Guide: Simple, Customized RNA-Sequencing Workflows
+  Overcome Limitations with RNA-Seq}}
+  \verb{url}
+  \verb http://www.illumina.com/content/dam/illumina-marketing/documents/produc
+  \verb ts/other/rna-sequencing-workflow-buyers-guide-476-2015-003.pdf
+  \endverb
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Illumina - Unknown - Buyer's Guide Simple, Customized R
+  \verb NA-Sequencing Workflows Overcome Limitations with RNA-Seq.pdf:pdf
+  \endverb
+\endentry
+
 \entry{Kiers2000}{book}{}
   \name{editor}{4}{}{%
     {{}%
@@ -963,6 +1051,226 @@
     {Berlin, Heidelberg}%
   }
   \field{year}{2000}
+\endentry
+
+\entry{Levin2010}{article}{}
+  \name{author}{8}{}{%
+    {{}%
+     {Levin}{L.}%
+     {Joshua~Z}{J.~Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yassour}{Y.}%
+     {Moran}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adiconis}{A.}%
+     {Xian}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nusbaum}{N.}%
+     {Chad}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thompson}{T.}%
+     {Dawn~Anne}{D.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Friedman}{F.}%
+     {Nir}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gnirke}{G.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Regev}{R.}%
+     {Aviv}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {NIH Public Access}%
+  }
+  \strng{namehash}{LJZ+1}
+  \strng{fullhash}{LJZYMAXNCTDAFNGARA1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  Strand-specific, massively parallel cDNA sequencing (RNA-seq) is a powerful
+  tool for transcript discovery, genome annotation and expression profiling.
+  There are multiple published methods for strand-specific RNA-seq, but no
+  consensus exists as to how to choose between them. Here we developed a
+  comprehensive computational pipeline to compare library quality metrics from
+  any RNA-seq method. Using the well-annotated Saccharomyces cerevisiae
+  transcriptome as a benchmark, we compared seven library-construction
+  protocols, including both published and our own methods. We found marked
+  differences in strand specificity, library complexity, evenness and
+  continuity of coverage, agreement with known annotations and accuracy for
+  expression profiling. Weighing each method's performance and ease, we
+  identified the dUTP second-strand marking and the Illumina RNA ligation
+  methods as the leading protocols, with the former benefitting from the
+  current availability of paired-end sequencing. Our analysis provides a
+  comprehensive benchmark, and our computational pipeline is applicable for
+  assessment of future protocols in other organisms.%
+  }
+  \verb{doi}
+  \verb 10.1038/nmeth.1491
+  \endverb
+  \field{issn}{1548-7105}
+  \field{number}{9}
+  \field{pages}{709\bibrangedash 15}
+  \field{title}{{Comprehensive comparative analysis of strand-specific RNA
+  sequencing methods.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/20711195 http://www.pubmedcentral.ni
+  \verb h.gov/articlerender.fcgi?artid=PMC3005310
+  \endverb
+  \field{volume}{7}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Levin et al. - 2010 - Comprehensive comparative analysi
+  \verb s of strand-specific RNA sequencing methods.pdf:pdf
+  \endverb
+  \field{journaltitle}{Nature methods}
+  \field{year}{2010}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Liu2012}{article}{}
+  \name{author}{18}{}{%
+    {{}%
+     {Liu}{L.}%
+     {Lin}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Yinhu}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Siliang}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hu}{H.}%
+     {Ni}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {Yimin}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pong}{P.}%
+     {Ray}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lin}{L.}%
+     {Danni}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Lihua}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Law}{L.}%
+     {Maggie}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liu}{L.}%
+     {Lin}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Yinhu}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Siliang}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hu}{H.}%
+     {Ni}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {Yimin}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pong}{P.}%
+     {Ray}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lin}{L.}%
+     {Danni}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Lihua}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Law}{L.}%
+     {Maggie}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Hindawi Publishing Corporation}%
+  }
+  \strng{namehash}{LL+1}
+  \strng{fullhash}{LLLYLSHNHYPRLDLLLMLLLYLSHNHYPRLDLLLM1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  {\textless}p{\textgreater}With fast development and wide applications of
+  next-generation sequencing (NGS) technologies, genomic sequence information
+  is within reach to aid the achievement of goals to decode life mysteries,
+  make better crops, detect pathogens, and improve life qualities. NGS systems
+  are typically represented by SOLiD/Ion Torrent PGM from Life Sciences, Genome
+  Analyzer/HiSeq 2000/MiSeq from Illumina, and GS FLX Titanium/GS Junior from
+  Roche. Beijing Genomics Institute (BGI), which possesses the world's biggest
+  sequencing capacity, has multiple NGS systems including 137 HiSeq 2000, 27
+  SOLiD, one Ion Torrent PGM, one MiSeq, and one 454 sequencer. We have
+  accumulated extensive experience in sample handling, sequencing, and
+  bioinformatics analysis. In this paper, technologies of these systems are
+  reviewed, and first-hand data from extensive experience is summarized and
+  analyzed to discuss the advantages and specifics associated with each
+  sequencing system. At last, applications of NGS are
+  summarized.{\textless}/p{\textgreater}%
+  }
+  \verb{doi}
+  \verb 10.1155/2012/251364
+  \endverb
+  \field{issn}{1110-7243}
+  \field{pages}{1\bibrangedash 11}
+  \field{title}{{Comparison of Next-Generation Sequencing Systems}}
+  \verb{url}
+  \verb http://www.hindawi.com/journals/bmri/2012/251364/
+  \endverb
+  \field{volume}{2012}
+  \field{journaltitle}{Journal of Biomedicine and Biotechnology}
+  \field{year}{2012}
 \endentry
 
 \entry{Martin-Fernandez2000}{article}{}
