@@ -1,5 +1,7 @@
 List of things to do in order of priority:
 
+Write up the goodness of fit work that I did for the next meeting (Oct. 27th)
+
 1) Paper 1: QC metrics
   a) provide outline (Send outline)
   b) set up meeting 
@@ -26,6 +28,9 @@ List of things to do in order of priority:
 5) Paper 3: Classification with the logistic normal distribution 
   a) check if someone has done this already
   b) compositional variable selection: ignore groups or amalgamate
+  c) Use ALKPlus ros/ret as a data set for this
+      i) using the 5-prime as a 'housekeeper'
+  
 
     
     
