@@ -23,7 +23,7 @@ Ribonucleic acid (RNA) plays many important roles in the function of cells inclu
 \subsection{RNA Sequencing Technology}
 Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994,Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{CITEHERE}.  The focus of this research is on Next Generation Sequencing (NGS) data.\\  
 
-\subsection{Process of Collecting and Sequencing RNA}
+\subsection{Process of Collecting and Sequencing RNA}%Make this more specific to targeted extraction free chemistry
 %How samples are collected, prepared, and sequenced
 RNA is sequenced from finite volumes of tissue or plasma/serum.  RNA must be isolated, purified and converted into double stranded complementary DNA (cDNA) sample libraries prior to sequencing.  There are many methods available for RNA library preparation which vary with respect to the resulting libraries complexity, evenness and continuity of coverage, and accuracy for expression profiling~\cite{Levin2010}.  Additionally, targeted RNA sequencing provides a method for measuring \emph{a priori} selected transcripts with greater precision and potentially smaller sample inputs~\cite{CITE}.  This research does not attempt to address the impacts of the various sample library preparation methods other than to note that RNA is obtained from finite, and potentially very small, biological samples.\\
 
