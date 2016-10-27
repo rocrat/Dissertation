@@ -31,12 +31,14 @@ To sequence the cDNA libraries, platform specific adapters are added to the ends
 
 For all NGS-based sequencing platforms, adapted cDNA fragments are immobilized on a propietary surface (flow cells or beads) with a finite amount of area.  The resulting cDNA templates are then amplified to create clusters of copied cDNA (Illumina) or beads are placed into wells (Roche 454).  Sequences for clonal clusters (wells) are then determined through Sequencing by Synthesis (SBS).  The chemistry for the synthesis also varies by platform but the process involves repeatedly adding a single nucleotide to each template and recording the value of the nucleotide through either flourescence or light emission. Each cluster then represents the sequence of a single cDNA transcript captured on the surface.  Different platforms allow a different total number of transcripts to be sequenced in a single sequencing run, ranging from 70,000 to 5 billion.\\
 
-The number of reads in a sequencing run allocated to a sample is referred to as the read depth....  
+The number of reads in a sequencing run allocated to a sample is referred to as the read depth.  Read depth has been associated with data quality~\cite{Tarazona2011,Haas2012,Liu2013,Liu2014} with greater read-depth associated with higher precision. There is a tradeoff between cost, replication, and read-depth for any given experiment~\cite{Liu2014} because a given sequencing run has a limited number of reads to allocate to individual samples.\\
 
-\subsection{General Properties of RNA Sequence Data}
+\subsection{Compositional Properties of RNA Sequence Data}
 \label{sec:rnaSampProp}
 %What are the consequences of the process and the nature of RNA? i.e. poisson, neg-bin, and sum constraints.  Factors affecting sequencing
 %two sum constraints in RNA seq data: one related to the size of the sample (sample bucket) and another related to the number of mapped reads (sequencing depth bucket)
+Previous authors have identified the relative abundance nature of RNA sequencing data~\cite{Robinson2010}.  RNA sequence data are  subject to two constraints: 1) the number of RNA transcripts that can fit into the finite sample collected, and 2) the number of available reads of those transcripts available in a sequencing run. 
+
 
 
 % \subsection{Current Methodology Associated with RNA Sequencing Data}
@@ -194,7 +196,7 @@ Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independe
 
 %The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
 \subsection{Normalization}
-Previous authors have identified the compositional nature of RNA sequencing data~\cite{Robinson2010}.  As stated previously, RNA sequence data are likely subject to two sum constraints: 1) the number of RNA sequences that can fit into the finite sample collected, and 2) the number of available reads of those sequences for the given sequencing technology.  %can both of these exist simultaneously? 
+  %can both of these exist simultaneously? 
 \subsubsection{Counts per Million (CPM) Transformation}
 The Counts per Million (CPM) transformation is 
 
