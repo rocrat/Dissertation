@@ -2,6 +2,8 @@ List of things to do in order of priority:
 
 Write up the goodness of fit work that I did for the next meeting (Oct. 27th)
 
+Figure out how to simulate the logistic normal (hint log-normal to logistic normal by dividing by the sum.)
+
 1) Paper 1: QC metrics
   a) provide outline (Send outline)
   b) set up meeting 
@@ -10,10 +12,13 @@ Write up the goodness of fit work that I did for the next meeting (Oct. 27th)
 2) Proposal 
   A) Introduction to the problem:  RNA-seq is compositional
   B) Background of compositional data analysis (literature review)
-  C) Proposed work:
+  C) Proposed work: (pick 3 but first flesh out each slightly)
     i) QC metrics
     ii) Proportionality for co-expression analysis
     iii) Classification
+    iv) introduction to relative abundance and why that leads to compositions
+    v) Classification with the logistic normal distribution
+    vi) Telescoping almalgamations (cross product of amalgamated probes with co-variate of composition)
     
 3) Form committee and take Comprehensive exam
   
@@ -26,12 +31,17 @@ Write up the goodness of fit work that I did for the next meeting (Oct. 27th)
     e) get buy-in from committee members
   
 5) Paper 3: Classification with the logistic normal distribution 
+  A) differences in distance and correlation metrics
   a) check if someone has done this already
   b) compositional variable selection: ignore groups or amalgamate
   c) Use ALKPlus ros/ret as a data set for this
       i) using the 5-prime as a 'housekeeper'
+  d) clarify the ties between logistic normal and LDA 
   
+  
+6) Proportionality 
 
+7) Telescoping almalgamations (cross product of amalgamated probes with co-variate of composition)
     
     
   
