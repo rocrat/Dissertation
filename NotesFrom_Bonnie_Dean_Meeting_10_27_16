@@ -1,0 +1,41 @@
+1) QC Read depth
+  a) adding a small amount of structure creates a useful metrics
+2) Batch effect => rational ofr log(CPM) as a normalization
+  A) Make the mathematical argument that using CLR improves analysis
+    a) clustering in 2 or three dimensions?
+    b) Celgene Controls vs MTC samples (from tiger team experiments)
+        i) demonstrate one method is more sensitive
+        ii) what is the reference standard <- PCA on Raw
+        iii) How does separation change between Raw < log(CPM) < CLR
+    c) Use to look for biologic structures OR check for batch effects
+      
+3) 
+
+
+Updated Outline from Bonnie
+Title:  Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.
+
+*****Drive home the hierarchy part of the paper as a central theme********
+
+I)	Background
+a.	NGS/Target NGS differences and similarities (note first step in NGS is extraction – first step in HTG is qRT-PCR straight from FFPE or other sample)
+b.	QC controls (illumina metrics - %PF, cluster density – these are read depth type metrics that are primarily qualitative)
+c.	LLQ – HK – Control genes (not recommended – see Speed et. al. for review of this topic)
+II)	Methods
+a.	Brief discussion of RNA sequencing data as a composition (highlight hierarchical nature as it will be easier to describe metrics for read depth)
+i.	Closure is due to technology (sequencers – see illumina brochure)
+ii.	Hierarchical structure as a type of amalgomation
+iii.	Transformations – highlight CLR and how this is an extension of CPM/RTKM transformation
+b.	QC metric similar to %PF as a composition – highlight novel in terms of quantitating this as a simple metric based on outliers 
+c.	QC metric for assessing batch effects – highlight likely benefit of compositional framework for multivariate assessments 
+i.	Aitchison Distance as a substitute for Euclidean distance	
+ii.	Can we prove that the compositional method is more accurate??
+iii.	
+d.	Process control TBD possibilities
+i.	Compositional GOF – (expected equivalent proportionality across all probes – removal of HK, ANT, POS genes?? What are the issues here, mathematically?)
+1.	Compute Q3-Q1 based on CLR?
+2.	Is there a way to come up with a method that doesn’t depend on the empirical distribution for expectation?
+3.	Ratio of ANT to POS as a QC
+4.	Proportion of POS to everything else
+ii.	POS control as a process control – high proportion of relative counts in POS gene indicate poor quality samples?  Is this correlated with read depth?  -- need to be careful whether samples are pool clean-up or not)
+iii.	ANT gene same as ii – theoretically zero in best situation
