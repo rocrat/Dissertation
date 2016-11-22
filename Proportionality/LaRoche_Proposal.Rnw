@@ -161,12 +161,12 @@ In RNA-seq data, zeros can naturally arise for multiple reasons.  If reads for a
 Aitchison (1986) proposes several approaches to dealing with zeros in the absence of a one-to-one monotonic transformation which accommodates zeros: amalgamation, imputation with a constant, addition of a constant to every observation, replacing the log-ratio transformation with a modified Box-Cox transformation, and a conditional model which explicitly models the probability of a component having a 0 proportion.  Amalgamation, model-based imputation, and conditional models may all be good solutions for particular analyses goals and data sets but are difficult or impossible to apply universally to individual samples, a necessary requirement for clinical utility.\\
 
 
-The addition of a constant to every observation (as in the case of the Law et al.~\cite{2014} \emph{voom} transformation) is a tempting option for its simplicity and ease of implementation for individual samples.  However, this additive transofrmation alters the proportionality within a composition i.e. the ratio $\frac{a}{b} \ne \frac{a+c}{b+c}\ \forall a, b, c \ne 0$.  For the CLR transformation the addition of a constant, $c$ to every observation will reduce the variation in the clr transformed data as can be seen in the limit as $c \rightarrow \infty$, through repeated applications of l'Hopital's rule, it can be shown that:
+The addition of a constant to every observation (as in the case of the Law et al.~\cite{Law2014} log2(Counts per Million) transformation) is a tempting option for its simplicity and ease of implementation for individual samples.  However, this additive transformation alters the proportionality within a composition i.e. the ratio $\frac{a}{b} \ne \frac{a+c}{b+c}\ \forall a, b, c \ne 0$.  For the CLR transformation the addition of a constant, $c$ to every observation will reduce the variation in the clr transformed data as can be seen in the limit as $c \rightarrow \infty$, through repeated applications of l'Hopital's rule, it can be shown that:
 $$lim_{c \rightarrow \infty} \frac{x_i + c}{\left(\prod_{i=1}^D (x_i + c)\right)^{1/D}} = 0\ \forall \ x_i \in X$$
 
 Since each element of the clr transformed data will converge to a constant the variance of the composition will also converge to 0. Also, as $c \rightarrow 0$, the zero elements of the composition will approach $-\infty$ and these components may have undue leverage on downstream analyses. The log-ratio transformation is clearly sensitive to the choice of constant.\\
 
-Martin-Fernandez et al.~\cite{Martin-Fernandez2000} address this issue through a additive-multiplicative hybrid transformation :
+Martin-Fernandez et al.~\cite{Martin-Fernandez2000} address this issue through an additive-multiplicative hybrid transformation :
 \begin{equation}
 r_j = \left\{
 \begin{array}{ll}
