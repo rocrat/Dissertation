@@ -18,14 +18,16 @@
 
 \section{RNA Sequencing Data}
 %General information about RNA sequence data: where it comes from and how people use it.
-Ribonucleic acid (RNA) plays many important roles in the function of cells including gene transcription and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer sub-types and identify news genes for interrogation in the investigation of a disease.  Investigations of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiment and has been rapidly adopted by scientists \cite{Illumina}.  The current research is restricted to the analysis RNA-Seq data and the unique analytical challenges it creates.
+Ribonucleic acid (RNA) plays many important roles in the function of cells including gene transcription and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer sub-types and identify news genes for interrogation in the investigation of a disease.  Investigations of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiment and has been rapidly adopted by scientists \cite{Illumina}.  The current research is restricted to the analysis of targeted RNA-Seq data and the unique analytical challenges it creates.
 
 \subsection{RNA Sequencing Technology}
-Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994,Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{CITEHERE}.  The focus of this research is on Next Generation Sequencing (NGS) data.\\  
+Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994,Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{CITEHERE}.  The focus of this research is on Next Generation Sequencing (NGS) data from targeted RNA-Seq platforms.\\  
 
 \subsection{Process of Collecting and Sequencing RNA}%Make this more specific to targeted extraction free chemistry
 %How samples are collected, prepared, and sequenced
-RNA is sequenced from finite volumes of tissue or plasma/serum.  RNA must be isolated, purified and converted into double stranded complementary DNA (cDNA) sample libraries prior to sequencing.  There are many methods available for RNA library preparation which vary with respect to the resulting libraries complexity, evenness and continuity of coverage, and accuracy for expression profiling~\cite{Levin2010}.  Additionally, targeted RNA sequencing provides a method for measuring \emph{a priori} selected transcripts with greater precision and potentially smaller sample inputs~\cite{CITE}.  This research does not attempt to address the impacts of the various sample library preparation methods other than to note that RNA is obtained from finite, and potentially very small, biological samples.\\
+RNA is sequenced from finite volumes of tissue or plasma/serum.  In a traditional RNA-Seq experiments RNA must be isolated, purified and converted into double stranded complementary DNA (cDNA) sample libraries prior to sequencing.  There are many methods available for RNA library preparation which vary with respect to the resulting libraries complexity, evenness and continuity of coverage, and accuracy for expression profiling~\cite{Levin2010}.\\
+
+The focus of this research is on extraction-free targeted RNA-Seq.  Extraction free sample preparation enables measurement of \emph{a priori} selected transcripts with greater precision and smaller sample inputs~\cite{CITE}.  This research does not attempt to address the impacts of the various sample library preparation methods other than to note that RNA is obtained from finite, and potentially very small, biological samples.  \\
 
 To sequence the cDNA libraries, platform specific adapters are added to the ends of the cDNA fragments.  Several platforms are available and the specific chemistry differs among them. Several articles have been published comparing these platforms~\cite{Liu2012,Glenn2011} for sequencing RNA.  The differences in platforms, and the resulting differences in data produced by them, is beyond the scope of this research.  Instead we focus on the common features of these platforms and the resulting impact on RNA-Seq data generally.\\
 
@@ -33,12 +35,13 @@ For all NGS-based sequencing platforms, adapted cDNA fragments are immobilized o
 
 The number of reads in a sequencing run allocated to a sample is referred to as the read depth.  Read depth has been associated with data quality~\cite{Tarazona2011,Haas2012,Liu2013,Liu2014} with greater read-depth associated with higher precision. There is a tradeoff between cost, replication, and read-depth for any given experiment~\cite{Liu2014} because a given sequencing run has a limited number of reads to allocate to individual samples.\\
 
+Once sequences have measured by the seqeuncer they are aligned to a genome and various quality metrics are calculated.  Alignment typically proceeds through a greedy algorithm implemented in programs such as Bowtie~\cite{}. Several different seqiences might aling with varying accruacy to the same gene and these must be counted in a way which accounts for the uncertainty of the alignment. In targeted sequencing the alignment is greatly simplified because the targets are known and consist of a much smaller set of possible sequences.\\   
+
 \subsection{Compositional Properties of RNA Sequence Data}
 \label{sec:rnaSampProp}
 %What are the consequences of the process and the nature of RNA? i.e. poisson, neg-bin, and sum constraints.  Factors affecting sequencing
 %two sum constraints in RNA seq data: one related to the size of the sample (sample bucket) and another related to the number of mapped reads (sequencing depth bucket)
 Previous authors have identified the relative abundance nature of RNA sequencing data~\cite{Robinson2010}.  RNA sequence data are  subject to two constraints: 1) the number of RNA transcripts that can fit into the finite sample collected, and 2) the number of available reads of those transcripts available in a sequencing run. 
-
 
 
 % \subsection{Current Methodology Associated with RNA Sequencing Data}
