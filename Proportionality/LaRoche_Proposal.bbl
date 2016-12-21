@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.8 $
+% $ biblatex version 2.5 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,72 +16,60 @@
   {}
 \endgroup
 
-\sortlist[entry]{nty/global/}
-  \entry{Aitchison1986}{book}{}
-    \name{author}{1}{}{%
-      {{hash=AJ}{%
-         family={Aitchison},
-         familyi={A\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Chapman {\&} Hall, Ltd.}%
-    }
-    \keyw{CoDa}
-    \strng{namehash}{AJ1}
-    \strng{fullhash}{AJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{isbn}{0-412-28060-4}
-    \field{title}{{The statistical analysis of compositional data}}
-    \verb{url}
-    \verb http://dl.acm.org/citation.cfm?id=17272
-    \endverb
-    \field{year}{1986}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+\entry{Aitchison1986}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Chapman {\&} Hall, Ltd.}%
+  }
+  \keyw{CoDa}
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ1}
+  \field{sortinit}{A}
+  \field{isbn}{0-412-28060-4}
+  \field{title}{{The statistical analysis of compositional data}}
+  \verb{url}
+  \verb http://dl.acm.org/citation.cfm?id=17272
+  \endverb
+  \field{year}{1986}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Aitchison2000}{article}{}
-    \name{author}{4}{}{%
-      {{hash=AJ}{%
-         family={Aitchison},
-         familyi={A\bibinitperiod},
-         given={J.},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=BVC}{%
-         family={Barcel{\'{o}}-Vidal},
-         familyi={B\bibinitperiod-V\bibinitperiod},
-         given={C.},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=MFJA}{%
-         family={Mart{\'{i}}n-Fern{\'{a}}ndez},
-         familyi={M\bibinitperiod-F\bibinitperiod},
-         given={J.\bibnamedelima A.},
-         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=PGV}{%
-         family={Pawlowsky-Glahn},
-         familyi={P\bibinitperiod-G\bibinitperiod},
-         given={V.},
-         giveni={V\bibinitperiod},
-      }}%
-    }
-    \keyw{Euclidean distance,Permutation invariance,Perturbation
-  invariance,Scale invariance,Subcompositional dominance}
-    \strng{namehash}{AJ+1}
-    \strng{fullhash}{AJBVCMFJAPGV1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{abstract}{%
-    The concept of distance between two compositions is important in the
+\entry{Aitchison2000}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Euclidean distance,Permutation invariance,Perturbation invariance,Scale
+  invariance,Subcompositional dominance}
+  \strng{namehash}{AJ+1}
+  \strng{fullhash}{AJBVCMFJAPGV1}
+  \field{sortinit}{A}
+  \field{abstract}{%
+  The concept of distance between two compositions is important in the
   statistical analysis of compositional data, particularly in such activities
   as cluster analysis and multidimensional scaling. This paper exposes rite
   fallacies in a recent criticism of logratio-based distance measures-in
@@ -90,141 +78,125 @@
   compositional data analysis involving distance concepts satisfies certain
   logically necessary invariance conditions. Logratio analysis and its
   associated distance measures satisfies these conditions.%
-    }
-    \verb{doi}
-    \verb 10.1023/A:1007529726302
-    \endverb
-    \field{isbn}{0882-8121}
-    \field{issn}{08828121}
-    \field{number}{3}
-    \field{pages}{271\bibrangedash 275}
-    \field{title}{{Logratio analysis and compositional distance}}
-    \field{volume}{32}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Aitchison et al. - 2000 - Logratio analysis and comp
-    \verb ositional distance.pdf:pdf
-    \endverb
-    \field{journaltitle}{Mathematical Geology}
-    \field{year}{2000}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1023/A:1007529726302
+  \endverb
+  \field{isbn}{0882-8121}
+  \field{issn}{08828121}
+  \field{number}{3}
+  \field{pages}{271\bibrangedash 275}
+  \field{title}{{Logratio analysis and compositional distance}}
+  \field{volume}{32}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Aitchis
+  \verb on et al. (2000) Logratio analysis and compositional distance.pdf:pdf
+  \endverb
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{2000}
+\endentry
 
-  \entry{Aitchison1992}{article}{}
-    \name{author}{1}{}{%
-      {{hash=AJ}{%
-         family={Aitchison},
-         familyi={A\bibinitperiod},
-         given={John},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Kluwer Academic Publishers-Plenum Publishers}%
-    }
-    \strng{namehash}{AJ1}
-    \strng{fullhash}{AJ2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \verb{doi}
-    \verb 10.1007/BF00891269
-    \endverb
-    \field{issn}{0882-8121}
-    \field{number}{4}
-    \field{pages}{365\bibrangedash 379}
-    \field{title}{{On criteria for measures of compositional difference}}
-    \verb{url}
-    \verb http://link.springer.com/10.1007/BF00891269
-    \endverb
-    \field{volume}{24}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Aitchison - 1992 - On criteria for measures of compo
-    \verb sitional difference.pdf:pdf
-    \endverb
-    \field{journaltitle}{Mathematical Geology}
-    \field{year}{1992}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+\entry{Aitchison1992}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Aitchison}{A.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Kluwer Academic Publishers-Plenum Publishers}%
+  }
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ2}
+  \field{sortinit}{A}
+  \verb{doi}
+  \verb 10.1007/BF00891269
+  \endverb
+  \field{issn}{0882-8121}
+  \field{number}{4}
+  \field{pages}{365\bibrangedash 379}
+  \field{title}{{On criteria for measures of compositional difference}}
+  \verb{url}
+  \verb http://link.springer.com/10.1007/BF00891269
+  \endverb
+  \field{volume}{24}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Aitchison - 1992 - On criteria for measures of composit
+  \verb ional difference.pdf:pdf
+  \endverb
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{1992}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Anders2010}{article}{}
-    \name{author}{2}{}{%
-      {{hash=AS}{%
-         family={Anders},
-         familyi={A\bibinitperiod},
-         given={Simon},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=HW}{%
-         family={Huber},
-         familyi={H\bibinitperiod},
-         given={W},
-         giveni={W},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {BioMed Central Ltd}%
-    }
-    \strng{namehash}{ASHW1}
-    \strng{fullhash}{ASHW1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \verb{doi}
-    \verb 10.1186/gb-2010-11-10-r106
-    \endverb
-    \field{isbn}{1474-7596}
-    \field{issn}{1465-6906}
-    \field{number}{10}
-    \field{pages}{R106}
-    \field{title}{{Differential expression analysis for sequence count data}}
-    \verb{url}
-    \verb http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf
-    \endverb
-    \field{volume}{11}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Anders, Huber - 2010 - Differential expression analy
-    \verb sis for sequence count data.pdf:pdf
-    \endverb
-    \field{journaltitle}{Genome Biol}
-    \field{year}{2010}
-  \endentry
+\entry{Anders2010}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Anders}{A.}%
+     {Simon}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huber}{H.}%
+     {W}{W}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {BioMed Central Ltd}%
+  }
+  \strng{namehash}{ASHW1}
+  \strng{fullhash}{ASHW1}
+  \field{sortinit}{A}
+  \verb{doi}
+  \verb 10.1186/gb-2010-11-10-r106
+  \endverb
+  \field{isbn}{1474-7596}
+  \field{issn}{1465-6906}
+  \field{number}{10}
+  \field{pages}{R106}
+  \field{title}{{Differential expression analysis for sequence count data}}
+  \verb{url}
+  \verb http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf
+  \endverb
+  \field{volume}{11}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Anders, Huber - 2010 - Differential expression analysis
+  \verb  for sequence count data.pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome Biol}
+  \field{year}{2010}
+\endentry
 
-  \entry{Billheimer2001}{article}{}
-    \name{author}{3}{}{%
-      {{hash=BD}{%
-         family={Billheimer},
-         familyi={B\bibinitperiod},
-         given={Dean},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=GP}{%
-         family={Guttorp},
-         familyi={G\bibinitperiod},
-         given={Peter},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=FWF}{%
-         family={Fagan},
-         familyi={F\bibinitperiod},
-         given={William\bibnamedelima F},
-         giveni={W\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-    }
-    \keyw{compositional data,mcmc,multinomial regression,random effects,species
+\entry{Billheimer2001}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Billheimer}{B.}%
+     {Dean}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guttorp}{G.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fagan}{F.}%
+     {William~F}{W.~F.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{compositional data,mcmc,multinomial regression,random effects,species
   assemblage}
-    \strng{namehash}{BDGPFWF1}
-    \strng{fullhash}{BDGPFWF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{abstract}{%
-    The relative abundance of different species characterizes the structure of
-  a biological community. We analyze an experiment addressing the relationship
+  \strng{namehash}{BDGPFWF1}
+  \strng{fullhash}{BDGPFWF1}
+  \field{sortinit}{B}
+  \field{abstract}{%
+  The relative abundance of different species characterizes the structure of a
+  biological community. We analyze an experiment addressing the relationship
   between omnivorous feeding linkages and community stability. Our goal is to
   determine whether communities with different predator compositions respond
   similarly to environmental disturbance. To evaluate these data, we develop a
@@ -238,806 +210,674 @@
   omnivory can help to stabilize community dynamics and prevent radical shifts
   in community composition. This result is at odds with classical food-web
   predictions, but agrees with recent theoretical formulations.%
-    }
-    \verb{doi}
-    \verb 10.1198/016214501753381850
-    \endverb
-    \field{isbn}{01621459}
-    \field{issn}{0162-1459}
-    \field{number}{456}
-    \field{pages}{1205\bibrangedash 1214}
-    \field{title}{{Statistical Interpretation of Species Composition}}
-    \verb{url}
-    \verb http://www.jstor.org/stable/3085883
-    \endverb
-    \field{volume}{96}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Billheimer, Guttorp, Fagan - 2001 - Statistical Inte
-    \verb rpretation of Species Composition.pdf:pdf
-    \endverb
-    \field{journaltitle}{Journal of the American Statistical Association}
-    \field{year}{2001}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1198/016214501753381850
+  \endverb
+  \field{isbn}{01621459}
+  \field{issn}{0162-1459}
+  \field{number}{456}
+  \field{pages}{1205\bibrangedash 1214}
+  \field{title}{{Statistical Interpretation of Species Composition}}
+  \verb{url}
+  \verb http://www.jstor.org/stable/3085883
+  \endverb
+  \field{volume}{96}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Billhei
+  \verb mer, Guttorp, and Fagan (2011) Statistical Interpretation of Species Co
+  \verb mposition.pdf:pdf
+  \endverb
+  \field{journaltitle}{Journal of the American Statistical Association}
+  \field{year}{2001}
+\endentry
 
-  \entry{Boguski1994}{article}{}
-    \name{author}{3}{}{%
-      {{hash=BMS}{%
-         family={Boguski},
-         familyi={B\bibinitperiod},
-         given={M\bibnamedelima S},
-         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=TCM}{%
-         family={Tolstoshev},
-         familyi={T\bibinitperiod},
-         given={C\bibnamedelima M},
-         giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=BDE}{%
-         family={Bassett},
-         familyi={B\bibinitperiod},
-         given={D\bibnamedelima E},
-         giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BMSTCMBDE1}
-    \strng{fullhash}{BMSTCMBDE1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{issn}{0036-8075}
-    \field{number}{5181}
-    \field{pages}{1993\bibrangedash 4}
-    \field{title}{{Gene discovery in dbEST.}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/8091218
-    \endverb
-    \field{volume}{265}
-    \field{journaltitle}{Science (New York, N.Y.)}
-    \field{year}{1994}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+\entry{Boguski1994}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Boguski}{B.}%
+     {M~S}{M.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tolstoshev}{T.}%
+     {C~M}{C.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bassett}{B.}%
+     {D~E}{D.~E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BMSTCMBDE1}
+  \strng{fullhash}{BMSTCMBDE1}
+  \field{sortinit}{B}
+  \field{issn}{0036-8075}
+  \field{number}{5181}
+  \field{pages}{1993\bibrangedash 4}
+  \field{title}{{Gene discovery in dbEST.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/8091218
+  \endverb
+  \field{volume}{265}
+  \field{journaltitle}{Science (New York, N.Y.)}
+  \field{year}{1994}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Casella2002}{book}{}
-    \name{author}{2}{}{%
-      {{hash=CG}{%
-         family={Casella},
-         familyi={C\bibinitperiod},
-         given={George.},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=BRL}{%
-         family={Berger},
-         familyi={B\bibinitperiod},
-         given={Roger\bibnamedelima L.},
-         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Australia ; Pacific Grove, CA : Thomson Learning c2002}%
-    }
-    \strng{namehash}{CGBRL1}
-    \strng{fullhash}{CGBRL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{isbn}{0534243126}
-    \field{title}{{Statistical Inference, 2nd Edition}}
-    \field{year}{2002}
-  \endentry
+\entry{Casella2002}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Casella}{C.}%
+     {George.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Berger}{B.}%
+     {Roger~L.}{R.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Australia ; Pacific Grove, CA : Thomson Learning c2002}%
+  }
+  \strng{namehash}{CGBRL1}
+  \strng{fullhash}{CGBRL1}
+  \field{sortinit}{C}
+  \field{isbn}{0534243126}
+  \field{title}{{Statistical Inference, 2nd Edition}}
+  \field{year}{2002}
+\endentry
 
-  \entry{Gerhard2004}{article}{}
-    \name{author}{115}{}{%
-      {{hash=GDS}{%
-         family={Gerhard},
-         familyi={G\bibinitperiod},
-         given={Daniela\bibnamedelima S},
-         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=WL}{%
-         family={Wagner},
-         familyi={W\bibinitperiod},
-         given={Lukas},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=FEA}{%
-         family={Feingold},
-         familyi={F\bibinitperiod},
-         given={Elise\bibnamedelima A},
-         giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=SCM}{%
-         family={Shenmen},
-         familyi={S\bibinitperiod},
-         given={Carolyn\bibnamedelima M},
-         giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=GLH}{%
-         family={Grouse},
-         familyi={G\bibinitperiod},
-         given={Lynette\bibnamedelima H},
-         giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-      {{hash=SG}{%
-         family={Schuler},
-         familyi={S\bibinitperiod},
-         given={Greg},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=KSL}{%
-         family={Klein},
-         familyi={K\bibinitperiod},
-         given={Steven\bibnamedelima L},
-         giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=OS}{%
-         family={Old},
-         familyi={O\bibinitperiod},
-         given={Susan},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=RR}{%
-         family={Rasooly},
-         familyi={R\bibinitperiod},
-         given={Rebekah},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=GP}{%
-         family={Good},
-         familyi={G\bibinitperiod},
-         given={Peter},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=GM}{%
-         family={Guyer},
-         familyi={G\bibinitperiod},
-         given={Mark},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=PAM}{%
-         family={Peck},
-         familyi={P\bibinitperiod},
-         given={Allison\bibnamedelima M},
-         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=DJG}{%
-         family={Derge},
-         familyi={D\bibinitperiod},
-         given={Jeffery\bibnamedelima G},
-         giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-      {{hash=LD}{%
-         family={Lipman},
-         familyi={L\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=CFS}{%
-         family={Collins},
-         familyi={C\bibinitperiod},
-         given={Francis\bibnamedelima S},
-         giveni={F\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=JW}{%
-         family={Jang},
-         familyi={J\bibinitperiod},
-         given={Wonhee},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Sherry},
-         familyi={S\bibinitperiod},
-         given={Steven},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=FM}{%
-         family={Feolo},
-         familyi={F\bibinitperiod},
-         given={Mike},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=ML}{%
-         family={Misquitta},
-         familyi={M\bibinitperiod},
-         given={Leonie},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LE}{%
-         family={Lee},
-         familyi={L\bibinitperiod},
-         given={Eduardo},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=RK}{%
-         family={Rotmistrovsky},
-         familyi={R\bibinitperiod},
-         given={Kirill},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=GSF}{%
-         family={Greenhut},
-         familyi={G\bibinitperiod},
-         given={Susan\bibnamedelima F},
-         giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-      {{hash=SCF}{%
-         family={Schaefer},
-         familyi={S\bibinitperiod},
-         given={Carl\bibnamedelima F},
-         giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-      {{hash=BK}{%
-         family={Buetow},
-         familyi={B\bibinitperiod},
-         given={Kenneth},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=BTI}{%
-         family={Bonner},
-         familyi={B\bibinitperiod},
-         given={Tom\bibnamedelima I},
-         giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-      {{hash=HD}{%
-         family={Haussler},
-         familyi={H\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=KJ}{%
-         family={Kent},
-         familyi={K\bibinitperiod},
-         given={Jim},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Kiekhaus},
-         familyi={K\bibinitperiod},
-         given={Mark},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=FT}{%
-         family={Furey},
-         familyi={F\bibinitperiod},
-         given={Terry},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=BM}{%
-         family={Brent},
-         familyi={B\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=PC}{%
-         family={Prange},
-         familyi={P\bibinitperiod},
-         given={Christa},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=SK}{%
-         family={Schreiber},
-         familyi={S\bibinitperiod},
-         given={Kirsten},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=SN}{%
-         family={Shapiro},
-         familyi={S\bibinitperiod},
-         given={Nicole},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=BNK}{%
-         family={Bhat},
-         familyi={B\bibinitperiod},
-         given={Narayan\bibnamedelima K},
-         giveni={N\bibinitperiod\bibinitdelim K\bibinitperiod},
-      }}%
-      {{hash=HRF}{%
-         family={Hopkins},
-         familyi={H\bibinitperiod},
-         given={Ralph\bibnamedelima F},
-         giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-      {{hash=HF}{%
-         family={Hsie},
-         familyi={H\bibinitperiod},
-         given={Florence},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=DT}{%
-         family={Driscoll},
-         familyi={D\bibinitperiod},
-         given={Tom},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=SMB}{%
-         family={Soares},
-         familyi={S\bibinitperiod},
-         given={M\bibnamedelima Bento},
-         giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
-      }}%
-      {{hash=CTL}{%
-         family={Casavant},
-         familyi={C\bibinitperiod},
-         given={Tom\bibnamedelima L},
-         giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=STE}{%
-         family={Scheetz},
-         familyi={S\bibinitperiod},
-         given={Todd\bibnamedelima E},
-         giveni={T\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=BsMJ}{%
-         family={Brown-stein},
-         familyi={B\bibinitperiod-s\bibinitperiod},
-         given={Michael\bibnamedelima J},
-         giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=UTB}{%
-         family={Usdin},
-         familyi={U\bibinitperiod},
-         given={Ted\bibnamedelima B},
-         giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod},
-      }}%
-      {{hash=TS}{%
-         family={Toshiyuki},
-         familyi={T\bibinitperiod},
-         given={Shiraki},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=CP}{%
-         family={Carninci},
-         familyi={C\bibinitperiod},
-         given={Piero},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=PY}{%
-         family={Piao},
-         familyi={P\bibinitperiod},
-         given={Yulan},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=DDB}{%
-         family={Dudekula},
-         familyi={D\bibinitperiod},
-         given={Dawood\bibnamedelima B},
-         giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
-      }}%
-      {{hash=KMSH}{%
-         family={Ko},
-         familyi={K\bibinitperiod},
-         given={Minoru S\bibnamedelima H},
-         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
-  H\bibinitperiod},
-      }}%
-      {{hash=KK}{%
-         family={Kawakami},
-         familyi={K\bibinitperiod},
-         given={Koichi},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=SY}{%
-         family={Suzuki},
-         familyi={S\bibinitperiod},
-         given={Yutaka},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Sugano},
-         familyi={S\bibinitperiod},
-         given={Sumio},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=GCE}{%
-         family={Gruber},
-         familyi={G\bibinitperiod},
-         given={C\bibnamedelima E},
-         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=SMR}{%
-         family={Smith},
-         familyi={S\bibinitperiod},
-         given={M\bibnamedelima R},
-         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
-      }}%
-      {{hash=SB}{%
-         family={Simmons},
-         familyi={S\bibinitperiod},
-         given={Blake},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=MT}{%
-         family={Moore},
-         familyi={M\bibinitperiod},
-         given={Troy},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=WR}{%
-         family={Waterman},
-         familyi={W\bibinitperiod},
-         given={Richard},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=JSL}{%
-         family={Johnson},
-         familyi={J\bibinitperiod},
-         given={Stephen\bibnamedelima L},
-         giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=RY}{%
-         family={Ruan},
-         familyi={R\bibinitperiod},
-         given={Yijun},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=WCL}{%
-         family={Wei},
-         familyi={W\bibinitperiod},
-         given={Chia\bibnamedelima Lin},
-         giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=MS}{%
-         family={Mathavan},
-         familyi={M\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=GPH}{%
-         family={Gunaratne},
-         familyi={G\bibinitperiod},
-         given={Preethi\bibnamedelima H},
-         giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-      {{hash=WJ}{%
-         family={Wu},
-         familyi={W\bibinitperiod},
-         given={Jiaqian},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=GAM}{%
-         family={Garcia},
-         familyi={G\bibinitperiod},
-         given={Angela\bibnamedelima M},
-         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=HSW}{%
-         family={Hulyk},
-         familyi={H\bibinitperiod},
-         given={Stephen\bibnamedelima W},
-         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
-      }}%
-      {{hash=FE}{%
-         family={Fuh},
-         familyi={F\bibinitperiod},
-         given={Edwin},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=YY}{%
-         family={Yuan},
-         familyi={Y\bibinitperiod},
-         given={Ye},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=SA}{%
-         family={Sneed},
-         familyi={S\bibinitperiod},
-         given={Anna},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=KC}{%
-         family={Kowis},
-         familyi={K\bibinitperiod},
-         given={Carla},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=HA}{%
-         family={Hodgson},
-         familyi={H\bibinitperiod},
-         given={Anne},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=MDM}{%
-         family={Muzny},
-         familyi={M\bibinitperiod},
-         given={Donna\bibnamedelima M},
-         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=MJ}{%
-         family={McPherson},
-         familyi={M\bibinitperiod},
-         given={John},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=GRA}{%
-         family={Gibbs},
-         familyi={G\bibinitperiod},
-         given={Richard\bibnamedelima A},
-         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=FJ}{%
-         family={Fahey},
-         familyi={F\bibinitperiod},
-         given={Jessica},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=HE}{%
-         family={Helton},
-         familyi={H\bibinitperiod},
-         given={Erin},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Ketteman},
-         familyi={K\bibinitperiod},
-         given={Mark},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=MA}{%
-         family={Madan},
-         familyi={M\bibinitperiod},
-         given={Anuradha},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=RS}{%
-         family={Rodrigues},
-         familyi={R\bibinitperiod},
-         given={Stephanie},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=SA}{%
-         family={Sanchez},
-         familyi={S\bibinitperiod},
-         given={Amy},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=WM}{%
-         family={Whiting},
-         familyi={W\bibinitperiod},
-         given={Michelle},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=MA}{%
-         family={Madari},
-         familyi={M\bibinitperiod},
-         given={Anup},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=YAC}{%
-         family={Young},
-         familyi={Y\bibinitperiod},
-         given={Alice\bibnamedelima C},
-         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-      {{hash=WKD}{%
-         family={Wetherby},
-         familyi={W\bibinitperiod},
-         given={Keith\bibnamedelima D},
-         giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=GSJ}{%
-         family={Granite},
-         familyi={G\bibinitperiod},
-         given={Steven\bibnamedelima J},
-         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=KPN}{%
-         family={Kwong},
-         familyi={K\bibinitperiod},
-         given={Peggy\bibnamedelima N},
-         giveni={P\bibinitperiod\bibinitdelim N\bibinitperiod},
-      }}%
-      {{hash=BCP}{%
-         family={Brinkley},
-         familyi={B\bibinitperiod},
-         given={Charles\bibnamedelima P},
-         giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=PRL}{%
-         family={Pearson},
-         familyi={P\bibinitperiod},
-         given={Russell\bibnamedelima L},
-         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=BGG}{%
-         family={Bouffard},
-         familyi={B\bibinitperiod},
-         given={Gerard\bibnamedelima G},
-         giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-      {{hash=BRW}{%
-         family={Blakesly},
-         familyi={B\bibinitperiod},
-         given={Robert\bibnamedelima W},
-         giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
-      }}%
-      {{hash=GED}{%
-         family={Green},
-         familyi={G\bibinitperiod},
-         given={Eric\bibnamedelima D},
-         giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=DMC}{%
-         family={Dickson},
-         familyi={D\bibinitperiod},
-         given={Mark\bibnamedelima C},
-         giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-      {{hash=RAC}{%
-         family={Rodriguez},
-         familyi={R\bibinitperiod},
-         given={Alex\bibnamedelima C},
-         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-      {{hash=GJ}{%
-         family={Grimwood},
-         familyi={G\bibinitperiod},
-         given={Jane},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=SJ}{%
-         family={Schmutz},
-         familyi={S\bibinitperiod},
-         given={Jeremy},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=MRM}{%
-         family={Myers},
-         familyi={M\bibinitperiod},
-         given={Richard\bibnamedelima M},
-         giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=BYSN}{%
-         family={Butterfield},
-         familyi={B\bibinitperiod},
-         given={Yaron S\bibnamedelima N},
-         giveni={Y\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
-  N\bibinitperiod},
-      }}%
-      {{hash=GM}{%
-         family={Griffith},
-         familyi={G\bibinitperiod},
-         given={Malachi},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=GOL}{%
-         family={Griffith},
-         familyi={G\bibinitperiod},
-         given={Obi\bibnamedelima L},
-         giveni={O\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=KMI}{%
-         family={Krzywinski},
-         familyi={K\bibinitperiod},
-         given={Martin\bibnamedelima I},
-         giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-      {{hash=LN}{%
-         family={Liao},
-         familyi={L\bibinitperiod},
-         given={Nancy},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=MR}{%
-         family={Morin},
-         familyi={M\bibinitperiod},
-         given={Ryan},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=MR}{%
-         family={Morrin},
-         familyi={M\bibinitperiod},
-         given={Ryan},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=PD}{%
-         family={Palmquist},
-         familyi={P\bibinitperiod},
-         given={Diana},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=PAS}{%
-         family={Petrescu},
-         familyi={P\bibinitperiod},
-         given={Anca\bibnamedelima S},
-         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=SU}{%
-         family={Skalska},
-         familyi={S\bibinitperiod},
-         given={Ursula},
-         giveni={U\bibinitperiod},
-      }}%
-      {{hash=SDE}{%
-         family={Smailus},
-         familyi={S\bibinitperiod},
-         given={Duane\bibnamedelima E},
-         giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=SJM}{%
-         family={Stott},
-         familyi={S\bibinitperiod},
-         given={Jeff\bibnamedelima M},
-         giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=SA}{%
-         family={Schnerch},
-         familyi={S\bibinitperiod},
-         given={Angelique},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=SJE}{%
-         family={Schein},
-         familyi={S\bibinitperiod},
-         given={Jacqueline\bibnamedelima E},
-         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=JSJM}{%
-         family={Jones},
-         familyi={J\bibinitperiod},
-         given={Steven J\bibnamedelima M},
-         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim
-  M\bibinitperiod},
-      }}%
-      {{hash=HRA}{%
-         family={Holt},
-         familyi={H\bibinitperiod},
-         given={Robert\bibnamedelima A},
-         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=BA}{%
-         family={Baross},
-         familyi={B\bibinitperiod},
-         given={Agnes},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=MMA}{%
-         family={Marra},
-         familyi={M\bibinitperiod},
-         given={Marco\bibnamedelima A},
-         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=CS}{%
-         family={Clifton},
-         familyi={C\bibinitperiod},
-         given={Sandra},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=MKA}{%
-         family={Makowski},
-         familyi={M\bibinitperiod},
-         given={Kathryn\bibnamedelima A},
-         giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=BS}{%
-         family={Bosak},
-         familyi={B\bibinitperiod},
-         given={Stephanie},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=MJ}{%
-         family={Malek},
-         familyi={M\bibinitperiod},
-         given={Joel},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \keyw{Animals,Cloning, Molecular,Cloning, Molecular: methods,Computational
+\entry{Gerhard2004}{article}{}
+  \name{author}{115}{}{%
+    {{}%
+     {Gerhard}{G.}%
+     {Daniela~S}{D.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wagner}{W.}%
+     {Lukas}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Feingold}{F.}%
+     {Elise~A}{E.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shenmen}{S.}%
+     {Carolyn~M}{C.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grouse}{G.}%
+     {Lynette~H}{L.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schuler}{S.}%
+     {Greg}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Klein}{K.}%
+     {Steven~L}{S.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Old}{O.}%
+     {Susan}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rasooly}{R.}%
+     {Rebekah}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Good}{G.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guyer}{G.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peck}{P.}%
+     {Allison~M}{A.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Derge}{D.}%
+     {Jeffery~G}{J.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lipman}{L.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Collins}{C.}%
+     {Francis~S}{F.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jang}{J.}%
+     {Wonhee}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sherry}{S.}%
+     {Steven}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Feolo}{F.}%
+     {Mike}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Misquitta}{M.}%
+     {Leonie}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lee}{L.}%
+     {Eduardo}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rotmistrovsky}{R.}%
+     {Kirill}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Greenhut}{G.}%
+     {Susan~F}{S.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schaefer}{S.}%
+     {Carl~F}{C.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buetow}{B.}%
+     {Kenneth}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bonner}{B.}%
+     {Tom~I}{T.~I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Haussler}{H.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kent}{K.}%
+     {Jim}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kiekhaus}{K.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Furey}{F.}%
+     {Terry}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brent}{B.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prange}{P.}%
+     {Christa}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schreiber}{S.}%
+     {Kirsten}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shapiro}{S.}%
+     {Nicole}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bhat}{B.}%
+     {Narayan~K}{N.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hopkins}{H.}%
+     {Ralph~F}{R.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hsie}{H.}%
+     {Florence}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Driscoll}{D.}%
+     {Tom}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Soares}{S.}%
+     {M~Bento}{M.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Casavant}{C.}%
+     {Tom~L}{T.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scheetz}{S.}%
+     {Todd~E}{T.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brown-stein}{B.-s.}%
+     {Michael~J}{M.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Usdin}{U.}%
+     {Ted~B}{T.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Toshiyuki}{T.}%
+     {Shiraki}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Carninci}{C.}%
+     {Piero}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Piao}{P.}%
+     {Yulan}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dudekula}{D.}%
+     {Dawood~B}{D.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ko}{K.}%
+     {Minoru S~H}{M.~S.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kawakami}{K.}%
+     {Koichi}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Suzuki}{S.}%
+     {Yutaka}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sugano}{S.}%
+     {Sumio}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gruber}{G.}%
+     {C~E}{C.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smith}{S.}%
+     {M~R}{M.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Simmons}{S.}%
+     {Blake}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moore}{M.}%
+     {Troy}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waterman}{W.}%
+     {Richard}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johnson}{J.}%
+     {Stephen~L}{S.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ruan}{R.}%
+     {Yijun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wei}{W.}%
+     {Chia~Lin}{C.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mathavan}{M.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gunaratne}{G.}%
+     {Preethi~H}{P.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wu}{W.}%
+     {Jiaqian}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Garcia}{G.}%
+     {Angela~M}{A.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hulyk}{H.}%
+     {Stephen~W}{S.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fuh}{F.}%
+     {Edwin}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yuan}{Y.}%
+     {Ye}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sneed}{S.}%
+     {Anna}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kowis}{K.}%
+     {Carla}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hodgson}{H.}%
+     {Anne}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Muzny}{M.}%
+     {Donna~M}{D.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McPherson}{M.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gibbs}{G.}%
+     {Richard~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fahey}{F.}%
+     {Jessica}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Helton}{H.}%
+     {Erin}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ketteman}{K.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Madan}{M.}%
+     {Anuradha}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rodrigues}{R.}%
+     {Stephanie}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sanchez}{S.}%
+     {Amy}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Whiting}{W.}%
+     {Michelle}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Madari}{M.}%
+     {Anup}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Young}{Y.}%
+     {Alice~C}{A.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wetherby}{W.}%
+     {Keith~D}{K.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Granite}{G.}%
+     {Steven~J}{S.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kwong}{K.}%
+     {Peggy~N}{P.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brinkley}{B.}%
+     {Charles~P}{C.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pearson}{P.}%
+     {Russell~L}{R.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bouffard}{B.}%
+     {Gerard~G}{G.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Blakesly}{B.}%
+     {Robert~W}{R.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Green}{G.}%
+     {Eric~D}{E.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dickson}{D.}%
+     {Mark~C}{M.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rodriguez}{R.}%
+     {Alex~C}{A.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grimwood}{G.}%
+     {Jane}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schmutz}{S.}%
+     {Jeremy}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Myers}{M.}%
+     {Richard~M}{R.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Butterfield}{B.}%
+     {Yaron S~N}{Y.~S.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Griffith}{G.}%
+     {Malachi}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Griffith}{G.}%
+     {Obi~L}{O.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Krzywinski}{K.}%
+     {Martin~I}{M.~I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liao}{L.}%
+     {Nancy}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morin}{M.}%
+     {Ryan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morrin}{M.}%
+     {Ryan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Palmquist}{P.}%
+     {Diana}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Petrescu}{P.}%
+     {Anca~S}{A.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Skalska}{S.}%
+     {Ursula}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smailus}{S.}%
+     {Duane~E}{D.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stott}{S.}%
+     {Jeff~M}{J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schnerch}{S.}%
+     {Angelique}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schein}{S.}%
+     {Jacqueline~E}{J.~E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jones}{J.}%
+     {Steven J~M}{S.~J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Holt}{H.}%
+     {Robert~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Baross}{B.}%
+     {Agnes}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marra}{M.}%
+     {Marco~A}{M.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clifton}{C.}%
+     {Sandra}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Makowski}{M.}%
+     {Kathryn~A}{K.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bosak}{B.}%
+     {Stephanie}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Malek}{M.}%
+     {Joel}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Animals,Cloning, Molecular,Cloning, Molecular: methods,Computational
   Biology,DNA Primers,DNA, Complementary,DNA, Complementary: genetics,DNA,
   Complementary: metabolism,Gene Library,Humans,Mice,National Institutes of
   Health (U.S.),Open Reading Frames,Open Reading Frames: physiology,Rats,United
   States,Xenopus laevis,Xenopus laevis: genetics,Zebrafish,Zebrafish: genetics}
-    \strng{namehash}{GDS+1}
+  \strng{namehash}{GDS+1}
   \strng{fullhash}{GDSWLFEASCMGLHSGKSLOSRRGPGMPAMDJGLDCFSJWSSFMMLLERKGSFSCFBKBTIHDKJKMFTBMPCSKSNBNKHRFHFDTSMBCTLSTEBsMJUTBTSCPPYDDBKMSHKKSYSSGCESMRSBMTWRJSLRYWCLMSGPHWJGAMHSWFEYYSAKCHAMDMMJGRAFJHEKMMARSSAWMMAYACWKDGSJKPNBCPPRLBGGBRWGEDDMCRACGJSJMRMBYSNGMGOLKMILNMRMRPDP}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \field{abstract}{%
-    The National Institutes of Health's Mammalian Gene Collection (MGC) project
+  \field{sortinit}{G}
+  \field{abstract}{%
+  The National Institutes of Health's Mammalian Gene Collection (MGC) project
   was designed to generate and sequence a publicly accessible cDNA resource
   containing a complete open reading frame (ORF) for every human and mouse
   gene. The project initially used a random strategy to select clones from a
@@ -1055,48 +895,44 @@
   Recently, a rat cDNA component was added to the project, and ongoing frog
   (Xenopus) and zebrafish (Danio) cDNA projects were expanded to take advantage
   of the high-throughput MGC pipeline.%
-    }
-    \verb{doi}
-    \verb 10.1101/gr.2596504
-    \endverb
-    \field{issn}{1088-9051}
-    \field{number}{10B}
-    \field{pages}{2121\bibrangedash 7}
-    \field{title}{{The status, quality, and expansion of the NIH full-length
-  cDNA project: the Mammalian Gene Collection (MGC).}}
-    \verb{url}
-    \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=528928{\&}t
-    \verb ool=pmcentrez{\&}rendertype=abstract
-    \endverb
-    \field{volume}{14}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Gerhard et al. - 2004 - The status, quality, and exp
-    \verb ansion of the NIH full-length cDNA project the Mammalian Gene Collect
-    \verb ion (MGC).pdf:pdf
-    \endverb
-    \field{journaltitle}{Genome research}
-    \field{year}{2004}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1101/gr.2596504
+  \endverb
+  \field{issn}{1088-9051}
+  \field{number}{10B}
+  \field{pages}{2121\bibrangedash 7}
+  \field{title}{{The status, quality, and expansion of the NIH full-length cDNA
+  project: the Mammalian Gene Collection (MGC).}}
+  \verb{url}
+  \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=528928{\&}too
+  \verb l=pmcentrez{\&}rendertype=abstract
+  \endverb
+  \field{volume}{14}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Gerhard et al. - 2004 - The status, quality, and expans
+  \verb ion of the NIH full-length cDNA project the Mammalian Gene Collection (
+  \verb MGC).pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome research}
+  \field{year}{2004}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Glenn2011}{article}{}
-    \name{author}{1}{}{%
-      {{hash=GTC}{%
-         family={Glenn},
-         familyi={G\bibinitperiod},
-         given={Travis\bibnamedelima C},
-         giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GTC1}
-    \strng{fullhash}{GTC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \field{abstract}{%
-    The diversity of available 2(nd) and 3(rd) generation DNA sequencing
+\entry{Glenn2011}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Glenn}{G.}%
+     {Travis~C}{T.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GTC1}
+  \strng{fullhash}{GTC1}
+  \field{sortinit}{G}
+  \field{abstract}{%
+  The diversity of available 2(nd) and 3(rd) generation DNA sequencing
   platforms is increasing rapidly. Costs for these systems range from
   {\textless} {\$}100,000 to more than {\$}1,000,000, with instrument run times
   ranging from minutes to weeks. Extensive trade-offs exist among these
@@ -1115,1361 +951,1136 @@
   characteristics of these systems is warranted before purchasing or using any
   of them. Updated information from this guide will be maintained at:
   http://dna.uga.edu/ and http://tomato.biol.trinity.edu/blog/.%
-    }
-    \verb{doi}
-    \verb 10.1111/j.1755-0998.2011.03024.x
-    \endverb
-    \field{issn}{1755-0998}
-    \field{number}{5}
-    \field{pages}{759\bibrangedash 69}
-    \field{title}{{Field guide to next-generation DNA sequencers.}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/21592312
-    \endverb
-    \field{volume}{11}
-    \field{journaltitle}{Molecular ecology resources}
-    \field{year}{2011}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1111/j.1755-0998.2011.03024.x
+  \endverb
+  \field{issn}{1755-0998}
+  \field{number}{5}
+  \field{pages}{759\bibrangedash 69}
+  \field{title}{{Field guide to next-generation DNA sequencers.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/21592312
+  \endverb
+  \field{volume}{11}
+  \field{journaltitle}{Molecular ecology resources}
+  \field{year}{2011}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Haas2012}{article}{}
-    \name{author}{220}{}{%
-      {{hash=HBJ}{%
-         family={Haas},
-         familyi={H\bibinitperiod},
-         given={Brian\bibnamedelima J},
-         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=CM}{%
-         family={Chin},
-         familyi={C\bibinitperiod},
-         given={Melissa},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=NC}{%
-         family={Nusbaum},
-         familyi={N\bibinitperiod},
-         given={Chad},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=BBW}{%
-         family={Birren},
-         familyi={B\bibinitperiod},
-         given={Bruce\bibnamedelima W},
-         giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={Jonathan},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=CB}{%
-         family={Cho},
-         familyi={C\bibinitperiod},
-         given={BK},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=ZK}{%
-         family={Zengler},
-         familyi={Z\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=QY}{%
-         family={Qiu},
-         familyi={Q\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=PY}{%
-         family={Park},
-         familyi={P\bibinitperiod},
-         given={YS},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=KE}{%
-         family={Knight},
-         familyi={K\bibinitperiod},
-         given={EM},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=BC}{%
-         family={Barrett},
-         familyi={B\bibinitperiod},
-         given={CL},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=GY}{%
-         family={Gao},
-         familyi={G\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=PB}{%
-         family={Palsson},
-         familyi={P\bibinitperiod},
-         given={BO},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=AM}{%
-         family={Albrecht},
-         familyi={A\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=SC}{%
-         family={Sharma},
-         familyi={S\bibinitperiod},
-         given={CM},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=RR}{%
-         family={Reinhardt},
-         familyi={R\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=VJ}{%
-         family={Vogel},
-         familyi={V\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=RT}{%
-         family={Rudel},
-         familyi={R\bibinitperiod},
-         given={T},
-         giveni={T},
-      }}%
-      {{hash=MA}{%
-         family={Mandlik},
-         familyi={M\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=RW}{%
-         family={Robins},
-         familyi={R\bibinitperiod},
-         given={WP},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=RJ}{%
-         family={Ritchie},
-         familyi={R\bibinitperiod},
-         given={JM},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=MJ}{%
-         family={Mekalanos},
-         familyi={M\bibinitperiod},
-         given={JJ},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=WM}{%
-         family={Waldor},
-         familyi={W\bibinitperiod},
-         given={MK},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={JM},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=LM}{%
-         family={Lawrence},
-         familyi={L\bibinitperiod},
-         given={MS},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Kimball},
-         familyi={K\bibinitperiod},
-         given={MD},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=WM}{%
-         family={Waldor},
-         familyi={W\bibinitperiod},
-         given={MK},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=CA}{%
-         family={Camilli},
-         familyi={C\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=PT}{%
-         family={Perkins},
-         familyi={P\bibinitperiod},
-         given={TT},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=KR}{%
-         family={Kingsley},
-         familyi={K\bibinitperiod},
-         given={RA},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=FM}{%
-         family={Fookes},
-         familyi={F\bibinitperiod},
-         given={MC},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=GP}{%
-         family={Gardner},
-         familyi={G\bibinitperiod},
-         given={PP},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=JK}{%
-         family={James},
-         familyi={J\bibinitperiod},
-         given={KD},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=YL}{%
-         family={Yu},
-         familyi={Y\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=AS}{%
-         family={Assefa},
-         familyi={A\bibinitperiod},
-         given={SA},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=HM}{%
-         family={He},
-         familyi={H\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=CN}{%
-         family={Croucher},
-         familyi={C\bibinitperiod},
-         given={NJ},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=PD}{%
-         family={Pickard},
-         familyi={P\bibinitperiod},
-         given={DJ},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=PK}{%
-         family={Passalacqua},
-         familyi={P\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=VA}{%
-         family={Varadarajan},
-         familyi={V\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=OB}{%
-         family={Ondov},
-         familyi={O\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=OD}{%
-         family={Okou},
-         familyi={O\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=ZM}{%
-         family={Zwick},
-         familyi={Z\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=BN}{%
-         family={Bergman},
-         familyi={B\bibinitperiod},
-         given={N},
-         giveni={N},
-      }}%
-      {{hash=RR}{%
-         family={Raghavan},
-         familyi={R\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=GE}{%
-         family={Groisman},
-         familyi={G\bibinitperiod},
-         given={EA},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=OH}{%
-         family={Ochman},
-         familyi={O\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=RR}{%
-         family={Raghavan},
-         familyi={R\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=SA}{%
-         family={Sage},
-         familyi={S\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=OH}{%
-         family={Ochman},
-         familyi={O\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=GS}{%
-         family={Goldman},
-         familyi={G\bibinitperiod},
-         given={SR},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=SJ}{%
-         family={Sharp},
-         familyi={S\bibinitperiod},
-         given={JS},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=VI}{%
-         family={Vvedenskaya},
-         familyi={V\bibinitperiod},
-         given={IO},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=DS}{%
-         family={Dove},
-         familyi={D\bibinitperiod},
-         given={SL},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=NB}{%
-         family={Nickels},
-         familyi={N\bibinitperiod},
-         given={BE},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=YHD}{%
-         family={Yoder-Himes},
-         familyi={Y\bibinitperiod-H\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=CP}{%
-         family={Chain},
-         familyi={C\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=ZY}{%
-         family={Zhu},
-         familyi={Z\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=WO}{%
-         family={Wurtzel},
-         familyi={W\bibinitperiod},
-         given={O},
-         giveni={O},
-      }}%
-      {{hash=RE}{%
-         family={Rubin},
-         familyi={R\bibinitperiod},
-         given={E},
-         giveni={E},
-      }}%
-      {{hash=TJ}{%
-         family={Tiedje},
-         familyi={T\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=SR}{%
-         family={Sorek},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=WM}{%
-         family={Waldor},
-         familyi={W\bibinitperiod},
-         given={MK},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=WZ}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Z},
-         giveni={Z},
-      }}%
-      {{hash=GM}{%
-         family={Gerstein},
-         familyi={G\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=SM}{%
-         family={Snyder},
-         familyi={S\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=SR}{%
-         family={Sorek},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=CP}{%
-         family={Cossart},
-         familyi={C\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=GG}{%
-         family={Giannoukos},
-         familyi={G\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=CD}{%
-         family={Ciulla},
-         familyi={C\bibinitperiod},
-         given={DM},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=HK}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=HB}{%
-         family={Haas},
-         familyi={H\bibinitperiod},
-         given={BJ},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=IJ}{%
-         family={Izard},
-         familyi={I\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=LJ}{%
-         family={Levin},
-         familyi={L\bibinitperiod},
-         given={JZ},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=EA}{%
-         family={Earl},
-         familyi={E\bibinitperiod},
-         given={AM},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=GD}{%
-         family={Gevers},
-         familyi={G\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=WD}{%
-         family={Ward},
-         familyi={W\bibinitperiod},
-         given={DV},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=HS}{%
-         family={He},
-         familyi={H\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=WO}{%
-         family={Wurtzel},
-         familyi={W\bibinitperiod},
-         given={O},
-         giveni={O},
-      }}%
-      {{hash=SK}{%
-         family={Singh},
-         familyi={S\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=FJ}{%
-         family={Froula},
-         familyi={F\bibinitperiod},
-         given={JL},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=YS}{%
-         family={Yilmaz},
-         familyi={Y\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=TS}{%
-         family={Tringe},
-         familyi={T\bibinitperiod},
-         given={SG},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=WZ}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Z},
-         giveni={Z},
-      }}%
-      {{hash=CF}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=LE}{%
-         family={Lindquist},
-         familyi={L\bibinitperiod},
-         given={EA},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Sorek},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=HP}{%
-         family={Hugenholtz},
-         familyi={H\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=LN}{%
-         family={Lennon},
-         familyi={L\bibinitperiod},
-         given={NJ},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=LR}{%
-         family={Lintner},
-         familyi={L\bibinitperiod},
-         given={RE},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=AS}{%
-         family={Anderson},
-         familyi={A\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=AP}{%
-         family={Alvarez},
-         familyi={A\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=BA}{%
-         family={Barry},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=BW}{%
-         family={Brockman},
-         familyi={B\bibinitperiod},
-         given={W},
-         giveni={W},
-      }}%
-      {{hash=DR}{%
-         family={Daza},
-         familyi={D\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=ER}{%
-         family={Erlich},
-         familyi={E\bibinitperiod},
-         given={RL},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=GG}{%
-         family={Giannoukos},
-         familyi={G\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=GL}{%
-         family={Green},
-         familyi={G\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=BB}{%
-         family={Blencowe},
-         familyi={B\bibinitperiod},
-         given={BJ},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=AS}{%
-         family={Ahmad},
-         familyi={A\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=LL}{%
-         family={Lee},
-         familyi={L\bibinitperiod},
-         given={LJ},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Levin},
-         familyi={L\bibinitperiod},
-         given={JZ},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=YM}{%
-         family={Yassour},
-         familyi={Y\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=AX}{%
-         family={Adiconis},
-         familyi={A\bibinitperiod},
-         given={X},
-         giveni={X},
-      }}%
-      {{hash=NC}{%
-         family={Nusbaum},
-         familyi={N\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=TD}{%
-         family={Thompson},
-         familyi={T\bibinitperiod},
-         given={DA},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=FN}{%
-         family={Friedman},
-         familyi={F\bibinitperiod},
-         given={N},
-         giveni={N},
-      }}%
-      {{hash=GA}{%
-         family={Gnirke},
-         familyi={G\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=RA}{%
-         family={Regev},
-         familyi={R\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=PD}{%
-         family={Parkhomchuk},
-         familyi={P\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=BT}{%
-         family={Borodina},
-         familyi={B\bibinitperiod},
-         given={T},
-         giveni={T},
-      }}%
-      {{hash=AV}{%
-         family={Amstislavskiy},
-         familyi={A\bibinitperiod},
-         given={V},
-         giveni={V},
-      }}%
-      {{hash=BM}{%
-         family={Banaru},
-         familyi={B\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=HL}{%
-         family={Hallen},
-         familyi={H\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=KS}{%
-         family={Krobitsch},
-         familyi={K\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=LH}{%
-         family={Lehrach},
-         familyi={L\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=SA}{%
-         family={Soldatov},
-         familyi={S\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=DJ}{%
-         family={Dornenburg},
-         familyi={D\bibinitperiod},
-         given={JE},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=DA}{%
-         family={Devita},
-         familyi={D\bibinitperiod},
-         given={AM},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=PM}{%
-         family={Palumbo},
-         familyi={P\bibinitperiod},
-         given={MJ},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=WJ}{%
-         family={Wade},
-         familyi={W\bibinitperiod},
-         given={JT},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=TAA}{%
-         family={Toledo-Arana},
-         familyi={T\bibinitperiod-A\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=RF}{%
-         family={Repoila},
-         familyi={R\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=CP}{%
-         family={Cossart},
-         familyi={C\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=SC}{%
-         family={Sharma},
-         familyi={S\bibinitperiod},
-         given={CM},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=HS}{%
-         family={Hoffmann},
-         familyi={H\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=DF}{%
-         family={Darfeuille},
-         familyi={D\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=RJ}{%
-         family={Reignier},
-         familyi={R\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=FS}{%
-         family={Findeiss},
-         familyi={F\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=SA}{%
-         family={Sittka},
-         familyi={S\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=CS}{%
-         family={Chabas},
-         familyi={C\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=RK}{%
-         family={Reiche},
-         familyi={R\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=HJ}{%
-         family={Hackermuller},
-         familyi={H\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=RR}{%
-         family={Reinhardt},
-         familyi={R\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=LI}{%
-         family={Lasa},
-         familyi={L\bibinitperiod},
-         given={I},
-         giveni={I},
-      }}%
-      {{hash=TAA}{%
-         family={Toledo-Arana},
-         familyi={T\bibinitperiod-A\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=DA}{%
-         family={Dobin},
-         familyi={D\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=VM}{%
-         family={Villanueva},
-         familyi={V\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=dlMI}{%
-         prefix={de\bibnamedelima los},
-         prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod},
-         family={Mozos},
-         familyi={M\bibinitperiod},
-         given={IR},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=VIM}{%
-         family={Vergara-Irigaray},
-         familyi={V\bibinitperiod-I\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=SV}{%
-         family={Segura},
-         familyi={S\bibinitperiod},
-         given={V},
-         giveni={V},
-      }}%
-      {{hash=FD}{%
-         family={Fagegaltier},
-         familyi={F\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=PJ}{%
-         family={Penades},
-         familyi={P\bibinitperiod},
-         given={JR},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=VJ}{%
-         family={Valle},
-         familyi={V\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=NP}{%
-         family={Nicolas},
-         familyi={N\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=MU}{%
-         family={Mader},
-         familyi={M\bibinitperiod},
-         given={U},
-         giveni={U},
-      }}%
-      {{hash=DE}{%
-         family={Dervyn},
-         familyi={D\bibinitperiod},
-         given={E},
-         giveni={E},
-      }}%
-      {{hash=RT}{%
-         family={Rochat},
-         familyi={R\bibinitperiod},
-         given={T},
-         giveni={T},
-      }}%
-      {{hash=LA}{%
-         family={Leduc},
-         familyi={L\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=PN}{%
-         family={Pigeonneau},
-         familyi={P\bibinitperiod},
-         given={N},
-         giveni={N},
-      }}%
-      {{hash=BE}{%
-         family={Bidnenko},
-         familyi={B\bibinitperiod},
-         given={E},
-         giveni={E},
-      }}%
-      {{hash=ME}{%
-         family={Marchadier},
-         familyi={M\bibinitperiod},
-         given={E},
-         giveni={E},
-      }}%
-      {{hash=HM}{%
-         family={Hoebeke},
-         familyi={H\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=AS}{%
-         family={Aymerich},
-         familyi={A\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=RR}{%
-         family={Raghavan},
-         familyi={R\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=SD}{%
-         family={Sloan},
-         familyi={S\bibinitperiod},
-         given={DB},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=OH}{%
-         family={Ochman},
-         familyi={O\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=LJ}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=TH}{%
-         family={Teonadi},
-         familyi={T\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=LM}{%
-         family={Livny},
-         familyi={L\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=WM}{%
-         family={Waldor},
-         familyi={W\bibinitperiod},
-         given={MK},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=FE}{%
-         family={Fozo},
-         familyi={F\bibinitperiod},
-         given={EM},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Kawano},
-         familyi={K\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=FF}{%
-         family={Fontaine},
-         familyi={F\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=KY}{%
-         family={Kaya},
-         familyi={K\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=MK}{%
-         family={Mendieta},
-         familyi={M\bibinitperiod},
-         given={KS},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=JK}{%
-         family={Jones},
-         familyi={J\bibinitperiod},
-         given={KL},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=OA}{%
-         family={Ocampo},
-         familyi={O\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=RK}{%
-         family={Rudd},
-         familyi={R\bibinitperiod},
-         given={KE},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=SG}{%
-         family={Storz},
-         familyi={S\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=KK}{%
-         family={Kim},
-         familyi={K\bibinitperiod},
-         given={KS},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=PJ}{%
-         family={Pelton},
-         familyi={P\bibinitperiod},
-         given={JG},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=IW}{%
-         family={Inwood},
-         familyi={I\bibinitperiod},
-         given={WB},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=AU}{%
-         family={Andersen},
-         familyi={A\bibinitperiod},
-         given={U},
-         giveni={U},
-      }}%
-      {{hash=KS}{%
-         family={Kustu},
-         familyi={K\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=WD}{%
-         family={Wemmer},
-         familyi={W\bibinitperiod},
-         given={DE},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=QA}{%
-         family={Quentmeier},
-         familyi={Q\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=HA}{%
-         family={Holzenburg},
-         familyi={H\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=MF}{%
-         family={Mayer},
-         familyi={M\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=AG}{%
-         family={Antranikian},
-         familyi={A\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=MW}{%
-         family={Metcalf},
-         familyi={M\bibinitperiod},
-         given={WW},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=WB}{%
-         family={Wanner},
-         familyi={W\bibinitperiod},
-         given={BL},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=TS}{%
-         family={Tarazona},
-         familyi={T\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=GAF}{%
-         family={Garcia-Alcalde},
-         familyi={G\bibinitperiod-A\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=DJ}{%
-         family={Dopazo},
-         familyi={D\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=FA}{%
-         family={Ferrer},
-         familyi={F\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=CA}{%
-         family={Conesa},
-         familyi={C\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=AS}{%
-         family={Anders},
-         familyi={A\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=HW}{%
-         family={Huber},
-         familyi={H\bibinitperiod},
-         given={W},
-         giveni={W},
-      }}%
-      {{hash=CA}{%
-         family={Cheung},
-         familyi={C\bibinitperiod},
-         given={AL},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=EK}{%
-         family={Eberhardt},
-         familyi={E\bibinitperiod},
-         given={KJ},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=FV}{%
-         family={Fischetti},
-         familyi={F\bibinitperiod},
-         given={VA},
-         giveni={V\bibinitperiod},
-      }}%
-      {{hash=FS}{%
-         family={Fisher},
-         familyi={F\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=BA}{%
-         family={Barry},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=AJ}{%
-         family={Abreu},
-         familyi={A\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=MB}{%
-         family={Minie},
-         familyi={M\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=NJ}{%
-         family={Nolan},
-         familyi={N\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=DT}{%
-         family={Delorey},
-         familyi={D\bibinitperiod},
-         given={TM},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=YG}{%
-         family={Young},
-         familyi={Y\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=FT}{%
-         family={Fennell},
-         familyi={F\bibinitperiod},
-         given={TJ},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=AA}{%
-         family={Allen},
-         familyi={A\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=AL}{%
-         family={Ambrogio},
-         familyi={A\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=LH}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=DR}{%
-         family={Durbin},
-         familyi={D\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=GP}{%
-         family={Gardner},
-         familyi={G\bibinitperiod},
-         given={PP},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=DJ}{%
-         family={Daub},
-         familyi={D\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=TJ}{%
-         family={Tate},
-         familyi={T\bibinitperiod},
-         given={JG},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=NE}{%
-         family={Nawrocki},
-         familyi={N\bibinitperiod},
-         given={EP},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=KD}{%
-         family={Kolbe},
-         familyi={K\bibinitperiod},
-         given={DL},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Lindgreen},
-         familyi={L\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=WA}{%
-         family={Wilkinson},
-         familyi={W\bibinitperiod},
-         given={AC},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=FR}{%
-         family={Finn},
-         familyi={F\bibinitperiod},
-         given={RD},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=GJS}{%
-         family={Griffiths-Jones},
-         familyi={G\bibinitperiod-J\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=ES}{%
-         family={Eddy},
-         familyi={E\bibinitperiod},
-         given={SR},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=BA}{%
-         family={Bateman},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {BioMed Central}%
-    }
-    \keyw{Animal Genetics and Genomics,Life Sciences,Microarrays,Microbial
+\entry{Haas2012}{article}{}
+  \name{author}{220}{}{%
+    {{}%
+     {Haas}{H.}%
+     {Brian~J}{B.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chin}{C.}%
+     {Melissa}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nusbaum}{N.}%
+     {Chad}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Birren}{B.}%
+     {Bruce~W}{B.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {Jonathan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cho}{C.}%
+     {BK}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zengler}{Z.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Qiu}{Q.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Park}{P.}%
+     {YS}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Knight}{K.}%
+     {EM}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barrett}{B.}%
+     {CL}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gao}{G.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Palsson}{P.}%
+     {BO}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Albrecht}{A.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sharma}{S.}%
+     {CM}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reinhardt}{R.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vogel}{V.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rudel}{R.}%
+     {T}{T}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mandlik}{M.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Robins}{R.}%
+     {WP}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ritchie}{R.}%
+     {JM}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mekalanos}{M.}%
+     {JJ}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waldor}{W.}%
+     {MK}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liu}{L.}%
+     {JM}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lawrence}{L.}%
+     {MS}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kimball}{K.}%
+     {MD}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waldor}{W.}%
+     {MK}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Camilli}{C.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Perkins}{P.}%
+     {TT}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kingsley}{K.}%
+     {RA}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fookes}{F.}%
+     {MC}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gardner}{G.}%
+     {PP}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {James}{J.}%
+     {KD}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yu}{Y.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Assefa}{A.}%
+     {SA}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Croucher}{C.}%
+     {NJ}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pickard}{P.}%
+     {DJ}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Passalacqua}{P.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Varadarajan}{V.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ondov}{O.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Okou}{O.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zwick}{Z.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bergman}{B.}%
+     {N}{N}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Raghavan}{R.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Groisman}{G.}%
+     {EA}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ochman}{O.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Raghavan}{R.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sage}{S.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ochman}{O.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Goldman}{G.}%
+     {SR}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sharp}{S.}%
+     {JS}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vvedenskaya}{V.}%
+     {IO}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dove}{D.}%
+     {SL}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nickels}{N.}%
+     {BE}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yoder-Himes}{Y.-H.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chain}{C.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhu}{Z.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wurtzel}{W.}%
+     {O}{O}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rubin}{R.}%
+     {E}{E}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tiedje}{T.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sorek}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waldor}{W.}%
+     {MK}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Z}{Z}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gerstein}{G.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Snyder}{S.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sorek}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cossart}{C.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Giannoukos}{G.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ciulla}{C.}%
+     {DM}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huang}{H.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Haas}{H.}%
+     {BJ}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Izard}{I.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Levin}{L.}%
+     {JZ}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Earl}{E.}%
+     {AM}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gevers}{G.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ward}{W.}%
+     {DV}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wurtzel}{W.}%
+     {O}{O}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Singh}{S.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Froula}{F.}%
+     {JL}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yilmaz}{Y.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tringe}{T.}%
+     {SG}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Z}{Z}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lindquist}{L.}%
+     {EA}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sorek}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hugenholtz}{H.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lennon}{L.}%
+     {NJ}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lintner}{L.}%
+     {RE}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Anderson}{A.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Alvarez}{A.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barry}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brockman}{B.}%
+     {W}{W}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Daza}{D.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Erlich}{E.}%
+     {RL}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Giannoukos}{G.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Green}{G.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Blencowe}{B.}%
+     {BJ}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ahmad}{A.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lee}{L.}%
+     {LJ}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Levin}{L.}%
+     {JZ}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yassour}{Y.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adiconis}{A.}%
+     {X}{X}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nusbaum}{N.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thompson}{T.}%
+     {DA}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Friedman}{F.}%
+     {N}{N}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gnirke}{G.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Regev}{R.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Parkhomchuk}{P.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Borodina}{B.}%
+     {T}{T}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Amstislavskiy}{A.}%
+     {V}{V}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Banaru}{B.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hallen}{H.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Krobitsch}{K.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lehrach}{L.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Soldatov}{S.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dornenburg}{D.}%
+     {JE}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Devita}{D.}%
+     {AM}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Palumbo}{P.}%
+     {MJ}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wade}{W.}%
+     {JT}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Toledo-Arana}{T.-A.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Repoila}{R.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cossart}{C.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sharma}{S.}%
+     {CM}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hoffmann}{H.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Darfeuille}{D.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reignier}{R.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Findeiss}{F.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sittka}{S.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chabas}{C.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reiche}{R.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hackermuller}{H.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reinhardt}{R.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lasa}{L.}%
+     {I}{I}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Toledo-Arana}{T.-A.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dobin}{D.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Villanueva}{V.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mozos}{M.}%
+     {IR}{I.}%
+     {de~los}{d.~l.}%
+     {}{}}%
+    {{}%
+     {Vergara-Irigaray}{V.-I.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Segura}{S.}%
+     {V}{V}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fagegaltier}{F.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Penades}{P.}%
+     {JR}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Valle}{V.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nicolas}{N.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mader}{M.}%
+     {U}{U}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dervyn}{D.}%
+     {E}{E}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rochat}{R.}%
+     {T}{T}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Leduc}{L.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pigeonneau}{P.}%
+     {N}{N}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bidnenko}{B.}%
+     {E}{E}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marchadier}{M.}%
+     {E}{E}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hoebeke}{H.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Aymerich}{A.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Raghavan}{R.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sloan}{S.}%
+     {DB}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ochman}{O.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Teonadi}{T.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Livny}{L.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Waldor}{W.}%
+     {MK}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fozo}{F.}%
+     {EM}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kawano}{K.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fontaine}{F.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kaya}{K.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mendieta}{M.}%
+     {KS}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jones}{J.}%
+     {KL}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ocampo}{O.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rudd}{R.}%
+     {KE}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Storz}{S.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kim}{K.}%
+     {KS}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pelton}{P.}%
+     {JG}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Inwood}{I.}%
+     {WB}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Andersen}{A.}%
+     {U}{U}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kustu}{K.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wemmer}{W.}%
+     {DE}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Quentmeier}{Q.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Holzenburg}{H.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mayer}{M.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Antranikian}{A.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Metcalf}{M.}%
+     {WW}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wanner}{W.}%
+     {BL}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tarazona}{T.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Garcia-Alcalde}{G.-A.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dopazo}{D.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ferrer}{F.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Conesa}{C.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Anders}{A.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huber}{H.}%
+     {W}{W}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cheung}{C.}%
+     {AL}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Eberhardt}{E.}%
+     {KJ}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fischetti}{F.}%
+     {VA}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fisher}{F.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barry}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Abreu}{A.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Minie}{M.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nolan}{N.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Delorey}{D.}%
+     {TM}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Young}{Y.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fennell}{F.}%
+     {TJ}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Allen}{A.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ambrogio}{A.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Durbin}{D.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gardner}{G.}%
+     {PP}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Daub}{D.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tate}{T.}%
+     {JG}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nawrocki}{N.}%
+     {EP}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kolbe}{K.}%
+     {DL}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lindgreen}{L.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wilkinson}{W.}%
+     {AC}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Finn}{F.}%
+     {RD}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Griffiths-Jones}{G.-J.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Eddy}{E.}%
+     {SR}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bateman}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {BioMed Central}%
+  }
+  \keyw{Animal Genetics and Genomics,Life Sciences,Microarrays,Microbial
   Genetics and Genomics,Plant Genetics {\&} Genomics,Proteomics,general}
-    \strng{namehash}{HBJ+1}
+  \strng{namehash}{HBJ+1}
   \strng{fullhash}{HBJCMNCBBWLJCBZKQYPYKEBCGYPBAMSCRRVJRTMALJRWRJMJWMLJLJLMKMWMCAPTKRFMGPJKYLASHMCNPDPKVAOBODZMBNRRGEOHRRSAOHGSSJVILJDSNBYHDCPZYWORETJSRLJWMWZGMSMSRCPGGCDHKHBIJLJLJEAGDWDHSWOSKFJYSTSWZCFLESRHPLNLRASAPBABWDRERGGGLBBASLLLJYMAXNCTDFNGARAPDBTAVBMHLKSLHSADJD}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \field{abstract}{%
-    High-throughput sequencing of cDNA libraries (RNA-Seq) has proven to be a
+  \field{sortinit}{H}
+  \field{abstract}{%
+  High-throughput sequencing of cDNA libraries (RNA-Seq) has proven to be a
   highly effective approach for studying bacterial transcriptomes. A central
   challenge in designing RNA-Seq-based experiments is estimating a priori the
   number of reads per sample needed to detect and quantify thousands of
@@ -2488,39 +2099,36 @@
   identified. Our analysis provides a guide for the many researchers seeking to
   determine the appropriate sequencing depth for RNA-Seq-based studies of
   diverse bacterial species.%
-    }
-    \verb{doi}
-    \verb 10.1186/1471-2164-13-734
-    \endverb
-    \field{issn}{1471-2164}
-    \field{number}{1}
-    \field{pages}{734}
-    \field{title}{{How deep is deep enough for RNA-Seq profiling of bacterial
+  }
+  \verb{doi}
+  \verb 10.1186/1471-2164-13-734
+  \endverb
+  \field{issn}{1471-2164}
+  \field{number}{1}
+  \field{pages}{734}
+  \field{title}{{How deep is deep enough for RNA-Seq profiling of bacterial
   transcriptomes?}}
-    \verb{url}
-    \verb http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-73
-    \verb 4
-    \endverb
-    \field{volume}{13}
-    \field{journaltitle}{BMC Genomics}
-    \field{year}{2012}
-  \endentry
+  \verb{url}
+  \verb http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-734
+  \endverb
+  \field{volume}{13}
+  \field{journaltitle}{BMC Genomics}
+  \field{year}{2012}
+\endentry
 
-  \entry{Illumina}{article}{}
-    \name{author}{1}{}{%
-      {{hash=I}{%
-         family={Illumina},
-         familyi={I\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{I1}
-    \strng{fullhash}{I1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{I}
-    \field{sortinithash}{I}
-    \field{abstract}{%
-    Next-generation sequencing (NGS) has revolutionized the study of the
+\entry{Illumina}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Illumina}{I.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{I1}
+  \strng{fullhash}{I1}
+  \field{sortinit}{I}
+  \field{abstract}{%
+  Next-generation sequencing (NGS) has revolutionized the study of the
   transcriptome. Sequence data that once took years to generate can now be
   produced in a matter of days or hours. Advances in RNA enable simpler, easier
   workflows from library preparation to data analysis with highly accurate
@@ -2534,136 +2142,185 @@
   its impact on research can be seen through the rapid increase in RNA-Seq
   publications and the increasing success of grant proposals for gene
   expression studies including RNA-Seq.%
-    }
-    \field{title}{{Buyer's Guide: Simple, Customized RNA-Sequencing Workflows
+  }
+  \field{title}{{Buyer's Guide: Simple, Customized RNA-Sequencing Workflows
   Overcome Limitations with RNA-Seq}}
-    \verb{url}
-    \verb http://www.illumina.com/content/dam/illumina-marketing/documents/prod
-    \verb ucts/other/rna-sequencing-workflow-buyers-guide-476-2015-003.pdf
-    \endverb
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Illumina - Unknown - Buyer's Guide Simple, Customize
-    \verb d RNA-Sequencing Workflows Overcome Limitations with RNA-Seq.pdf:pdf
-    \endverb
-  \endentry
+  \verb{url}
+  \verb http://www.illumina.com/content/dam/illumina-marketing/documents/produc
+  \verb ts/other/rna-sequencing-workflow-buyers-guide-476-2015-003.pdf
+  \endverb
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Illumina - Unknown - Buyer's Guide Simple, Customized R
+  \verb NA-Sequencing Workflows Overcome Limitations with RNA-Seq.pdf:pdf
+  \endverb
+\endentry
 
-  \entry{Kiers2000}{book}{}
-    \name{editor}{4}{}{%
-      {{hash=KHAL}{%
-         family={Kiers},
-         familyi={K\bibinitperiod},
-         given={Henk A.\bibnamedelima L.},
-         giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
-  L\bibinitperiod},
-      }}%
-      {{hash=RJP}{%
-         family={Rasson},
-         familyi={R\bibinitperiod},
-         given={Jean-Paul},
-         giveni={J\bibinitperiod-P\bibinitperiod},
-      }}%
-      {{hash=GPJF}{%
-         family={Groenen},
-         familyi={G\bibinitperiod},
-         given={Patrick J.\bibnamedelima F.},
-         giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim
-  F\bibinitperiod},
-      }}%
-      {{hash=SM}{%
-         family={Schader},
-         familyi={S\bibinitperiod},
-         given={Martin},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer Berlin Heidelberg}%
-    }
-    \strng{namehash}{KHAL+1}
-    \strng{fullhash}{KHALRJPGPJFSM1}
-    \field{labelnamesource}{editor}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{K}
-    \field{sortinithash}{K}
-    \verb{doi}
-    \verb 10.1007/978-3-642-59789-3
-    \endverb
-    \field{isbn}{978-3-540-67521-1}
-    \field{series}{Studies in Classification, Data Analysis, and Knowledge
+\entry{Kiers2000}{book}{}
+  \name{editor}{4}{}{%
+    {{}%
+     {Kiers}{K.}%
+     {Henk A.~L.}{H.~A.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rasson}{R.}%
+     {Jean-Paul}{J.-P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Groenen}{G.}%
+     {Patrick J.~F.}{P.~J.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schader}{S.}%
+     {Martin}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer Berlin Heidelberg}%
+  }
+  \strng{namehash}{KHAL+1}
+  \strng{fullhash}{KHALRJPGPJFSM1}
+  \field{sortinit}{K}
+  \verb{doi}
+  \verb 10.1007/978-3-642-59789-3
+  \endverb
+  \field{isbn}{978-3-540-67521-1}
+  \field{series}{Studies in Classification, Data Analysis, and Knowledge
   Organization}
-    \field{title}{{Data Analysis, Classification, and Related Methods}}
-    \verb{url}
-    \verb http://www.springerlink.com/index/10.1007/978-3-642-59789-3
-    \endverb
-    \list{location}{1}{%
-      {Berlin, Heidelberg}%
-    }
-    \field{year}{2000}
-  \endentry
+  \field{title}{{Data Analysis, Classification, and Related Methods}}
+  \verb{url}
+  \verb http://www.springerlink.com/index/10.1007/978-3-642-59789-3
+  \endverb
+  \list{location}{1}{%
+    {Berlin, Heidelberg}%
+  }
+  \field{year}{2000}
+\endentry
 
-  \entry{Levin2010}{article}{}
-    \name{author}{8}{}{%
-      {{hash=LJZ}{%
-         family={Levin},
-         familyi={L\bibinitperiod},
-         given={Joshua\bibnamedelima Z},
-         giveni={J\bibinitperiod\bibinitdelim Z\bibinitperiod},
-      }}%
-      {{hash=YM}{%
-         family={Yassour},
-         familyi={Y\bibinitperiod},
-         given={Moran},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=AX}{%
-         family={Adiconis},
-         familyi={A\bibinitperiod},
-         given={Xian},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=NC}{%
-         family={Nusbaum},
-         familyi={N\bibinitperiod},
-         given={Chad},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=TDA}{%
-         family={Thompson},
-         familyi={T\bibinitperiod},
-         given={Dawn\bibnamedelima Anne},
-         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=FN}{%
-         family={Friedman},
-         familyi={F\bibinitperiod},
-         given={Nir},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=GA}{%
-         family={Gnirke},
-         familyi={G\bibinitperiod},
-         given={Andreas},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=RA}{%
-         family={Regev},
-         familyi={R\bibinitperiod},
-         given={Aviv},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {NIH Public Access}%
-    }
-    \strng{namehash}{LJZ+1}
-    \strng{fullhash}{LJZYMAXNCTDAFNGARA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \field{abstract}{%
-    Strand-specific, massively parallel cDNA sequencing (RNA-seq) is a powerful
+\entry{Law2014}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Law}{L.}%
+     {Charity~W}{C.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Yunshun}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shi}{S.}%
+     {Wei}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smyth}{S.}%
+     {Gordon~K}{G.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {En}%
+  }
+  \list{publisher}{1}{%
+    {BioMed Central}%
+  }
+  \keyw{Animal Genetics and Genomics,Bioinformatics,Fungus Genetics,Human
+  Genetics,Microbial Genetics and Genomics,Plant Genetics {\&} Genomics}
+  \strng{namehash}{LCW+1}
+  \strng{fullhash}{LCWCYSWSGK1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  New normal linear modeling strategies are presented for analyzing read counts
+  from RNA-seq experiments. The voom method estimates the mean-variance
+  relationship of the log-counts, generates a precision weight for each
+  observation and enters these into the limma empirical Bayes analysis
+  pipeline. This opens access for RNA-seq analysts to a large body of
+  methodology developed for microarrays. Simulation studies show that voom
+  performs as well or better than count-based RNA-seq methods even when the
+  data are generated according to the assumptions of the earlier methods. Two
+  case studies illustrate the use of linear modeling and gene set testing
+  methods.%
+  }
+  \verb{doi}
+  \verb 10.1186/gb-2014-15-2-r29
+  \endverb
+  \field{issn}{1465-6914}
+  \field{number}{2}
+  \field{pages}{R29}
+  \field{title}{{voom: Precision weights unlock linear model analysis tools for
+  RNA-seq read counts.}}
+  \verb{url}
+  \verb http://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r2
+  \verb 9
+  \endverb
+  \field{volume}{15}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Law et al. - 2014 - voom Precision weights unlock linea
+  \verb r model analysis tools for RNA-seq read counts.pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome biology}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Levin2010}{article}{}
+  \name{author}{8}{}{%
+    {{}%
+     {Levin}{L.}%
+     {Joshua~Z}{J.~Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yassour}{Y.}%
+     {Moran}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adiconis}{A.}%
+     {Xian}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nusbaum}{N.}%
+     {Chad}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thompson}{T.}%
+     {Dawn~Anne}{D.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Friedman}{F.}%
+     {Nir}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gnirke}{G.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Regev}{R.}%
+     {Aviv}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {NIH Public Access}%
+  }
+  \strng{namehash}{LJZ+1}
+  \strng{fullhash}{LJZYMAXNCTDAFNGARA1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  Strand-specific, massively parallel cDNA sequencing (RNA-seq) is a powerful
   tool for transcript discovery, genome annotation and expression profiling.
   There are multiple published methods for strand-specific RNA-seq, but no
   consensus exists as to how to choose between them. Here we developed a
@@ -2679,152 +2336,131 @@
   current availability of paired-end sequencing. Our analysis provides a
   comprehensive benchmark, and our computational pipeline is applicable for
   assessment of future protocols in other organisms.%
-    }
-    \verb{doi}
-    \verb 10.1038/nmeth.1491
-    \endverb
-    \field{issn}{1548-7105}
-    \field{number}{9}
-    \field{pages}{709\bibrangedash 15}
-    \field{title}{{Comprehensive comparative analysis of strand-specific RNA
+  }
+  \verb{doi}
+  \verb 10.1038/nmeth.1491
+  \endverb
+  \field{issn}{1548-7105}
+  \field{number}{9}
+  \field{pages}{709\bibrangedash 15}
+  \field{title}{{Comprehensive comparative analysis of strand-specific RNA
   sequencing methods.}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/20711195 http://www.pubmedcentral.
-    \verb nih.gov/articlerender.fcgi?artid=PMC3005310
-    \endverb
-    \field{volume}{7}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Levin et al. - 2010 - Comprehensive comparative anal
-    \verb ysis of strand-specific RNA sequencing methods(2).pdf:pdf
-    \endverb
-    \field{journaltitle}{Nature methods}
-    \field{year}{2010}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/20711195 http://www.pubmedcentral.ni
+  \verb h.gov/articlerender.fcgi?artid=PMC3005310
+  \endverb
+  \field{volume}{7}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Levin et al. - 2010 - Comprehensive comparative analysi
+  \verb s of strand-specific RNA sequencing methods.pdf:pdf
+  \endverb
+  \field{journaltitle}{Nature methods}
+  \field{year}{2010}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Liu2012}{article}{}
-    \name{author}{18}{}{%
-      {{hash=LL}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Lin},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LY}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Yinhu},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Siliang},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=HN}{%
-         family={Hu},
-         familyi={H\bibinitperiod},
-         given={Ni},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=HY}{%
-         family={He},
-         familyi={H\bibinitperiod},
-         given={Yimin},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=PR}{%
-         family={Pong},
-         familyi={P\bibinitperiod},
-         given={Ray},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=LD}{%
-         family={Lin},
-         familyi={L\bibinitperiod},
-         given={Danni},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=LL}{%
-         family={Lu},
-         familyi={L\bibinitperiod},
-         given={Lihua},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LM}{%
-         family={Law},
-         familyi={L\bibinitperiod},
-         given={Maggie},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=LL}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Lin},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LY}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Yinhu},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Siliang},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=HN}{%
-         family={Hu},
-         familyi={H\bibinitperiod},
-         given={Ni},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=HY}{%
-         family={He},
-         familyi={H\bibinitperiod},
-         given={Yimin},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=PR}{%
-         family={Pong},
-         familyi={P\bibinitperiod},
-         given={Ray},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=LD}{%
-         family={Lin},
-         familyi={L\bibinitperiod},
-         given={Danni},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=LL}{%
-         family={Lu},
-         familyi={L\bibinitperiod},
-         given={Lihua},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LM}{%
-         family={Law},
-         familyi={L\bibinitperiod},
-         given={Maggie},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Hindawi Publishing Corporation}%
-    }
-    \strng{namehash}{LL+1}
-    \strng{fullhash}{LLLYLSHNHYPRLDLLLMLLLYLSHNHYPRLDLLLM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \field{abstract}{%
-    {\textless}p{\textgreater}With fast development and wide applications of
+\entry{Liu2012}{article}{}
+  \name{author}{18}{}{%
+    {{}%
+     {Liu}{L.}%
+     {Lin}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Yinhu}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Siliang}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hu}{H.}%
+     {Ni}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {Yimin}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pong}{P.}%
+     {Ray}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lin}{L.}%
+     {Danni}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Lihua}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Law}{L.}%
+     {Maggie}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liu}{L.}%
+     {Lin}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Yinhu}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Siliang}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hu}{H.}%
+     {Ni}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {He}{H.}%
+     {Yimin}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pong}{P.}%
+     {Ray}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lin}{L.}%
+     {Danni}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Lihua}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Law}{L.}%
+     {Maggie}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Hindawi Publishing Corporation}%
+  }
+  \strng{namehash}{LL+1}
+  \strng{fullhash}{LLLYLSHNHYPRLDLLLMLLLYLSHNHYPRLDLLLM1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  {\textless}p{\textgreater}With fast development and wide applications of
   next-generation sequencing (NGS) technologies, genomic sequence information
   is within reach to aid the achievement of goals to decode life mysteries,
   make better crops, detect pathogens, and improve life qualities. NGS systems
@@ -2839,963 +2475,807 @@
   analyzed to discuss the advantages and specifics associated with each
   sequencing system. At last, applications of NGS are
   summarized.{\textless}/p{\textgreater}%
-    }
-    \verb{doi}
-    \verb 10.1155/2012/251364
-    \endverb
-    \field{issn}{1110-7243}
-    \field{pages}{1\bibrangedash 11}
-    \field{title}{{Comparison of Next-Generation Sequencing Systems}}
-    \verb{url}
-    \verb http://www.hindawi.com/journals/bmri/2012/251364/
-    \endverb
-    \field{volume}{2012}
-    \field{journaltitle}{Journal of Biomedicine and Biotechnology}
-    \field{year}{2012}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1155/2012/251364
+  \endverb
+  \field{issn}{1110-7243}
+  \field{pages}{1\bibrangedash 11}
+  \field{title}{{Comparison of Next-Generation Sequencing Systems}}
+  \verb{url}
+  \verb http://www.hindawi.com/journals/bmri/2012/251364/
+  \endverb
+  \field{volume}{2012}
+  \field{journaltitle}{Journal of Biomedicine and Biotechnology}
+  \field{year}{2012}
+\endentry
 
-  \entry{Liu2013}{article}{}
-    \name{author}{145}{}{%
-      {{hash=LY}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Yichuan},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=FJF}{%
-         family={Ferguson},
-         familyi={F\bibinitperiod},
-         given={Jane\bibnamedelima F.},
-         giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-      {{hash=XC}{%
-         family={Xue},
-         familyi={X\bibinitperiod},
-         given={Chenyi},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=SIM}{%
-         family={Silverman},
-         familyi={S\bibinitperiod},
-         given={Ian\bibnamedelima M.},
-         giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-      {{hash=GB}{%
-         family={Gregory},
-         familyi={G\bibinitperiod},
-         given={Brian},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=RMP}{%
-         family={Reilly},
-         familyi={R\bibinitperiod},
-         given={Muredach\bibnamedelima P.},
-         giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=LM}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Mingyao},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=SM}{%
-         family={Schena},
-         familyi={S\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=SD}{%
-         family={Shalon},
-         familyi={S\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=DR}{%
-         family={Davis},
-         familyi={D\bibinitperiod},
-         given={RW},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=BP}{%
-         family={Brown},
-         familyi={B\bibinitperiod},
-         given={PO},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=MJ}{%
-         family={Marioni},
-         familyi={M\bibinitperiod},
-         given={JC},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=MC}{%
-         family={Mason},
-         familyi={M\bibinitperiod},
-         given={CE},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=MS}{%
-         family={Mane},
-         familyi={M\bibinitperiod},
-         given={SM},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=SM}{%
-         family={Stephens},
-         familyi={S\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=GY}{%
-         family={Gilad},
-         familyi={G\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=WB}{%
-         family={Wilhelm},
-         familyi={W\bibinitperiod},
-         given={BT},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Landry},
-         familyi={L\bibinitperiod},
-         given={JR},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=TC}{%
-         family={Trapnell},
-         familyi={T\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=WB}{%
-         family={Williams},
-         familyi={W\bibinitperiod},
-         given={BA},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=PG}{%
-         family={Pertea},
-         familyi={P\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=MA}{%
-         family={Mortazavi},
-         familyi={M\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=KG}{%
-         family={Kwan},
-         familyi={K\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=WE}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={ET},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Sandberg},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=LS}{%
-         family={Luo},
-         familyi={L\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=KI}{%
-         family={Khrebtukova},
-         familyi={K\bibinitperiod},
-         given={I},
-         giveni={I},
-      }}%
-      {{hash=ZL}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=CM}{%
-         family={Cabili},
-         familyi={C\bibinitperiod},
-         given={MN},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=TC}{%
-         family={Trapnell},
-         familyi={T\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=GL}{%
-         family={Goff},
-         familyi={G\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=KM}{%
-         family={Koziol},
-         familyi={K\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=TVB}{%
-         family={Tazon-Vega},
-         familyi={T\bibinitperiod-V\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=LE}{%
-         family={Levanon},
-         familyi={L\bibinitperiod},
-         given={EY},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=EE}{%
-         family={Eisenberg},
-         familyi={E\bibinitperiod},
-         given={E},
-         giveni={E},
-      }}%
-      {{hash=YR}{%
-         family={Yelin},
-         familyi={Y\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=NS}{%
-         family={Nemzer},
-         familyi={N\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=HM}{%
-         family={Hallegger},
-         familyi={H\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=LM}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=WI}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={IX},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=LY}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=BA}{%
-         family={Bruzel},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=RA}{%
-         family={Richards},
-         familyi={R\bibinitperiod},
-         given={AL},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={Mitelman},
-         familyi={M\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=JB}{%
-         family={Johansson},
-         familyi={J\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=MF}{%
-         family={Mertens},
-         familyi={M\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=TJ}{%
-         family={Toung},
-         familyi={T\bibinitperiod},
-         given={JM},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=MM}{%
-         family={Morley},
-         familyi={M\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=LM}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=CV}{%
-         family={Cheung},
-         familyi={C\bibinitperiod},
-         given={VG},
-         giveni={V\bibinitperiod},
-      }}%
-      {{hash=WY}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=GN}{%
-         family={Ghaffari},
-         familyi={G\bibinitperiod},
-         given={N},
-         giveni={N},
-      }}%
-      {{hash=JC}{%
-         family={Johnson},
-         familyi={J\bibinitperiod},
-         given={CD},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=BNU}{%
-         family={Braga-Neto},
-         familyi={B\bibinitperiod-N\bibinitperiod},
-         given={UM},
-         giveni={U\bibinitperiod},
-      }}%
-      {{hash=WH}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={H},
-         giveni={H},
-      }}%
-      {{hash=LP}{%
-         family={Labaj},
-         familyi={L\bibinitperiod},
-         given={PP},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=LG}{%
-         family={Leparc},
-         familyi={L\bibinitperiod},
-         given={GG},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=LB}{%
-         family={Linggi},
-         familyi={L\bibinitperiod},
-         given={BE},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=ML}{%
-         family={Markillie},
-         familyi={M\bibinitperiod},
-         given={LM},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=WH}{%
-         family={Wiley},
-         familyi={W\bibinitperiod},
-         given={HS},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=SA}{%
-         family={Suffredini},
-         familyi={S\bibinitperiod},
-         given={AF},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=FR}{%
-         family={Fromm},
-         familyi={F\bibinitperiod},
-         given={RE},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=PM}{%
-         family={Parker},
-         familyi={P\bibinitperiod},
-         given={MM},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=BM}{%
-         family={Brenner},
-         familyi={B\bibinitperiod},
-         given={M},
-         giveni={M},
-      }}%
-      {{hash=KJ}{%
-         family={Kovacs},
-         familyi={K\bibinitperiod},
-         given={JA},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=AA}{%
-         family={Agwunobi},
-         familyi={A\bibinitperiod},
-         given={AO},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=RC}{%
-         family={Reid},
-         familyi={R\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=MP}{%
-         family={Maycock},
-         familyi={M\bibinitperiod},
-         given={P},
-         giveni={P},
-      }}%
-      {{hash=LR}{%
-         family={Little},
-         familyi={L\bibinitperiod},
-         given={RA},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=CG}{%
-         family={Carlson},
-         familyi={C\bibinitperiod},
-         given={GL},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=HL}{%
-         family={Hudgins},
-         familyi={H\bibinitperiod},
-         given={LC},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=PT}{%
-         family={Parker},
-         familyi={P\bibinitperiod},
-         given={TS},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=LD}{%
-         family={Levine},
-         familyi={L\bibinitperiod},
-         given={DM},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=GB}{%
-         family={Gordon},
-         familyi={G\bibinitperiod},
-         given={BR},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Saal},
-         familyi={S\bibinitperiod},
-         given={SD},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=MN}{%
-         family={Mehta},
-         familyi={M\bibinitperiod},
-         given={NN},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={McGillicuddy},
-         familyi={M\bibinitperiod},
-         given={FC},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=AP}{%
-         family={Anderson},
-         familyi={A\bibinitperiod},
-         given={PD},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=HC}{%
-         family={Hinkle},
-         familyi={H\bibinitperiod},
-         given={CC},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Shah},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=FJ}{%
-         family={Ferguson},
-         familyi={F\bibinitperiod},
-         given={JF},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=PP}{%
-         family={Patel},
-         familyi={P\bibinitperiod},
-         given={PN},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Shah},
-         familyi={S\bibinitperiod},
-         given={RY},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=MC}{%
-         family={Mulvey},
-         familyi={M\bibinitperiod},
-         given={CK},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=GR}{%
-         family={Gadi},
-         familyi={G\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=SR}{%
-         family={Shah},
-         familyi={S\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=LY}{%
-         family={Lu},
-         familyi={L\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=HC}{%
-         family={Hinkle},
-         familyi={H\bibinitperiod},
-         given={CC},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={McGillicuddy},
-         familyi={M\bibinitperiod},
-         given={FC},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=KR}{%
-         family={Kim},
-         familyi={K\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-      {{hash=TC}{%
-         family={Trapnell},
-         familyi={T\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=PL}{%
-         family={Pachter},
-         familyi={P\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=SS}{%
-         family={Salzberg},
-         familyi={S\bibinitperiod},
-         given={SL},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Shen},
-         familyi={S\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=PJ}{%
-         family={Park},
-         familyi={P\bibinitperiod},
-         given={JW},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=HJ}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=DK}{%
-         family={Dittmar},
-         familyi={D\bibinitperiod},
-         given={KA},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=LZ}{%
-         family={Lu},
-         familyi={L\bibinitperiod},
-         given={ZX},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=KY}{%
-         family={Katz},
-         familyi={K\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=WE}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={ET},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=AE}{%
-         family={Airoldi},
-         familyi={A\bibinitperiod},
-         given={EM},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=BC}{%
-         family={Burge},
-         familyi={B\bibinitperiod},
-         given={CB},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=HY}{%
-         family={Hu},
-         familyi={H\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=HY}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=DY}{%
-         family={Du},
-         familyi={D\bibinitperiod},
-         given={Y},
-         giveni={Y},
-      }}%
-      {{hash=OC}{%
-         family={Orellana},
-         familyi={O\bibinitperiod},
-         given={CF},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=SD}{%
-         family={Singh},
-         familyi={S\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=MA}{%
-         family={Mortazavi},
-         familyi={M\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=WB}{%
-         family={Williams},
-         familyi={W\bibinitperiod},
-         given={BA},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=MK}{%
-         family={McCue},
-         familyi={M\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=SL}{%
-         family={Schaeffer},
-         familyi={S\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=WB}{%
-         family={Wold},
-         familyi={W\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=PD}{%
-         family={Pedrotty},
-         familyi={P\bibinitperiod},
-         given={DM},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MM}{%
-         family={Morley},
-         familyi={M\bibinitperiod},
-         given={MP},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=CT}{%
-         family={Cappola},
-         familyi={C\bibinitperiod},
-         given={TP},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={McGillicuddy},
-         familyi={M\bibinitperiod},
-         given={FC},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=MMdlL}{%
-         family={Moya},
-         familyi={M\bibinitperiod},
-         given={M\bibnamedelima de la\bibnamedelima Llera},
-         giveni={M\bibinitperiod\bibinitdelim d\bibinitperiod
-  l\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=HC}{%
-         family={Hinkle},
-         familyi={H\bibinitperiod},
-         given={CC},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=JM}{%
-         family={Joshi},
-         familyi={J\bibinitperiod},
-         given={MR},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=CE}{%
-         family={Chiquoine},
-         familyi={C\bibinitperiod},
-         given={EH},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=CS}{%
-         family={Copeland},
-         familyi={C\bibinitperiod},
-         given={S},
-         giveni={S},
-      }}%
-      {{hash=WH}{%
-         family={Warren},
-         familyi={W\bibinitperiod},
-         given={HS},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Lowry},
-         familyi={L\bibinitperiod},
-         given={SF},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=CS}{%
-         family={Calvano},
-         familyi={C\bibinitperiod},
-         given={SE},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=RD}{%
-         family={Remick},
-         familyi={R\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=AK}{%
-         family={Armah},
-         familyi={A\bibinitperiod},
-         given={KA},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=MK}{%
-         family={McGinnis},
-         familyi={M\bibinitperiod},
-         given={K},
-         giveni={K},
-      }}%
-      {{hash=BJ}{%
-         family={Baker},
-         familyi={B\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=GC}{%
-         family={Gibert},
-         familyi={G\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=BA}{%
-         family={Butt},
-         familyi={B\bibinitperiod},
-         given={AA},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=EV}{%
-         family={Emilsson},
-         familyi={E\bibinitperiod},
-         given={V},
-         giveni={V},
-      }}%
-      {{hash=TG}{%
-         family={Thorleifsson},
-         familyi={T\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=ZB}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={B},
-         giveni={B},
-      }}%
-      {{hash=LA}{%
-         family={Leonardson},
-         familyi={L\bibinitperiod},
-         given={AS},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=ZF}{%
-         family={Zink},
-         familyi={Z\bibinitperiod},
-         given={F},
-         giveni={F},
-      }}%
-      {{hash=NA}{%
-         family={Nica},
-         familyi={N\bibinitperiod},
-         given={AC},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=PL}{%
-         family={Parts},
-         familyi={P\bibinitperiod},
-         given={L},
-         giveni={L},
-      }}%
-      {{hash=GD}{%
-         family={Glass},
-         familyi={G\bibinitperiod},
-         given={D},
-         giveni={D},
-      }}%
-      {{hash=NJ}{%
-         family={Nisbet},
-         familyi={N\bibinitperiod},
-         given={J},
-         giveni={J},
-      }}%
-      {{hash=BA}{%
-         family={Barrett},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=CD}{%
-         family={Chartoumpekis},
-         familyi={C\bibinitperiod},
-         given={DV},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=ZA}{%
-         family={Zaravinos},
-         familyi={Z\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=ZP}{%
-         family={Ziros},
-         familyi={Z\bibinitperiod},
-         given={PG},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=IR}{%
-         family={Iskrenova},
-         familyi={I\bibinitperiod},
-         given={RP},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=PA}{%
-         family={Psyrogiannis},
-         familyi={P\bibinitperiod},
-         given={AI},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \name{editor}{1}{}{%
-      {{hash=LZ}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Zhanjiang},
-         giveni={Z\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Public Library of Science}%
-    }
-    \strng{namehash}{LY+1}
+\entry{Liu2013}{article}{}
+  \name{author}{145}{}{%
+    {{}%
+     {Liu}{L.}%
+     {Yichuan}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ferguson}{F.}%
+     {Jane~F.}{J.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Xue}{X.}%
+     {Chenyi}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Silverman}{S.}%
+     {Ian~M.}{I.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gregory}{G.}%
+     {Brian}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reilly}{R.}%
+     {Muredach~P.}{M.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Mingyao}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schena}{S.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shalon}{S.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Davis}{D.}%
+     {RW}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brown}{B.}%
+     {PO}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marioni}{M.}%
+     {JC}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mason}{M.}%
+     {CE}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mane}{M.}%
+     {SM}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stephens}{S.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gilad}{G.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wilhelm}{W.}%
+     {BT}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Landry}{L.}%
+     {JR}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Trapnell}{T.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Williams}{W.}%
+     {BA}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pertea}{P.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mortazavi}{M.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kwan}{K.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {ET}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sandberg}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Luo}{L.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Khrebtukova}{K.}%
+     {I}{I}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cabili}{C.}%
+     {MN}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Trapnell}{T.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Goff}{G.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Koziol}{K.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tazon-Vega}{T.-V.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Levanon}{L.}%
+     {EY}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Eisenberg}{E.}%
+     {E}{E}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yelin}{Y.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nemzer}{N.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hallegger}{H.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {IX}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bruzel}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Richards}{R.}%
+     {AL}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mitelman}{M.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johansson}{J.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mertens}{M.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Toung}{T.}%
+     {JM}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morley}{M.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cheung}{C.}%
+     {VG}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ghaffari}{G.}%
+     {N}{N}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johnson}{J.}%
+     {CD}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Braga-Neto}{B.-N.}%
+     {UM}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {H}{H}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Labaj}{L.}%
+     {PP}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Leparc}{L.}%
+     {GG}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Linggi}{L.}%
+     {BE}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Markillie}{M.}%
+     {LM}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wiley}{W.}%
+     {HS}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Suffredini}{S.}%
+     {AF}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fromm}{F.}%
+     {RE}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Parker}{P.}%
+     {MM}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brenner}{B.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kovacs}{K.}%
+     {JA}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Agwunobi}{A.}%
+     {AO}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reid}{R.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Maycock}{M.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Little}{L.}%
+     {RA}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Carlson}{C.}%
+     {GL}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hudgins}{H.}%
+     {LC}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Parker}{P.}%
+     {TS}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Levine}{L.}%
+     {DM}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gordon}{G.}%
+     {BR}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Saal}{S.}%
+     {SD}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mehta}{M.}%
+     {NN}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McGillicuddy}{M.}%
+     {FC}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Anderson}{A.}%
+     {PD}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hinkle}{H.}%
+     {CC}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shah}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ferguson}{F.}%
+     {JF}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Patel}{P.}%
+     {PN}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shah}{S.}%
+     {RY}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mulvey}{M.}%
+     {CK}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gadi}{G.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shah}{S.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hinkle}{H.}%
+     {CC}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McGillicuddy}{M.}%
+     {FC}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kim}{K.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Trapnell}{T.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pachter}{P.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Salzberg}{S.}%
+     {SL}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shen}{S.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Park}{P.}%
+     {JW}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huang}{H.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dittmar}{D.}%
+     {KA}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lu}{L.}%
+     {ZX}{Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Katz}{K.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {ET}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Airoldi}{A.}%
+     {EM}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Burge}{B.}%
+     {CB}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hu}{H.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huang}{H.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Du}{D.}%
+     {Y}{Y}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Orellana}{O.}%
+     {CF}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Singh}{S.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mortazavi}{M.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Williams}{W.}%
+     {BA}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McCue}{M.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schaeffer}{S.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wold}{W.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pedrotty}{P.}%
+     {DM}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morley}{M.}%
+     {MP}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cappola}{C.}%
+     {TP}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McGillicuddy}{M.}%
+     {FC}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moya}{M.}%
+     {M~de la~Llera}{M.~d. l.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hinkle}{H.}%
+     {CC}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Joshi}{J.}%
+     {MR}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chiquoine}{C.}%
+     {EH}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Copeland}{C.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Warren}{W.}%
+     {HS}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lowry}{L.}%
+     {SF}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Calvano}{C.}%
+     {SE}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Remick}{R.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Armah}{A.}%
+     {KA}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McGinnis}{M.}%
+     {K}{K}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Baker}{B.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gibert}{G.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Butt}{B.}%
+     {AA}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Emilsson}{E.}%
+     {V}{V}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thorleifsson}{T.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Leonardson}{L.}%
+     {AS}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zink}{Z.}%
+     {F}{F}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nica}{N.}%
+     {AC}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Parts}{P.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Glass}{G.}%
+     {D}{D}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nisbet}{N.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barrett}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chartoumpekis}{C.}%
+     {DV}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zaravinos}{Z.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ziros}{Z.}%
+     {PG}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Iskrenova}{I.}%
+     {RP}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Psyrogiannis}{P.}%
+     {AI}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{1}{}{%
+    {{}%
+     {Liu}{L.}%
+     {Zhanjiang}{Z.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Public Library of Science}%
+  }
+  \strng{namehash}{LY+1}
   \strng{fullhash}{LYFJFXCSIMGBRMPLMSMSDDRBPMJMCMSSMGYWBLJTCWBPGMAKGWESRLSKIZLCMTCGLKMTVBLEEEYRNSHMLMWILYBARAMFJBMFTJMMLMCVWYGNJCBNUWHLPLGLBMLWHSAFRPMBMKJAARCMPLRCGHLPTLDGBSSMNMFAPHCSRFJPPSRMCGRSRLYHCMFKRTCPLSSSSPJHJDKLZKYWEAEBCHYHYDYOCSDMAWBMKSLWBPDMMCTMFMMdlLHCJMCECS}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \verb{doi}
-    \verb 10.1371/journal.pone.0066883
-    \endverb
-    \field{issn}{1932-6203}
-    \field{number}{6}
-    \field{pages}{e66883}
-    \field{title}{{Evaluating the Impact of Sequencing Depth on Transcriptome
+  \field{sortinit}{L}
+  \verb{doi}
+  \verb 10.1371/journal.pone.0066883
+  \endverb
+  \field{issn}{1932-6203}
+  \field{number}{6}
+  \field{pages}{e66883}
+  \field{title}{{Evaluating the Impact of Sequencing Depth on Transcriptome
   Profiling in Human Adipose}}
-    \verb{url}
-    \verb http://dx.plos.org/10.1371/journal.pone.0066883
-    \endverb
-    \field{volume}{8}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Liu et al. - 2013 - Evaluating the Impact of Sequenc
-    \verb ing Depth on Transcriptome Profiling in Human Adipose.pdf:pdf
-    \endverb
-    \field{journaltitle}{PLoS ONE}
-    \field{year}{2013}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  \verb{url}
+  \verb http://dx.plos.org/10.1371/journal.pone.0066883
+  \endverb
+  \field{volume}{8}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Liu et al. - 2013 - Evaluating the Impact of Sequencing
+  \verb  Depth on Transcriptome Profiling in Human Adipose.pdf:pdf
+  \endverb
+  \field{journaltitle}{PLoS ONE}
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Liu2014}{article}{}
-    \name{author}{3}{}{%
-      {{hash=LY}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Yuwen},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=ZJ}{%
-         family={Zhou},
-         familyi={Z\bibinitperiod},
-         given={Jie},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=WKP}{%
-         family={White},
-         familyi={W\bibinitperiod},
-         given={Kevin\bibnamedelima P},
-         giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{LYZJWKP1}
-    \strng{fullhash}{LYZJWKP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \field{abstract}{%
-    MOTIVATION RNA-seq is replacing microarrays as the primary tool for gene
+\entry{Liu2014}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Liu}{L.}%
+     {Yuwen}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhou}{Z.}%
+     {Jie}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {White}{W.}%
+     {Kevin~P}{K.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LYZJWKP1}
+  \strng{fullhash}{LYZJWKP1}
+  \field{sortinit}{L}
+  \field{abstract}{%
+  MOTIVATION RNA-seq is replacing microarrays as the primary tool for gene
   expression studies. Many RNA-seq studies have used insufficient biological
   replicates, resulting in low statistical power and inefficient use of
   sequencing resources. RESULTS We show the explicit trade-off between more
@@ -3812,278 +3292,448 @@
   AVAILABILITY AND IMPLEMENTATION The code used in this paper is provided on:
   http://home.uchicago.edu/∼jiezhou/replication/. The expression data is
   deposited in the Gene Expression Omnibus under the accession ID GSE51403.%
-    }
-    \verb{doi}
-    \verb 10.1093/bioinformatics/btt688
-    \endverb
-    \field{issn}{1367-4811}
-    \field{number}{3}
-    \field{pages}{301\bibrangedash 4}
-    \field{title}{{RNA-seq differential expression studies: more sequence or
-  more replication?}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/24319002 http://www.pubmedcentral.
-    \verb nih.gov/articlerender.fcgi?artid=PMC3904521
-    \endverb
-    \field{volume}{30}
-    \field{journaltitle}{Bioinformatics (Oxford, England)}
-    \field{year}{2014}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1093/bioinformatics/btt688
+  \endverb
+  \field{issn}{1367-4811}
+  \field{number}{3}
+  \field{pages}{301\bibrangedash 4}
+  \field{title}{{RNA-seq differential expression studies: more sequence or more
+  replication?}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/24319002 http://www.pubmedcentral.ni
+  \verb h.gov/articlerender.fcgi?artid=PMC3904521
+  \endverb
+  \field{volume}{30}
+  \field{journaltitle}{Bioinformatics (Oxford, England)}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Martin-Fernandez2000}{article}{}
-    \name{author}{3}{}{%
-      {{hash=MFJA}{%
-         family={Mart{\'{i}}n-Fern{\'{a}}ndez},
-         familyi={M\bibinitperiod-F\bibinitperiod},
-         given={J.\bibnamedelima A.},
-         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=BVC}{%
-         family={Barcel{\'{o}}-Vidal},
-         familyi={B\bibinitperiod-V\bibinitperiod},
-         given={C.},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=PGV}{%
-         family={Pawlowsky-Glahn},
-         familyi={P\bibinitperiod-G\bibinitperiod},
-         given={V.},
-         giveni={V\bibinitperiod},
-      }}%
-    }
-    \list{language}{1}{%
-      {en}%
-    }
-    \list{publisher}{1}{%
-      {Kluwer Academic Publishers-Plenum Publishers}%
-    }
-    \strng{namehash}{MFJABVCPGV1}
-    \strng{fullhash}{MFJABVCPGV1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \verb{doi}
-    \verb 10.1023/A:1023866030544
-    \endverb
-    \field{issn}{1573-8868}
-    \field{number}{3}
-    \field{pages}{253\bibrangedash 278}
-    \field{title}{{Dealing with Zeros and Missing Values in Compositional Data
+\entry{Martin-Fernandez2000}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {en}%
+  }
+  \list{publisher}{1}{%
+    {Kluwer Academic Publishers-Plenum Publishers}%
+  }
+  \strng{namehash}{MFJABVCPGV1}
+  \strng{fullhash}{MFJABVCPGV1}
+  \field{sortinit}{M}
+  \verb{doi}
+  \verb 10.1023/A:1023866030544
+  \endverb
+  \field{issn}{1573-8868}
+  \field{number}{3}
+  \field{pages}{253\bibrangedash 278}
+  \field{title}{{Dealing with Zeros and Missing Values in Compositional Data
   Sets Using Nonparametric Imputation}}
-    \verb{url}
-    \verb http://link.springer.com/article/10.1023/A{\%}3A1023866030544
-    \endverb
-    \field{volume}{35}
-    \field{journaltitle}{Mathematical Geology}
-    \field{year}{2000}
-  \endentry
+  \verb{url}
+  \verb http://link.springer.com/article/10.1023/A{\%}3A1023866030544
+  \endverb
+  \field{volume}{35}
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{2000}
+\endentry
 
-  \entry{Martin-Fernandez1998}{article}{}
-    \name{author}{6}{}{%
-      {{hash=MFJA}{%
-         family={Mart{\'{i}}n-Fern{\'{a}}ndez},
-         familyi={M\bibinitperiod-F\bibinitperiod},
-         given={J\bibnamedelima A},
-         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=BVC}{%
-         family={Barcel{\'{o}}-Vidal},
-         familyi={B\bibinitperiod-V\bibinitperiod},
-         given={C},
-         giveni={C},
-      }}%
-      {{hash=PGV}{%
-         family={Pawlowsky-Glahn},
-         familyi={P\bibinitperiod-G\bibinitperiod},
-         given={V},
-         giveni={V},
-      }}%
-      {{hash=BA}{%
-         family={Buccianti},
-         familyi={B\bibinitperiod},
-         given={A},
-         giveni={A},
-      }}%
-      {{hash=NG}{%
-         family={Nardi},
-         familyi={N\bibinitperiod},
-         given={G},
-         giveni={G},
-      }}%
-      {{hash=PR}{%
-         family={Potenza},
-         familyi={P\bibinitperiod},
-         given={R},
-         giveni={R},
-      }}%
-    }
-    \strng{namehash}{MFJA+1}
-    \strng{fullhash}{MFJABVCPGVBANGPR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{abstract}{%
-    F or the application of a hierarc hic classification method it is necessary
+\entry{Martin-Fernandez1998}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Mart{\'{i}}n-Fern{\'{a}}ndez}{M.-F.}%
+     {J~A}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Barcel{\'{o}}-Vidal}{B.-V.}%
+     {C}{C}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pawlowsky-Glahn}{P.-G.}%
+     {V}{V}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buccianti}{B.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nardi}{N.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Potenza}{P.}%
+     {R}{R}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MFJA+1}
+  \strng{fullhash}{MFJABVCPGVBANGPR1}
+  \field{sortinit}{M}
+  \field{abstract}{%
+  F or the application of a hierarc hic classification method it is necessary
   to establish the measure of difference to be used, as well the appropriate
   measures of cen tral tendency and dispersion in accordance with the nature of
   the data. In this study w e review the requiremen ts for the measure of
   difference when the data set is compositional and we present specifc measures
   of cen tral tendency and dispersion to be used with hierarchical clustering
   methods.%
-    }
-    \field{isbn}{88--900308--2--8}
-    \field{number}{1}
-    \field{pages}{526\bibrangedash 531}
-    \field{title}{{Measures of difference for compositional data and
-  hierarchical clustering methods}}
-    \field{volume}{98}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Mart{\'{i}}n-Fern{\'{a}}ndez et al. - 1998 - Measure
-    \verb s of difference for compositional data and hierarchical clustering me
-    \verb thods.pdf:pdf
-    \endverb
-    \field{journaltitle}{Proceedings of IAMG}
-    \field{year}{1998}
-  \endentry
+  }
+  \field{isbn}{88--900308--2--8}
+  \field{number}{1}
+  \field{pages}{526\bibrangedash 531}
+  \field{title}{{Measures of difference for compositional data and hierarchical
+  clustering methods}}
+  \field{volume}{98}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/Mart{\'{i}}n-Fern{\'{a}}ndez et al. - 1998 - Measures o
+  \verb f difference for compositional data and hierarchical clustering methods
+  \verb .pdf:pdf
+  \endverb
+  \field{journaltitle}{Proceedings of IAMG}
+  \field{year}{1998}
+\endentry
 
-  \entry{Robinson2010}{article}{}
-    \name{author}{2}{}{%
-      {{hash=RMD}{%
-         family={Robinson},
-         familyi={R\bibinitperiod},
-         given={Mark\bibnamedelima D},
-         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=OA}{%
-         family={Oshlack},
-         familyi={O\bibinitperiod},
-         given={Alicia},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{RMDOA1}
-    \strng{fullhash}{RMDOA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{R}
-    \field{sortinithash}{R}
-    \field{abstract}{%
-    The fine detail provided by sequencing-based transcriptome surveys suggests
+\entry{Robinson2010}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Robinson}{R.}%
+     {Mark~D}{M.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Oshlack}{O.}%
+     {Alicia}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{RMDOA1}
+  \strng{fullhash}{RMDOA1}
+  \field{sortinit}{R}
+  \field{abstract}{%
+  The fine detail provided by sequencing-based transcriptome surveys suggests
   that RNA-seq is likely to become the platform of choice for interrogating
   steady state RNA. In order to discover biologically important changes in
   expression, we show that normalization continues to be an essential step in
   the analysis. We outline a simple and effective method for performing
   normalization and show dramatically improved results for inferring
   differential expression in simulated and publicly available data sets.%
-    }
-    \verb{doi}
-    \verb 10.1186/gb-2010-11-3-r25
-    \endverb
-    \field{isbn}{1465-6914 (Electronic)$\backslash$r1465-6906 (Linking)}
-    \field{issn}{1465-6906}
-    \field{number}{3}
-    \field{pages}{R25}
-    \field{title}{{A scaling normalization method for differential expression
+  }
+  \verb{doi}
+  \verb 10.1186/gb-2010-11-3-r25
+  \endverb
+  \field{isbn}{1465-6914 (Electronic)$\backslash$r1465-6906 (Linking)}
+  \field{issn}{1465-6906}
+  \field{number}{3}
+  \field{pages}{R25}
+  \field{title}{{A scaling normalization method for differential expression
   analysis of RNA-seq data.}}
-    \field{volume}{11}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Robinson, Oshlack - 2010 - A scaling normalization m
-    \verb ethod for differential expression analysis of RNA-seq data.pdf:pdf
-    \endverb
-    \field{journaltitle}{Genome biology}
-    \field{year}{2010}
-  \endentry
+  \field{volume}{11}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/Robinso
+  \verb n and Oshlack (2010) A{\_}scaling{\_}normalization{\_}method{\_}for{\_}
+  \verb differential{\_}expression{\_}(TMM).pdf:pdf
+  \endverb
+  \field{journaltitle}{Genome biology}
+  \field{year}{2010}
+\endentry
 
-  \entry{Sanford1993}{article}{}
-    \name{author}{3}{}{%
-      {{hash=SRF}{%
-         family={Sanford},
-         familyi={S\bibinitperiod},
-         given={Richard\bibnamedelima F.},
-         giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-      {{hash=PCT}{%
-         family={Pierson},
-         familyi={P\bibinitperiod},
-         given={Charles\bibnamedelima T.},
-         giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod},
-      }}%
-      {{hash=CRA}{%
-         family={Crovelli},
-         familyi={C\bibinitperiod},
-         given={Robert\bibnamedelima A.},
-         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SRFPCTCRA1}
-    \strng{fullhash}{SRFPCTCRA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \verb{doi}
-    \verb 10.1007/BF00890676
-    \endverb
-    \field{issn}{0882-8121}
-    \field{number}{1}
-    \field{pages}{59\bibrangedash 80}
-    \field{title}{{An objective replacement method for censored geochemical
+\entry{Sanford1993}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Sanford}{S.}%
+     {Richard~F.}{R.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pierson}{P.}%
+     {Charles~T.}{C.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Crovelli}{C.}%
+     {Robert~A.}{R.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SRFPCTCRA1}
+  \strng{fullhash}{SRFPCTCRA1}
+  \field{sortinit}{S}
+  \verb{doi}
+  \verb 10.1007/BF00890676
+  \endverb
+  \field{issn}{0882-8121}
+  \field{number}{1}
+  \field{pages}{59\bibrangedash 80}
+  \field{title}{{An objective replacement method for censored geochemical
   data}}
-    \verb{url}
-    \verb http://link.springer.com/10.1007/BF00890676
-    \endverb
-    \field{volume}{25}
-    \field{journaltitle}{Mathematical Geology}
-    \field{year}{1993}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  \verb{url}
+  \verb http://link.springer.com/10.1007/BF00890676
+  \endverb
+  \field{volume}{25}
+  \field{journaltitle}{Mathematical Geology}
+  \field{year}{1993}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Tarazona2011}{article}{}
-    \name{author}{5}{}{%
-      {{hash=TS}{%
-         family={Tarazona},
-         familyi={T\bibinitperiod},
-         given={Sonia},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=GAF}{%
-         family={Garc{\'{i}}a-Alcalde},
-         familyi={G\bibinitperiod-A\bibinitperiod},
-         given={Fernando},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=DJ}{%
-         family={Dopazo},
-         familyi={D\bibinitperiod},
-         given={Joaqu{\'{i}}n},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=FA}{%
-         family={Ferrer},
-         familyi={F\bibinitperiod},
-         given={Alberto},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=CA}{%
-         family={Conesa},
-         familyi={C\bibinitperiod},
-         given={Ana},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TS+1}
-    \strng{fullhash}{TSGAFDJFACA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{T}
-    \field{sortinithash}{T}
-    \field{abstract}{%
-    Next-generation sequencing (NGS) technologies are revolutionizing genome
+\entry{SEQC/MAQC-IIIConsortium2014}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{SEQC/MAQC-III Consortium}}{S.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Nature Publishing Group, a division of Macmillan Publishers Limited. All
+  Rights Reserved.}%
+  }
+  \keyw{Polymerase Chain Reaction,Reproducibility of Results,Sequence Analysis,
+  RNA,Sequence Analysis, RNA: standards}
+  \strng{namehash}{S1}
+  \strng{fullhash}{S1}
+  \field{sortinit}{S}
+  \field{abstract}{%
+  We present primary results from the Sequencing Quality Control (SEQC)
+  project, coordinated by the US Food and Drug Administration. Examining
+  Illumina HiSeq, Life Technologies SOLiD and Roche 454 platforms at multiple
+  laboratory sites using reference RNA samples with built-in controls, we
+  assess RNA sequencing (RNA-seq) performance for junction discovery and
+  differential expression profiling and compare it to microarray and
+  quantitative PCR (qPCR) data using complementary metrics. At all sequencing
+  depths, we discover unannotated exon-exon junctions, with
+  {\textgreater}80{\%} validated by qPCR. We find that measurements of relative
+  expression are accurate and reproducible across sites and platforms if
+  specific filters are used. In contrast, RNA-seq and microarrays do not
+  provide accurate absolute measurements, and gene-specific biases are observed
+  for all examined platforms, including qPCR. Measurement performance depends
+  on the platform and data analysis pipeline, and variation is large for
+  transcript-level profiling. The complete SEQC data sets, comprising
+  {\textgreater}100 billion reads (10Tb), provide unique resources for
+  evaluating RNA-seq analyses for clinical and regulatory settings.%
+  }
+  \verb{doi}
+  \verb 10.1038/nbt.2957
+  \endverb
+  \field{issn}{1546-1696}
+  \field{number}{9}
+  \field{pages}{903\bibrangedash 14}
+  \field{shorttitle}{Nat Biotech}
+  \field{title}{{A comprehensive assessment of RNA-seq accuracy,
+  reproducibility and information content by the Sequencing Quality Control
+  Consortium.}}
+  \verb{url}
+  \verb http://dx.doi.org/10.1038/nbt.2957
+  \endverb
+  \field{volume}{32}
+  \verb{file}
+  \verb :C$\backslash$:/Users/dlaroche/AppData/Local/Mendeley Ltd./Mendeley Des
+  \verb ktop/Downloaded/SEQCMAQC-III Consortium - 2014 - A comprehensive assess
+  \verb ment of RNA-seq accuracy, reproducibility and information content by th
+  \verb e Sequenci.pdf:pdf
+  \endverb
+  \field{journaltitle}{Nature biotechnology}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{tHoen2013}{article}{}
+  \name{author}{18}{}{%
+    {{}%
+     {{'t Hoen}}{t.}%
+     {Peter A~C}{P.~A.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Friedl{\"{a}}nder}{F.}%
+     {Marc~R}{M.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Alml{\"{o}}f}{A.}%
+     {Jonas}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sammeth}{S.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pulyakhina}{P.}%
+     {Irina}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Anvar}{A.}%
+     {Seyed~Yahya}{S.~Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Laros}{L.}%
+     {Jeroen F~J}{J.~F.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Buermans}{B.}%
+     {Henk P~J}{H.~P.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Karlberg}{K.}%
+     {Olof}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Br{\"{a}}nnvall}{B.}%
+     {Mathias}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dunnen}{D.}%
+     {Johan~T}{J.~T.}%
+     {den}{d.}%
+     {}{}}%
+    {{}%
+     {Ommen}{O.}%
+     {Gert-Jan~B}{G.-J.~B.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Gut}{G.}%
+     {Ivo~G}{I.~G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guig{\'{o}}}{G.}%
+     {Roderic}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Estivill}{E.}%
+     {Xavier}{X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Syv{\"{a}}nen}{S.}%
+     {Ann-Christine}{A.-C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dermitzakis}{D.}%
+     {Emmanouil~T}{E.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lappalainen}{L.}%
+     {Tuuli}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Nature Publishing Group, a division of Macmillan Publishers Limited. All
+  Rights Reserved.}%
+  }
+  \keyw{Female,Gene Expression Profiling,Gene Expression Profiling:
+  methods,Gene Expression Profiling: standards,High-Throughput Nucleotide
+  Sequencing,High-Throughput Nucleotide Sequencing: methods,High-Throughput
+  Nucleotide Sequencing: standards,Humans,Male,MicroRNAs,MicroRNAs:
+  analysis,MicroRNAs: chemistry,MicroRNAs: genetics,RNA, Messenger,RNA,
+  Messenger: analysis,RNA, Messenger: chemistry,RNA, Messenger:
+  genetics,Reproducibility of Results,Sequence Analysis, RNA,Sequence Analysis,
+  RNA: methods,Sequence Analysis, RNA: standards}
+  \strng{namehash}{tPAC+1}
+  \strng{fullhash}{tPACFMRAJSMPIASYLJFJBHPJKOBMDJTdOGJBvGIGGREXSACDETLT1}
+  \field{sortinit}{T}
+  \field{abstract}{%
+  RNA sequencing is an increasingly popular technology for genome-wide analysis
+  of transcript sequence and abundance. However, understanding of the sources
+  of technical and interlaboratory variation is still limited. To address this,
+  the GEUVADIS consortium sequenced mRNAs and small RNAs of lymphoblastoid cell
+  lines of 465 individuals in seven sequencing centers, with a large number of
+  replicates. The variation between laboratories appeared to be considerably
+  smaller than the already limited biological variation. Laboratory effects
+  were mainly seen in differences in insert size and GC content and could be
+  adequately corrected for. In small-RNA sequencing, the microRNA (miRNA)
+  content differed widely between samples owing to competitive sequencing of
+  rRNA fragments. This did not affect relative quantification of miRNAs. We
+  conclude that distributing RNA sequencing among different laboratories is
+  feasible, given proper standardization and randomization procedures. We
+  provide a set of quality measures and guidelines for assessing technical
+  biases in RNA-seq data.%
+  }
+  \verb{doi}
+  \verb 10.1038/nbt.2702
+  \endverb
+  \field{issn}{1546-1696}
+  \field{number}{11}
+  \field{pages}{1015\bibrangedash 22}
+  \field{shorttitle}{Nat Biotech}
+  \field{title}{{Reproducibility of high-throughput mRNA and small RNA
+  sequencing across laboratories.}}
+  \verb{url}
+  \verb http://dx.doi.org/10.1038/nbt.2702
+  \endverb
+  \field{volume}{31}
+  \field{journaltitle}{Nature biotechnology}
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Tarazona2011}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Tarazona}{T.}%
+     {Sonia}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Garc{\'{i}}a-Alcalde}{G.-A.}%
+     {Fernando}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dopazo}{D.}%
+     {Joaqu{\'{i}}n}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ferrer}{F.}%
+     {Alberto}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Conesa}{C.}%
+     {Ana}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TS+1}
+  \strng{fullhash}{TSGAFDJFACA1}
+  \field{sortinit}{T}
+  \field{abstract}{%
+  Next-generation sequencing (NGS) technologies are revolutionizing genome
   research, and in particular, their application to transcriptomics (RNA-seq)
   is increasingly being used for gene expression profiling as a replacement for
   microarrays. However, the properties of RNA-seq data have not been yet fully
@@ -4105,86 +3755,125 @@
   controlling the rate of false discoveries. This work discusses the true
   potential of RNA-seq for studying regulation at low expression ranges, the
   noise within RNA-seq data, and the issue of replication.%
-    }
-    \verb{doi}
-    \verb 10.1101/gr.124321.111
-    \endverb
-    \field{issn}{1549-5469}
-    \field{number}{12}
-    \field{pages}{2213\bibrangedash 23}
-    \field{title}{{Differential expression in RNA-seq: a matter of depth.}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/21903743 http://www.pubmedcentral.
-    \verb nih.gov/articlerender.fcgi?artid=PMC3227109
-    \endverb
-    \field{volume}{21}
-    \field{journaltitle}{Genome research}
-    \field{year}{2011}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
+  }
+  \verb{doi}
+  \verb 10.1101/gr.124321.111
+  \endverb
+  \field{issn}{1549-5469}
+  \field{number}{12}
+  \field{pages}{2213\bibrangedash 23}
+  \field{title}{{Differential expression in RNA-seq: a matter of depth.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/21903743 http://www.pubmedcentral.ni
+  \verb h.gov/articlerender.fcgi?artid=PMC3227109
+  \endverb
+  \field{volume}{21}
+  \field{journaltitle}{Genome research}
+  \field{year}{2011}
+  \warn{\item Invalid format of field 'month'}
+\endentry
 
-  \entry{Wang2009}{article}{}
-    \name{author}{3}{}{%
-      {{hash=WZ}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Zhong},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=GM}{%
-         family={Gerstein},
-         familyi={G\bibinitperiod},
-         given={Mark},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=SM}{%
-         family={Snyder},
-         familyi={S\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \keyw{Animals,Base Sequence,Chromosome Mapping,Exons,Gene Expression
+\entry{VanKeuren-Jensen2014}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {{Van Keuren-Jensen}}{V.}%
+     {Kendall}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Keats}{K.}%
+     {Jonathan~J}{J.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Craig}{C.}%
+     {David~W}{D.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Nature Publishing Group, a division of Macmillan Publishers Limited. All
+  Rights Reserved.}%
+  }
+  \strng{namehash}{VKKJJCDW1}
+  \strng{fullhash}{VKKJJCDW1}
+  \field{sortinit}{V}
+  \verb{doi}
+  \verb 10.1038/nbt.3017
+  \endverb
+  \field{issn}{1546-1696}
+  \field{number}{9}
+  \field{pages}{884\bibrangedash 5}
+  \field{shorttitle}{Nat Biotech}
+  \field{title}{{Bringing RNA-seq closer to the clinic.}}
+  \verb{url}
+  \verb http://dx.doi.org/10.1038/nbt.3017
+  \endverb
+  \field{volume}{32}
+  \field{journaltitle}{Nature biotechnology}
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Wang2009}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Wang}{W.}%
+     {Zhong}{Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gerstein}{G.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Snyder}{S.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Animals,Base Sequence,Chromosome Mapping,Exons,Gene Expression
   Profiling,Gene Expression Profiling: methods,Genetic,Humans,Models,Molecular
   Sequence Data,RNA,RNA: analysis,RNA: methods,Sequence Analysis,Transcription}
-    \strng{namehash}{WZGMSM1}
-    \strng{fullhash}{WZGMSM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{abstract}{%
-    RNA-Seq is a recently developed approach to transcriptome profiling that
-  uses deep-sequencing technologies. Studies using this method have already
-  altered our view of the extent and complexity of eukaryotic transcriptomes.
-  RNA-Seq also provides a far more precise measurement of levels of transcripts
-  and their isoforms than other methods. This article describes the RNA-Seq
+  \strng{namehash}{WZGMSM1}
+  \strng{fullhash}{WZGMSM1}
+  \field{sortinit}{W}
+  \field{abstract}{%
+  RNA-Seq is a recently developed approach to transcriptome profiling that uses
+  deep-sequencing technologies. Studies using this method have already altered
+  our view of the extent and complexity of eukaryotic transcriptomes. RNA-Seq
+  also provides a far more precise measurement of levels of transcripts and
+  their isoforms than other methods. This article describes the RNA-Seq
   approach, the challenges associated with its application, and the advances
   made so far in characterizing several eukaryote transcriptomes.%
-    }
-    \verb{doi}
-    \verb 10.1038/nrg2484
-    \endverb
-    \verb{eprint}
-    \verb NIHMS150003
-    \endverb
-    \field{isbn}{1471-0064 (Electronic)$\backslash$r1471-0056 (Linking)}
-    \field{issn}{1471-0064}
-    \field{number}{1}
-    \field{pages}{57\bibrangedash 63}
-    \field{title}{{RNA-Seq: a revolutionary tool for transcriptomics.}}
-    \verb{url}
-    \verb http://www.ncbi.nlm.nih.gov/pubmed/19015660
-    \endverb
-    \field{volume}{10}
-    \verb{file}
-    \verb :C$\backslash$:/Users/Dominic/AppData/Local/Mendeley Ltd./Mendeley De
-    \verb sktop/Downloaded/Wang, Gerstein, Snyder - 2009 - RNA-Seq a revolution
-    \verb ary tool for transcriptomics.pdf:pdf
-    \endverb
-    \field{journaltitle}{Nature reviews. Genetics}
-    \field{eprinttype}{arXiv}
-    \field{year}{2009}
-  \endentry
-\endsortlist
+  }
+  \verb{doi}
+  \verb 10.1038/nrg2484
+  \endverb
+  \verb{eprint}
+  \verb NIHMS150003
+  \endverb
+  \field{isbn}{1471-0064 (Electronic)$\backslash$r1471-0056 (Linking)}
+  \field{issn}{1471-0064}
+  \field{number}{1}
+  \field{pages}{57\bibrangedash 63}
+  \field{title}{{RNA-Seq: a revolutionary tool for transcriptomics.}}
+  \verb{url}
+  \verb http://www.ncbi.nlm.nih.gov/pubmed/19015660
+  \endverb
+  \field{volume}{10}
+  \verb{file}
+  \verb :C$\backslash$:/Classes/Dissertation/Proportionality/Background/RNASeq/
+  \verb Wang, Gerstein, and Snyder (2009) RNA-Seq a revolutionary tool for tran
+  \verb scriptomics.pdf:pdf
+  \endverb
+  \field{journaltitle}{Nature reviews. Genetics}
+  \field{eprinttype}{arXiv}
+  \field{year}{2009}
+\endentry
+
+\lossort
+\endlossort
+
 \endinput

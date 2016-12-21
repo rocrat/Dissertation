@@ -198,12 +198,10 @@ where $S$ is a $c\times D$ selecting matrix and $\mathcal{C}(\cdot)$ is the clos
 Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independence} for a composition if ``sub-compositions formed from any partition of the composition form an independent set."  \\
 
 
-\section[Current Methodology]{Current Methodology with Respect to Compositional Data Analysis}
+\section[Current RNA-Seq Methodology]{Current RNA-Seq Methodology with Respect to Compositional Data Methods and Theory}
 
-%The use of log-ratios is widespread in analysis of RNA data but these ratios are often *between* compositions rather than within them.
-\subsection{Normalization}
-  %can both of these exist simultaneously? 
-\subsubsection{Counts per Million (CPM) Transformation}
+% \subsection{Normalization}
+\subsection{Counts per Million (CPM) Transformation}
 The Counts per Million (CPM) transformation is a simple as commonly used standardization method and is implemented in the R package limma~\cite{Law2014}.  The CPM transformation standardizes each read count with the total number of reads allocated to the sample (library size):
 
 \begin{equation}
@@ -213,13 +211,17 @@ log_2 \left(\frac{r_{gi}+0.5}{t_i+1} \times 10^6 \right),
 
 where $r_{gi}$ is the number of sequence reads for each probe ($g$) and sample ($i$), (scaled to avoid zero counts), adjusted for the number of mapped reads (library size) for each sample $t_i$ (scaled by a constant 1 to ensure the proportional read to library size ratio is greater than zero).\\
 
-The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  The log transformation then makes the CPM transformation a type of log-ratio transformation which preserves the original dimension of the data
+The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  The log transformation then makes the CPM transformation a type of log-ratio transformation which preserves the original dimension of the data.  The primary difference between the CPM transformation proposed by Law et al. (2014) and the CLR transformation proposed by Aitchison (1986) is that the CPM transformation uses the sum of the components as the denominator whereas the CLR transformation uses the geometric mean of the components as the denominator.\\
+
+The difference in denomiators has important consequences for the interpretability of the resulting...
+
+%write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
 
-\subsubsection{Median Normalization}
+\subsection{Median Normalization}
 
 
-\subsubsection{Trimmed Mean of M-values Normalization Method}
+\subsection{Trimmed Mean of M-values Normalization Method}
 Robinson and Oshlack (2010) primarily focused on the mapped read constraint when developing their Trimmed-Mean of M-values (TMM) normalization method for RNA sequence data.  Like many others~\cite{Anders2010}, they also assume that the majority of genes in an assay are not differentially expressed.  For sequencing data Robinson and Oshlack first define the gene-wise log-fold-changes as:
 
 $$M_g = log_2 \frac{Y_{gk}/N_{k}}{Y_{gk\prime}/N_{k\prime}},$$
