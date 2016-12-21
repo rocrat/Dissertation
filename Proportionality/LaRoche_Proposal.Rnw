@@ -31,11 +31,11 @@ The focus of this research is on extraction-free targeted RNA-Seq.  Extraction f
 
 To sequence the cDNA libraries, platform specific adapters are added to the ends of the cDNA fragments.  Several platforms are available and the specific chemistry differs among them. Several articles have been published comparing these platforms~\cite{Liu2012,Glenn2011} for sequencing RNA.  The differences in platforms, and the resulting differences in data produced by them, is beyond the scope of this research.  Instead we focus on the common features of these platforms and the resulting impact on RNA-Seq data generally.\\
 
-For all NGS-based sequencing platforms, adapted cDNA fragments are immobilized on a propietary surface (flow cells or beads) with a finite amount of area.  The resulting cDNA templates are then amplified to create clusters of copied cDNA (Illumina) or beads are placed into wells (Roche 454).  Sequences for clonal clusters (wells) are then determined through Sequencing by Synthesis (SBS).  The chemistry for the synthesis also varies by platform but the process involves repeatedly adding a single nucleotide to each template and recording the value of the nucleotide through either flourescence or light emission. Each cluster then represents the sequence of a single cDNA transcript captured on the surface.  Different platforms allow a different total number of transcripts to be sequenced in a single sequencing run, ranging from 70,000 to 5 billion.\\
+For all NGS-based sequencing platforms, adapted cDNA fragments are immobilized on a proprietary surface (flow cells or beads) with a finite amount of area.  The resulting cDNA templates are then amplified to create clusters of copied cDNA (Illumina) or beads are placed into wells (Roche 454).  Sequences for clonal clusters (wells) are then determined through Sequencing by Synthesis (SBS).  The chemistry for the synthesis also varies by platform but the process involves repeatedly adding a single nucleotide to each template and recording the value of the nucleotide through either fluorescence or light emission. Each cluster then represents the sequence of a single cDNA transcript captured on the surface.  Different platforms allow a different total number of transcripts to be sequenced in a single sequencing run, ranging from 70,000 to 5 billion.  This research is limited to evaluating data produced on Illumina sequencers which are the most widely adopted NGS technology.\\
 
-The number of reads in a sequencing run allocated to a sample is referred to as the read depth.  Read depth has been associated with data quality~\cite{Tarazona2011,Haas2012,Liu2013,Liu2014} with greater read-depth associated with higher precision. There is a tradeoff between cost, replication, and read-depth for any given experiment~\cite{Liu2014} because a given sequencing run has a limited number of reads to allocate to individual samples.\\
+The number of reads in a sequencing run allocated to a sample is referred to as the read depth.  Read depth has been associated with data quality~\cite{Tarazona2011,Haas2012,Liu2013,Liu2014} with greater read-depth associated with higher precision. There is a trade-off between cost, replication, and read-depth for any given experiment~\cite{Liu2014} because a given sequencing run has a limited number of reads to allocate to individual samples.\\
 
-Once sequences have measured by the seqeuncer they are aligned to a genome and various quality metrics are calculated.  Alignment typically proceeds through a greedy algorithm implemented in programs such as Bowtie~\cite{}. Several different seqiences might aling with varying accruacy to the same gene and these must be counted in a way which accounts for the uncertainty of the alignment. In targeted sequencing the alignment is greatly simplified because the targets are known and consist of a much smaller set of possible sequences.\\   
+Once sequences have measured by the sequencer they are aligned to a genome and various quality metrics are calculated.  Alignment typically proceeds through a greedy algorithm implemented in programs such as Bowtie~\cite{Langmead2009}. Several different sequences might align with varying accuracy to the same gene and these must be counted in a way which accounts for the uncertainty of the alignment. In targeted sequencing the alignment is greatly simplified because the targets are known and consist of a much smaller set of possible sequences.\\   
 
 \subsection{Compositional Properties of RNA Sequence Data}
 \label{sec:rnaSampProp}
@@ -83,7 +83,10 @@ Traditional statistics is concerned with making inferences from points in $R^D$.
 
 It is typical to transform compositional data to the \emph{unit simplex} by dividing each component by the sum of components such that the sum of transformed components is equal to 1: 
 
-$$\mathcal{C}\left[ x_1 ... x_d \right] = \left[ x_1 ... x_d \right]/ \sum_{i=1}^D x_i$$
+\begin{equation}
+\mathcal{C}\left[ x_1 ... x_d \right] = \left[ x_1 ... x_d \right]/ \sum_{i=1}^D x_i
+\label{closure}
+\end{equation}
 
 The notation $\mathcal{C}[\cdot]$ is termed the \emph{closure operation} and scales a composition x to the unit simplex.
 %use the unit simplex throughout?
@@ -125,7 +128,7 @@ alr(X) = [log(\frac{x_1}{x_D})\ log(\frac{x_2}{x_D})\ ...\ log(\frac{x_{D-1}}{x_
 
 and reduces the dimension of the compositional vector from $D \rightarrow D-1$. The choice of divisor does not impact the inference made from the data~\cite{Aitchison1986}, although the divisor must be reliably greater than 0 in all measurements.  Moreover, since the transformation is 1:1, inferences on the ratios can be made back to the parts of the composition.  Parts of the composition with 0 values will return $log(0/x_D) = log(0) = -\infty$.  While this preserves the rank order of the magnitudes of the components it is not useful in application.\\
 
-Since the alr transformation reduces the dimension of the compositional vector and does not treat all elements of the composition equally, Aitchison proposed the \emph{centered log-ratio} transformation (\emph{clr}).  The clr is defined as:
+Since the ALR transformation reduces the dimension of the compositional vector and does not treat all elements of the composition equally, Aitchison proposed the \emph{centered log-ratio} transformation (\emph{clr}).  The clr is defined as:
 \begin{equation}
 clr(X) = [log\left( \frac{x_1}{g(x)}\right),\ ...\ ,log\left(\frac{x_D}{g(x)}\right)],
 \end{equation}
@@ -144,7 +147,7 @@ which is indeterminate.  Both log-ratio transformations proposed by Aitchison fa
 \label{subsubsec:distance}
 The compositional geometry must be accounted for when measuring the distance between two compositions or finding the center of a group of compositions~\cite{Aitchison2000}.  Aitchison~\cite{Aitchison1992} outlined several properties for any compositional difference metric which must be met: scale invariance, permutation invariance, perturbation invariance (similar to translation invariance for Euclidean distance), and subcompositional dominance (similar to subspace dominance of Euclidean distance).  The scale invariance requirement is ignorable if the difference metric is applied to data on the same scale (which is generally not satisfied in raw RNA-seq data). The permutation invariance is generally satisfied by existing methods~\cite{Martin-Fernandez1998}. However, the perturbation invariance and subcompositional dominance are not generally satisfied. \\
 
-Aitchison~\cite{Aitchison1986, Aitchison1992} suggests using the sum of squares of all log-ratio differnces.  Billheimer, Guttorp, and Fagan~\cite{Billheimer2001} use the geometry of compositions to define a norm which, along with the perturbation operator defined by Aitchison~\cite{Aitchison1986}, allow the interpretation of differences in compositions.  Martin-Fernandez et al.~\cite{Martin-Fernandez1998} showed that applying either Euclidean distance or Mahalanobis distance metric to CLR transformed data satisfies all the requirements of a compositional distance metric. Euclidean distance on CLR transformed compositions is referred to as Aitchison distance:
+Aitchison~\cite{Aitchison1986, Aitchison1992} suggests using the sum of squares of all log-ratio differences.  Billheimer, Guttorp, and Fagan~\cite{Billheimer2001} use the geometry of compositions to define a norm which, along with the perturbation operator defined by Aitchison~\cite{Aitchison1986}, allow the interpretation of differences in compositions.  Martin-Fernandez et al.~\cite{Martin-Fernandez1998} showed that applying either Euclidean distance or Mahalanobis distance metric to CLR transformed data satisfies all the requirements of a compositional distance metric. Euclidean distance on CLR transformed compositions is referred to as Aitchison distance:
 
 $$d_A(x_i, x_j) = \left[\sum_{k=1}^D \left( log \left(\frac{x_{ik}}{g(x_i)} \right) - log \left(\frac{x_{jk}}{g(x_j)} \right) \right)^2  \right]^\frac{1}{2}$$
 
@@ -181,18 +184,18 @@ x_j(1-\sum_{k|x_k=0}c_k), & \text{ if } x_j > 0\\
 
 This transformation is additive on the zero components but multiplicative on the non-zero components.  It has several advantages over the simple additive transformation including: 1) perturbation invariance, 2) power transformation invariance, and 3) sub-composition invariance. Importantly, if all $c_j = c$, the Aitchison distance between two transformed data sets does not depend on $c$.\\
 
-The choice of $c$ can be different for each zero component but determining the appropriate value for each 0 in a single sample would be challenging and would likely provide a limited benefit for samples with a relatively small proportion of 0 components.  Martin-Fernandez et al. recommend using 0.55 the threshold value as originally suggested by Sandford et al.~\cite{Kiers2000, Sanford1993}. The threshold value for RNA-seq data must account for read depth since a 0 in a sample with a library size of 1 thousand reads would potentially not be 0 if the total number of reads was increased to 1 million.  Therefore, I define the threshold value for a sample as $\delta = \frac{1}{\text{Total Reads}}$, and $c = 0.55 \times \delta$.\\%would be $.55 \times 1$ read since 1 read is the smallest measurement able to be recorded. %hmmmm this doesn't account for read depth 
+The choice of $c$ can be different for each zero component but determining the appropriate value for each 0 in a single sample would be challenging and would likely provide a limited benefit for samples with a relatively small proportion of 0 components.  Martin-Fernandez et al. recommend using 0.55 the threshold value as originally suggested by Sanford et al.~\cite{Kiers2000, Sanford1993}. The threshold value for RNA-seq data must account for read depth since a 0 in a sample with a library size of 1 thousand reads would potentially not be 0 if the total number of reads was increased to 1 million.  Therefore, I define the threshold value for a sample as $\delta = \frac{1}{\text{Total Reads}}$, and $c = 0.55 \times \delta$.\\%would be $.55 \times 1$ read since 1 read is the smallest measurement able to be recorded. %hmmmm this doesn't account for read depth 
 
 \subsection{Sub-Compositions}
 \label{subsec:subcomp}
 
-It is often desireable to evaluate only a portion of the initial set of genes measured, e.g. when comparing two assays with different but overlapping probe sets.  It is then necessary to ensure that the resulting sub-composition does not depend on the other components in the initial composition.  I.e. the resulting sub-composition should adhere to the principle of sub-compositional coherance (see~\ref{subsec:fund}).  In order to ensure the sub-composition is independent of the omitted values from the full composition.\\
+It is often desirable to evaluate only a portion of the initial set of genes measured, e.g. when comparing two assays with different but overlapping probe sets or when interrogating  a subset of oncogenes from a larger assay.  It is then necessary to ensure that the resulting sub-composition does not depend on the other components in the initial composition such that variations in a component outside the sub-composition do not affect inferences made from the sub-composition.  I.e. the resulting sub-composition should adhere to the principle of sub-compositional coherence (see~\ref{subsec:fund}).  In order to ensure the sub-composition is independent of the omitted values from the full composition.\\
 
-Sub-compositional cohereance can be accomplished through the formation of the sub-composition itself.  In forming a $c$ dimenstional subcomposition we are transforming the composition from $\mathcal{S}^D \rightarrow \mathcal{S}^c$ (with $c < D$).  Aitchison~\cite{Aitchison1986}~ formalizes the formation of a $c$-dimensional subcomposition $x_s$ from a $D$-dimensional composition $x$ as 
+Sub-compositional coherence can be accomplished through the formation of the sub-composition itself.  In forming a $c$ dimensional sub-composition we are transforming the composition from $\mathcal{S}^D \rightarrow \mathcal{S}^c$ (with $c < D$).  Aitchison~\cite{Aitchison1986}~ formalizes the formation of a $c$-dimensional sub-composition $x_s$ from a $D$-dimensional composition $x$ as 
 $$x_s = \mathcal{C}(Sx),$$ 
-where $S$ is a $c\times D$ selecting matrix and $\mathcal{C}(\cdot)$ is the closure operation.  Under the assumption that all of the original components of the composition were indpendent, the resulting subcomposition will not depend on the values of the original composition.  Furthermore, the formation of sub-compositions in this way leads to 3 useful properties: 1) the ratio of any two components from the subcomposition is identical to the ratio of the two components in the full composition, 2) the resulting sub-composition can be interpreted as resulting from a linear projection and 3) the resulting sub-compositions will be on the same scale.\\
+where $S$ is a $c\times D$ selecting matrix and $\mathcal{C}(\cdot)$ is the closure operation.  Under the assumption that all of the original components of the composition were independent, the resulting sub-composition will not depend on the values of the original composition.  Furthermore, the formation of sub-compositions in this way leads to 3 useful properties: 1) the ratio of any two components from the sub-composition is identical to the ratio of the two components in the full composition, 2) the resulting sub-composition can be interpreted as resulting from a linear projection and 3) the resulting sub-compositions will be on the same scale.\\
 
-Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independence} for a composition if ``subcompositions formed from any partition of the composition form an independent set."  \\
+Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independence} for a composition if ``sub-compositions formed from any partition of the composition form an independent set."  \\
 
 
 \section[Current Methodology]{Current Methodology with Respect to Compositional Data Analysis}
@@ -201,7 +204,17 @@ Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independe
 \subsection{Normalization}
   %can both of these exist simultaneously? 
 \subsubsection{Counts per Million (CPM) Transformation}
-The Counts per Million (CPM) transformation is 
+The Counts per Million (CPM) transformation is a simple as commonly used standardization method and is implemented in the R package limma~\cite{Law2014}.  The CPM transformation standardizes each read count with the total number of reads allocated to the sample (library size):
+
+\begin{equation}
+log_2 \left(\frac{r_{gi}+0.5}{t_i+1} \times 10^6 \right),
+\label{cpm}
+\end{equation}
+
+where $r_{gi}$ is the number of sequence reads for each probe ($g$) and sample ($i$), (scaled to avoid zero counts), adjusted for the number of mapped reads (library size) for each sample $t_i$ (scaled by a constant 1 to ensure the proportional read to library size ratio is greater than zero).\\
+
+The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  The log transformation then makes the CPM transformation a type of log-ratio transformation which preserves the original dimension of the data
+
 
 \subsubsection{Median Normalization}
 
@@ -233,30 +246,29 @@ The TMM normalization method attempts to derive a single value, $f$, such that $
 
 The authors do not explicitly reference Aitchison, or any other compositional data publications, but their method relies heavily on these methods.  The TMM operation first converts all samples to the unit simplex by dividing each gene specific read count by the total counts for that sample ($Y_{gk}/N_k$). The full set of M-values calculated from these compositions represent the perturbation, $p$ from a reference sample to another.  However, the M-values are trimmed so $p$ is incomplete and we are now in a subcompositional sample space.  The assumption that most genes are not differentially expressed leads to the authors to use a weighted average of the M-values ($p_i$'s) to determine a single correction factor which can translate one composition to another.  This method, therefore, then assumes $p_i = p_j$ for \emph{most} of the genes $i$ and $j$ in the trimmed set.  \\
 
-The authors fail to formulate the problem in terms of the components of a composition, instead, believing that inferences can still be made on absolute abundances.  This is clearly evidenced in their definition of the $A_g$'s, which they term the `absolute abundances' for each gene in the sample.  As stated in section \ref{sec:rnaSampProp}, it is very likely that RNA sequence data is compositional in nature and, as such, inferences on the absolute abundances are not possible.\\
+The authors fail to formulate the problem in terms of the components of a composition, instead, believing that inferences can still be made on absolute abundances.  This is clearly evidenced in their definition of the $A_g$'s, which they term the `absolute abundances' for each gene in the sample.  As stated in section \ref{sec:rnaSampProp},  RNA sequence data is compositional in nature and, as such, inferences on the absolute abundances are not possible.\\
 
-TMM normalization is not guaranteed to satisfy subcompositional coherence.  This is because changes in the counts of unmeasured genes can alter the... .  
+
 
 %toy example here?
 
+\section{Proposed Research}
+
+\subsection{Composition based quality control for targeted RNA-Seq}
+
+The rapid rise in the use of RNA sequencing technology (RNA-seq) for scientific discovery has led to its consideration as a clinical diagnostic tool.  However, as a new technology the analytical accuracy and reproducibility of RNA-seq must be established before it can realize its full clinical utility~\cite{SEQC/MAQC-IIIConsortium2014,VanKeuren-Jensen2014}. Recent studies evaluating RNA-seq have found generally high intra-platform and inter-platform congruence across multiple laboratories~\cite{Li2013, tHoen2013, SEQC/MAQC-IIIConsortium2014}.  Despite these promising results, there is still a need to establish reliable diagnostics, quality control metrics and improve the reproducibility of RNA-seq data.  Understanding, and capatilizing on, the relative frequency nature of RNA-Seq data provides tools for identifying batch effects, creating quality control metrics, and improving reproducibility.\\
+
+%Targeted sequencing vs traditional sequencing 
+This research is focused on developing diagnostics for targeted RNA-Seq.  Targeted sequencing allows researchers to efficiently measure transcripts of interest for a particular disease by focusing sequencing efforts on a select subset of transcript targets.  Targeted sequencing offers several benefits over traditional whole-transciptome RNA-Seq for clinical use including the elminiation of amplification bias, reduced sequencing cost, and a simplified bioinformatics workflow.  However, traditional RNA-Seq and targeted RNA-Seq data share many of the same properties so the methods described here should be easily extensible to traditional RNA-Seq.\\
+
+\subsection{Paper 2- Compositional data for biologists}
+
+
+\subsection{Paper 3- Telescoping amalgamations}
 
 
 
 
-%\chapter{LASSO for Compositional Data}
-%For large compositions use LASSO instead of traditional CoDa dimensional reduction techniques
-%Use all parts for
-%Use clr to  perform lasso on the D ratios
-
-% \chapter[Normalization]{Normalization of Compositional RNA Sequence Data}
-%There are only d-1 degrees of freedom but which i to use ad the reference is not clear so alr or clr might be better.
-
-% \chapter[Correlaton]{An Alternative to Correlation for Evaluation of Reproducibility and Repeatability of Compositional Data}
-
-%\chapter{Link between relative sensitivity and compositional data}
-
-
-%\chapter{An R Package for Implementing Compositional Methods for RNA Sequence Data}
 
 
 
