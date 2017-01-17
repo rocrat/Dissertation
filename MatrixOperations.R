@@ -1,5 +1,5 @@
 library(compositions)
-
+library(magrittr)
 
 gm_mean = function(x){
   return(sum(log(x)) / length(x))
@@ -16,7 +16,6 @@ MFclr <- function(x){#apply to a vector
 }
 
 MFalr <- function(x, ind){#apply to a vector
-  browser()
   delta <- 0.55/sum(x)# .55 times the smallest detectable value (1 read) after closure
   tdelta <- sum(x == 0) * delta
   cx <- clo(x)
@@ -32,7 +31,7 @@ diag(Id) <- 1
 j <- matrix(1, 3, 1)
 N <- Id + j%*%t(j)
 Jd <- matrix(1, 3, 3)
-F <- cbind(Id, -1*j)
+F. <- cbind(Id, -1*j)
 D <- 4
 ID <- matrix(0, 4, 4)
 diag(ID) <- 1
@@ -41,20 +40,32 @@ jD <- matrix(1, 4, 1)
 JD <- matrix(1, 4, 4)
 GD <- ID - D^-1 * JD
 Hd <- Id + Jd
+Hinv <- solve(Hd)
 
 Ninv <- Id - 1/d * j%*%t(j)
 ND <- ID + jD%*%t(jD)
 NDinv <- ID - 1/D * jD%*%t(jD)
 NDinv <- solve(NDinv)
 NDinv%*%NDinv == NDinv
+
 #Make a composition
 X <- matrix(NA, nrow = 4, ncol = 8)
 for(i in 1:ncol(X)){
   X[, i] <- rpois(4, 10)
 }
 
-Xclr <- apply(X, 2, MFtrans)
+Xclr <- apply(X, 2, MFclr)
+Xalr <- t(X) %>% #Transpose for alr function
+  clo() %>% #close composition
+  alr() %>% #ALR transform
+  t() #Return to original position
+  
 gamma <- cov(t(Xclr))
+sigma <- cov(t(Xalr))
+
+gamma.new <- t(F.) %*% Hinv %*% sigma %*% Hinv %*% F.
+
+all.equal(gamma, gamma.new)
 
 rowSums(gamma)
 gamma%*%JD
@@ -62,4 +73,5 @@ GD%*%gamma
 gamma
 GD%*%GD
 
-Xalr <- apply(X, 2, MFalr, ind = nrow(X))
+alrPCR <- prcomp(t(Xalr))
+clrPCR <- prcomp(t(Xclr))

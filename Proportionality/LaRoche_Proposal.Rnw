@@ -217,6 +217,7 @@ The difference in denomiators has important consequences for the interpretabilit
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
+Both the CPM and the CLR transformations suffer from the lack of subcompositional coherance.
 
 \subsection{Median Normalization}
 
