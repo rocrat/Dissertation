@@ -213,7 +213,19 @@ where $r_{gi}$ is the number of sequence reads for each probe ($g$) and sample (
 
 The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  The log transformation then makes the CPM transformation a type of log-ratio transformation which preserves the original dimension of the data.  The primary difference between the CPM transformation proposed by Law et al. (2014) and the CLR transformation proposed by Aitchison (1986) is that the CPM transformation uses the sum of the components as the denominator whereas the CLR transformation uses the geometric mean of the components as the denominator.\\
 
-The difference in denomiators has important consequences for the interpretability of the resulting...
+The difference in denomiators has several consequences for the analysis of the resulting transformed data.  Dividing by the geometric mean in the CLR transformation arises naturally as a consequence of the log-transformation and is equivalent to subtracting the mean log-transformed value from each log-transformed component.  
+
+\begin{equation}
+CLR(x_i) = log\left(\frac{x_i}{g(\mathbf{x})} \right) = 
+log(x_i) - log(g(\mathbf{x})) = 
+log(x_i) - \frac{1}{D}log(\prod \mathbf{x}) = 
+log(x_i) - \frac{\sum_{j=1}^D log(x_j)}{D}
+\end{equation}
+
+This difference plays an important role in principal components analysis (PCA) and the measurement of distance.\\
+
+In PCA, successive orthogonal principle components are found which explain decreasing amounts of variance.  However,  
+
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
