@@ -202,7 +202,7 @@ Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independe
 
 % \subsection{Normalization}
 \subsection{Counts per Million (CPM) Transformation}
-The Counts per Million (CPM) transformation is a simple as commonly used standardization method and is implemented in the R package limma~\cite{Law2014}.  The CPM transformation standardizes each read count with the total number of reads allocated to the sample (library size):
+The log Counts per Million (CPM) transformation is a simple as commonly used standardization method and is implemented in the R package limma~\cite{Law2014}.  The CPM transformation standardizes each read count with the total number of reads allocated to the sample (library size):
 
 \begin{equation}
 log_2 \left(\frac{r_{gi}+0.5}{t_i+1} \times 10^6 \right),
@@ -211,9 +211,28 @@ log_2 \left(\frac{r_{gi}+0.5}{t_i+1} \times 10^6 \right),
 
 where $r_{gi}$ is the number of sequence reads for each probe ($g$) and sample ($i$), (scaled to avoid zero counts), adjusted for the number of mapped reads (library size) for each sample $t_i$ (scaled by a constant 1 to ensure the proportional read to library size ratio is greater than zero).\\
 
-The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  The log transformation then makes the CPM transformation a type of log-ratio transformation which preserves the original dimension of the data.  The primary difference between the CPM transformation proposed by Law et al. (2014) and the CLR transformation proposed by Aitchison (1986) is that the CPM transformation uses the sum of the components as the denominator whereas the CLR transformation uses the geometric mean of the components as the denominator.\\
+The counts per million transformation is a compositional closure operation, similar to~\ref{closure}, which has been modifed to accomodate zeros (assuming zeros occur as a result of insufficient sensitivity, see section~\ref{sec:zeros}) and rescaled by $10^6$.  At the surface, the primary difference between the CPM transformation proposed by Law et al. (2014) and the CLR transformation proposed by Aitchison (1986) is that the CPM transformation uses the sum of the components as the denominator whereas the CLR transformation uses the geometric mean of the components as the denominator.  This difference, however minor, has important implication for the interpretation of the resulting transformation.\\
 
-The difference in denomiators has several consequences for the analysis of the resulting transformed data.  Dividing by the geometric mean in the CLR transformation arises naturally as a consequence of the log-transformation and is equivalent to subtracting the mean log-transformed value from each log-transformed component.  
+The CLR transformation of a $D$-dimensional composition $\mathbf{X}$ can be acheived through the matrix operation:
+
+\begin{equation}
+CLR(\mathbf{X}) = G_D \text{ log}(\mathbf{X}), 
+\label{CLRmat}
+\end{equation}
+
+where $G_D  = I_D - D^{-1}J_D$ with $I_D$ the $D \times D$ identity matrix and $J_D$ a $D \times D$ matrix of 1's.  The matrix $G_D$ is an idempotent linear transformation and, therefore, a projection which takes a $D$-dimensional composition from $\mathcal{S}^d$ to  $\mathcal{R}^d$.  Recognizing the CLR as a projection from the simplex space to Euclidean space has important implications for the application of traditional statistical methods to the transformed data.\\
+
+The CPM transformation can be simplified to the log of the compositional closure operation by removing the multiplication by $10^6$ and the addition of constants to both the numerator and denominator of the ratio.  The resulting operation can then be achieved through the matrix operation:
+
+\begin{equation}
+CLO(\mathbf{X}) = log( C_N \mathbf{X}),
+\label{CPMmat}
+\end{equation}
+
+where $C_N$ is a $N \times N$ matrix with the inverse of the compostition (sample) totals along the diagonal.  From equations \ref{CLRmat} and \ref{CPMmat} it becomes obvious that in the CLR transformation the log transformation is applied directly to X, whereas in the CPM transformation the log transformation is applied only after applying the closure operation.  Less obvious is that the matrix $C_N$ does not satisfy the properties of a projection matrix, namely $C_N$ is not idempotent.  This means the CPM operation cannot be interpreted as a projection.  In fact, without the scaling multiplier ($10^6$), the CPM operation simply replaces the positivity constraint on the data with a negativity constraint.\\
+
+
+The difference in denominators has several consequences for the analysis of the resulting transformed data.  Dividing by the geometric mean in the CLR transformation arises naturally as a consequence of the log-transformation and is equivalent to subtracting the mean log-transformed value from each log-transformed component.
 
 \begin{equation}
 CLR(x_i) = log\left(\frac{x_i}{g(\mathbf{x})} \right) = 
@@ -222,6 +241,8 @@ log(x_i) - \frac{1}{D}log(\prod \mathbf{x}) =
 log(x_i) - \frac{\sum_{j=1}^D log(x_j)}{D}
 \end{equation}
 
+%%%%Focus on the difference in geometry between the cpm projection and the CLR projection.  Is the CPM even a projection? - Doesn't appear to be
+%
 This difference plays an important role in principal components analysis (PCA) and the measurement of distance.\\
 
 In PCA, successive orthogonal principle components are found which explain decreasing amounts of variance.  However,  

@@ -48,6 +48,13 @@ NDinv <- ID - 1/D * jD%*%t(jD)
 NDinv <- solve(NDinv)
 NDinv%*%NDinv == NDinv
 
+C <- t(X) %*% jD
+Cm <- matrix(0, ncol = 8, nrow = 8)
+diag(Cm) <- C^-1
+
+
+
+
 #Make a composition
 X <- matrix(NA, nrow = 4, ncol = 8)
 for(i in 1:ncol(X)){
@@ -75,3 +82,18 @@ GD%*%GD
 
 alrPCR <- prcomp(t(Xalr))
 clrPCR <- prcomp(t(Xclr))
+
+# Closure Operation
+C <- t(X) %*% jD
+Cm <- matrix(0, ncol = 8, nrow = 8)
+diag(Cm) <- C
+
+Xclo <- X %*% Cm
+colSums(Xclo)
+t(clo(t(X)))
+
+Xclo2 <- Cm %*% t(X)
+
+In <- matrix(0, ncol = 8, nrow = 8)
+diag(C^-1)
+Xclo2 <- Xclo %*% Cm

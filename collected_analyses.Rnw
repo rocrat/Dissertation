@@ -811,8 +811,7 @@ ggsave("./Paper1/Figures/miRNA_Repro_TotalCountHeatMap_CLRTotals.png", miCLRTots
 <<proportionalityPosCntrls>>=
 #!-----------Check proportionality of pos controls ----->
 raw.w.mi <- join_all(dflist_mi, by = "X1")
-names(raw.w.mi) <- make.names(raw.w.mi[3, ])
-rownames(raw.w.mi) <- make.names(raw.w.mi[, 1])
+
 rawPos.mi <- raw.w.mi[which(grepl("POS", rownames(raw.w.mi))), -1]
 clrPos.mi <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos.mi)))), detectionLimit = 0)))
 CLRpos <- as.data.frame(t(clr(acomp(t(data.matrix((raw.w.mi[-c(1:5), -1])))), detectionLimit = 0)))
