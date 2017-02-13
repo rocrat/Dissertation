@@ -232,20 +232,19 @@ CLO(\mathbf{X}) = log( C_N \mathbf{X}),
 where $C_N$ is a $N \times N$ matrix with the inverse of the compostition (sample) totals along the diagonal.  From equations \ref{CLRmat} and \ref{CPMmat} it becomes obvious that in the CLR transformation the log transformation is applied directly to X, whereas in the CPM transformation the log transformation is applied only after applying the closure operation.  Less obvious is that the matrix $C_N$ does not satisfy the properties of a projection matrix, namely $C_N$ is not idempotent.  This means the CPM operation cannot be interpreted as a projection.  In fact, without the scaling multiplier ($10^6$), the CPM operation simply replaces the positivity constraint on the data with a negativity constraint.\\
 
 
-The difference in denominators has several consequences for the analysis of the resulting transformed data.  Dividing by the geometric mean in the CLR transformation arises naturally as a consequence of the log-transformation and is equivalent to subtracting the mean log-transformed value from each log-transformed component.
+The geometric mean as the denominator in the CLR transformation arises naturally from the log transformation of X.  Dividing by the geometric mean is equivalent to subtracting the mean log-transformed value from each log-transformed component thereby centering the data (equation~\ref{meanLog}).
 
-\begin{equation}
-CLR(x_i) = log\left(\frac{x_i}{g(\mathbf{x})} \right) = 
-log(x_i) - log(g(\mathbf{x})) = 
-log(x_i) - \frac{1}{D}log(\prod \mathbf{x}) = 
-log(x_i) - \frac{\sum_{j=1}^D log(x_j)}{D}
-\end{equation}
+\begin{align}
+CLR(x_i) &= log\left(\frac{x_i}{g(\mathbf{x})} \right)\\
+ &= log(x_i) - log(g(\mathbf{x})) \\
+ &= log(x_i) - \frac{1}{D}log(\prod \mathbf{x}) \\ 
+ &= log(x_i) - \frac{\sum_{j=1}^D log(x_j)}{D}
+\label{meanLog}
+\end{align}
 
 %%%%Focus on the difference in geometry between the cpm projection and the CLR projection.  Is the CPM even a projection? - Doesn't appear to be
 %
 This difference plays an important role in principal components analysis (PCA) and the measurement of distance.\\
-
-In PCA, successive orthogonal principle components are found which explain decreasing amounts of variance.  However,  
 
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
