@@ -20,8 +20,16 @@
 %General information about RNA sequence data: where it comes from and how people use it.
 Ribonucleic acid (RNA) plays many important roles in the function of cells including gene transcription and regulation.  RNA has become a major target of investigation for a wide variety of research areas in biology.  RNA can be used to determine if pathogenic cells exhibit differential expression of certain genes as compared to healthy cells. It can be used to identify cancer sub-types and identify news genes for interrogation in the investigation of a disease.  Investigations of RNA in biological samples has, until recently, been conducted in micro-array experiments.  However, a reasonably new technology, RNA-Seq \cite{Wang2009}, offers several advantages over a traditional micro-array experiment and has been rapidly adopted by scientists \cite{Illumina}.  The current research is restricted to the analysis of targeted RNA-Seq data and the unique analytical challenges it creates.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{RNA Sequencing Technology}
 Several general sequence-based methods exist to quantify RNA from a eukaryotic sample.  These include traditional Sanger sequencing of the cDNA \cite{Boguski1994,Gerhard2004} and tag-based methods such as Serial Analysis of Gene Expression (SAGE) \cite{CITEHERE}.  The focus of this research is on Next Generation Sequencing (NGS) data from targeted RNA-Seq platforms.\\  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Process of Collecting and Sequencing RNA}%Make this more specific to targeted extraction free chemistry
 %How samples are collected, prepared, and sequenced
@@ -37,6 +45,10 @@ The number of reads in a sequencing run allocated to a sample is referred to as 
 
 Once sequences have measured by the sequencer they are aligned to a genome and various quality metrics are calculated.  Alignment typically proceeds through a greedy algorithm implemented in programs such as Bowtie~\cite{Langmead2009}. Several different sequences might align with varying accuracy to the same gene and these must be counted in a way which accounts for the uncertainty of the alignment. In targeted sequencing the alignment is greatly simplified because the targets are known and consist of a much smaller set of possible sequences.\\   
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Compositional Properties of RNA Sequence Data}
 \label{sec:rnaSampProp}
 %What are the consequences of the process and the nature of RNA? i.e. poisson, neg-bin, and sum constraints.  Factors affecting sequencing
@@ -44,7 +56,10 @@ Once sequences have measured by the sequencer they are aligned to a genome and v
 Previous authors have identified the relative abundance nature of RNA sequencing data~\cite{Robinson2010}.  RNA sequence data are  subject to two constraints: 1) the number of RNA transcripts that can fit into the finite sample collected, and 2) the number of available reads of those transcripts available in a sequencing run. 
 
 
-% \subsection{Current Methodology Associated with RNA Sequencing Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Principles of Compositional Data Analysis}
@@ -52,11 +67,17 @@ Compositional data are non-negative data which are subject to a sum constraint, 
 
 Potential problems associated with compositional data were identified as early as 1897 by Pearson who noted that spurious correlations can be induced through ratios of independent variables, e.g. if $X$, $Y$, and $Z$ are uncorrelated then $X/Z$ and $Y/Z$ will be correlated. Despite the fact that compositional data naturally arises in a wide variety of scientific disciplines, a general method for analysis of compositional data was not developed until John Aitchison published his seminal book in 1986.  Aitchison outlines some basic principles for compositional data analysis (section~\ref{subsec:fund}) and provides some analysis tools for compositional data which conform to these principles (section~\ref{subsec:methods}).  Additional methodology has been developed by a number of authors in the 29 years since the publication of Aitchison's book, although a number of problems remain. 
 
-%Perhaps the most important aspect of compositional data are the inferences that can be drawn from it...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Fundamental Principles}
 \label{subsec:fund}
 Aitchison outlined a set of fundamental principles to which all methods for compositional data should adhere~\cite{Aitchison1986}.  These principles are outlined below.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{Scale Invariance}
 Scale invariance requires that the results of a statistical procedure should not depend on the scale used.  Any meaningful function $x$ of a composition $w$ must satisfy:
@@ -65,6 +86,9 @@ $$f(pw) = f(w) \text{, for every }p>0.$$
 
 Aitchison notes that any meaningful (scale-invariant) function of a composition can be expressed in terms of ratios of the components of the composition.  For example, any method used for compositional data should not give different results whether the composition is given as proportions, percentages, parts per million, or any other scale.\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsubsection{Sub-compositional Coherence}
 Sub-compositional coherence requires that the results of a statistical procedure on a subset of components from a composition should depend only on the data contained in that subset.  A sub-composition is defined as the (1, 2, ..., $C$) parts of a $D$-part composition $\left[x_1, ..., x_D\right]$:
 
@@ -72,8 +96,15 @@ $$\left[s_1, ..., s_c\right]=\frac{\left[x_1, ..., x_c\right]}{\left(x_1 + ... +
 
 Any changes in components $\left[x_{c+1}, ..., x_D\right]$ should not have an impact on the inference from the sub-composition.  For example, if we measure the number of reads of 14 mRNA sequences from a sample that contains 4,000 unique mRNA sequences the inference we obtain from those 14 sequences should not be affected by the expression level of any of the other 3,986 sequences.\\ 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsubsection{Permutation Invariance}
 Permutation invariance requires that the results of a statistical procedure should not depend on the ordering of the components. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Statistical Methods for Compositional Data}
@@ -92,6 +123,9 @@ The notation $\mathcal{C}[\cdot]$ is termed the \emph{closure operation} and sca
 %use the unit simplex throughout?
 There are two fundamental operations frequently used in $R^D$ for which Aitchison defined equivalent operations in the simplex: 1) translation, and 2) scalar multiplication.  \\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{Perturbations}
 \label{subsubsec:perturbation}
@@ -105,6 +139,9 @@ $$x_n = \Upsilon \oplus p_n  \ \ (n=1, ... , N),$$
 
 where the $x_n$ are the observed measurements, the $p_n$ are independent error perturbations characterizing the imprecision,  and $\Upsilon$ is the true underlying composition.   
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{The Power Operation}
 \label{subsubsec:power}
@@ -117,6 +154,9 @@ The power transformation enables a compositional form for regression between a f
 $$ x= \Upsilon \oplus \left\{ log v \otimes \beta \right\} \oplus p.$$
 
 In this formulation $\beta$ is composition analogous to regression coefficients and $p$ is a perturbation analogous to an error term in regression.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Log-ratio Analysis}
 \label{subsubsec:ratio}
@@ -142,6 +182,9 @@ $$clr(x_i) = log(x_i) + \infty = \infty$$
 whereas for any $x_i = 0$,
 $$clr(x_i) = log(0) + \infty = -\infty + \infty,$$
 which is indeterminate.  Both log-ratio transformations proposed by Aitchison fail to accommodate zeros so various mechanisms have been proposed for handling zeros while maintaining the essential properties of compositional data analysis (see section \ref{sec:zeros}).\\ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \subsubsection{Distance Between Compositions}
 \label{subsubsec:distance}
@@ -158,6 +201,10 @@ $$d_A(x_i, x_j) = \left[\sum_{k=1}^D \left( clr(x_{ik}) - clr(x_{jk}) \right)^2 
 
 %alr - could this be sensitive to the choice of denominator?  I.e. how much will results be affected if the denominator is a highly variable probe?
 %look into 'compositional independence'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsubsection{Zeros and Missing Components}
 \label{sec:zeros}
 Many compositional methods do not work with missing values, or zeros, such as the ALR or CLR transformations as noted above.  Because of this, several strategies for handling missing values and zeros through imputation have been proposed.  Missing values are classified into missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR).  These classifications have the same definitions as their non-compositional counterparts. However, imputation methods for non-compositional data are not immediately applicable due to the lack of independence between the components.  Missing values, in the traditional sense, are not typical for RNA-seq data so I do not elaborate on these methods here instead focusing on the handling of zeros.\\
@@ -186,6 +233,9 @@ This transformation is additive on the zero components but multiplicative on the
 
 The choice of $c$ can be different for each zero component but determining the appropriate value for each 0 in a single sample would be challenging and would likely provide a limited benefit for samples with a relatively small proportion of 0 components.  Martin-Fernandez et al. recommend using 0.55 the threshold value as originally suggested by Sanford et al.~\cite{Kiers2000, Sanford1993}. The threshold value for RNA-seq data must account for read depth since a 0 in a sample with a library size of 1 thousand reads would potentially not be 0 if the total number of reads was increased to 1 million.  Therefore, I define the threshold value for a sample as $\delta = \frac{1}{\text{Total Reads}}$, and $c = 0.55 \times \delta$.\\%would be $.55 \times 1$ read since 1 read is the smallest measurement able to be recorded. %hmmmm this doesn't account for read depth 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Sub-Compositions}
 \label{subsec:subcomp}
 
@@ -197,10 +247,15 @@ where $S$ is a $c\times D$ selecting matrix and $\mathcal{C}(\cdot)$ is the clos
 
 Aitchison~\cite{Aitchison1986} defines \emph{complete subcompositional independence} for a composition if ``sub-compositions formed from any partition of the composition form an independent set."  \\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section[Current RNA-Seq Methodology]{Current RNA-Seq Methodology with Respect to Compositional Data Methods and Theory}
 
-% \subsection{Normalization}
+
 \subsection{Counts per Million (CPM) Transformation}
 The log Counts per Million (CPM) transformation is a simple as commonly used standardization method and is implemented in the R package limma~\cite{Law2014}.  The CPM transformation standardizes each read count with the total number of reads allocated to the sample (library size):
 
@@ -222,17 +277,17 @@ CLR(\mathbf{X}) = G_D \text{ log}(\mathbf{X}),
 
 where $G_D  = I_D - D^{-1}J_D$ with $I_D$ the $D \times D$ identity matrix and $J_D$ a $D \times D$ matrix of 1's.  The matrix $G_D$ is an idempotent linear transformation and, therefore, a projection which takes a $D$-dimensional composition from $\mathcal{S}^d$ to  $\mathcal{R}^d$.  Recognizing the CLR as a projection from the simplex space to Euclidean space has important implications for the application of traditional statistical methods to the transformed data.\\
 
-The CPM transformation can be simplified to the log of the compositional closure operation by removing the multiplication by $10^6$ and the addition of constants to both the numerator and denominator of the ratio.  The resulting operation can then be achieved through the matrix operation:
+The CPM transformation can be simplified to the log of the compositional closure operation by removing the multiplication by $10^6$ and the addition of constants to both the numerator and denominator of the ratio.  The resulting operation, $CPM*$ can then be achieved through the matrix operation:
 
 \begin{equation}
-CLO(\mathbf{X}) = log( C_N \mathbf{X}),
+CPM*(\mathbf{X}) = log( C_N \mathbf{X}),
 \label{CPMmat}
 \end{equation}
 
 where $C_N$ is a $N \times N$ matrix with the inverse of the compostition (sample) totals along the diagonal.  From equations \ref{CLRmat} and \ref{CPMmat} it becomes obvious that in the CLR transformation the log transformation is applied directly to X, whereas in the CPM transformation the log transformation is applied only after applying the closure operation.  Less obvious is that the matrix $C_N$ does not satisfy the properties of a projection matrix, namely $C_N$ is not idempotent.  This means the CPM operation cannot be interpreted as a projection.  In fact, without the scaling multiplier ($10^6$), the CPM operation simply replaces the positivity constraint on the data with a negativity constraint.\\
 
 
-The geometric mean as the denominator in the CLR transformation arises naturally from the log transformation of X.  Dividing by the geometric mean is equivalent to subtracting the mean log-transformed value from each log-transformed component thereby centering the data (equation~\ref{meanLog}).
+The geometric mean as the denominator in the CLR transformation arises naturally from the log transformation of X.  Dividing by the geometric mean is equivalent to subtracting the mean of the log-transformed components from each log-transformed component; thereby centering the data (equation~\ref{meanLog}).
 
 \begin{align}
 CLR(x_i) &= log\left(\frac{x_i}{g(\mathbf{x})} \right)\\
@@ -242,16 +297,33 @@ CLR(x_i) &= log\left(\frac{x_i}{g(\mathbf{x})} \right)\\
 \label{meanLog}
 \end{align}
 
+
+The simplified CPM does not have a similar interpretation.  Rather, the CPM subtracts the log of the sum of un-transformed components which has no clear interpretation.
+
+\begin{align}
+CPM*(x_i) &= log\left(\frac{x_i}{\sum \mathbf{x} })\\
+  &= log(x_i) - log(\sum \mathbf{x})
+\label{logTotal}
+\end{align}
+
+
 %%%%Focus on the difference in geometry between the cpm projection and the CLR projection.  Is the CPM even a projection? - Doesn't appear to be
 %
-This difference plays an important role in principal components analysis (PCA) and the measurement of distance.\\
+This difference plays an important role in principal components analysis (PCA) and the measurement of distance.  With respect to PCA, the centering acheived through the CLR transformation . \\
 
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
 Both the CPM and the CLR transformations suffer from the lack of subcompositional coherance.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Median Normalization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Trimmed Mean of M-values Normalization Method}
