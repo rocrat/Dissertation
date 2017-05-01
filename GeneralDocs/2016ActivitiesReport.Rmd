@@ -1,0 +1,13 @@
+---
+title: "2016 Annual Activities Report"
+author: "Dominic LaRoche"
+date: "May 1, 2017"
+output: word_document
+---
+
+During my first year on reserve on the National Science Foundation (NSF) Graduate Research Fellowship (GRFP) I have been working intensively on my dissertation while interning at a local Molecular Diagnostics Firm (HTG Molecular Diagnostics).  I have presented the first part of my dissertation at the 2016 Joint Statistical Meeting in Chicago, IL.  I have a paper accepted for the 2017 Compositional Data Analysis Workshop in Italy and I will be travelling there this summer to present.  I was able to attend the R-Studio Conference in January and attend a 2-day workshop on developing web applications for implementation of statistical models and visualizations. I have also continued my volunteer work with an outreach program designed to introduce careers in statistics and data science to local, at-risk, high-school students.  I have not been able to make as much progress as I had hoped on my dissertation and I now expect I will be ready to defend by December of 2017.
+
+My internship at HTG Molecular Diagnostics has provided first hand experience with the sorts of analytical challenges in RNA-Seq my dissertation is aimed at improving.  It has also provided me with access to raw RNA-Seq data on biological samples which is expensive to obtain.  This has allowed me to test theoretical developments in a "real-world" setting.  They have also provided travel funding for me to present my dissertation work and attend instructional workshops.  I plan to continue this internship through 2017.
+  
+
+In an effort to encourage under-privileged high school students to pursue degrees in the statistical sciences I continued my participation in an outreach program initiated by a fellow graduate student. As part of this program I visited two high schools in southern Arizona which serve primarily poor and minority students and gave interactive presentations to 4 classes in which we tried to encourage students to pursue a college degree in the statistical sciences and fielded questions about college, careers in science, and graduate school. Our goal is to make careers in science feel attainable for these students who have no first hand knowledge of how to pursue science as a career.
