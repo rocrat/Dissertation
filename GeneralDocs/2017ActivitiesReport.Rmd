@@ -1,0 +1,11 @@
+---
+title: "2016 Annual Activities Report"
+author: "Dominic LaRoche"
+date: "May 1, 2017"
+output: word_document
+---
+
+During my second year on reserve on the National Science Foundation (NSF) Graduate Research Fellowship (GRFP) I have decided to take a leave of absence to determine if I want to continue my studies.  I published the first paper from my dissertation and presented the paper at the international Compositional Data Analysis workshop in Abbadia San Salvatore, Italy.  I have continued my internship with HTG Molecular Diagnostics, where I am able to apply my research to real data. I have also continued my volunteer work with an outreach program designed to introduce careers in statistics and data science to local, at-risk, high-school students.  
+
+My adviser and I have decided that we are not a good fit and amicably severed our relationship.  Because of this I have taken a leave of absence to take some time to determine whether I want to continue to pursue my degree another another adviser, which would  add an unknown amount of time until completion of my degree.  This would greatly increase the cost of my education, both financially and emotionally.
+  
